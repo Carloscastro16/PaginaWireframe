@@ -1,3 +1,8 @@
+:root {
+    --Fondos: #56737d;
+    
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
@@ -25,4 +30,31 @@ nav{
     margin-left: .5rem;
 }
 
+.Portada{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: var(--Fondos);
+    height: 32rem;
+    width:100%;
+}
+.Portada h1 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1.8rem;
+
+}
+.queHacemos{
+    height: 100%;
+    width: 100%;
+
+}
+.TituloQue {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
 
