@@ -40,6 +40,10 @@ nav{
     background-color: var(--Fondos);
     height: 32rem;
     width:100%;
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
 }
 .portada h1 {
     font-family: 'Montserrat', sans-serif;
