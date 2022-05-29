@@ -44,7 +44,10 @@ nav{
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
+    background-attachment: fixed;
+    background-position: center;
 }
+
 .portada h1 {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1.8rem;
