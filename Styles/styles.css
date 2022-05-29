@@ -33,13 +33,6 @@ nav{
 
 /*Zona de portada */
 .portada{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: row;
-    background-color: var(--Fondos);
-    height: 40rem;
-    width:100%;
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,9 +41,20 @@ nav{
     background-position: center;
 }
 
+.portada{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: var(--Fondos);
+    height: 40rem;
+    width:100%;
+}
+
 .portada h1 {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1.8rem;
+    font-weight: 600;
 
 }
 
