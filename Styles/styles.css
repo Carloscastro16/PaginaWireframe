@@ -30,6 +30,7 @@ nav{
     margin-left: .5rem;
 }
 
+/*Zona de portada */
 .portada{
     display: flex;
     align-items: flex-end;
@@ -44,6 +45,8 @@ nav{
     margin-bottom: 1.8rem;
 
 }
+
+/*Seccion de Que hacemos*/
 .queHacemos{
     height: 100%;
     width: 100%;
@@ -59,11 +62,88 @@ nav{
     margin-bottom: 2rem;
 
 }
-.iconosMuestra {
+
+.iconosMuestra .card{
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 2rem;
+    border: none;
+    padding: 2rem;
+    
+}
+.iconosMuestra img{
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    margin: 1.6rem;
+    }
+.card:hover{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 
 }
+.btn{
+    border-radius: 1.5rem;
+    border-color: blue !important;
+    border: 1rem;
+
+}
+
+/*Seccion del Slider de Empresas*/
+.seccionSlider h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider{
+    width: 175vh;
+    height:auto;
+    margin:auto;
+    overflow: hidden;
+
+}
+
+.slider .galeria{
+    display: flex;
+    animation: slider 40s Linear infinite;
+    -webkit-animation:  slider 40s Linear infinite;
+    width: calc(200px * 14);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider .imagen{
+    width: 200px;
+    margin-left: 2.5rem;
+}
+
+.slider .imagen img{
+    width: 100%;
+    margin: 5rem;
+}
+
+/*Animacion para el Slider*/
+@keyframes slider{
+    0%{
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100%{
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+.masInfo{
+    height:25rem;
+    background-color: var(--Fondos);
+
+}
+
+
+
 
 
