@@ -57,4 +57,46 @@ nav{
     flex-direction: column;
 
 }
+/*ESTILO DE NOSOTROS*/
+.titulo{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.nosotros{
+    position: absolute;
+    width:646px;
+    height: 218px;
+    left: 176px;
+    top: 160px;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.tiempo{
+position: absolute;
+width:714px;
+height: 218px;
+left: 360px;
+top: 345px;
+font-family: 'Montserrat',sans-serif;
+font-weight: 200;
+}
+.colaborador{
+    display: grid;
+    grid-template-columns:repeat(3,2fr);
+    column-gap: 2rem;
+    
+}
+.colaboradores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.colaborador .fotosp{
+    position: absolute;
+    top: 400;
+}
 
