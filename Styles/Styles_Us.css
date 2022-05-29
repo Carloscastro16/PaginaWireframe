@@ -1,14 +1,18 @@
 :root {
-    --Fondo: #a6a6a6;
-    --FondoSecciones: #d9d9d9;
-    
+    --Fondo: #d9d9d9;
+    --FondoSecciones: #f2f2f2;
+    --negro: #000000;    
 }
 
 body {
     background-color: var(--Fondo) !important;
 }
-nav{
+header{
     font-family: 'Montserrat', sans-serif;
+    
+}
+.navbarNav a{
+    color: var(--Fondo) !important;
 }
 
 .container-fluid{
@@ -43,6 +47,7 @@ nav{
 .titulo{
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    color: var(--negro)
 }
 .nosotros{
     width:100%;
