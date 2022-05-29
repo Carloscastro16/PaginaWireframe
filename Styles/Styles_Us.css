@@ -1,0 +1,75 @@
+/*---------------ESTILO DE NOSOTROS------------*/
+.titulo{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    top: 100px;
+}
+.nosotros{
+    position: absolute;
+    width:646px;
+    height: 218px;
+    left: 176px;
+    top: 160px;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 30px;
+}
+.nosotros .imanosotros{
+    position: absolute;
+    left: 950px;
+    border-radius: 25px;
+    width: 320px; ;
+}
+
+.tiempo{
+position: absolute;
+width:714px;
+height: 218px;
+left: 360px;
+top: 345px;
+font-family: 'Montserrat',sans-serif;
+font-weight: 200;
+}
+.colaboradores{
+    display: grid;
+    grid-template-columns:repeat(3,2fr);
+    grid-gap: 50px;
+    position: relative;
+    top: 690px;
+    left:0px;
+    
+}
+.colaborador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.colab{
+    text-align: center;
+    position: relative;
+    top: 600px;
+    
+    
+}
+.colaboradores .fotosp{
+    width: 100px;
+    height: 130px;
+    border-radius: 550px;
+    border: 3px solid #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.compromisos{
+    position: absolute;
+    top: 1400px;
+    left: 200px;
+    right:200px;
+}
+.compromiso{
+    background-color: #56737d;
+}
+/*--------------------FIN DE ESTILO NOSOTROS------------------*/

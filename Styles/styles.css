@@ -30,7 +30,8 @@ nav{
     margin-left: .5rem;
 }
 
-.Portada{
+/*Zona de portada */
+.portada{
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -39,97 +40,130 @@ nav{
     height: 32rem;
     width:100%;
 }
-.Portada h1 {
+.portada h1 {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1.8rem;
 
 }
+
+/*Seccion de Que hacemos*/
 .queHacemos{
     height: 100%;
     width: 100%;
+    padding: 3rem;
+    }
 
-}
-.TituloQue {
+.tituloQue {
     font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    margin-bottom: 2rem;
 
 }
-/*---------------ESTILO DE NOSOTROS------------*/
-.titulo{
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    top: 100px;
 
-}
-.nosotros{
-    position: absolute;
-    width:646px;
-    height: 218px;
-    left: 176px;
-    top: 160px;
-    font-family:'Montserrat', sans-serif;
-    font-weight: 200;
-    font-size: 18px;
-    line-height: 30px;
-}
-.nosotros .imanosotros{
-    position: absolute;
-    left: 950px;
-    border-radius: 25px;
-    width: 320px; ;
-}
-
-.tiempo{
-position: absolute;
-width:714px;
-height: 218px;
-left: 360px;
-top: 345px;
-font-family: 'Montserrat',sans-serif;
-font-weight: 200;
-}
-.colaboradores{
-    display: grid;
-    grid-template-columns:repeat(3,2fr);
-    grid-gap: 50px;
-    position: relative;
-    top: 690px;
-    left:0px;
-    
-}
-.colaborador{
+=======
+.iconosMuestra .card{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    
-}
-.colab{
-    text-align: center;
-    position: relative;
-    top: 600px;
-    
-    
-}
-.colaboradores .fotosp{
-    width: 100px;
-    height: 130px;
-    border-radius: 550px;
-    border: 3px solid #000000;
-    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    border: none;
+    padding: 2rem;
     
 }
-.compromisos{
-    position: absolute;
-    top: 1400px;
-    left: 200px;
-    right:200px;
+.iconosMuestra img{
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    margin: 1.6rem;
+    }
+.card:hover{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
 }
-.compromiso{
-    background-color: #56737d;
+.btn{
+    border-radius: 1.5rem;
+    border-color: blue !important;
+    border: 1rem;
+
 }
-/*--------------------FIN DE ESTILO NOSOTROS------------------*/
+
+/*Seccion del Slider de Empresas*/
+.seccionSlider h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider{
+    width: 175vh;
+    height:auto;
+    margin:auto;
+    overflow: hidden;
+
+}
+
+.slider .galeria{
+    display: flex;
+    animation: slider 40s Linear infinite;
+    -webkit-animation:  slider 40s Linear infinite;
+    width: calc(200px * 14);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider .imagen{
+    width: 200px;
+    margin-left: 2.5rem;
+}
+
+.slider .imagen img{
+    width: 100%;
+    margin: 5rem;
+}
+
+/*Animacion para el Slider*/
+@keyframes slider{
+    0%{
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100%{
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+.masInfo{
+    height:25rem;
+    background-color: var(--Fondos);
+    width:100%;
+}
+.masInfo h2{
+    margin-top:6rem;
+
+}
+.masInfo img{
+    border-radius: 50%;
+    width: 100%;
+    height: 20rem;
+    margin-top: 3rem;
+}
+.muchoMas{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+
+
+
+
+>>>>>>> cb597fe18ed395008ecaf2d56ebc4da2fff8ebaa
