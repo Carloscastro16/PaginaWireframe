@@ -1,11 +1,15 @@
 :root {
-    --fondosPequeños: ;
-    
+    --Fondo: #d9d9d9;
+    --FondoSecciones: #f2f2f2;
+    --negro: #000000;  
+}
+*{
+    font-family: 'Montserrat',sans-serif;
 }
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: #d9d9d9;
+    background-color: var(--Fondo);
 }
 
 nav{
@@ -32,16 +36,10 @@ nav{
 }
 
 /*Zona de portada */
-.portada{
-    background-image: url(../img/woman.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    background-attachment: fixed;
-    background-position: center;
-}
 
-.portada{
+.portada h1{
+    position: absolute;
+
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -51,12 +49,44 @@ nav{
     width:100%;
 }
 
-.portada h1 {
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 1.8rem;
-    font-weight: 600;
+/*slider de portada*/
+.sliderPortada{
+    width: 100%;
+    height: 40rem;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+}
+.sliderPortada ul{
+    display: flex;
+    animation: sliderPortada 30s linear infinite alternate;
 
 }
+.sliderPortada img{
+    width: auto;
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes sliderPortada{
+    0%{
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100%{
+        -webkit-transform: translateX(calc(-7rem * ));
+        transform: translateX(calc(-7rem * 8));
+    }
+}
+.sliderPortada li{
+    width: 100%;
+    list-style: none;
+}
+
 
 /*Seccion de Que hacemos*/
 .queHacemos{
@@ -73,6 +103,9 @@ nav{
     flex-direction: column;
     margin-bottom: 2rem;
 
+}
+.tituloQue h2{
+    font-size: 4rem;
 }
 
 
@@ -91,47 +124,59 @@ nav{
     width: 15rem;
     margin: 1.6rem;
 }
+.iconosMuestra img{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
 .card:hover{
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
-.btnMues{
-    font-size: 16px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 13px 20px 13px;
-    outline: 0;
-    border: 1px solid black;
+/*Boton para inicio*/
+
+.butMues {
+    appearance: button;
+    background-color: #000000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
     cursor: pointer;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 12px 40px;
+    text-transform: none;
+    touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
-.btnMues:after {
-            content: "";
-            background-color: #ffe54c;
-            width: 100%;
-            z-index: -1;
-            position: absolute;
-            height: 100%;
-            top: 7px;
-            left: 7px;
-            transition: 0.2s;
+.butMues:focus {
+    text-decoration: none;
 }
 
-.btnMues:hover:after {
-        top: 0px;
-        left: 0px;
+.butMues:hover {
+    text-decoration: none;
 }
 
-@media (min-width: 768px) {
-    .btnMues {
-    padding: 13px 50px 13px;
-    }
+.butMues a{
+    text-decoration: none;
+    color: var(--FondoSecciones)
 }
+.butMues a:hover{
+    color: #ffffff;
+}
+
+
+
 
 
 
@@ -145,7 +190,7 @@ nav{
     justify-content: center;
 }
 .slider{
-    width: 175vh;
+    width: 140vh;
     height:auto;
     margin:auto;
     overflow: hidden;
@@ -189,6 +234,38 @@ nav{
     background-color: var(--Fondos);
 
 }
+
+/*Seccion Final*/
+
+.masInfo{
+    height:25rem;
+    background-color: var(--Fondo);
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.contamosMas{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:center;
+
+}
+
+.masInfo img{
+    border-radius: 50%;
+    height:100%;
+    width:100%;
+
+}
+.filita{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Footer*/
+
 
 
 
