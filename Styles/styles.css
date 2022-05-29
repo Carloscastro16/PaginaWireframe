@@ -39,7 +39,7 @@ nav{
 
 .portada h1{
     position: absolute;
-
+    
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -63,7 +63,7 @@ nav{
 .sliderPortada ul{
     display: flex;
     animation: sliderPortada 30s linear infinite alternate;
-
+    
 }
 .sliderPortada img{
     width: auto;
@@ -87,6 +87,14 @@ nav{
     list-style: none;
 }
 
+/*Edicion para el cuadro de que hacemos*/
+.generalSection{
+    margin: 0rem 2rem 5rem 2rem;
+    background-color: var(--FondoSecciones);
+    border-radius: 0 0 2rem 2rem;
+    padding: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 
 /*Seccion de Que hacemos*/
 .queHacemos{
@@ -116,6 +124,9 @@ nav{
     margin-bottom: 2rem;
     border: none;
     padding: 2rem;
+    border-radius: 2rem;
+    margin: 0 3rem 0 3rem;
+    width: auto;
     
 }
 .iconosMuestra img{
@@ -231,17 +242,17 @@ nav{
 
 .masInfo{
     height:25rem;
-    background-color: var(--Fondos);
+    background-color: var(--Fondo);
 
 }
 
 /*Seccion Final*/
 
 .masInfo{
-    height:25rem;
-    background-color: var(--Fondo);
+    height:100%;
+    background-color: var(--FondoSecciones);
     width: 100%;
-    padding-top: 2rem;
+    margin: 2rem 0 2rem 0;
 }
 
 .contamosMas{
@@ -254,8 +265,9 @@ nav{
 
 .masInfo img{
     border-radius: 50%;
-    height:100%;
+    height:auto;
     width:100%;
+    margin: 2rem 0 2rem 2rem;
 
 }
 .filita{
@@ -265,7 +277,6 @@ nav{
 }
 
 /*Footer*/
-
 
 
 
