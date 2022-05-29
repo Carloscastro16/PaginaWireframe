@@ -1,3 +1,8 @@
+:root {
+    --Fondos: #56737d;
+    
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
@@ -24,5 +29,139 @@ nav{
 .botoncin {
     margin-left: .5rem;
 }
+
+/*Zona de portada */
+.portada{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: var(--Fondos);
+    height: 32rem;
+    width:100%;
+}
+.portada h1 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1.8rem;
+
+}
+
+/*Seccion de Que hacemos*/
+.queHacemos{
+    height: 100%;
+    width: 100%;
+    padding: 3rem;
+    }
+
+.tituloQue {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+}
+
+.iconosMuestra .card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    border: none;
+    padding: 2rem;
+    
+}
+.iconosMuestra img{
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    margin: 1.6rem;
+    }
+.card:hover{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+}
+.btn{
+    border-radius: 1.5rem;
+    border-color: blue !important;
+    border: 1rem;
+
+}
+
+/*Seccion del Slider de Empresas*/
+.seccionSlider h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider{
+    width: 175vh;
+    height:auto;
+    margin:auto;
+    overflow: hidden;
+
+}
+
+.slider .galeria{
+    display: flex;
+    animation: slider 40s Linear infinite;
+    -webkit-animation:  slider 40s Linear infinite;
+    width: calc(200px * 14);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider .imagen{
+    width: 200px;
+    margin-left: 2.5rem;
+}
+
+.slider .imagen img{
+    width: 100%;
+    margin: 5rem;
+}
+
+/*Animacion para el Slider*/
+@keyframes slider{
+    0%{
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100%{
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+.masInfo{
+    height:25rem;
+    background-color: var(--Fondos);
+    width:100%;
+}
+.masInfo h2{
+    margin-top:6rem;
+
+}
+.masInfo img{
+    border-radius: 50%;
+    width: 100%;
+    height: 20rem;
+    margin-top: 3rem;
+}
+.muchoMas{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+
+
 
 
