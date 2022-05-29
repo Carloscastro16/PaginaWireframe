@@ -175,26 +175,8 @@ nav{
 .masInfo{
     height:25rem;
     background-color: var(--Fondos);
-    width:100%;
-}
-.masInfo h2{
-    margin-top:6rem;
 
 }
-.masInfo img{
-    border-radius: 50%;
-    width: 100%;
-    height: 20rem;
-    margin-top: 3rem;
-}
-.muchoMas{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    
-}
-
 
 
 
