@@ -1,75 +1,97 @@
+:root {
+    --Fondo: #a6a6a6;
+    --FondoSecciones: #d9d9d9;
+    
+}
+
+body {
+    background-color: var(--Fondo) !important;
+}
+nav{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid{
+    /*Se añade important para que no choque con bootstrap*/
+    justify-content: unset !important;
+}
+.navbarNav{
+    /*Se añade important para que no choque con bootstrap*/
+    justify-content:flex-start;
+    width: 100%;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+.botoncin {
+    margin-left: .5rem;
+}
+
+
 /*---------------ESTILO DE NOSOTROS------------*/
+.quienesColaboran{
+    padding: 2rem;
+    margin: 2rem;
+    height: auto;
+    width: auto;
+    background-color: var(--FondoSecciones);
+    border-radius: .5rem;
+}
 .titulo{
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    top: 100px;
 }
 .nosotros{
-    position: absolute;
-    width:646px;
-    height: 218px;
-    left: 176px;
-    top: 160px;
+    width:100%;
     font-family:'Montserrat', sans-serif;
     font-weight: 200;
-    font-size: 18px;
     line-height: 30px;
 }
-.nosotros .imanosotros{
-    position: absolute;
-    left: 950px;
+.nosotros h1{
+    font-size:5rem;
+}
+.nosotros p{
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+.imanosotros{
     border-radius: 25px;
-    width: 320px; ;
+    width: 100%;
 }
 
+.filasQuienes{
+    margin-top: 2rem !important;
+}
 .tiempo{
 position: absolute;
-width:714px;
-height: 218px;
+width:100%;
+height: 21rem;
 left: 360px;
 top: 345px;
 font-family: 'Montserrat',sans-serif;
 font-weight: 200;
 }
-.colaboradores{
-    display: grid;
-    grid-template-columns:repeat(3,2fr);
-    grid-gap: 50px;
-    position: relative;
-    top: 690px;
-    left:0px;
-    
-}
-.colaborador{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-.colab{
-    text-align: center;
-    position: relative;
-    top: 600px;
-    
-    
-}
-.colaboradores .fotosp{
+
+.fotosp{
     width: 100px;
     height: 130px;
-    border-radius: 550px;
+    border-radius: 48%;
     border: 3px solid #000000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     
 }
-.compromisos{
-    position: absolute;
-    top: 1400px;
-    left: 200px;
-    right:200px;
+
+.colaborador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
 .compromiso{
-    background-color: #56737d;
+    background-color: var(--FondoSecciones);
 }
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
