@@ -15,6 +15,9 @@ body{
 nav{
     font-family: 'Montserrat', sans-serif;
 }
+nav a{
+    color: var(--FondoSecciones) !important;
+}
 
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
@@ -37,16 +40,13 @@ nav{
 
 /*Zona de portada */
 
-.portada h1{
-    position: absolute;
-    
+.portada h1{ 
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
     flex-direction: row;
     background-color: var(--Fondos);
-    height: 40rem;
-    width:100%;
 }
 
 /*slider de portada*/
@@ -78,7 +78,7 @@ nav{
         transform: translateX(0);
     }
     100%{
-        -webkit-transform: translateX(calc(-7rem * ));
+        -webkit-transform: translateX(calc(-7rem * 8));
         transform: translateX(calc(-7rem * 8));
     }
 }
@@ -114,6 +114,7 @@ nav{
 }
 .tituloQue h2{
     font-size: 4rem;
+    
 }
 
 
@@ -278,6 +279,63 @@ nav{
 
 /*Footer*/
 
+.footer-basico {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+}
 
+.footer-basico ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+}
 
+.footer-basico li {
+    padding:0 10px;
+}
+
+.footer-basico ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+}
+
+.footer-basico ul a:hover {
+    opacity:1;
+}
+
+.footer-basico .social {
+    text-align:center;
+    padding-bottom:25px;
+}
+
+.footer-basico .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+}
+
+.footer-basico .social > a:hover {
+    opacity:0.9;
+}
+
+.footer-basico .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+}
 
