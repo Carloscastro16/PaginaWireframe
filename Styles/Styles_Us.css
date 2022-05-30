@@ -89,8 +89,8 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     justify-content: center;
     flex-direction: column;
 }
-/*************estilo valores*******/
-.compromisos{
+/*************estilo de mision*******/
+.misiones{
     background-color: var(--FondoSecciones);
     border-radius: .5rem;
     height: auto;
@@ -98,22 +98,92 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     margin:2rem;
     padding: 2rem;
 }
-.compromival{
+.subtimision h2{
+    text-align: right;
+
+}
+.mision{
     width:100%;
     font-family:'Montserrat', sans-serif;
     font-weight: 200;
     line-height: 30px;
 }
-.compromival h2{
-    font-size: 3rem;
+.mision p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
 }
-.imavalores{
-    border-radius: 45px;
-    width: 40%;
+.imamision{
+    border-radius: 30px;
+    width: 80%;
+    
+     
 }
-.filaval{
-    margin-top: 2rem !important;
+/*-----------fin de estilo---*/
+
+/*inicio de vision*/
+.visiones{
+    background-color: var(--FondoSecciones);
+    border-radius: .5rem;
+    height: auto;
+    width: auto;
+    margin:2rem;
+    padding: 2rem;
 }
+.subtivision h2{
+    text-align: right;
+
+}
+.vision{
+    width:100%;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 30px;
+}
+.vision p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+.imavision{
+    border-radius: 30px;
+    width: 80%;
+    
+     
+}
+/*-----fin de vision----*/
+
+/*inicio de valores*/
+.valores{
+    background-color: var(--FondoSecciones);
+    border-radius: .5rem;
+    height: auto;
+    width: auto;
+    margin:2rem;
+    padding: 2rem;
+}
+.subtivalor h2{
+    text-align: right;
+
+}
+.valor{
+    width:100%;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 30px;
+}
+.valor p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+.imavalor{
+    border-radius: 30px;
+    width: 80%;
+    
+     
+}
+/*--------fin de valores---*/
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
