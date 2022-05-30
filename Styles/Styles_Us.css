@@ -4,6 +4,9 @@
     --negro: #000000;    
 }
 
+section{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 body {
     background-color: var(--Fondo) !important;
 }
@@ -11,18 +14,24 @@ header{
     font-family: 'Montserrat', sans-serif;
     
 }
-.navbarNav a{
-    color: var(--Fondo) !important;
-}
 
+nav{
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.navbarNav a{
+    color: var(--Fondo);
+}
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
     justify-content: unset !important;
+    color: var(--Fondo) !important;
 }
 .navbarNav{
     /*Se añade important para que no choque con bootstrap*/
     justify-content:flex-start;
     width: 100%;
+    color: var(--Fondo);
 }
 .botones{
     display: flex;
@@ -73,6 +82,17 @@ header{
     rgba(0, 0, 0, 0.05) 25px 25px;
 }
 
+.Linea{
+    margin: 6rem;
+}
+.Linea h3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0 2rem 0;;
+    font-size: 3rem;
+}
 .filasQuienes{
     margin-top: 2rem !important;
 }
@@ -97,6 +117,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     font-weight: 500;
     line-height: 1.5rem;
 }
+
 .colaborador{
     display: flex;
     align-items: center;
@@ -112,6 +133,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     margin:2rem;
     padding: 2rem;
 }
+
 .mision{
     width:100%;
     font-family:'Montserrat', sans-serif;
@@ -173,7 +195,10 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     margin:2rem;
     padding: 2rem;
 }
+.subtivalor h2{
+    text-align: right;
 
+}
 .valor{
     width:100%;
     font-family:'Montserrat', sans-serif;
@@ -258,3 +283,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     color:#aaa;
     margin-bottom:0;
 }
+/*--------fin de valores---*/
+
+
+/*--------------------FIN DE ESTILO NOSOTROS------------------*/

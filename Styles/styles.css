@@ -2,6 +2,8 @@
     --Fondo: #d9d9d9;
     --FondoSecciones: #f2f2f2;
     --negro: #000000;  
+    --Complemento: #007BFF;
+
 }
 *{
     font-family: 'Montserrat',sans-serif;
@@ -9,24 +11,27 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--Fondo);
+    background-color: var(--Fondo) !important;
 }
+
 
 nav{
     font-family: 'Montserrat', sans-serif;
+    
 }
-nav a{
-    color: var(--FondoSecciones) !important;
+.navbarNav a{
+    color: var(--Fondo);
 }
-
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
     justify-content: unset !important;
+    color: var(--Fondo) !important;
 }
 .navbarNav{
     /*Se añade important para que no choque con bootstrap*/
     justify-content:flex-start;
     width: 100%;
+    color: var(--Fondo);
 }
 .botones{
     display: flex;
@@ -41,17 +46,20 @@ nav a{
 /*Zona de portada */
 
 .portada h1{ 
-    position: relative;
+    font-size: 4rem;
+    margin: 0rem 0 3rem 0;
+}
+.portada{
     display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: row;
-    background-color: var(--Fondos);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /*slider de portada*/
 .sliderPortada{
     width: 100%;
+    border-radius: 2rem;
     height: 40rem;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -59,6 +67,7 @@ nav a{
     align-items: center;
     background-attachment: fixed;
     background-position: center;
+    
 }
 .sliderPortada ul{
     display: flex;
@@ -103,6 +112,9 @@ nav a{
     padding: 3rem;
     }
 
+.queHacemos p{
+    font-size: 1.2rem;
+}
 .tituloQue {
     font-family: 'Montserrat', sans-serif;
     display: flex;
@@ -114,7 +126,7 @@ nav a{
 }
 .tituloQue h2{
     font-size: 4rem;
-    
+    margin-bottom: 1.5rem;
 }
 
 
@@ -128,6 +140,7 @@ nav a{
     border-radius: 2rem;
     margin: 0 3rem 0 3rem;
     width: auto;
+    height: 40rem
     
 }
 .iconosMuestra img{
@@ -147,11 +160,11 @@ nav a{
 
 .butMues {
     appearance: button;
-    background-color: #000000;
+    background-color: var(--Complemento);
     background-image: none;
-    border: 1px solid #000;
+    border: none;
     border-radius: 4px;
-    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-shadow: #fff 4px 4px 0 0,var(--Complemento) 4px 4px 0 1px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
@@ -184,7 +197,8 @@ nav a{
     color: var(--FondoSecciones)
 }
 .butMues a:hover{
-    color: #ffffff;
+    color: var(--negro);
+    font-weight: 600;
 }
 
 
