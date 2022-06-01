@@ -10,11 +10,15 @@
 }
 
 body{
+    
     font-family: 'Montserrat', sans-serif;
     background-color: var(--Fondo) !important;
 }
 
-
+main{
+    position: relative;
+    box-shadow: 3px 2px 2px 0px rgba(51,51,51,0.5);
+}
 nav{
     font-family: 'Montserrat', sans-serif;
     
