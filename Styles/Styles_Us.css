@@ -1,8 +1,10 @@
 :root {
-    --Fondo: #d9d9d9;
-    --FondoSecciones: #f2f2f2;
+    --Fondo:  #c4d2e7;
+    --FondoSecciones: #f4f9fe;
     --negro: #000000;  
-    --Complemento: #0A58CA;  
+    --Complemento: #7495b8;
+    --salmon: #7495b8;
+
 }
 * {
     position: relative !important;
@@ -35,7 +37,7 @@ header{
 
 nav{
     font-family: 'Montserrat', sans-serif;
-    
+    background-color: var(--salmon) !important;
 }
 .navbarNav a{
     color: var(--Fondo);
@@ -262,7 +264,7 @@ footer {
 }
 .footerBasic {
     padding: 8rem;
-    background-color: #ffffff;
+    background-color: var(--salmon);
     color: #4b4c4d;
     display: flex;
     align-items: center;

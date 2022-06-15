@@ -1,7 +1,9 @@
 :root {
-    --Fondo: #d9d9d9;
-    --FondoSecciones: #f2f2f2;
+    --Fondo: #eaebed;
+    --FondoSecciones: #ffc9a5;
     --negro: #000000;  
+    --Complemento: #364c96;
+
 }
 *{
     font-family: 'Montserrat',sans-serif;
