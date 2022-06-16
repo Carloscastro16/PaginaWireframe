@@ -1,9 +1,11 @@
 :root {
-    --Fondo: #d9d9d9;
-    --FondoSecciones: #f2f2f2;
+    --Fondo:  #c4d2e7;
+    --FondoSecciones: #f4f9fe;
     --negro: #000000;  
-    --Complemento: #007BFF;
-
+    --Complemento: #7495b8;
+    --salmon: #e8b6ad;
+    --dark-letters: #4b4c4d;
+    --grey-icon: #aaa;
 }
 *{
     font-family: 'Montserrat',sans-serif;
@@ -52,6 +54,7 @@ nav{
 .portada h1{ 
     font-size: 4rem;
     margin: 0rem 0 3rem 0;
+    
 }
 .portada{
     display: flex;
@@ -173,7 +176,7 @@ nav{
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-family: 'ITCAvantGardeStd-Bk',Arial,sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -204,12 +207,6 @@ nav{
     color: var(--negro);
     font-weight: 600;
 }
-
-
-
-
-
-
 
 /*Seccion del Slider de Empresas*/
 .seccionSlider h2{
@@ -299,8 +296,8 @@ nav{
 
 .footer-basico {
     padding:40px 0;
-    background-color:#ffffff;
-    color:#4b4c4d;
+    background-color:var(--Complemento);
+    color:var(--dark-letters);
 }
 
 .footer-basico ul {
@@ -353,7 +350,7 @@ nav{
     margin-top:15px;
     text-align:center;
     font-size:13px;
-    color:#aaa;
+    color:var(--grey-icon);
     margin-bottom:0;
 }
 

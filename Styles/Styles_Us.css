@@ -4,6 +4,8 @@
     --negro: #000000;  
     --Complemento: #7495b8;
     --salmon: #7495b8;
+    --dark-letters: #4b4c4d;
+    --grey-icon: #aaa;
 
 }
 * {
@@ -265,7 +267,7 @@ footer {
 .footerBasic {
     padding: 8rem;
     background-color: var(--salmon);
-    color: #4b4c4d;
+    color: var(--dark-letters);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -322,7 +324,7 @@ footer {
     margin-top:15px;
     text-align:center;
     font-size:13px;
-    color:#aaa;
+    color: var(--grey-icon);
     margin-bottom:0;
 }
 .linea{
