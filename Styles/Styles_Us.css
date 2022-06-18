@@ -17,17 +17,26 @@ html, body{
 }
 section{
     box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;
-    
 }
 main{
     position: relative !important;
     z-index: 1;
     height: 100%;
     background: var(--Fondo);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    padding: 5rem;    
+}
+.General{
+    border-radius: 15px;
+    z-index: 2;
+    height: 100%;
+    background: var(--Fondo);
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-    padding-bottom: 5rem;
+    padding: 5rem;
     margin-bottom: 1rem;
 }
 
@@ -43,6 +52,10 @@ nav{
 }
 .navbarNav a{
     color: var(--Fondo);
+}
+.navbarNav{
+    display: flex;
+    gap: 1.5rem;
 }
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
@@ -63,8 +76,12 @@ nav{
 }
 .botoncin {
     margin-left: .5rem;
+    margin-top: .45rem;
 }
-
+.navbar-brand{
+    font-family: 'Monserrat', sans-serif;
+    
+}
 
 /*---------------ESTILO DE NOSOTROS------------*/
 .quienesColaboran{
@@ -102,6 +119,7 @@ nav{
     rgba(0, 0, 0, 0.2) 15px 15px, 
     rgba(0, 0, 0, 0.1) 20px 20px, 
     rgba(0, 0, 0, 0.05) 25px 25px;
+
 }
 
 .Linea{
@@ -127,6 +145,7 @@ nav{
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
 -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
 box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    margin: 1rem 0 1rem 0;
     
 }
 .colaborador h3{
@@ -253,7 +272,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
 
-/*Footer*/
+/*------------ Footer ------------*/
 
 footer {
     position: fixed !important;
@@ -328,14 +347,67 @@ footer {
     margin-bottom:0;
 }
 .linea{
-    border-top: 2.5px solid var(--Complemento);
-    max-width: 50rem;
-    margin-bottom:1rem;
+    border-top: 2.5px solid var(--grey-icon);
+    width: auto;
+    max-width: 100%;
+    margin:1.4rem 2rem 1.4rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-/*--------fin de valores---*/
+.navegaFooter{
+    display: flex;
+    gap: 8rem;
+    justify-content: center;
+}
+.navegaFooter a{
+    font-size: 1rem;
+    margin-top: .5rem;
+}
+.list-inline-item a{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*------------ Fin de Footer ------------*/
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
+
+.log-in{
+    
+    background-image: url(../img/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.centrado{
+
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+
+}
+.col-log{
+    padding: 3rem;
+    background-color: var(--FondoSecciones);
+    width: auto;
+    max-width: 130vh;
+    border-radius: 15px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+.col-log label{
+    font-size: 1.3rem;
+}
+.col-log input{
+    margin-bottom: 2rem;
+}
+.card{
+    box-shadow:var(--Complemento) 1.95px 1.95px 5px;
+}
