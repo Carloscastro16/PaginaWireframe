@@ -78,7 +78,7 @@ nav{
 }
 .sliderPortada ul{
     display: flex;
-    animation: sliderPortada 30s linear infinite alternate;
+    animation: sliderPortada 30s linear infinite;
     
 }
 .sliderPortada img{
@@ -94,8 +94,8 @@ nav{
         transform: translateX(0);
     }
     100%{
-        -webkit-transform: translateX(calc(-7rem * 8));
-        transform: translateX(calc(-7rem * 8));
+        -webkit-transform: translateX(calc(-7rem * 7));
+        transform: translateX(calc(-7rem * 7));
     }
 }
 .sliderPortada li{

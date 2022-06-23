@@ -22,11 +22,12 @@ main{
     position: relative !important;
     z-index: 1;
     height: 100%;
-    background: var(--Fondo);
+    background: rgb(116,149,184);
+    background-image: radial-gradient(circle at 0.56% 15.38%, #ffffff 0, #c4d2e7 50%, #7895bc 100%);
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    padding: 5rem;    
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
+    padding-bottom: 2rem;
 }
 .General{
     border-radius: 15px;
@@ -37,7 +38,6 @@ main{
     -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     padding: 5rem;
-    margin-bottom: 1rem;
 }
 
 header{
@@ -140,11 +140,10 @@ nav{
 .fotosp{
     width: 100px;
     height: 130px;
-    border-radius: 48%;
-    border: 1px solid #000000;
+    border-radius: 46%;
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
--moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     margin: 1rem 0 1rem 0;
     
 }
@@ -234,7 +233,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     border-radius: .5rem;
     height: auto;
     width: auto;
-    margin:2rem;
+    margin-inline:2rem;
     padding: 3.5rem;
 }
 .subtivalor h2{
@@ -374,6 +373,7 @@ footer {
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
+/*-------------------- Estilo de inicio y registro ------------------*/
 
 .log-in{
     
@@ -381,6 +381,7 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    padding: 6rem;
 }
 .centrado{
 
@@ -403,11 +404,34 @@ footer {
     margin-bottom: 1rem;
 }
 .col-log label{
-    font-size: 1.3rem;
+    font-size: .98rem;
 }
 .col-log input{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .card{
     box-shadow:var(--Complemento) 1.95px 1.95px 5px;
+}
+
+/*Seccion de las redes sociales*/
+.redes{
+    padding: 3rem;
+}
+.textoRedes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.redes li{
+    list-style: none;
+
+}
+.redes ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+
 }
