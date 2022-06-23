@@ -17,6 +17,7 @@ html, body{
 }
 section{
     box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;
+    
 }
 main{
     position: relative !important;
@@ -53,10 +54,6 @@ nav{
 .navbarNav a{
     color: var(--Fondo);
 }
-.navbarNav{
-    display: flex;
-    gap: 1.5rem;
-}
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
     justify-content: unset !important;
@@ -76,12 +73,8 @@ nav{
 }
 .botoncin {
     margin-left: .5rem;
-    margin-top: .45rem;
 }
-.navbar-brand{
-    font-family: 'Monserrat', sans-serif;
-    
-}
+
 
 /*---------------ESTILO DE NOSOTROS------------*/
 .quienesColaboran{
@@ -119,7 +112,6 @@ nav{
     rgba(0, 0, 0, 0.2) 15px 15px, 
     rgba(0, 0, 0, 0.1) 20px 20px, 
     rgba(0, 0, 0, 0.05) 25px 25px;
-
 }
 
 .Linea{
@@ -271,7 +263,7 @@ nav{
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
 
-/*------------ Footer ------------*/
+/*Footer*/
 
 footer {
     position: fixed !important;
@@ -346,30 +338,14 @@ footer {
     margin-bottom:0;
 }
 .linea{
-    border-top: 2.5px solid var(--grey-icon);
-    width: auto;
-    max-width: 100%;
-    margin:1.4rem 2rem 1.4rem 2rem;
+    border-top: 2.5px solid var(--Complemento);
+    max-width: 50rem;
+    margin-bottom:1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.navegaFooter{
-    display: flex;
-    gap: 8rem;
-    justify-content: center;
-}
-.navegaFooter a{
-    font-size: 1rem;
-    margin-top: .5rem;
-}
-.list-inline-item a{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/*------------ Fin de Footer ------------*/
+/*--------fin de valores---*/
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
