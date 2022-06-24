@@ -3,7 +3,7 @@
     --FondoSecciones: #f4f9fe;
     --negro: #000000;  
     --Complemento: #7495b8;
-    --salmon: #e8b6ad;
+    --salmon: #7495b8;
     --dark-letters: #4b4c4d;
     --grey-icon: #aaa;
 }
@@ -16,11 +16,23 @@ body{
     font-family: 'Montserrat', sans-serif;
     background-color: var(--Fondo) !important;
 }
+main{
+    position: relative !important;
+    z-index: 1;
+    height: 100%;
+    background: rgb(116,149,184);
+    background-image: linear-gradient(0deg, rgba(103,130,158,1) 8%, rgba(116,149,184,0.9654236694677871) 41%, rgba(196,210,231,1) 75%, rgba(196,210,231,1) 89%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
+    padding-bottom: 2rem;
+}
 
+/*
 main{
     position: relative;
     box-shadow: 3px 2px 2px 0px rgba(51,51,51,0.5);
-}
+}*/
 nav{
     font-family: 'Montserrat', sans-serif;
     
@@ -78,7 +90,7 @@ nav{
 }
 .sliderPortada ul{
     display: flex;
-    animation: sliderPortada 30s linear infinite;
+    animation: sliderPortada 70s linear infinite;
     
 }
 .sliderPortada img{
@@ -94,8 +106,8 @@ nav{
         transform: translateX(0);
     }
     100%{
-        -webkit-transform: translateX(calc(-7rem * 7));
-        transform: translateX(calc(-7rem * 7));
+        -webkit-transform: translateX(calc(-810.801px * 8));
+        transform: translateX(calc(-810.801px * 8));
     }
 }
 .sliderPortada li{
@@ -105,7 +117,7 @@ nav{
 
 /*Edicion para el cuadro de que hacemos*/
 .generalSection{
-    margin: 0rem 2rem 5rem 2rem;
+    margin: 0rem 3.8rem 5rem 3.8rem;
     background-color: var(--FondoSecciones);
     border-radius: 0 0 2rem 2rem;
     padding: 3rem;
@@ -294,41 +306,54 @@ nav{
 
 /*Footer*/
 
-.footer-basico {
-    padding:40px 0;
-    background-color:var(--Complemento);
-    color:var(--dark-letters);
+footer {
+    position: fixed !important;
+    left: 0;
+    bottom: 0;
+    height: 15rem;
+    width: 100%;
+    text-align: center;
+    
+}
+.footerBasic {
+    padding: 9rem;
+    background-color: var(--salmon);
+    color: var(--dark-letters);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.footer-basico ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
+
+.footerBasic ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
-.footer-basico li {
-    padding:0 10px;
+.footerBasic li {
+    padding: 0 10px;
 }
 
-.footer-basico ul a {
-    color:inherit;
+.footerBasic ul a {
+    color :inherit;
     text-decoration:none;
-    opacity:0.8;
+    opacity: 0.8;
 }
 
-.footer-basico ul a:hover {
-    opacity:1;
+.footerBasic ul a:hover {
+    opacity: 4;
 }
 
-.footer-basico .social {
+.footerBasic .social {
     text-align:center;
     padding-bottom:25px;
 }
 
-.footer-basico .social > a {
+.footerBasic .social > a {
     font-size:24px;
     width:40px;
     height:40px;
@@ -342,15 +367,23 @@ nav{
     opacity:0.75;
 }
 
-.footer-basico .social > a:hover {
+.footerBasic .social > a:hover {
     opacity:0.9;
 }
 
-.footer-basico .copyright {
+.footerBasic .copyright {
     margin-top:15px;
     text-align:center;
     font-size:13px;
-    color:var(--grey-icon);
+    color: var(--grey-icon);
     margin-bottom:0;
 }
-
+.linea{
+    border-top: 2.5px solid var(--Complemento);
+    max-width: 50rem;
+    margin-bottom:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*--------fin de valores---*/

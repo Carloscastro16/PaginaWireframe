@@ -24,7 +24,7 @@ main{
     z-index: 1;
     height: 100%;
     background: rgb(116,149,184);
-    background-image: radial-gradient(circle at 0.56% 15.38%, #ffffff 0, #c4d2e7 50%, #7895bc 100%);
+    background-image: linear-gradient(0deg, rgba(103,130,158,1) 0%, rgba(116,149,184,0.9654236694677871) 33%, rgba(196,210,231,1) 70%, rgba(196,210,231,1) 100%);
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
@@ -259,6 +259,43 @@ nav{
 }
 
 /*--------fin de valores---*/
+/*--- Linea del tiempo ---*/
+.linea-tiempo {
+    position: relative;
+    width: 500px;
+    max-width: 95vw;
+    height: 100%;
+    font-family: Arial;
+    list-style: none;
+    text-align: end;
+}
+.linea-tiempo h4{
+    margin-top: 2rem;
+}
+.momento {
+    position: relative;
+    width: 45%;
+    box-sizing: border-box;
+}
+.linea-tiempo::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--dark-letters);
+    left: 53.3%;
+    height: 100%;
+    border-radius: 10px;
+}
+.momento::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 10px);
+    right: calc(-11.11% - 11.5px);
+    height: 20px;
+    width: 20px;
+    background-color: var(--salmon);
+    border-radius: 50%;
+}
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
@@ -275,7 +312,7 @@ footer {
     
 }
 .footerBasic {
-    padding: 8rem;
+    padding: 9rem;
     background-color: var(--salmon);
     color: var(--dark-letters);
     display: flex;
