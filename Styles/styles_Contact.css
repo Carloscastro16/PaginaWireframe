@@ -45,6 +45,10 @@ nav{
 /*Seccion de las redes sociales*/
 .redes{
     padding: 3rem;
+    margin: 4rem;
+    height: auto;
+    width: auto;
+    background-color: var(--FondoSecciones);
 }
 .textoRedes{
     display: flex;
@@ -64,3 +68,24 @@ ul{
     
 
 }
+/*Seccion del mensaje del formulario*/
+.mensajeformu{
+    padding: 3rem;
+    margin: 4rem;
+    height: auto;
+    width: auto;
+    background-color: var(--FondoSecciones);
+}
+p{
+    padding: 5rem;
+}
+
+/*seccion de frase*/
+.frase{
+    padding: 5rem;
+    margin: 4rem;
+    height: auto;
+    width: auto;
+    background-color: var(--FondoSecciones);
+}
+
