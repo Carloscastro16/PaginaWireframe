@@ -13,11 +13,7 @@
 }
 html, body{
     background: var(--Fondo);
-    
-}
-section{
-    box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;
-    margin: 3.8rem !important;
+    font-family: 'Montserrat', sans-serif;
 }
 main{
     position: relative !important;
@@ -40,19 +36,34 @@ main{
     box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     padding: 5rem;
 }
+section{
+    /*box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;*/
+    margin: 3.8rem;
+}
 
 header{
     font-family: 'Montserrat', sans-serif;
     
 }
 
-
+.logo a{
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.3rem !important;
+    font-weight: 600;
+}
+.navbar-brand h5{
+    font-size: 1.2rem;
+    color: var(--Fondo);
+}
 nav{
     font-family: 'Montserrat', sans-serif;
     background-color: var(--salmon) !important;
 }
-.navbarNav a{
-    color: var(--Fondo);
+
+.navbar-brand, .navbarNav a{
+    color: var(--Fondo) !important;
+    font-size: 1rem !important;
 }
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
@@ -156,7 +167,7 @@ nav{
     justify-content: center;
     flex-direction: column;
 }
-/*************estilo de mision*******/
+/********* Estilo de mision *********/
 .misiones{
     background-color: var(--FondoSecciones);
     border-radius: .5rem;
@@ -186,7 +197,7 @@ nav{
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     
 }
-/*-----------fin de estilo---*/
+/*--------- Fin de estilo ---------*/
 
 /*inicio de vision*/
 .visiones{
@@ -217,7 +228,7 @@ nav{
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-/*-----fin de vision----*/
+/*---- fin de vision ----*/
 
 /*inicio de valores*/
 .valores{
@@ -258,7 +269,8 @@ nav{
     
 }
 
-/*--------fin de valores---*/
+/*--- fin de valores ---*/
+
 /*--- Linea del tiempo ---*/
 .linea-tiempo {
     position: relative;
@@ -298,7 +310,7 @@ nav{
 }
 
 
-/*--------------------FIN DE ESTILO NOSOTROS------------------*/
+/*-------------------- FIN DE ESTILO NOSOTROS ------------------*/
 
 /*Footer*/
 
@@ -395,9 +407,12 @@ footer {
 /*--------fin de valores---*/
 
 
-/*--------------------FIN DE ESTILO NOSOTROS------------------*/
+
 /*-------------------- Estilo de inicio y registro ------------------*/
 
+.log-in{
+    padding: 5rem;
+}
 .centrado{
 
     display: flex;
@@ -406,11 +421,12 @@ footer {
 
 }
 .col-log{
-    padding: 3rem;
+    padding: 5rem 3rem;
     background-color: var(--FondoSecciones);
     width: auto;
     max-width: 130vh;
     border-radius: 15px;
+    margin-inline: 4rem !important;
 }
 .center{
     display: flex;
@@ -422,12 +438,15 @@ footer {
     font-size: .98rem;
 }
 .col-log input{
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 .card{
     box-shadow:var(--Complemento) 1.95px 1.95px 5px;
 }
-/* ---------------------Vista de contactanos-------------------------*/
+.registro-inicio{
+    margin: 0;
+}
+
 /*Seccion de las redes sociales*/
 .redes{
     padding: 3rem;
@@ -470,8 +489,8 @@ footer {
 
 /*------ Seccion de los eventos ------*/ 
 .eventos{
-    padding: 2rem;
-    margin: 1.2rem !important;
+    padding: .2rem;
+    margin: 2rem !important;
 }
 
 .eventitos{

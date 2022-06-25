@@ -14,52 +14,58 @@
     
 </head>
 <body>
-    <main class="log-in">
-        <header>
-            <nav class="navbar navbar-expand-lg bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="../index.html">Uruz</a>
-                        <ul class="navbar-nav navbarNav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Contact_Us.html">Contactanos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Eventos.html">Eventos</a>
-                            </li>
-                            
-                        </ul>
-                        <form action="log-in.html" class="botones">
-                            <button class="botoncin btn btn-outline-success">Login</button>
-                        </form>
-                        <form action="sign-in.html">
-                            <button class="botoncin btn btn-outline-secondary">Register</button>
-                        </form>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid barraNav">
+                <div class="logo">
+                    <a class="navbar-brand" href="../index.html">
+                        Uruz
+                    </a>
                 </div>
-            </nav>
-        </header>
-        <div class="General container">
-            <div class="row centrado">
-                <div class="col-5">
-                    <div class="card col-log">
-                        <h2 class="center"> Log In </h2>
-                        <form action="">
-                            <label for="">Correo</label>
-                            <input class="form-control" placeholder="Email Adress" type="email">
-                            <label for="">Contraseña</label>
-                            <input class="form-control" placeholder="*********" type="password">
-                            <input type="submit" name="iniciar" value="Iniciar Sesion" class="btn btn-primary">
-
-                        </form>
+                <ul class="navbar-nav navbarNav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact_Us.html">Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Eventos.html">Eventos</a>
+                    </li>
+                    
+                </ul>
+                <form action="log-in.html" class="botones">
+                    <button class="botoncin btn btn-outline-success">Login</button>
+                </form>
+                <form action="sign-in.html">
+                    <button class="botoncin btn btn-outline-secondary">Register</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main class="log-in">
+        <section class="registro-inicio">
+            <div class="General container">
+                <div class="row centrado">
+                    <div class="col-5">
+                        <div class="col-log">
+                            <h2 class="center"> Log In </h2>
+                            <form action="">
+                                <label for="">Correo</label>
+                                <input class="form-control" placeholder="Email Adress" type="email">
+                                <label for="">Contraseña</label>
+                                <input class="form-control" placeholder="*********" type="password">
+                                <input type="submit" name="iniciar" value="Iniciar Sesion" class="btn btn-primary">
+    
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <div class="footerBasic">
         <footer>
@@ -84,6 +90,9 @@
             <p class="copyright">Uruz corpotative &copy; 2022</p>
         </footer>
     </div>    
+    <!-------- Scripts -------->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
