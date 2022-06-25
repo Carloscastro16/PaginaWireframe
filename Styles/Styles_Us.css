@@ -427,7 +427,7 @@ footer {
 .card{
     box-shadow:var(--Complemento) 1.95px 1.95px 5px;
 }
-
+/* ---------------------Vista de contactanos-------------------------*/
 /*Seccion de las redes sociales*/
 .redes{
     padding: 3rem;
@@ -437,6 +437,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family:'Montserrat', sans-serif;  
 }
 .redes li{
     list-style: none;
@@ -448,8 +449,24 @@ footer {
     align-items: center;
     justify-content: space-between;
     
-
 }
+.iconito {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 1rem;
+    }
+    
+    /*seccion de frase*/
+.frase {
+        padding: 5rem;
+        margin: 3rem;
+        height: auto;
+        width: auto;
+        font-family:'Montserrat', sans-serif;      
+    }
+
+/*------------------------------Fin de vista contactanos--------------------------------*/
 
 /*------ Seccion de los eventos ------*/ 
 .eventos{
