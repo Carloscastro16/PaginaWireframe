@@ -452,6 +452,10 @@ footer {
 }
 
 /*------ Seccion de los eventos ------*/ 
+.eventos{
+    padding: 2rem;
+    margin: 1.2rem !important;
+}
 
 .eventitos{
     display: flex;
@@ -459,6 +463,10 @@ footer {
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    border-radius: 25px;
+    padding: .5rem;
+    background-color: #f4f9fe;
+    margin: .2rem;
 }
 
 .eventitos img{
