@@ -398,14 +398,6 @@ footer {
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
 /*-------------------- Estilo de inicio y registro ------------------*/
 
-.log-in{
-    
-    background-image: url(../img/);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    padding: 6rem;
-}
 .centrado{
 
     display: flex;
