@@ -17,7 +17,7 @@ html, body{
 }
 section{
     box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;
-    
+    margin: 3.8rem !important;
 }
 main{
     position: relative !important;
@@ -448,3 +448,20 @@ footer {
     
 
 }
+
+/*------ Seccion de los eventos ------*/ 
+
+.eventitos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventitos img{
+    width: 22.3rem;
+    border-radius: 25px;
+}
+
+/*------ Final de Seccion de los eventos ------*/ 
