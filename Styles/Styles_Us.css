@@ -17,18 +17,28 @@ html, body{
 }
 section{
     box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;
-    
+    margin: 3.8rem !important;
 }
 main{
     position: relative !important;
     z-index: 1;
     height: 100%;
+    background: rgb(116,149,184);
+    background-image: linear-gradient(0deg, rgba(103,130,158,1) 0%, rgba(116,149,184,0.9654236694677871) 33%, rgba(196,210,231,1) 70%, rgba(196,210,231,1) 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
+    padding-bottom: 2rem;
+}
+.General{
+    border-radius: 15px;
+    z-index: 2;
+    height: 100%;
     background: var(--Fondo);
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-    padding-bottom: 5rem;
-    margin-bottom: 1rem;
+    padding: 5rem;
 }
 
 header{
@@ -122,11 +132,11 @@ nav{
 .fotosp{
     width: 100px;
     height: 130px;
-    border-radius: 48%;
-    border: 1px solid #000000;
+    border-radius: 46%;
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
--moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    margin: 1rem 0 1rem 0;
     
 }
 .colaborador h3{
@@ -215,7 +225,7 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     border-radius: .5rem;
     height: auto;
     width: auto;
-    margin:2rem;
+    margin-inline:2rem;
     padding: 3.5rem;
 }
 .subtivalor h2{
@@ -249,6 +259,43 @@ box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
 }
 
 /*--------fin de valores---*/
+/*--- Linea del tiempo ---*/
+.linea-tiempo {
+    position: relative;
+    width: 500px;
+    max-width: 95vw;
+    height: 100%;
+    font-family: Arial;
+    list-style: none;
+    text-align: end;
+}
+.linea-tiempo h4{
+    margin-top: 2rem;
+}
+.momento {
+    position: relative;
+    width: 45%;
+    box-sizing: border-box;
+}
+.linea-tiempo::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--dark-letters);
+    left: 53.3%;
+    height: 100%;
+    border-radius: 10px;
+}
+.momento::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 10px);
+    right: calc(-11.11% - 11.5px);
+    height: 20px;
+    width: 20px;
+    background-color: var(--salmon);
+    border-radius: 50%;
+}
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
@@ -265,7 +312,7 @@ footer {
     
 }
 .footerBasic {
-    padding: 8rem;
+    padding: 9rem;
     background-color: var(--salmon);
     color: var(--dark-letters);
     display: flex;
@@ -335,7 +382,96 @@ footer {
     align-items: center;
     justify-content: center;
 }
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social ion-icon{
+    width: 1.2em !important;
+    height: 1.5em !important;
+    border-radius: 50%;
+}
 /*--------fin de valores---*/
 
 
 /*--------------------FIN DE ESTILO NOSOTROS------------------*/
+/*-------------------- Estilo de inicio y registro ------------------*/
+
+.log-in{
+    
+    background-image: url(../img/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 6rem;
+}
+.centrado{
+
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+
+}
+.col-log{
+    padding: 3rem;
+    background-color: var(--FondoSecciones);
+    width: auto;
+    max-width: 130vh;
+    border-radius: 15px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+.col-log label{
+    font-size: .98rem;
+}
+.col-log input{
+    margin-bottom: 1rem;
+}
+.card{
+    box-shadow:var(--Complemento) 1.95px 1.95px 5px;
+}
+
+/*Seccion de las redes sociales*/
+.redes{
+    padding: 3rem;
+}
+.textoRedes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.redes li{
+    list-style: none;
+
+}
+.redes ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+/*------ Seccion de los eventos ------*/ 
+
+.eventitos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventitos img{
+    width: 22.3rem;
+    border-radius: 25px;
+}
+
+/*------ Final de Seccion de los eventos ------*/ 
