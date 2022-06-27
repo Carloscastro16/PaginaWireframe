@@ -26,15 +26,17 @@ main{
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
     padding-bottom: 2rem;
 }
+
+/* ------ Organizacion de las secciones ------ */
 .General{
-    border-radius: 15px;
+    border-radius: 7px;
     z-index: 2;
     height: 100%;
     background: var(--Fondo);
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-    padding: 5rem;
+    padding: 3rem;
 }
 section{
     /*box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;*/
@@ -387,12 +389,9 @@ footer {
     margin-bottom:0;
 }
 .linea{
-    border-top: 2.5px solid var(--Complemento);
+    border-top: 2.5px solid var(--grey-icon);
     max-width: 50rem;
-    margin-bottom:1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 1rem;
 }
 .social a {
     display: flex;
@@ -502,16 +501,26 @@ footer {
 
 .eventitos{
     width: auto !important;
+    max-width: 30% !important;
+    height: 32rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 25px;
     padding: 1.4rem 2rem !important;
 }
-
+.eventitos h4{
+    margin: 1.2rem;
+}
+.eventitos p{
+    display: flex;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+}
 .eventitos img{
-    width: 22.3rem;
+    
+    width: 100%;
     border-radius: 25px;
 }
 /*------ Final de Seccion de los eventos ------*/ 
