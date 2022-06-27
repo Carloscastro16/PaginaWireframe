@@ -489,6 +489,15 @@ footer {
 .botonGeneral{
     margin-top: 2rem !important;
 }
+.botonSociales a{
+    width: 3rem;
+    height: auto;
+    border-radius: 50%;
+}
+.botonSociales svg{
+    margin-left: -10px;
+}
+
 /*------------------------------Fin de vista contactanos--------------------------------*/
 
 /*------ Seccion de los eventos ------*/ 
