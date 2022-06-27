@@ -477,13 +477,18 @@ footer {
     
     /*seccion de frase*/
 .frase {
-        padding: 5rem;
+        
         margin: 3rem;
         height: auto;
         width: auto;
-        font-family:'Montserrat', sans-serif;      
-    }
+        font-family:'Montserrat', sans-serif;
+        font-size: 2rem;
+        line-height: 1.7;
+}
 
+.botonGeneral{
+    margin-top: 2rem !important;
+}
 /*------------------------------Fin de vista contactanos--------------------------------*/
 
 /*------ Seccion de los eventos ------*/ 
