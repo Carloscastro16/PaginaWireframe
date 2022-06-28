@@ -174,11 +174,10 @@ nav{
     margin-bottom: 2rem;
     border: none;
     padding: 2rem;
-    border-radius: 2rem;
+    border-radius: 10px;
     margin: 0 3rem 0 3rem;
     width: auto;
-    height: 40rem
-    
+    height: 100%;
 }
 .iconosMuestra img{
     border-radius: 50%;
