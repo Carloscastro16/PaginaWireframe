@@ -497,6 +497,12 @@ footer {
 .botonSociales svg{
     margin-left: -10px;
 }
+.botonSociales:hover {
+transform:rotate(45deg);
+opacity: 0.4;
+color: var(--grey-icon);
+}
+
 
 /*------------------------------Fin de vista contactanos--------------------------------*/
 
