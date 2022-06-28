@@ -420,7 +420,7 @@ footer {
 
 }
 .col-log{
-    padding: 5rem 3rem;
+    padding: 5rem 3rem !important;
     background-color: var(--FondoSecciones);
     width: auto;
     max-width: 130vh;
