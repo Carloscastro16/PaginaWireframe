@@ -21,7 +21,7 @@ main{
     z-index: 1;
     height: 100%;
     background: rgb(116,149,184);
-    background-image: linear-gradient(0deg, rgba(103,130,158,1) 8%, rgba(116,149,184,0.9654236694677871) 41%, rgba(196,210,231,1) 75%, rgba(196,210,231,1) 89%);
+    background-image: linear-gradient(0deg, rgba(103,130,158,1) 0%, rgba(116,149,184,0.9654236694677871) 2%, rgba(116,149,184,0.9654236694677871) 8%, rgba(196,210,231,1) 80%);
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
@@ -81,7 +81,8 @@ nav{
 
 /*Zona de portada */
 
-.portada h1{ 
+.portada h1{
+    text-align: center;; 
     font-size: 4rem;
     margin: 0rem 0 3rem 0;
     
@@ -91,6 +92,9 @@ nav{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: var(--FondoSecciones);
+    padding: 3rem;
+    border-radius: 0 0 25px 25px;
 }
 
 /*slider de portada*/
@@ -108,7 +112,7 @@ nav{
 }
 .sliderPortada ul{
     display: flex;
-    animation: sliderPortada 70s linear infinite;
+    animation: sliderPortada 40s linear infinite;
     
 }
 .sliderPortada img{
@@ -124,8 +128,8 @@ nav{
         transform: translateX(0);
     }
     100%{
-        -webkit-transform: translateX(calc(-810.801px * 8));
-        transform: translateX(calc(-810.801px * 8));
+        -webkit-transform: translateX(calc(-880px * 6.988));
+        transform: translateX(calc(-880px * 6.988));
     }
 }
 .sliderPortada li{
@@ -135,9 +139,9 @@ nav{
 
 /*Edicion para el cuadro de que hacemos*/
 .generalSection{
-    margin: 0rem 3.8rem 5rem 3.8rem;
+    margin: 4rem 3.8rem 5rem 3.8rem;
     background-color: var(--FondoSecciones);
-    border-radius: 0 0 2rem 2rem;
+    border-radius: 2rem;
     padding: 3rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -414,3 +418,85 @@ footer {
     border-radius: 50%;
 }
 /*--------fin de valores---*/
+.menu ion-icon{
+    display: none;
+}
+
+/*------ Inicio de seccion del buscador ------*/ 
+
+.buscador-main{
+    padding: 4rem 0 4rem 0;
+}
+
+.header{
+    position: relative;
+    text-align: center;
+    
+}
+.inner-header{
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.waves{
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content{
+    position: relative;
+    height: 10vh;
+    text-align: center;
+
+}
+
+.parallax > use{
+    animation: infinite-movement 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+
+}
+.parallax > use:nth-child(1){
+    animation-delay: -2s;
+    animation-duration: 7s;
+    
+}
+.parallax > use:nth-child(2){
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(3){
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.parallax > use:nth-child(4){
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes infinite-movement{
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+} 
+
+
+/*------ Final de Seccion de Buscador ------*/ 
+@media(min-width:486px){
+    .menu{
+        display: flex;
+    }
+
+}
