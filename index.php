@@ -5,17 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/Normalize.css">
-        <link rel="stylesheet" href="Styles/styles.css">
+        <link rel="stylesheet" href="Styles/styles.css?v=1.0">
         <link rel="stylesheet" href="Styles/argon-dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         
         <title>Uruz planning</title>
     </head>
-    <?php
-    $i = 0;
-    ?>
     <body>
         <main>
             <!--Barra de Navegacion Principal-->
@@ -53,47 +55,52 @@
             </nav>
         </section>
 
-        <div class="header buscador-inicial">
-            <div class="container inner-header flex">
-                <div class="row">
-                    <div class="col-12">
-                        <form action="">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="search-camp col-lg-4 col-md-4 col-sm-4">
-                                        <input type="text" class="form-control form-evento" placeholder="">
-                                    </div>
-                                    <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                        <input type="text" class="form-control form-evento" placeholder="">
-                                    </div>
-                                    <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                        <input type="text" class="form-control form-evento" placeholder="">
-                                    </div>
-                                    <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+        <section class="buscador-main">
+            <div class="header buscador-inicial">
+                <div class="container inner-header flex">
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="">
+                                <div class="container">
+                                    <div class="row buscadorsin">
+                                        <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                            <ion-icon name="location-outline"></ion-icon>
+                                            <input type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?">
+                                        </div>
+                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3" id="datepicker">
+                                            <ion-icon name="calendar-outline"></ion-icon>
+                                            <input type="text" class="form-control form-evento" placeholder="¿Cuando?">
+                                        </div>
+                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                            <ion-icon name="person-outline"></ion-icon>
+                                            <input type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
+                                        </div>
+                                        <div class="search-camp col-lg-2 col-md-2 col-sm-2">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <div>
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xnlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                        <defs>
+                            <path
+                            id="gentle-wave"
+                            d="M-180 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+                        </defs>
+                        <g class="parallax">
+                            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)"/>
+                            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                            <use xlink:href="#gentle-wave" x="48" y="7" fill="#f4f9fe"/>
+                        </g>
+                    </svg>
+                </div>
             </div>
-            <div>
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xnlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path
-                        id="gentle-wave"
-                        d="M-180 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)"/>
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#f4f9fe"/>
-                    </g>
-                </svg>
-            </div>
-        </div>
+        </section>
         <!--Seccion General-->
         <section class="portada">
             <h1>Hacemos realidad tus sueños</h1>
@@ -313,6 +320,15 @@
     <!-------- Scripts -------->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script>
+        $(function(){
+            $('#datepicker input').datepicker({
+            format: "dd-mm-yyyy",
+            todayBtn: "linked",
+            clearBtn: true,
+            language: "es"
+            });
+        })
+    </script>
 </body>
 </html>
