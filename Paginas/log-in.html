@@ -5,38 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css">
-    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Inicia Sesion</title>
     
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-dark">
-            <div class="container-fluid barraNav">
+            <div class="container-fluid barraNav ">
                 <div class="logo">
                     <a class="navbar-brand" href="../index.html">
                         Uruz
                     </a>
                 </div>
-                <ul class="navbar-nav navbarNav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contact_Us.html">Contactanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Eventos.html">Eventos</a>
-                    </li>
-                    
-                </ul>
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <ion-icon name="grid-outline"></ion-icon>
+                </button>
+                <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
+                    <ul class="navbar-nav navbarNav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact_Us.html">Contactanos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Eventos.html">Eventos</a>
+                        </li>
+                        
+                    </ul>
+
+                </div>
                 <form action="log-in.html" class="botones">
                     <button class="botoncin btn btn-outline-success">Login</button>
                 </form>
@@ -50,7 +65,7 @@
         <section class="registro-inicio">
             <div class="General container">
                 <div class="row centrado">
-                    <div class="col-5 col-log">
+                    <div class="col-sm-6 col-lg-8 col-md-8 col-log">
                         <h2 class="center"> Log In </h2>
                         <form action="../Acciones/login.php">
                             <label for="">Correo</label>
