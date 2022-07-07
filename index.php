@@ -60,7 +60,7 @@
                 <div class="container inner-header flex">
                     <div class="row">
                         <div class="col-12">
-                            <form action="">
+                            <form action="Acciones/busqueda.php">
                                 <div class="container">
                                     <div class="row buscadorsin">
                                         <div class="search-camp col-lg-4 col-md-4 col-sm-4">
