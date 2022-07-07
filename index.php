@@ -5,15 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/Normalize.css">
-        <link rel="stylesheet" href="Styles/styles.css?v=1.0">
+        <link rel="stylesheet" href="Styles/styles.css?v=2.0">
         <link rel="stylesheet" href="Styles/argon-dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         
         <title>Uruz planning</title>
@@ -21,62 +21,77 @@
     <body>
         <main>
             <!--Barra de Navegacion Principal-->
-        <section>
-            <nav class="navbar navbar-expand-lg bg-dark">
-                <div class="container-fluid">
-                    <div class="logo">
-                        <a class="navbar-brand" href="index.html">Uruz</a>
-                    </div>
-                    <div class="menu">
+            <header>
+                <nav class="navbar navbar-expand-lg bg-dark">
+                    <div class="container-fluid barraNav ">
+                        <div class="logo">
+                            <a class="navbar-brand" href="../index.php">
+                                Uruz
+                            </a>
+                        </div>
+                        <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#toggleMobileMenu"
+                        aria-controls="toggleMobileMenu"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        >
                         <ion-icon name="grid-outline"></ion-icon>
+                        </button>
+                        <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
+                            <ul class="navbar-nav navbarNav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../index.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Contact_Us.html">Contactanos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Eventos.html">Eventos</a>
+                                </li>
+                                
+                            </ul>
+                            <div class="botones">
+                                <form action="log-in.html">
+                                    <button class="botoncin btn btn-outline-success">Login</button>
+                                </form>
+                                <form action="sign-in.html">
+                                    <button class="botoncin btn btn-outline-secondary">Register</button>
+                                </form>
+                            </div>
+        
+                        </div>
                     </div>
-                    <ul class="navbar-nav navbarNav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/About_Us.html">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/Contact_Us.html">Contactanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/Eventos.html">Eventos</a>
-                        </li>
-                        
-                    </ul>
-                    <form action="Paginas/log-in.html" class="botones">
-                        <button class="botoncin btn btn-outline-success">Login</button>
-                    </form>
-                    <form action="Paginas/sign-in.html">
-                        <button class="botoncin btn btn-outline-secondary">Register</button>
-                    </form>
-                </div>
-            </nav>
-        </section>
+                </nav>
+            </header>
 
         <section class="buscador-main">
             <div class="header buscador-inicial">
                 <div class="container inner-header flex">
                     <div class="row">
                         <div class="col-12">
-                            <form action="Acciones/busqueda.php">
+                            <form action="Paginas/muestraPaquetes.php" method="POST">
                                 <div class="container">
                                     <div class="row buscadorsin">
                                         <div class="search-camp col-lg-4 col-md-4 col-sm-4">
                                             <ion-icon name="location-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?">
+                                            <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?">
                                         </div>
                                         <div class="search-camp col-lg-3 col-md-3 col-sm-3" id="datepicker">
                                             <ion-icon name="calendar-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Cuando?">
+                                            <input name="fecha" type="text" class="form-control form-evento" placeholder="¿Cuando?">
                                         </div>
                                         <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                             <ion-icon name="person-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
+                                            <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
                                         </div>
                                         <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +317,7 @@
                 <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
             </nav>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"><a href="index.php">Home</a></li>
                 <li class="list-inline-item"><a href="Paginas/About_Us.html">Sobre nosotros</a></li>
                 <li class="list-inline-item"><a href="Paginas/Contact_Us.html">Contactanos</a></li>
                 <li class="list-inline-item"><a href="Paginas/Eventos.html">Eventos</a></li>

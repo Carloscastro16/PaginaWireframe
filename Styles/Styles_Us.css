@@ -14,6 +14,7 @@
 html, body{
     background: var(--Fondo);
     font-family: 'Montserrat', sans-serif;
+    overflow-y: overlay;
 }
 main{
     position: relative !important;
@@ -42,11 +43,64 @@ section{
     /*box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;*/
     margin: 3.8rem;
 }
+/* ------ Organizacion de las secciones ------ */
 
+
+/* ------ Barra de Navegación ------ */
 header{
     font-family: 'Montserrat', sans-serif;
     
 }
+.navbar-toggler ion-icon{
+    color: var(--grey-icon);
+    font-size: 1.7rem;
+}
+
+.switch{
+    background: #343D5B;
+    border-radius: 1000px;
+    border:none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+}
+.switch span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+}
+.switch ion-icon{
+    margin-top: .3rem;
+    font-size: 1.3rem;
+}
+.switch::after{
+    margin-top: -.05rem;
+    content: "";
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    background: var(--Fondo);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2) !important;
+}
+.switch.active{
+    background: orange;
+    color: var(--negro);
+    
+}
+.switch.active::after{
+    right: 0;
+    left: unset;
+}
+
 
 .logo a{
     align-items: center !important;
@@ -69,7 +123,6 @@ nav{
 }
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
-    justify-content: unset !important;
     color: var(--Fondo) !important;
 }
 .navbarNav{
@@ -82,11 +135,12 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-
+    
 }
 .botoncin {
     margin-left: .5rem;
 }
+/* ------ Barra de Navegación ------ */
 
 
 /*---------------ESTILO DE NOSOTROS------------*/
@@ -624,6 +678,7 @@ color: var(--grey-icon);
 
 @media (max-width: 463px) {
     
+    /*------ Pagina de log-in ------*/ 
     .General{
         border-radius: 7px;
         z-index: 2;
@@ -638,5 +693,30 @@ color: var(--grey-icon);
         margin: 0 !important;
         padding: 1rem !important;
     }
+    /*------ Barra de Navegación ------*/ 
+    .container-fluid{
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        padding-right: 0 !important;
+    }
+    .botones{
+        justify-content: flex-start;
+        margin-bottom: .6rem;
+    }
+    /*------ Pagina de sign-in ------*/ 
+    .log-in{
+        padding: 3rem 2rem 3rem 2rem;
+    }
+    
+    /*------ Pagina de Eventos ------*/ 
+
+    .eventitos img{
+        height: 100% !important;
+        border-radius: 15rem;
+    }
+    
+    
 }
+
+
 

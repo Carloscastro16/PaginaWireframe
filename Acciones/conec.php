@@ -3,7 +3,7 @@
 $hostname='localhost';
 $username='root';
 $password='';
-$database='tienda';
+$database='db_eventos';
 $conexion=mysqli_connect($hostname,$username,$password,$database);
 //valida la conexion de la BD
 ?>

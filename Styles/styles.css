@@ -11,7 +11,10 @@
 *{
     font-family: 'Montserrat',sans-serif;
 }
-
+/* ------ Organizacion de las secciones ------ */
+html{
+    overflow: overlay;
+}
 body{
     
     font-family: 'Montserrat', sans-serif;
@@ -28,6 +31,10 @@ main{
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
     padding-bottom: 2rem;
 }
+/* ------ Organizacion de las secciones ------ */
+
+
+/* ------ Barra de Navegación ------ */
 
 /*
 main{
@@ -38,7 +45,10 @@ header{
     font-family: 'Montserrat', sans-serif;
     
 }
-
+.navbar-toggler ion-icon{
+    color: var(--grey-icon);
+    font-size: 1.7rem;
+}
 .logo a{
     align-items: center !important;
     justify-content: center !important;
@@ -60,7 +70,6 @@ nav{
 }
 .container-fluid{
     /*Se añade important para que no choque con bootstrap*/
-    justify-content: unset !important;
     color: var(--Fondo) !important;
 }
 .navbarNav{
@@ -73,11 +82,12 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-
+    
 }
 .botoncin {
     margin-left: .5rem;
 }
+/* ------ Barra de Navegación ------ */
 
 
 /*Zona de portada */
@@ -528,4 +538,42 @@ footer {
         display: flex;
     }
 
+}
+
+/*------ Vista para Celulares ------*/ 
+
+@media (max-width: 463px) {
+    
+    /*------ Pagina de log-in ------*/ 
+    .General{
+        border-radius: 7px;
+        z-index: 2;
+        height: 100%;
+        background: transparent !important;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        padding: 0 !important;
+    }
+    .col-log{
+        margin: 0 !important;
+        padding: 1rem !important;
+    }
+    /*------ Barra de Navegación ------*/ 
+    .container-fluid{
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        padding-right: 0 !important;
+    }
+    .botones{
+        justify-content: flex-start;
+        margin-bottom: .6rem;
+    }
+    /*------ Pagina de sign-in ------*/ 
+    .log-in{
+        padding: 3rem 2rem 3rem 2rem;
+    }
+    
+    
+    
 }

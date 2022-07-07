@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid barraNav ">
                 <div class="logo">
-                    <a class="navbar-brand" href="../index.html">
+                    <a class="navbar-brand" href="../index.php">
                         Uruz
                     </a>
                 </div>
@@ -50,14 +50,6 @@
                         </li>
                         
                     </ul>
-                    <button class="switch" id="switch">
-                        <span>
-                            <ion-icon name="sunny-outline"></ion-icon>
-                        </span>
-                        <span>
-                            <ion-icon name="moon-outline"></ion-icon>
-                        </span>
-                    </button>
                     <div class="botones">
                         <form action="log-in.php">
                             <button class="botoncin btn btn-outline-success">Login</button>
@@ -72,19 +64,33 @@
         </nav>
     </header>
     <main class="log-in">
+        <?php
+        //Conexion a la base de datos
+
+        include('../Acciones/conec.php');
+        $ubicacion= $_POST['ubicacion'];
+        $fecha = $_POST['fecha'];
+        $cantPersonas = $_POST['cantPersonas'];
+        //Consulta e insercion de la query
+        $consulta="SELECT * FROM paquete where locacion_evento = '$ubicacion'";
+        $resultado=mysqli_query($conexion,$consulta);
+        ?>
         <section class="registro-inicio">
             <div class="General container">
                 <div class="row centrado">
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-log">
-                        <h2 class="center"> Log In </h2>
-                        <form action="../Acciones/login.php">
-                            <label for="">Correo</label>
-                            <input class="form-control" placeholder="Email Adress" type="email" name="correo">
-                            <label for="">Contraseña</label>
-                            <input class="form-control" placeholder="*********" type="password" name="password">
-                            <input type="submit" name="iniciar" value="Iniciar Sesion" class="btn btn-primary">
-                        </form>
+                    <?php 
+                    while($fila=mysqli_fetch_array($resultado)){
+                    ?>
+                    <div class="col-sm-2 col-lg-3 col-md-3 col-log">
+                        <h2 class="center"><?php echo $fila["nom_paquete"]?></h2>
+                        <img src="" alt="">
+                        <p> <?php echo $fila["descrip_paquete"]?></p>
+                        <div>
+                            <p><?php echo $fila["cant_personas"]?></p>
+                            <p><?php echo $fila["precio_paquete"]?></p>
+                        </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -99,7 +105,7 @@
             </nav>
             
             <ul class="list-inline navegaFooter">
-                <li class="list-inline-item"><a href="../index.php">Home</a></li>
+                <li class="list-inline-item"><a href="../index.html">Home</a></li>
                 <li class="list-inline-item"><a href="About_Us.html">Sobre nosotros</a></li>
                 <li class="list-inline-item navbar-brand"><h3>Uruz</h3></li>
                 <li class="list-inline-item"><a href="Contact_Us.html">Contactanos</a></li>
@@ -116,6 +122,6 @@
     <!-------- Scripts -------->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="../js/modoOscuro.js"></script>
+
 </body>
 </html>
