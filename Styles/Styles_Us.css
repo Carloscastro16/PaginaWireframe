@@ -583,6 +583,26 @@ color: var(--grey-icon);
     color: #7495b8;
 }
 
+.letras_separado div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+  
+}
+.letras_separado span{
+    font-size: 7vw;
+    font-weight: 600;
+    text-shadow: -0.08em 0.03em 0.12em rgba(0,0,0,0.8);
+    color: #344767;
+}  
+
+.letras_separado span:hover{
+    color: #7495b8;
+}
+/* fin de las letras*/
 .eventotes{
     display: flex;
     align-items: center;
