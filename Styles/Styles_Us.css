@@ -9,7 +9,7 @@
     --azulOscuro: #344767;
     --azulNegroso:#27354e;
     --Fondo-oscuro: #172a4c;
-
+    --blanco: #fff;
 }
 * {
     position: relative !important;
@@ -126,7 +126,7 @@ body.dark h4{
     
 }
 body.dark p{
-    color: var(--Complemento);  
+    color: var(--Fondo);  
 }
 body.dark label{
     color: var(--Complemento);  
@@ -143,13 +143,13 @@ body.dark .letras span{
     color: var(--Fondo);
 }
 body.dark .letras_separado span{
-    color: var(--Fondo);
+    color: var(--blanco);
 }
 body.dark .letras span:hover{
-    color: var(--FondoSecciones);
+    color: var(--Complemento);
 }
 body.dark .letras_separado span:hover{
-    color: var(--FondoSecciones);
+    color: var(--Complemento);
 }
 body.dark .masInfo{
     background: var(--azulNegroso);

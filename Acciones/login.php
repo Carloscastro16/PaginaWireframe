@@ -19,8 +19,10 @@ print_r($_POST);
     if(sizeof((array)$fila)>0){
 
         if($fila["clave"]==$pass){
-        
-
+            session_start();
+            $_SESSION['id']=$fila["id"];
+            $_SESSION['correo']=$fila["correo"];
+            $_SESSION['usuario']=$fila["usuario"];
             $respuesta = 1;
             echo $respuesta;
             $resultado2 = mysqli_query($conexion, $registro2);
