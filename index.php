@@ -56,6 +56,14 @@
                                 </li>
                                 
                             </ul>
+                            <button class="switch" id="switch">
+                                <span>
+                                    <ion-icon name="sunny-outline"></ion-icon>
+                                </span>
+                                <span>
+                                    <ion-icon name="moon-outline"></ion-icon>
+                                </span>
+                            </button>
                             <div class="botones">
                                 <form action="log-in.html">
                                     <button class="botoncin btn btn-outline-success">Login</button>
@@ -64,7 +72,6 @@
                                     <button class="botoncin btn btn-outline-secondary">Register</button>
                                 </form>
                             </div>
-        
                         </div>
                     </div>
                 </nav>
@@ -345,5 +352,6 @@
             });
         })
     </script>
+    <script src="js/modoOscuro.js"></script>
 </body>
 </html>

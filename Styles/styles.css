@@ -32,6 +32,76 @@ main{
     padding-bottom: 2rem;
 }
 /* ------ Organizacion de las secciones ------ */
+/* ------ Modo Oscuro ------ */
+
+.switch{
+    background: #343D5B;
+    border-radius: 1000px;
+    border:none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+}
+.switch span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+}
+.switch ion-icon{
+    margin-top: .3rem;
+    font-size: 1.3rem;
+}
+.switch::after{
+    margin-top: -.05rem;
+    content: "";
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    background: var(--Fondo);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2) !important;
+}
+.switch.active{
+    background: orange;
+    color: var(--negro);
+    
+}
+.switch.active::after{
+    right: 0;
+    left: unset;
+}
+body.dark main{
+    background:var(--Fondo-oscuro);
+}
+body.dark nav{
+    background-color: var(--azulNegroso) !important;
+}
+body.dark .footerBasic{
+    background-color: var(--azulNegroso);
+    color: var(--Fondo);
+}
+body.dark .General{
+    background: var(--azulOscuro);
+}
+body.dark .col-log{
+    background: var(--azulNegroso);
+    color: var(--Fondo);
+}
+body.dark h2{
+    color: var(--Fondo);
+}
+body.dark .form-title{
+    color: var(--Fondo);
+    
+}
 
 
 /* ------ Barra de Navegación ------ */
