@@ -77,7 +77,7 @@
                 </nav>
             </header>
             <div class="buscador-main">
-                <div class="header buscador-inicial">
+                <div class="header buscador-inicial ">
                     <div class="container inner-header flex">
                         <div class="row">
                             <div class="col-12">
