@@ -561,6 +561,27 @@ color: var(--grey-icon);
 /*------------------------------Fin de vista contactanos--------------------------------*/
 
 /*------ Seccion de los eventos ------*/ 
+.letras div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+  
+}
+.letras span{
+    font-size: 7vw;
+    font-weight: 800;
+    text-shadow: -0.08em 0.03em 0.12em rgba(0,0,0,0.8);
+    color: #344767;
+}
+ div span:not(:first-child){
+    margin-left: -0.23em;
+}
+.letras span:hover{
+    color: #7495b8;
+}
 
 .eventotes{
     display: flex;
