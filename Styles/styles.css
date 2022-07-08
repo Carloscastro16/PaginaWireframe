@@ -168,6 +168,25 @@ nav{
     margin: 0rem 0 3rem 0;
     
 }
+.letras_separado div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+  
+}
+.letras_separado span{
+    font-size: 5vw;
+    font-weight: 400;
+    text-shadow: -0.08em 0.03em 0.12em rgba(0,0,0,0.8);
+    color: #344767;
+}  
+
+.letras_separado span:hover{
+    color: #7495b8;
+}
 .portada{
     display: flex;
     align-items: center;
@@ -177,6 +196,7 @@ nav{
     padding: 3rem;
     border-radius: 0 0 25px 25px;
 }
+
 
 /*slider de portada*/
 .sliderPortada{

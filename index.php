@@ -125,7 +125,10 @@
         </section>
         <!--Seccion General-->
         <section class="portada">
-            <h1>Hacemos realidad tus sueños</h1>
+            <!--<h1>Hacemos realidad tus sueños</h1>-->
+            <div class="letras_separado portada">
+                    <span>Hacemos realidad tus sueños </span> 
+            </div>
             <div class="sliderPortada">
                 <ul>
                     <li>
