@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css">
@@ -50,6 +50,14 @@
                         </li>
                         
                     </ul>
+                    <button class="switch" id="switch">
+                                <span>
+                                    <ion-icon name="sunny-outline"></ion-icon>
+                                </span>
+                                <span>
+                                    <ion-icon name="moon-outline"></ion-icon>
+                                </span>
+                            </button>
                     <div class="botones">
                         <form action="log-in.php">
                             <button class="botoncin btn btn-outline-success">Login</button>
@@ -72,7 +80,21 @@
         $fecha = $_POST['fecha'];
         $cantPersonas = $_POST['cantPersonas'];
         //Consulta e insercion de la query
-        $consulta="SELECT * FROM paquete where locacion_evento = '$ubicacion'";
+        
+        
+        $consulta1="SELECT * FROM paquete 
+                    where locacion_evento like '$ubicacion' 
+                    AND disponibilidad_evento = 'Disponible' 
+                    AND cant_personas = $cantPersonas";
+        $consulta2="SELECT * FROM paquete 
+                    where disponibilidad_evento = 'Disponible' 
+                    AND locacion_evento like '$ubicacion'";
+
+        if(empty($cantPersonas)){
+            $consulta = $consulta2;
+        }else{
+            $consulta = $consulta1;
+        }
         $resultado=mysqli_query($conexion,$consulta);
         ?>
         <section class="registro-inicio">
@@ -81,13 +103,13 @@
                     <?php 
                     while($fila=mysqli_fetch_array($resultado)){
                     ?>
-                    <div class="col-sm-2 col-lg-3 col-md-3 col-log">
+                    <div class="col-sm-2 col-lg-3 col-md-3 ">
                         <h2 class="center"><?php echo $fila["nom_paquete"]?></h2>
                         <img src="" alt="">
                         <p> <?php echo $fila["descrip_paquete"]?></p>
                         <div>
-                            <p><?php echo $fila["cant_personas"]?></p>
-                            <p><?php echo $fila["precio_paquete"]?></p>
+                            <p>Cantidad de personas: <?php echo $fila["cant_personas"]?></p>
+                            <p>Precio total: <?php echo $fila["precio_paquete"]?></p>
                         </div>
                     </div>
                     <?php } ?>
@@ -122,6 +144,6 @@
     <!-------- Scripts -------->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script src="js/modoOscuro.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/Normalize.css">
-        <link rel="stylesheet" href="Styles/styles.css?v=2.0">
+        <link rel="stylesheet" href="Styles/Styles_Us.css?v=2.1">
         <link rel="stylesheet" href="Styles/argon-dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,16 +43,16 @@
                         <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                             <ul class="navbar-nav navbarNav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../index.php">Home</a>
+                                    <a class="nav-link" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
+                                    <a class="nav-link" href="Paginas/About_Us.html">Sobre nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Contact_Us.html">Contactanos</a>
+                                    <a class="nav-link" href="Paginas/Contact_Us.html">Contactanos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Eventos.html">Eventos</a>
+                                    <a class="nav-link" href="Paginas/Eventos.html">Eventos</a>
                                 </li>
                                 
                             </ul>
@@ -76,113 +76,110 @@
                     </div>
                 </nav>
             </header>
-
-        <section class="buscador-main">
-            <div class="header buscador-inicial">
-                <div class="container inner-header flex">
-                    <div class="row">
-                        <div class="col-12">
-                            <form action="Paginas/muestraPaquetes.php" method="POST">
-                                <div class="container">
-                                    <div class="row buscadorsin">
-                                        <div class="search-camp col-lg-4 col-md-4 col-sm-4">
-                                            <ion-icon name="location-outline"></ion-icon>
-                                            <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?">
-                                        </div>
-                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3" id="datepicker">
-                                            <ion-icon name="calendar-outline"></ion-icon>
-                                            <input name="fecha" type="text" class="form-control form-evento" placeholder="¿Cuando?">
-                                        </div>
-                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                            <ion-icon name="person-outline"></ion-icon>
-                                            <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
-                                        </div>
-                                        <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                            <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
+            <div class="buscador-main">
+                <div class="header buscador-inicial">
+                    <div class="container inner-header flex">
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="Paginas/muestraPaquetes.php" method="POST">
+                                    <div class="container">
+                                        <div class="row buscadorsin">
+                                            <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                                <ion-icon name="location-outline"></ion-icon>
+                                                <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3" id="datepicker">
+                                                <ion-icon name="calendar-outline"></ion-icon>
+                                                <input name="fecha" type="text" class="form-control form-evento" placeholder="¿Cuando?">
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                                <ion-icon name="person-outline"></ion-icon>
+                                                <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
+                                            </div>
+                                            <div class="search-camp col-lg-2 col-md-2 col-sm-2">
+                                                <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xnlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                        <defs>
-                            <path
-                            id="gentle-wave"
-                            d="M-180 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
-                        </defs>
-                        <g class="parallax">
-                            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)"/>
-                            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
-                            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
-                            <use xlink:href="#gentle-wave" x="48" y="7" fill="#f4f9fe"/>
-                        </g>
-                    </svg>
+                    <div>
+                        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xnlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                            <defs>
+                                <path
+                                id="gentle-wave"
+                                d="M-180 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+                            </defs>
+                            <g class="parallax">
+                                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="7" fill="#f4f9fe"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!--Seccion General-->
-        <section class="portada">
-            <!--<h1>Hacemos realidad tus sueños</h1>-->
-            <div class="letras_separado portada">
-                    <span>Hacemos realidad tus sueños </span> 
-            </div>
-            <div class="sliderPortada">
-                <ul>
-                    <li>
-                        <img src="img/bodaPlaya.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/Cena.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/DamasHonor.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/newyear.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/Casino.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/ted-talk.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/triatlon.jpg" alt="">
-                    </li>
+            <!--Seccion General-->
+            <div class="portada">
+                <!--<h1>Hacemos realidad tus sueños</h1>-->
+                <div class="letras_separado portada">
+                        <span>Hacemos realidad tus sueños </span> 
+                </div>
+                <div class="sliderPortada">
+                    <ul>
+                        <li>
+                            <img src="img/bodaPlaya.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/Cena.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/DamasHonor.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/newyear.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/Casino.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/ted-talk.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/triatlon.jpg" alt="">
+                        </li>
+                        
+                        <!--Repeticion para que sea infinito-->
+                        <li>
+                            <img src="img/bodaPlaya.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/Cena.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/DamasHonor.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/newyear.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/Casino.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/ted-talk.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="img/triatlon.jpg" alt="">
+                        </li>
+                    </ul>
                     
-                    <!--Repeticion para que sea infinito-->
-                    <li>
-                        <img src="img/bodaPlaya.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/Cena.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/DamasHonor.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/newyear.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/Casino.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/ted-talk.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/triatlon.jpg" alt="">
-                    </li>
-                </ul>
-                
+                </div>
             </div>
-        </section>
-        <Section class="generalSection">
-            <!--Portada de la pagina-->
-            <section class="queHacemos">
-                
+            <Section class="General">
+                <!--Portada de la pagina-->
                 <div class="container queCosa">
                     <div class="row">
                         
@@ -202,7 +199,7 @@
                     <div class="row Muestras">
                         
                         <!--Iconos Ejemplos -->
-                        <div class="iconosMuestra col-md-5 offset-md-1">
+                        <div class="iconosMuestra col-sm-12 col-lg-6 col-md-6">
                             <div class="card">
                                 <h3>Sociales</h3>
                                 <img src="img/Casino.jpg" alt="">
@@ -217,7 +214,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="iconosMuestra col-md-5">
+                        <div class="iconosMuestra col-sm-12 col-lg-6 col-md-6">
                             <div class="card">
                                 <h3>Corporativos</h3>
                                 <img src="img/Boda.jpg" alt="">
@@ -235,84 +232,83 @@
                         
                     </div>
                 </div>
-                
+            </Section>
+            <!--Slider para marcas-->
+            <section class="seccionSlider">
+                <h2>Empresas Vinculadas</h2>
+                <div class="slider">
+                    <div class="galeria">
+                        <div class="imagen">
+                            <img src="img/Marcas/Amazon.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/DHL.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Ebay.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Facebook.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Zoom.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Forbes.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Google.png" alt="">
+                        </div>
+            
+                        <!--Esta sera la repeticion de las imagenes-->
+                        <div class="imagen">
+                            <img src="img/Marcas/Amazon.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/DHL.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Ebay.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Facebook.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Zoom.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Forbes.png" alt="">
+                        </div>
+                        <div class="imagen">
+                            <img src="img/Marcas/Google.png" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
             </section>
-        </Section>
-        <!--Slider para marcas-->
-        <section class="seccionSlider">
-            <h2>Empresas Vinculadas</h2>
-            <div class="slider">
-                <div class="galeria">
-                    <div class="imagen">
-                        <img src="img/Marcas/Amazon.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/DHL.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Ebay.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Facebook.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Zoom.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Forbes.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Google.png" alt="">
-                    </div>
-        
-                    <!--Esta sera la repeticion de las imagenes-->
-                    <div class="imagen">
-                        <img src="img/Marcas/Amazon.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/DHL.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Ebay.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Facebook.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Zoom.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Forbes.png" alt="">
-                    </div>
-                    <div class="imagen">
-                        <img src="img/Marcas/Google.png" alt="">
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        
-        <!--Seccion de Que hacemos-->
-        <section class="masInfo">
-            <div class="container">
-                <div class="row filita" >
-                    <div class="contamosMas col-sm-8">
-                        <h2>Te contamos mas sobre nuestros eventos</h2>
-                        <p>
-                            Nuestra especialidad siempre sera la flexibilidad, buscamos crear todo lo que se te pueda ocurrir,
-                            tenemos conexiones con muchas empresas que podran ayudarte a crear tu evento perfecto.
-                        </p>
-                        <button class="butMues" role="button">
-                            <a href="Paginas/Eventos.html" >Saber más</a>
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="img/newyear.jpg" alt="">
+            
+            <!--Seccion de Que hacemos-->
+            <section class="masInfo">
+                <div class="container">
+                    <div class="row filita" >
+                        <div class="contamosMas col-sm-8">
+                            <h2>Te contamos mas sobre nuestros eventos</h2>
+                            <p>
+                                Nuestra especialidad siempre sera la flexibilidad, buscamos crear todo lo que se te pueda ocurrir,
+                                tenemos conexiones con muchas empresas que podran ayudarte a crear tu evento perfecto.
+                            </p>
+                            <button class="butMues" role="button">
+                                <a href="Paginas/Eventos.html" >Saber más</a>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="img/newyear.jpg" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+            
 
     
     

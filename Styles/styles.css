@@ -7,6 +7,10 @@
     --dark-letters: #4b4c4d;
     --grey-icon: #aaa;
     --Fondo-dark: #344767;
+    --azulOscuro: #344767;
+    --azulNegroso:#27354e;
+    --Fondo-oscuro: #172a4c;
+
 }
 *{
     font-family: 'Montserrat',sans-serif;
@@ -32,6 +36,20 @@ main{
     padding-bottom: 2rem;
 }
 /* ------ Organizacion de las secciones ------ */
+.General{
+    border-radius: 7px;
+    z-index: 2;
+    height: 100%;
+    background: var(--FondoSecciones);
+    -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    padding: 3rem;
+}
+section{
+    /*box-shadow:var(--Complemento) 1.95px 1.95px 2.6px;*/
+    margin: 3.8rem;
+}
 /* ------ Modo Oscuro ------ */
 
 .switch{
@@ -95,12 +113,47 @@ body.dark .col-log{
     background: var(--azulNegroso);
     color: var(--Fondo);
 }
+body.dark h1{
+    color: var(--Fondo);
+}
 body.dark h2{
     color: var(--Fondo);
+}
+body.dark h3{
+    color: var(--Fondo);
+}
+body.dark h4{
+    color: var(--Fondo);
+    
+}
+body.dark p{
+    color: var(--Complemento);
+    
 }
 body.dark .form-title{
     color: var(--Fondo);
     
+}
+body.dark .login-form input:first-child{
+    background: transparent;
+}
+body.dark .login-form input:nth-child(2){
+    background: transparent;
+}
+body.dark .login-form input:nth-child(4){
+    background: transparent;
+}
+body.dark .letras span{
+    color: var(--Fondo);
+}
+body.dark .letras_separado span{
+    color: var(--Fondo);
+}
+body.dark .letras span:hover{
+    color: var(--FondoSecciones);
+}
+body.dark .letras_separado span:hover{
+    color: var(--FondoSecciones);
 }
 
 
@@ -175,10 +228,10 @@ nav{
     transform: translate(-50%,-50%);
     width: 100%;
     text-align: center;
-  
+
 }
 .letras_separado span{
-    font-size: 5vw;
+    font-size: calc(100vw - 200rem);
     font-weight: 400;
     text-shadow: -0.08em 0.03em 0.12em rgba(0,0,0,0.8);
     color: #344767;
