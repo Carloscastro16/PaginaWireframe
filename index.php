@@ -65,10 +65,10 @@
                                 </span>
                             </button>
                             <div class="botones">
-                                <form action="log-in.html">
+                                <form action="Paginas/log-in.html">
                                     <button class="botoncin btn btn-outline-success">Login</button>
                                 </form>
-                                <form action="sign-in.html">
+                                <form action="Paginas/sign-in.html">
                                     <button class="botoncin btn btn-outline-secondary">Register</button>
                                 </form>
                             </div>

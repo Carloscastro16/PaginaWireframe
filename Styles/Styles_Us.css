@@ -126,22 +126,19 @@ body.dark h4{
     
 }
 body.dark p{
-    color: var(--Complemento);
-    
+    color: var(--Complemento);  
+}
+body.dark label{
+    color: var(--Complemento);  
 }
 body.dark .form-title{
     color: var(--Fondo);
     
 }
-body.dark .login-form input:first-child{
-    background: transparent;
+body.dark .form-control{
+    background: transparent !important;
 }
-body.dark .login-form input:nth-child(2){
-    background: transparent;
-}
-body.dark .login-form input:nth-child(4){
-    background: transparent;
-}
+
 body.dark .letras span{
     color: var(--Fondo);
 }
