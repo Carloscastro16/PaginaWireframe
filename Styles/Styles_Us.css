@@ -214,16 +214,39 @@ nav{
 .second-text{
     color: var(--Complemento) !important;
 }
-
-#siderbar-wrapper{
+.rounded-full {
+    border-radius: 100%;
+  }
+#wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient(
+      to right,
+      #bac9f3,
+      #c2daf5,
+      #cbdef7,
+      #d4d8f8,
+      #dde5fa
+    );
+  }
+  #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
-}
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+  }
+
 #sidebar-wrapper .sidebar-heading{
     padding: 0.875rem 1.23rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
-
+#sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
 #wrapper.toggled #sidebar-wrapper{
     margin-left:0;
 }
@@ -240,7 +263,7 @@ nav{
     font-weight: bold;
     border: none;
 }
-@media (min-width:769px){
+@media (min-width:768px){
     #sidebar-wrapper{
         margin-left: 0;
     }
