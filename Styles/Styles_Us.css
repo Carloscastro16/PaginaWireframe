@@ -11,9 +11,7 @@
     --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
 }
-* {
-    position: relative !important;
-}
+
 html, body{
     background: var(--Fondo);
     font-family: 'Montserrat', sans-serif !important;
@@ -30,8 +28,12 @@ main{
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
     padding-bottom: 2rem;
 }
-
+h2{
+    margin: 0 !important;
+}
 /* ------ Organizacion de las secciones ------ */
+/* ------ Esta clase se pone a cada seccion para que se cree un 
+cuadro flotante de color ------ */
 .General{
     border-radius: 7px;
     z-index: 2;
@@ -197,6 +199,7 @@ nav{
     justify-content:flex-start;
     width: 100%;
     color: var(--Fondo);
+    font-size: 1.8rem;
 }
 .botones{
     display: flex;

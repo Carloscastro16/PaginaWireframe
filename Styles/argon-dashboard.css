@@ -4063,7 +4063,7 @@ fieldset:disabled .btn {
 
 .dropdown-menu {
   --bs-dropdown-min-width: 11rem;
-  --bs-dropdown-padding-x: 0;
+  --bs-dropdown-padding-x: 0.5rem;
   --bs-dropdown-padding-y: 0.5rem;
   --bs-dropdown-spacer: 1.625rem;
   --bs-dropdown-font-size: 0.875rem;
@@ -4104,8 +4104,7 @@ fieldset:disabled .btn {
 }
 
 .dropdown-menu[data-bs-popper] {
-  top: 100%;
-  left: 0;
+  top: 2.2rem;
   margin-top: var(--bs-dropdown-spacer);
 }
 
