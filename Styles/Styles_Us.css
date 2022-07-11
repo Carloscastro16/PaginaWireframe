@@ -11,6 +11,19 @@
     --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
 }
+body.dark {
+    --Fondo:  #c4d2e7;
+    --FondoSecciones: #f4f9fe;
+    --negro: #000000;  
+    --Complemento: #7495b8;
+    --salmon: #7495b8;
+    --dark-letters: #4b4c4d;
+    --grey-icon: #aaa;
+    --azulOscuro: #344767;
+    --azulNegroso:#27354e;
+    --Fondo-oscuro: #172a4c ;
+    --blanco: #fff;
+}
 
 html, body{
     background: var(--Fondo);

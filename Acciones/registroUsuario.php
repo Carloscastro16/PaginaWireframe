@@ -8,6 +8,7 @@ if(isset($_POST['agregar'])){
     $correo= $_POST['correoUser'];
     $usuario= $_POST['username'];
     $clave= $_POST['password'];
+    $encryptPass = password_hash($pass, PASSWORD_DEFAULT);
     //consulta mysql//
     $insertarUsuario= "CALL `sp_registrarUsuario`('$nomUser','$apellPa','$apellMa','$celular','$correo','$usuario','$clave')";
     $resultados=mysqli_query($conexion,$insertarUsuario);
