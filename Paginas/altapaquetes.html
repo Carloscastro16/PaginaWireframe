@@ -30,19 +30,20 @@
                 </div>
                 <div class="list-group list-group-flush my-3">
                     <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
-                        <i class="fa-solid fa-gauge-high"></i> Dashboard 
+                        <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
                     <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-user"></i> Perfil 
+                        <i class="fa-solid fa-user"></i> Perfil
                     </a>
-                    <a href="../Paginas/altapaquetes.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-plus"></i> Alta paquetes 
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-address-card"></i> Todos mis paquetes 
+                    <a href="../Paginas/altapaquetes.html"
+                        class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fa-solid fa-plus"></i> Alta paquetes
                     </a>
                     <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-right-from-bracket"></i> Logout 
+                        <i class="fa-solid fa-address-card"></i> Todos mis paquetes
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </div>
             </div>
@@ -62,8 +63,8 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item-dropdown">
                                 <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>hola usuario
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user me-2"></i>hola usuario
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="dropdown-link">
@@ -80,22 +81,76 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid px-4">
-                    <h3> Titulo</h3>
-                </div>
+
+                <main class="log-in">
+                    <section class="registro-inicio">
+                        <div class="General centrado container">
+                            <form>
+                                <div class="row centrado col-log">
+                                    <div class="col-12">
+                                        <h3> Alta de paquetes</h3>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <label for="">Nombre</label>
+                                        <input class="form-control" placeholder="" name="nombre" type="text">
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <label for="">Cantidad de personas</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Selecciona la cantidad</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <label for="">Precio</label>
+                                        <input class="form-control" placeholder="Email Adress" name="correo"
+                                            type="email">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <label for="">Locación del evento</label>
+                                        <input class="form-control" name="password" type="password">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6"">
+                                        <label for="">Dirección del local</label>
+                                        <input class=" form-control" type="password">
+
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-6"">
+                                        <label for="">Disponibilidad</label>
+                                        <select class=" form-select" aria-label="Default select example">
+                                        <option selected>Selecciona la disponibilidad</option>
+                                        <option value="1">Disponible</option>
+                                        <option value="2">No disponible</option>
+
+                                        </select>
+
+                                    </div>
+
+                                    <input type="submit" name="registro" value="Alta de paquete"
+                                        class="botoncin btn btn-primary col-md-6 col-lg-2">
+
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </main>
             </div>
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-        <script>
-            var el=document.getElementById("wrapper")
-            var toggleButton=document.getElementById("menu-toggle")
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script>
+        var el = document.getElementById("wrapper")
+        var toggleButton = document.getElementById("menu-toggle")
 
-            toggleButton.onclick=function(){
-                el.classList.toggle("toggle")
-            }
-        </script>
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggle")
+        }
+    </script>
 </body>
 
 </html>
