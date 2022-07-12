@@ -1,17 +1,26 @@
 <?php
 include('conec.php');
-if(isset($_POST['agregar'])){
+$agregar = $_POST['agregar'];
+
     $nomUser= $_POST['nombre'];
-    $apellPa= $_POST['apellidos'];
+    $apellPa= $_POST['apellPa'];
+    $apellMa= $_POST['apellMa'];
     $correo= $_POST['correo'];
-    $clave= $_POST['password'];
+    $pass= $_POST['password'];
+    $telefono= $_POST['telefono'];
+    $rfc= $_POST['rfc'];
     $encryptPass = password_hash($pass, PASSWORD_DEFAULT);
     //consulta mysql//
-    $insertarUsuario= "CALL `sp_registrarUsuario`('$nomUser','$apellPa','$apellMa','$celular','$correo','$usuario','$clave')";
-    $resultados=mysqli_query($conexion,$insertarUsuario);
     //mensaje si no se ingresa valores//
-    
+
+if(empty($rfc)){
+    $insertarUsuario= "CALL sp_reg_cliente('$nomUser','$apellPa','$apellMa','$correo','$encryptPass')";
+    $resultados=mysqli_query($conexion,$insertarUsuario);
+    header ('location: ../Paginas/DashboardCliente.html');
+}else{
+    $insertarUsuario = "CALL `sp_reg_usrempresa`('$nomUser','$apellPa','$apellMa','$correo','$encryptPass',$telefono,'$rfc')";
+    $resultados=mysqli_query($conexion,$insertarUsuario);
+    header ('location: ../Paginas/DashboardEmpresa.html');
 }
-header('location: ../pages/usuarios.php');
     //redireccionamiento//
 ?>

@@ -87,10 +87,6 @@ section{
     color: #fff;
 }
 
-
-
-
-
 .switch ion-icon{
     margin-top: .3rem;
     font-size: 1.3rem;
@@ -240,26 +236,26 @@ nav{
 }
 .rounded-full {
     border-radius: 100%;
-  }
+}
 #wrapper {
     overflow-x: hidden;
     background-image: linear-gradient(
-      to right,
-      #bac9f3,
-      #c2daf5,
-      #cbdef7,
-      #d4d8f8,
-      #dde5fa
+    to right,
+    #bac9f3,
+    #c2daf5,
+    #cbdef7,
+    #d4d8f8,
+    #dde5fa
     );
-  }
-  #sidebar-wrapper {
+}
+#sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
     -webkit-transition: margin 0.25s ease-out;
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
-  }
+}
 
 #sidebar-wrapper .sidebar-heading{
     padding: 0.875rem 1.23rem;
@@ -267,10 +263,10 @@ nav{
 }
 #sidebar-wrapper .list-group {
     width: 15rem;
-  }
-  #page-content-wrapper {
+}
+#page-content-wrapper {
     min-width: 100vw;
-  }
+}
 #wrapper.toggled #sidebar-wrapper{
     margin-left:0;
 }
@@ -973,7 +969,7 @@ footer {
     display: flex;
     justify-content: center;
     font-size: 2.4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
 }
 .col-log label{
     color: var(--Complemento);
@@ -990,6 +986,17 @@ footer {
 }
 .registro-inicio{
     margin: 0;
+}
+
+.empresa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.empresa ion-icon{
+    font-size: 1.1rem;
+    margin-right: .3rem;
 }
 
 /*Seccion de las redes sociales*/
