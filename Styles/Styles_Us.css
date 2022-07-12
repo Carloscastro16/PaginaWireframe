@@ -1164,8 +1164,11 @@ div span:not(:first-child){
     
 }
 
-/* diseño del perfil dhasboard*/
+/* diseño del perfil dhasboard */
 
+.editar{
+    
+}
 .imaperfil{
     text-align: center;
 }

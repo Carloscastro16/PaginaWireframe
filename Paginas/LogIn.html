@@ -1,3 +1,16 @@
+<?php?
+    session_start();
+    $varsession = $_SESSION['id'];
+    $varsession = $_SESSION['Nombre'];
+    $varsession = $_SESSION['Correo'];
+
+    if($varsession == null || $varsession == '') {
+        echo "ERROR: 412 Usted no tiene acceso"
+        header('Location: index.html');
+        die();
+    }
+>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +93,7 @@
                 <div class="row centrado">
                     <div class="col-sm-7 col-lg-8 col-md-8 col-log login-form">
                         <h2 class="center form-title"> Log In </h2>
-                        <form action="../Acciones/login.php">
+                        <form action="../Acciones/login.php" method="POST">
                             <label class="form-title" for="">Correo</label>
                             <input class="form-control" placeholder="Email Adress" type="email" name="correo">
                             <label class="form-title" for="">Contraseña</label>

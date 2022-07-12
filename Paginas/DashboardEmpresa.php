@@ -1,15 +1,15 @@
-<?php?
+<?php
     session_start();
     $varsession = $_SESSION['id'];
     $varsession = $_SESSION['Nombre'];
-    $varsession = $_SESSION['Correo];
+    $varsession = $_SESSION['Correo'];
 
     if($varsession == null || $varsession == '' || $varsession == '2') {
-        echo "ERROR: 412 Usted no tiene acceso"
-        header('Location: index.html');
+        echo "ERROR: 412 Usted no tiene acceso";
+        header('Location: ../index.html');
         die();
     }
->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,18 +42,12 @@
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
                 <div class="list-group list-group-flush my-3">
-                    <a href="../Paginas/dashboard_empresa.html"  class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <a href="../Paginas/DashboardCliente.html"
+                        class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
-                    <a  href="../Paginas/perfilDashboard.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="../Paginas/PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
-                    </a>
-                    <a href="../Paginas/altapaquetes.html"
-                        class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-plus"></i> Alta paquetes
-                    </a>
-                    <a href="../Paginas/paquetesEmpresa.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-address-card"></i> Todos mis paquetes
                     </a>
                     <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
@@ -97,55 +91,49 @@
 
                 <main class="log-in">
                     <section class="registro-inicio">
-                        <div class="General centrado container">
-                            <form>
-                                <div class="row centrado col-log">
-                                    <div class="col-12">
-                                        <h3> Alta de paquetes</h3>
+                        <div class="General  container">
+                            
+                                <form method="#">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="imaperfil">
+                                                <img src="../Images/per4.jpg" alt=""/>
+                                                <div class="file btn btn-lg btn-primary">
+                                                    Cambiar foto
+                                                    <input type="file" name="file"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="titulito">
+                                                        <h5>
+                                                            Nombre usuario
+                                                        </h5>
+                                                        <h6>
+                                                            Nombre empresa
+                                                        </h6>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="submit" name="registro" value="Editar perfil" 
+                                            class="btn btn-primary">
+                                        </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
-                                        <label for="">Nombre</label>
-                                        <input class="form-control" placeholder="" name="nombre" type="text">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="perfil">
+                                                <p>Redes Sociales</p>
+                                                <a href="">facebook</a><br/>
+                                                <a href="">Whatsapp</a><br/>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            
+                                        </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
-                                        <label for="">Cantidad de personas</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Selecciona la cantidad</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-6">
-                                        <label for="">Precio</label>
-                                        <input class="form-control" placeholder="Email Adress" name="correo"
-                                            type="email">
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-6">
-                                        <label for="">Locación del evento</label>
-                                        <input class="form-control" name="password" type="password">
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-6"">
-                                        <label for="">Dirección del local</label>
-                                        <input class=" form-control" type="password">
-
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-6"">
-                                        <label for="">Disponibilidad</label>
-                                        <select class=" form-select" aria-label="Default select example">
-                                        <option selected>Selecciona la disponibilidad</option>
-                                        <option value="1">Disponible</option>
-                                        <option value="2">No disponible</option>
-
-                                        </select>
-
-                                    </div>
-
-                                    <input type="submit" name="registro" value="Alta de paquete"
-                                        class="botoncin btn btn-primary col-md-6 col-lg-2">
-
-                                </div>
-                            </form>
+                                </form>           
                         </div>
                     </section>
                 </main>

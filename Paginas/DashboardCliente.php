@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $varsession = $_SESSION['id'];
+    $varsession = $_SESSION['Nombre'];
+    $varsession = $_SESSION['Correo'];
+
+    if($varsession == null || $varsession == '' || $varsession == '3') {
+        echo "ERROR: 412 Usted no tiene acceso";
+        header('Location: ../index.html');
+        die();
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,8 +116,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="submit" name="registro" value="Editar perfil"
-                                        class="botoncin btn btn-primary col-md-9">
+                                            <input type="submit" name="registro" value="Editar perfil" 
+                                            class="btn btn-primary">
                                         </div>
                                     </div>
                                     <div class="row">

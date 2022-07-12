@@ -69,7 +69,6 @@
                                 <button class="botoncin btn btn-outline-secondary">Register</button>
                             </form>
                         </div>
-    
                     </div>
                 </div>
             </nav>
