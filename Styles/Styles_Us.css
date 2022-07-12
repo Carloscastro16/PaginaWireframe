@@ -6,6 +6,7 @@
     --salmon: #7495b8;
     --dark-letters: #4b4c4d;
     --grey-icon: #aaa;
+    --navbar: #344767;
     --azulOscuro: #344767;
     --azulNegroso:#27354e;
     --Fondo-oscuro: #172a4c ;
@@ -30,6 +31,7 @@ html, body{
     font-family: 'Montserrat', sans-serif !important;
     overflow-y: overlay;
 }
+
 main{
     position: relative !important;
     z-index: 1;
@@ -74,6 +76,7 @@ section{
     cursor: pointer;
     display: flex;
     outline: none;
+    justify-content: space-between;
 }
 .switch span{
     width: 30px;
@@ -953,7 +956,7 @@ footer {
 }
 .col-log{
     padding: 5rem 3rem !important;
-    background-color: var(--FondoSecciones);
+    background-color: var(--navbar);
     width: auto;
     max-width: 130vh;
     border-radius: 15px;
@@ -961,15 +964,18 @@ footer {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .center{
+    color: var(--blanco);
     display: flex;
     justify-content: center;
     font-size: 2.4rem;
     margin-bottom: 1rem;
 }
 .col-log label{
+    color: var(--Complemento);
     font-size: .98rem;
 }
 .col-log input{
+    color: var(--Complemento);
     margin-bottom: 2rem;
     
 }

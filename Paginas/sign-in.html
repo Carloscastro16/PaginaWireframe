@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v1.0">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v1.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css?v1.0">
@@ -78,17 +78,21 @@
     <main class="log-in">
         <section class="registro-inicio">
             <div class="General centrado container">
-                <form action="../Acciones/sign-in.php">
+                <form action="../Acciones/sign-in.php" onsubmit="return validar();">
                     <div class="row centrado col-log">
                         <div class="col-12">
                             <h2 class="center">Registrate</h2>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="col-sm-12 col-md-4 col-lg-6">
                             <label for="">Nombre</label>
                             <input class="form-control" placeholder="" name="nombre" type="text">
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6">
-                            <label for="">Apellidos</label>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <label for="">Apellido Paterno</label>
+                            <input class="form-control" placeholder="" name="apellidos" type="text">
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <label for="">Apellido Materno</label>
                             <input class="form-control" placeholder="" name="apellidos" type="text">
                         </div>
                         <div class="col-12">
@@ -101,7 +105,7 @@
                         </div>
                         <div class="col-12">
                             <label for="">Confirma la Contraseña</label>
-                            <input class="form-control" placeholder="*********" type="password">
+                            <input class="form-control" placeholder="*********" type="password" name="confPass">
                             <input type="submit" name="registro" value="Registrame" class="botoncin btn btn-primary">
                         </div>
                     </div>
