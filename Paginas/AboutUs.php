@@ -1,3 +1,9 @@
+<?php
+// No mostrar los errores de PHP
+// Para que se inicialice la variable de session
+error_reporting(0);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,14 +67,58 @@
                                 <ion-icon name="moon-outline"></ion-icon>
                             </span>
                         </button>
-                        <div class="botones">
+                        <?php
+                        include ('../Acciones/conec.php');
+                        session_start();
+                        $varsession = $_SESSION['id'];
+                        $correo = $_SESSION['Correo'];
+                        $rolUsuario = $_SESSION['rolUsuario'];
+                        $nombreUsuario = $_SESSION['nombre_usuario'];
+                        if(isset($varsession)){
+                            echo "
+                            <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                                <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+                                    <li class='nav-item-dropdown'>
+                                        <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
+                                            role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                            <i class='fas fa-user me-'></i> Hola, $nombreUsuario!
+                                        </a>
+                                        <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                            <li class='dropdown-link'>
+                                                <a href='../Paginas/PerfilCliente.html'>Perfil</a>
+                                            </li>
+                                            <li class='dropdown-link'>
+                                                <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
+                                            </li>
+                                            <li class='dropdown-link'>
+                                                <a href='../Acciones/Log-out.php'>Logout</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            ";
+                        }else{
+                            echo "
+                            <div class='botones'>
+                                <form action='LogIn.html'>
+                                    <button class='botoncin btn btn-outline-success'>Login</button>
+                                </form>
+                                <form action='SignIn.html'>
+                                    <button class='botoncin btn btn-outline-secondary'>Register</button>
+                                </form>
+                            </div>
+                            ";
+                        }
+                        ?>
+                        <!-- <div class="botones">
                             <form action="LogIn.html">
                                 <button class="botoncin btn btn-outline-success">Login</button>
                             </form>
                             <form action="SignIn.html">
                                 <button class="botoncin btn btn-outline-secondary">Register</button>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </nav>
@@ -79,7 +129,7 @@
         <div class="nosotros container">
                 <div class="filasQuienes row">
                     <div class=" col-sm-6">
-                     
+                    
                         <div class="letras_separado titulo">
                             <span>¿Quiénes </span> 
                         </div>

@@ -1,10 +1,11 @@
 <?php
     session_start();
     $varsession = $_SESSION['id'];
-    $varsession = $_SESSION['Nombre'];
-    $varsession = $_SESSION['Correo'];
+    $correo = $_SESSION['Correo'];
+    $rolUsuario = $_SESSION['rolUsuario'];
+    $nombreUsuario = $_SESSION['nombre_usuario'];
 
-    if($varsession == null || $varsession == '' || $varsession == '2') {
+    if($varsession == null || $varsession == '' || $rolUsuario == '2') {
         echo "ERROR: 412 Usted no tiene acceso";
         header('Location: ../index.html');
         die();
@@ -66,22 +67,22 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item-dropdown">
-                                <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user me-2"></i>hola usuario
+                    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                        <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+                            <li class='nav-item-dropdown'>
+                                <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
+                                    role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                    <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?> !
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li class="dropdown-link">
-                                        <a href="#">Perfil</a>
+                                <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                    <li class='dropdown-link'>
+                                        <a href='../Paginas/PerfilCliente.html'>Perfil</a>
                                     </li>
-                                    <li class="dropdown-link">
-                                        <a href="#">Configuración</a>
+                                    <li class='dropdown-link'>
+                                        <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
                                     </li>
-                                    <li class="dropdown-link">
-                                        <a href="#">Logout</a>
+                                    <li class='dropdown-link'>
+                                        <a href='../Acciones/Log-out.php'>Logout</a>
                                     </li>
                                 </ul>
                             </li>

@@ -5,14 +5,16 @@
 print_r($_POST);
 
     $email = $_POST['correo'];
-    $pass = $_POST['password'];
-    //password_hash sirve para encriptar la contraseña y se añade en el registro
-    /* $encryptPass = password_hash($pass, PASSWORD_DEFAULT); */
-    
+    $pass = $_POST['password'];    
     $consulta = "SELECT * FROM usuario WHERE correo_usuario = '$email'";
-    /* $registro = "CALL tr_logeo_inicio('$email', '$pass')"; */
+
+    /* Colsulta para guardar el registro en una tabla */
     $resultado = mysqli_query($conexion, $consulta);
     $fila= mysqli_fetch_array($resultado);
+    $rolUsuario = $fila["fk_rol_usuario"];
+    $idUsuario = $fila["cod_usuario"];
+    $nombre_usuario = $fila["nombre_usuario"];
+    $registro = "CALL tr_logeo_usuarios('$email', $idUsuario, $rolUsuario)";
     
     //Confirma que se hizo algo nadamas
     $respuesta = '';
@@ -24,12 +26,13 @@ print_r($_POST);
         if(sizeof((array)$fila)>0){
             if ($encryptPass){
                 session_start();
-                $_SESSION['id']=$fila["cod_usuario"];
-                $_SESSION['correo']=$fila["correo_usuario"];
-                $_SESSION['password']=$fila["contra_usuario"];
+                $_SESSION['id']= $idUsuario;
+                $_SESSION['Correo']= $email;
+                $_SESSION['rolUsuario'] = $rolUsuario;
+                $_SESSION['nombre_usuario'] = $nombre_usuario;
                 $respuesta = 1;
                 echo $respuesta;
-                /* $resultado2 = mysqli_query($conexion, $registro); */
+                $resultado2 = mysqli_query($conexion, $registro);
             } else {
                 $respuesta = "La respuesta no coincide";
             }
