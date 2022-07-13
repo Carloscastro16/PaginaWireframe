@@ -7,8 +7,12 @@ include('conec.php');
 $_SESSION['id'];
 $_SESSION['Correo'];
 $_SESSION['rolUsuario'];
-$registro = "CALL tr_salida_usuario('$_SESSION['Correo']', '$_SESSION['id']', '$_SESSION['rolUsuario'];')";
-$resultado = mysqli_query($conexion, $consulta);
+$id = $_SESSION['id'];
+$correo = $_SESSION['Correo'];
+$rolUsuario = $_SESSION['rolUsuario'];
+
+$registro = "CALL tr_salida_usuario('$correo', '$id', '$rolUsuario')";
+$resultado = mysqli_query($conexion, $registro);
 
 // Si se desea destruir la sesión completamente, borre también la cookie de sesión.
 // Nota: ¡Esto destruirá la sesión, y no la información de la sesión!

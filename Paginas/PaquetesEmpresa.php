@@ -1,15 +1,15 @@
-<?php?
+<?php
     session_start();
     $varsession = $_SESSION['id'];
     $varsession = $_SESSION['Nombre'];
-    $varsession = $_SESSION['Correo];
+    $varsession = $_SESSION['Correo'];
 
     if($varsession == null || $varsession == '' || $varsession == '2') {
         echo "ERROR: 412 Usted no tiene acceso"
         header('Location: index.html');
         die();
     }
->
+?>
 
 <!DOCTYPE html>
 <html lang="en">

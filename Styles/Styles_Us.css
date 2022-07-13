@@ -950,13 +950,6 @@ footer {
 .log-in{
     padding: 5rem;
 }
-.centrado{
-
-    display: flex;
-    align-items: center !important;
-    justify-content: center !important;
-
-}
 .col-log{
     padding: 5rem 3rem !important;
     background-color: var(--navbar);
@@ -965,7 +958,24 @@ footer {
     border-radius: 15px;
     margin-inline: 1rem !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--Complemento);
 }
+.centrado{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content: center !important;
+
+}
+.col-log h3{
+    color: var(--blanco);
+}
+
 .center{
     color: var(--blanco);
     display: flex;

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('../Acciones/conec.php');
     $varsession = $_SESSION['id'];
     $correo = $_SESSION['Correo'];
     $rolUsuario = $_SESSION['rolUsuario'];
@@ -10,6 +11,11 @@
         header('Location: ../index.html');
         die();
     }
+    $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
+    $consulta = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
+    $resultado = mysqli_query($conexion, $consulta);
+    $filaUsr= mysqli_fetch_array($resultado);
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +37,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
     <title>Empresa</title>
     <link rel="icon" href="img/favicon.svg">
 </head>
@@ -46,17 +53,17 @@
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
                 <div class="list-group list-group-flush my-3">
-                    <a href="../Paginas/DashboardCliente.html"
+                    <a href="DashboardCliente.php"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
-                    <a  href="../Paginas/PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="PerfilCliente.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
-                    <a  href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+                    <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Alta de paquetes
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </div>
@@ -82,10 +89,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilCliente.html'>Perfil</a>
+                                        <a href='PerfilCliente.html'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
+                                        <a href='PerfilEmpresa.html'>Configuración</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -100,76 +107,47 @@
                     <section class="registro-inicio">
                         <div class="General  container">
                             
-                                <form action="../Acciones/registroPaquete.php" method="POST" enctype="multipart/form-data">
+                                <form method="#">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="imaperfil">
                                                 <img src="../Images/per4.jpg" alt=""/>
                                                 <div class="file btn btn-lg btn-primary">
-                                                    Subir foto
-                                                    <input type="file" name="imagenPaquete"/>
+                                                    Cambiar foto
+                                                    <input type="file" name="file"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="titulito">
                                                 <h5>
-                                                    <?php echo $nombreUsuario?>
+                                                    Nombre usuario
                                                 </h5>
+                                                <h6>
+                                                    Nombre empresa
+                                                </h6>   
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Nombre de paquete</label>
-                                            <input class="form-control" type="text" name="nombrePaquete">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Tipo de servicio</label>
-                                            <input class="form-control" type="text" name="tipoServicio">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Ciudad de locación</label>
-                                            <input class="form-control" type="text" name="ciudad">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Ubicación</label>
-                                            <input class="form-control" type="text" name="ubicacion">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Disponibilidad</label>
-                                            <input class="form-control" type="text" name="disponibilidadEv">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Precio</label>
-                                            <input class="form-control" type="text" name="precioEvento">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">¿Para cuantas personas?</label>
-                                            <input class="form-control" type="text" name="cantidadPersonas">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-title" for="">Descripcion</label>
-                                            <input class="form-control" type="text" name="descripcion">
-                                        </div>
                                         <div class="col-md-2">
-                                            <input type="submit" name="registro" value="Añadir paquete" 
+                                            <input type="submit" name="registro" value="Editar perfil" 
                                             class="btn btn-primary">
                                         </div>
                                     </div>
-                                </form>           
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="perfil">
-                                            <p>Redes Sociales</p>
-                                            <a href="">facebook</a><br/>
-                                            <a href="">Whatsapp</a><br/>
-                                            
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="perfil">
+                                                <p>Redes Sociales</p>
+                                                <a href="">facebook</a><br/>
+                                                <a href="">Whatsapp</a><br/>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        
-                                    </div>
-                                </div>
+                                </form>           
                         </div>
                     </section>
                 </main>
