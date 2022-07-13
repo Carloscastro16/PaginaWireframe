@@ -17,7 +17,9 @@ error_reporting(0);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Nosotros</title>
+    <link rel="icon" href="img/favicon.svg">
     
 </head>
 <body>
@@ -49,10 +51,10 @@ error_reporting(0);
                                 <a class="nav-link" href="../index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="About_Us.html">Sobre nosotros</a>
+                                <a class="nav-link" href="AboutUs.php">Sobre nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Contact_Us.html">Contáctanos</a>
+                                <a class="nav-link" href="ContactUs.html">Contáctanos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Eventos.html">Eventos</a>
