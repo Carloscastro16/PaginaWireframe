@@ -12,9 +12,9 @@
         die();
     }
     $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
-    $consulta = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
-    $resultado = mysqli_query($conexion, $consulta);
-    $filaUsr= mysqli_fetch_array($resultado);
+    $consultaPaquete = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
+    $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
+    /* $filaUsr= mysqli_fetch_array($resultado); */
     
 ?>
 
@@ -53,11 +53,11 @@
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
                 <div class="list-group list-group-flush my-3">
-                    <a href="DashboardCliente.php"
+                    <a href="DashboardEmpresa.php"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
-                    <a  href="PerfilCliente.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
                     <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -89,10 +89,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilCliente.html'>Perfil</a>
+                                        <a href='PerfilEmpresa.php'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.html'>Configuración</a>
+                                        <a href='PerfilEmpresa.php'>Configuración</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -121,11 +121,8 @@
                                         <div class="col-md-6">
                                             <div class="titulito">
                                                 <h5>
-                                                    Nombre usuario
-                                                </h5>
-                                                <h6>
-                                                    Nombre empresa
-                                                </h6>   
+                                                    <?php echo $nombreUsuario ?>
+                                                </h5>   
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -133,20 +130,8 @@
                                             class="btn btn-primary">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="perfil">
-                                                <p>Redes Sociales</p>
-                                                <a href="">facebook</a><br/>
-                                                <a href="">Whatsapp</a><br/>
-                                                
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            
-                                        </div>
-                                    </div>
+                                    
+
                                 </form>           
                         </div>
                     </section>

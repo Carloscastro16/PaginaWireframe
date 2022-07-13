@@ -12,7 +12,8 @@
         die();
     }
     $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
-    $consulta = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
+    $consultaPaquete = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
+    $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
     $resultado = mysqli_query($conexion, $consulta);
     $filaUsr= mysqli_fetch_array($resultado);
     
@@ -53,11 +54,11 @@
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
                 <div class="list-group list-group-flush my-3">
-                    <a href="DashboardCliente.html"
+                    <a href="DashboardEmpresa.php"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
-                    <a  href="PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
                     <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -89,10 +90,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilCliente.html'>Perfil</a>
+                                        <a href='PerfilEmpresa.php'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.html'>Configuración</a>
+                                        <a href='EditPerfilEmpresa.php'>Configuración</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -121,11 +122,8 @@
                                         <div class="col-md-6">
                                             <div class="titulito">
                                                 <h5>
-                                                    Nombre usuario
-                                                </h5>
-                                                <h6>
-                                                    Nombre empresa
-                                                </h6>   
+                                                    Hola <?php echo $nombreUsuario ?>!
+                                                </h5>   
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -133,18 +131,46 @@
                                             class="btn btn-primary">
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="perfil">
-                                                <p>Redes Sociales</p>
-                                                <a href="">facebook</a><br/>
-                                                <a href="">Whatsapp</a><br/>
-                                                
-                                                
+                                        <div class="col-sm-12">
+                                            <div class="titulito">
+                                                <h4>
+                                                    Paquetes
+                                                </h4>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            
+                                        
+                                        <?php 
+                                        if($fila=mysqli_fetch_array($resultadoPaquetes)){
+                                            while($fila=mysqli_fetch_array($resultadoPaquetes)){
+                                            $nomPaquete = $fila["nom_paquete"];
+                                            $descPaquete = $fila["descrip_paquete"];
+                                            $cantPersonas= $fila["cant_personas"];
+                                            $prePaquete = $fila["precio_paquete"];
+                                            echo "<div class='col-sm-6 col-lg-4 col-md-4 col-log'>
+                                                <h2 class='center'> $nomPaquete </h2>
+                                                <img src=' alt='>
+                                                <p>$descPaquete</p>
+                                                <div>
+                                                    <p>Cantidad de personas: $cantPersonas</p>
+                                                    <p>Precio total: $prePaquete</p>
+                                                </div>
+                                                <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
+                                                    Editar Paquete
+                                                </button>
+                                            </div>";
+                                            };
+                                        }else{
+                                            echo "
+                                            <div class='col-12'>
+                                                <h5>Ups... Aun no has añadido ningun paquete</h5>
+                                            </div>
+                                            ";
+                                        }
+                                        ?>
+                                        
                                         </div>
                                     </div>
                                 </form>           

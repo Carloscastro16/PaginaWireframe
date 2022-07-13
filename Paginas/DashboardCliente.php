@@ -51,11 +51,11 @@
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
                 <div class="list-group list-group-flush my-3">
-                    <a href="../Paginas/DashboardCliente.html"
+                    <a href="DashboardCliente.html"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i> Dashboard
                     </a>
-                    <a  href="../Paginas/PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
                     <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">

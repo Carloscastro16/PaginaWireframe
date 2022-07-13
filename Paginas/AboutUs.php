@@ -76,6 +76,11 @@ error_reporting(0);
                         $correo = $_SESSION['Correo'];
                         $rolUsuario = $_SESSION['rolUsuario'];
                         $nombreUsuario = $_SESSION['nombre_usuario'];
+                        if ($rolUsuario == "2"){
+                            $perfil = "PerfilCliente.php";
+                        }else{
+                            $perfil = "PerfilEmpresa.php";
+                        }
                         if(isset($varsession)){
                             echo "
                             <div class='collapse navbar-collapse' id='navbarSupportedContent'>
@@ -87,7 +92,7 @@ error_reporting(0);
                                         </a>
                                         <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                             <li class='dropdown-link'>
-                                                <a href='../Paginas/PerfilCliente.html'>Perfil</a>
+                                                <a href='../Paginas/$perfil'>Perfil</a>
                                             </li>
                                             <li class='dropdown-link'>
                                                 <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
