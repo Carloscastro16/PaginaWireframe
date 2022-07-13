@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('../Acciones/conec.php');
     $varsession = $_SESSION['id'];
     $correo = $_SESSION['Correo'];
     $rolUsuario = $_SESSION['rolUsuario'];
@@ -10,6 +11,11 @@
         header('Location: ../index.html');
         die();
     }
+    $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
+    $consulta = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
+    $resultado = mysqli_query($conexion, $consulta);
+    $filaUsr= mysqli_fetch_array($resultado);
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +37,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
     <title>Empresa</title>
     <link rel="icon" href="img/favicon.svg">
 </head>
@@ -53,7 +60,7 @@
                     <a  href="PerfilCliente.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
-                    <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+                    <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Alta de paquetes
                     </a>
                     <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -82,10 +89,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilCliente.html'>Perfil</a>
+                                        <a href='PerfilCliente.html'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
+                                        <a href='PerfilEmpresa.html'>Configuración</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -113,12 +120,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="titulito">
-                                                        <h5>
-                                                            Nombre usuario
-                                                        </h5>
-                                                        <h6>
-                                                            Nombre empresa
-                                                        </h6>   
+                                                <h5>
+                                                    Nombre usuario
+                                                </h5>
+                                                <h6>
+                                                    Nombre empresa
+                                                </h6>   
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -148,9 +155,7 @@
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    
     <script>
         var el = document.getElementById("wrapper")
         var toggleButton = document.getElementById("menu-toggle")

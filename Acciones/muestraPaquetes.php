@@ -103,7 +103,7 @@
                     <?php 
                     while($fila=mysqli_fetch_array($resultado)){
                     ?>
-                    <div class="col-sm-2 col-lg-3 col-md-3 ">
+                    <div class="col-sm-6 col-lg-4 col-md-4 col-log">
                         <h2 class="center"><?php echo $fila["nom_paquete"]?></h2>
                         <img src="" alt="">
                         <p> <?php echo $fila["descrip_paquete"]?></p>

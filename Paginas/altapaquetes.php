@@ -106,41 +106,54 @@
                                             <div class="imaperfil">
                                                 <img src="../Images/per4.jpg" alt=""/>
                                                 <div class="file btn btn-lg btn-primary">
-                                                    Cambiar foto
+                                                    Subir foto
                                                     <input type="file" name="file"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="titulito">
-                                                        <h5>
-                                                            Nombre usuario
-                                                        </h5>
-                                                        <h6>
-                                                            Nombre empresa
-                                                        </h6>   
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input type="submit" name="registro" value="Editar perfil" 
-                                            class="btn btn-primary">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="perfil">
-                                                <p>Redes Sociales</p>
-                                                <a href="">facebook</a><br/>
-                                                <a href="">Whatsapp</a><br/>
-                                                
-                                                
+                                                <h5>
+                                                    <?php echo $nombreUsuario?>
+                                                </h5>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            
+                                            <label class="form-title" for="">Nombre</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-title" for="">Nombre</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-title" for="">Nombre</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-title" for="">Nombre</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="submit" name="registro" value="Añadir paquete" 
+                                            class="btn btn-primary">
                                         </div>
                                     </div>
                                 </form>           
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="perfil">
+                                            <p>Redes Sociales</p>
+                                            <a href="">facebook</a><br/>
+                                            <a href="">Whatsapp</a><br/>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                    </div>
+                                </div>
                         </div>
                     </section>
                 </main>
