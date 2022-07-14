@@ -1,4 +1,6 @@
+
 <?php
+
     session_start();
     include('../Acciones/conec.php');
     $varsession = $_SESSION['id'];

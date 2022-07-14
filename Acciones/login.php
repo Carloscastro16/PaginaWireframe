@@ -1,3 +1,4 @@
+
 <?php
     include ('conec.php');
 
@@ -26,9 +27,9 @@ print_r($_POST);
         if(sizeof((array)$fila)>0){
             if ($encryptPass){
                 session_start();
-                $_SESSION['id']= $idUsuario;
-                $_SESSION['Correo']= $email;
-                $_SESSION['rolUsuario'] = $rolUsuario;
+                $_SESSION['cod_usuario']= $idUsuario;
+                $_SESSION['correo_usuario']= $email;
+                $_SESSION['fk_rol_usuario'] = $rolUsuario;
                 $_SESSION['nombre_usuario'] = $nombre_usuario;
                 $respuesta = 1;
                 echo $respuesta;

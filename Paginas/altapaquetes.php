@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <main>
+    
         <div class="d-flex" id="wrapper">
             <!--Sliderbar-->
             <div class="bg-dark" id="sidebar-wrapper">
@@ -96,7 +96,7 @@
                     </div>
                 </nav>
 
-                <main class="log-in">
+           
                     <section class="registro-inicio">
                         <div class="General  container">
                             
@@ -166,16 +166,14 @@
                                             
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        
-                                    </div>
+                                    
                                 </div>
                         </div>
                     </section>
-                </main>
+               
             </div>
         </div>
-    </main>
+   
 
     
     <script>
