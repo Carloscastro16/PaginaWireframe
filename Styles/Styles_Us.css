@@ -13,8 +13,8 @@
     --blanco: #fff;
 }
 body.dark {
-    --Fondo:  #c4d2e7;
-    --FondoSecciones: #f4f9fe;
+    --Fondo: #172a4c;
+    --FondoSecciones: var(--azulOscuro);
     --negro: #000000;  
     --Complemento: #7495b8;
     --salmon: #7495b8;
@@ -22,7 +22,6 @@ body.dark {
     --grey-icon: #aaa;
     --azulOscuro: #344767;
     --azulNegroso:#27354e;
-    --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
 }
 
@@ -41,7 +40,6 @@ main{
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
-    padding-bottom: 2rem;
 }
 h2{
     margin: 0 !important;
@@ -52,7 +50,7 @@ cuadro flotante de color ------ */
 .General{
     border-radius: 7px;
     z-index: 2;
-    height: 100%;
+    height: auto;
     background: var(--FondoSecciones);
     -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
     -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
@@ -65,9 +63,58 @@ section{
 }
 /* ------ Organizacion de las secciones ------ */
 
-
+.centradoHorizontal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 /* ------ Modo Oscuro ------ */
+.switchDashboard{
+    background: #343D5B;
+    border-radius: 1000px;
+    border:none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    justify-content: space-between;
+}
+.switchDashboard span{
+    width: 6.2rem;
+    height: 2rem;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: var(--blanco);
+}
 
+.switchDashboard ion-icon{
+    margin-top: .3rem;
+    font-size: 1rem;
+}
+.switchDashboard::after{
+    margin-top: .15rem;
+    content: "";
+    width: 6.3rem;
+    height: 1.85rem;
+    position: absolute;
+    background: var(--Fondo);
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 1000px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2) !important;
+}
+.switchDashboard.active{
+    background: var(--Complemento);
+    color: var(--negro);
+    
+}
+.switchDashboard.active::after{
+    right: 0;
+    left: unset;
+}
 .switch{
     background: #343D5B;
     border-radius: 1000px;
@@ -1176,10 +1223,15 @@ div span:not(:first-child){
     
 }
 
-/* diseño del perfil dhasboard */
+/* diseño del perfil dashboard */
 
-.editar{
-    
+.paquetes img{
+    width: 15vw;
+}
+.paquetes img::after{
+    width: 3rem;
+    height: 3rem;
+    background: var(--azulNegroso);
 }
 .imaperfil{
     text-align: center;
@@ -1207,17 +1259,25 @@ div span:not(:first-child){
     width: 12rem;
     height: 4rem;
 }
+.titulito{
+    margin: 1.2rem;
+    padding: 1.2rem;
+}
+.titulo_packs{
+    background: var(--Fondo);
+    border-radius: 1rem;
+}
+.titulito h4{
+    color: var(--Complemento);
+    font-family:'Montserrat', sans-serif;
+}
 .titulito h5{
-    color: #333;
+    color: var(--dark-letters);
     font-family:'Montserrat', sans-serif;
 }
 .titulito h6{
-    color: #0062cc;
+    color: var(--Complemento);
     font-family:'Montserrat', sans-serif ;
-}
-.titulito{
-    margin-bottom:5%;
-    
 }
 .profile-edit-btn{
     border: none;

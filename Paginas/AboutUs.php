@@ -54,10 +54,10 @@ error_reporting(0);
                                 <a class="nav-link" href="AboutUs.php">Sobre nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="ContactUs.html">Contáctanos</a>
+                                <a class="nav-link" href="ContactUs.php">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Eventos.html">Eventos</a>
+                                <a class="nav-link" href="Eventos.php">Eventos</a>
                             </li>
                             
                         </ul>

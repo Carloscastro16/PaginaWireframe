@@ -29,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1.0">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1.2">
     <link rel="stylesheet" href="../Styles/argon-dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,23 +51,31 @@
     <main>
         <div class="d-flex" id="wrapper">
             <!--Sliderbar-->
-            <div class="bg-dark" id="sidebar-wrapper">
+            <div class="bg-dark centradoHorizontal" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase">
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
+                <button class="switchDashboard" id="switch">
+                    <span>
+                        <ion-icon name="sunny-outline">ligth</ion-icon>
+                    </span>
+                    <span>
+                        <ion-icon name="moon-outline">Dark</ion-icon>
+                    </span>
+                </button>
                 <div class="list-group list-group-flush my-3">
                     <a href="DashboardEmpresa.php"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
-                        <i class="fa-solid fa-gauge-high"></i> Dashboard
+                        <i class="fa-solid fa-gauge-high"></i>Dashboard
                     </a>
                     <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-user"></i> Perfil
+                        <i class="fa-solid fa-user"></i>Perfil
                     </a>
                     <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-user"></i> Alta de paquetes
+                        <i class="fa-solid fa-user"></i>Alta de paquetes
                     </a>
                     <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                        <i class="fa-solid fa-right-from-bracket"></i>Logout
                     </a>
                 </div>
             </div>
@@ -88,7 +96,7 @@
                             <li class='nav-item-dropdown'>
                                 <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
                                     role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                    <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?> !
+                                    <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?>!
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
@@ -105,85 +113,88 @@
                         </ul>
                     </div>
                 </nav>
-
-                <main class="log-in">
-                    <section class="registro-inicio">
-                        <div class="General  container">
-                            
-                                <form method="#">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="imaperfil">
-                                                <img src="../Images/per4.jpg" alt=""/>
-                                                <div class="file btn btn-lg btn-primary">
-                                                    Cambiar foto
-                                                    <input type="file" name="file"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="titulito">
-                                                <h5>
-                                                    Hola <?php echo $nombreUsuario ?>!
-                                                </h5>   
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input type="submit" name="registro" value="Editar perfil" 
-                                            class="btn btn-primary">
-                                        </div>
+                <section class="General">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="titulito titulo_packs">
+                                    <h4>
+                                        Perfil
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="imaperfil">
+                                    <img src="../Images/per4.jpg" alt=""/>
+                                    <div class="file btn btn-lg btn-primary">
+                                        Cambiar foto
+                                        <input type="file" name="file"/>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="titulito">
-                                                <h4>
-                                                    Paquetes
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                        
-                                        <?php 
-                                        if($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                            while($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                            $nomPaquete = $fila["nom_paquete"];
-                                            $descPaquete = $fila["descrip_paquete"];
-                                            $cantPersonas= $fila["cant_personas"];
-                                            $prePaquete = $fila["precio_paquete"];
-                                            echo "<div class='col-sm-6 col-lg-4 col-md-4 col-log'>
-                                                <h2 class='center'> $nomPaquete </h2>
-                                                <img src=' alt='>
-                                                <p>$descPaquete</p>
-                                                <div>
-                                                    <p>Cantidad de personas: $cantPersonas</p>
-                                                    <p>Precio total: $prePaquete</p>
-                                                </div>
-                                                <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
-                                                    Editar Paquete
-                                                </button>
-                                            </div>";
-                                            };
-                                        }else{
-                                            echo "
-                                            <div class='col-12'>
-                                                <h5>Ups... Aun no has añadido ningun paquete</h5>
-                                            </div>
-                                            ";
-                                        }
-                                        ?>
-                                        
-                                        </div>
-                                    </div>
-                                </form>           
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="titulito">
+                                    <h5>
+                                        Hola <?php echo $nombreUsuario ?>!
+                                    </h5>   
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="submit" name="registro" value="Editar perfil" 
+                                class="btn btn-primary">
+                            </div>
                         </div>
-                    </section>
-                </main>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="titulito titulo_packs">
+                                    <h4>
+                                        Paquetes
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            
+                            <?php 
+                            if($fila=mysqli_fetch_array($resultadoPaquetes)){
+                                while($fila=mysqli_fetch_array($resultadoPaquetes)){
+                                $nomPaquete = $fila["nom_paquete"];
+                                $descPaquete = $fila["descrip_paquete"];
+                                $cantPersonas= $fila["cant_personas"];
+                                $prePaquete = $fila["precio_paquete"];
+                                echo "<div class='col-sm-6 col-lg-4 col-md-4 col-log'>
+                                    <h2 class='center'> $nomPaquete </h2>
+                                    <img src=' alt='>
+                                    <p>$descPaquete</p>
+                                    <div>
+                                        <p>Cantidad de personas: $cantPersonas</p>
+                                        <p>Precio total: $prePaquete</p>
+                                    </div>
+                                    <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
+                                        Editar Paquete
+                                    </button>
+                                </div>";
+                                };
+                            }else{
+                                echo "
+                                <div class='col-12 centrado paquetes'>
+                                    <img src='../img/ningun_paquete.png' alt=''>
+                                    <h5>Ups... Aun no has añadido ningun paquete</h5>
+                                </div>
+                                ";
+                            }
+                            ?>
+                            </div>
+                        </div>         
+                    </div>
+                </section>
             </div>
         </div>
     </main>
 
-    
+    <!-------- Scripts -------->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../js/modoOscuro.js"></script>
     <script>
         var el = document.getElementById("wrapper")
         var toggleButton = document.getElementById("menu-toggle")
