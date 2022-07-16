@@ -12,20 +12,7 @@
     --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
 }
-body.dark {
-    --Fondo: #172a4c;
-    --FondoSecciones: var(--azulOscuro);
-    --negro: #000000;  
-    --Complemento: #7495b8;
-    --salmon: #7495b8;
-    --dark-letters: #4b4c4d;
-    --grey-icon: #aaa;
-    --azulOscuro: #344767;
-    --azulNegroso:#27354e;
-    --blanco: #fff;
-}
-
-html, body{
+body{
     background: var(--Fondo);
     font-family: 'Montserrat', sans-serif !important;
     overflow-y: overlay;
