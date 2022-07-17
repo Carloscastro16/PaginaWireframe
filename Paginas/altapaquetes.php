@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                    <img src="../Images/per4.jpg" alt=""/>
+                                    <img src="../Images/imagenPaquete.jpg" alt=""/>
                                     <div class="file btn btn-lg btn-primary">
                                         Subir foto
                                         <input type="file" name="imagenPaquete"/>
@@ -106,6 +106,7 @@
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <label class="form-title" for="">Tipo de servicio</label>
+                                
                                 <input class="form-control" type="text" name="tipoServicio">
                             </div>
                             <div class="col-sm-6 col-md-4">

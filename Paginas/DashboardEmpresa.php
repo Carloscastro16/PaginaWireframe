@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                    <img src="../Images/per4.jpg" alt=""/>
+                                    <img src="../Images/fotoPrincipal.png" alt=""/>
                                     <div class="file btn btn-lg btn-primary">
                                         Cambiar foto
                                         <input type="file" name="file"/>
