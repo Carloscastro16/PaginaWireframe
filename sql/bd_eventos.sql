@@ -9,6 +9,7 @@ CREATE TABLE `usuario` (
   `ape_materno` VARCHAR(45) NULL,
   `correo_usuario` VARCHAR(100) NULL,
   `contra_usuario` VARCHAR(200) NULL,
+  `nombre_empresa` VARCHAR(100) NULL,
   `tel_empresa` BIGINT(10) NULL,
   `rfc` VARCHAR(50) NULL,
   FOREIGN KEY (fk_rol_usuario) REFERENCES rol_usuario(cod_rol));

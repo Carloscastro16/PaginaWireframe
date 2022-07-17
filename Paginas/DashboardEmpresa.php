@@ -53,9 +53,6 @@
                         class="list-group-item list-group-item-action bg-transparent second-text active">
                         <i class="fa-solid fa-gauge-high"></i>Dashboard
                     </a>
-                    <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-user"></i>Perfil
-                    </a>
                     <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i>Alta de paquetes
                     </a>
@@ -85,7 +82,7 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.php'>Perfil</a>
+                                        <a href='PerfilEmpresa.php'>Dashboard</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='EditPerfilEmpresa.php'>Configuración</a>
