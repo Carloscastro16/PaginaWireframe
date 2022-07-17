@@ -68,6 +68,7 @@ CREATE TABLE `usuario` (
   `cod_paquete` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `fk_cod_empresa` INT UNSIGNED NOT NULL,
   `fk_cod_tipo_servicio` INT UNSIGNED NOT NULL,
+  `imagen_paquete` VARCHAR(200) NULL,
   `nom_paquete` VARCHAR(45) NULL,
   `descrip_paquete` VARCHAR(900) NULL,
   `cant_personas` INT NULL,
