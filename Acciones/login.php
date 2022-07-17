@@ -43,7 +43,7 @@ print_r($_POST);
     //Se evita hasta aqui.
     
     if($respuesta==1 && $fila["fk_rol_usuario"] == 2){
-        header('Location: ../Paginas/DashboardCliente.php');
+        header('Location: ../Paginas/PerfilCliente.php');
     }else if ($respuesta==1 && $fila["fk_rol_usuario"] == 3){
         header('Location: ../Paginas/DashboardEmpresa.php');
     }else{

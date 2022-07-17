@@ -1,25 +1,32 @@
 CREATE DATABASE db_eventos CHARACTER SET utf8mb4;
 Use db_eventos;
 /*DROP DATABASE db_eventos; */
-/*--------------------------------TABLA USUARIO-------------------------*/
-CREATE TABLE `usuario` (
-  `cod_usuario` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  `fk_rol_usuario` INT UNSIGNED NOT NULL,
-  `nombre_usuario` VARCHAR(45) NULL,
-  `ape_paterno` VARCHAR(45) NULL,
-  `ape_materno` VARCHAR(45) NULL,
-  `correo_usuario` VARCHAR(100) NULL,
-  `contra_usuario` VARCHAR(200) NULL,
-  `nombre_empresa` VARCHAR(100) NULL,
-  `tel_empresa` BIGINT(10) NULL,
-  `nombre_empresa` VARCHAR(100) NULL,
-  `rfc` VARCHAR(50) NULL,
-  FOREIGN KEY (fk_rol_usuario) REFERENCES rol_usuario(cod_rol));
+/*---------------------------------TABLA DE CIUDAD---------------------------*/
+CREATE TABLE `ciudad` (
+  `cod_ciudad` INT NOT NULL AUTO_INCREMENT,
+  `nombre_ciudad` VARCHAR(50) NULL,
+  PRIMARY KEY (`cod_ciudad`));
+  /*-----------------------TABLA TRIGGER  LOGEO------------------------------*/
+CREATE TABLE `historial_logeo` (
+  `cod_logueo` INT NOT NULL AUTO_INCREMENT,
+  `Accion` VARCHAR(900) NULL,
+  `correo` VARCHAR(900) NULL,
+  PRIMARY KEY (`cod_logueo`));
+  /*--------------------------------TABLA ROLES-------------------------*/
+  CREATE TABLE `rol_usuario` (
+	`cod_rol` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nom_rol` VARCHAR(45) NULL,
+	PRIMARY KEY (`cod_rol`));
+    
+  INSERT INTO rol_usuario VALUES(1, 'Administrador');
+  INSERT INTO rol_usuario VALUES(2, 'Cliente');
+  INSERT INTO rol_usuario VALUES(3, 'Empresa');
   /*--------------------------------TABLA TIPOS DE SERVICIO-------------------------*/
-  CREATE TABLE `db_eventos`.`tipo_servicio` (
+  CREATE TABLE `tipo_servicio` (
 	`cod_tipo_servicio` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`nom_servicio` VARCHAR(45) NULL,
 	PRIMARY KEY (`cod_tipo_servicio`));
+    
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('1', 'Boda');
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('2', 'XV años');
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('3', 'Fin de año');
@@ -29,17 +36,8 @@ CREATE TABLE `usuario` (
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('7', 'Cena especial');
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('8', 'Seminario');
     INSERT INTO `tipo_servicio` (`cod_tipo_servicio`, `nom_servicio`) VALUES ('9', 'Graduación');
-  /*--------------------------------TABLA ROLES-------------------------*/
-  CREATE TABLE `db_eventos`.`rol_usuario` (
-	`cod_rol` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	`nom_rol` VARCHAR(45) NULL,
-	PRIMARY KEY (`cod_rol`));
-    
-INSERT INTO rol_usuario VALUES(1, 'Administrador');
-INSERT INTO rol_usuario VALUES(2, 'Cliente');
-INSERT INTO rol_usuario VALUES(3, 'Empresa');
   /*--------------------------------TABLA MONTAJE-------------------------*/
-  CREATE TABLE `db_eventos`.`montaje` (
+  CREATE TABLE `montaje` (
   `cod_montaje` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre_montaje` VARCHAR(30) NULL,
   PRIMARY KEY (`cod_montaje`));
@@ -51,28 +49,40 @@ INSERT INTO rol_usuario VALUES(3, 'Empresa');
   INSERT INTO `montaje` (`cod_montaje`, `nombre_montaje`) VALUES ('5', 'Montaje en O cerrada');
   INSERT INTO `montaje` (`cod_montaje`, `nombre_montaje`) VALUES ('6', 'Montaje sillas pala');
   INSERT INTO `montaje` (`cod_montaje`, `nombre_montaje`) VALUES ('7', 'Montaje cocktail');
+/*--------------------------------TABLA USUARIO-------------------------*/
+CREATE TABLE `usuario` (
+  `cod_usuario` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `fk_rol_usuario` INT UNSIGNED NOT NULL,
+  `nombre_usuario` VARCHAR(45) NULL,
+  `ape_paterno` VARCHAR(45) NULL,
+  `ape_materno` VARCHAR(45) NULL,
+  `correo_usuario` VARCHAR(100) NULL,
+  `contra_usuario` VARCHAR(200) NULL,
+  `nombre_empresa` VARCHAR(100) NULL,
+  `tel_empresa` BIGINT(10) NULL,
+  `rfc` VARCHAR(50) NULL,
+  FOREIGN KEY (fk_rol_usuario) REFERENCES rol_usuario(cod_rol));
   
   /*--------------------------------TABLA PAQUETES DE EVENTOS-------------------------*/
-  CREATE TABLE `db_eventos`.`paquete` (
-  `cod_paquete` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  CREATE TABLE `paquete`(
+  `cod_paquete` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `fk_cod_empresa` INT UNSIGNED NOT NULL,
   `fk_cod_tipo_servicio` INT UNSIGNED NOT NULL,
   `nom_paquete` VARCHAR(45) NULL,
   `descrip_paquete` VARCHAR(900) NULL,
   `cant_personas` INT NULL,
   `precio_paquete` DOUBLE NULL DEFAULT NULL,
-  `fk_cod_ciudad` INT UNSIGNED  NOT NULL,
+  `fk_cod_ciudad` INT NOT NULL,
   `direc_evento` VARCHAR(900) NULL,
   `disponibilidad_evento` VARCHAR(12) NULL,
   FOREIGN KEY (fk_cod_empresa) REFERENCES usuario(cod_usuario),
   FOREIGN KEY (fk_cod_tipo_servicio) REFERENCES tipo_servicio(cod_tipo_servicio),
-  FOREIGN KEY (fk_cod_ciudad) REFERENCES ciudad(cod_ciudad),
-  PRIMARY KEY (`cod_paquete`));
-  SELECT * FROM paquete;
-  DROP TABLE paquete;
+  FOREIGN KEY (fk_cod_ciudad) REFERENCES ciudad(cod_ciudad)
+  );
+  
   /*--------------------------------ORDEN DE EVENTO-------------------------*/
-CREATE TABLE `db_eventos`.`orden_evento` (
- `cod_orden_evento` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orden_evento` (
+  `cod_orden_evento` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `folio_evento` VARCHAR(45) NOT NULL,
   `fk_cod_usuario` INT UNSIGNED NOT NULL,
   `fk_cod_montaje` INT UNSIGNED NOT NULL,
@@ -81,23 +91,12 @@ CREATE TABLE `db_eventos`.`orden_evento` (
   `hora_evento` VARCHAR(10) NULL,
   `num_tel` INT(12) NULL,
   `fk_cod_paquete` INT UNSIGNED NOT NULL,
-    FOREIGN KEY (fk_cod_usuario) REFERENCES usuario(cod_usuario),
+	FOREIGN KEY (fk_cod_usuario) REFERENCES usuario(cod_usuario),
 	FOREIGN KEY (fk_cod_montaje) REFERENCES montaje(cod_montaje),
 	FOREIGN KEY (fk_cod_paquete) REFERENCES paquete(cod_paquete),
   PRIMARY KEY (`cod_orden_evento`));
 
 
-/*---------------------------------TABLA DE CIUDAD---------------------------*/
-CREATE TABLE `db_eventos`.`ciudad` (
-  `cod_ciudad` INT NOT NULL AUTO_INCREMENT,
-  `nombre_ciudad` VARCHAR(50) NULL,
-  PRIMARY KEY (`cod_ciudad`));
-  /*-----------------------TABLA TRIGGER  LOGEO------------------------------*/
-CREATE TABLE `db_eventos`.`historial_logeo` (
-  `cod_logueo` INT NOT NULL AUTO_INCREMENT,
-  `Accion` VARCHAR(900) NULL,
-  `correo` VARCHAR(900) NULL,
-  PRIMARY KEY (`cod_logueo`));
 /*-------------------------------- Triggers -------------------------*/
 DELIMITER $$
 CREATE TRIGGER tg_tipo_usuario
@@ -112,7 +111,10 @@ BEGIN
   END IF ;
 END$$
 DELIMITER ;
-drop trigger tg_tipo_usuario;
 
+
+/*-------------------------------- Administradores -------------------------*/
 INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario) 
-	VALUE (1,"Carlos Andre", "Castro", "Rodriguez", "andycastro.2716@gmail.com");
+	VALUE (1,"Carlos Andre", "Castro", "Rodriguez", "andycastro.2716@gmail.com", "hola");
+INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario) 
+	VALUE (1,"Esmeralda", "Mendoza", "Jimenez", "Esmeralda810@gmail.com", "hola");

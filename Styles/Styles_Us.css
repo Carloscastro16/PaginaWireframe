@@ -137,8 +137,8 @@ section{
 .switch::after{
     margin-top: -.05rem;
     content: "";
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 34px;
     position: absolute;
     background: var(--Fondo);
     top: 0;
@@ -230,9 +230,7 @@ body.dark .masInfo{
     background: var(--azulNegroso);
     color: var(--FondoSecciones);
 }
-body.dark .portada{
-    background: var(--Fondo);
-}
+
 body.dark .tituloConjunto{
     background: var(--azulNegroso);
 }
@@ -241,6 +239,9 @@ body.dark .social ion-icon{
 }
 body.dark .footerBasic ul a {
     color: var(--Complemento);
+}
+body.dark .dropdown-link a{
+    color: var(--azulOscuro);
 }
 
 /* ------ Barra de Navegación ------ */
@@ -252,7 +253,13 @@ header{
     color: var(--grey-icon);
     font-size: 1.7rem;
 }
-
+.dropdown-link a{
+    font-size: .94rem;
+    line-height: 1.8;
+}
+.dropdown-link a:hover{
+    color: var(--negro);
+}
 .logo a{
     align-items: center !important;
     justify-content: center !important;
@@ -358,9 +365,8 @@ nav{
 
 .portada h1{
     text-align: center;; 
-    font-size: 4rem;
+    font-size: 3.7rem;
     margin: 0rem 0 3rem 0;
-    
 }
 .letras_separado div{
     position: absolute;
@@ -372,21 +378,21 @@ nav{
 
 }
 .letras_separado span{
-    font-size: 6.2rem;
+    font-size: 5.4rem;
     font-weight: 400;
     text-shadow: -0.08em 0.03em 0.12em rgba(0,0,0,0.8);
-    color: #344767;
+    color: var(--Complemento);
 }  
 
 .letras_separado span:hover{
-    color: #7495b8;
+    color: var(--azulNegroso);
 }
 .portada{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: var(--FondoSecciones);
+    background-color: var(--azulOscuro);
     padding: 3rem;
     border-radius: 0 0 25px 25px;
 }
@@ -1277,15 +1283,18 @@ div span:not(:first-child){
     background: var(--Fondo);
     border-radius: 1rem;
 }
-.titulito h4{
+.titulito h3{
+    font-size: 1.8rem;
     color: var(--Complemento);
     font-family:'Montserrat', sans-serif;
 }
-.titulito h5{
+.titulito h4{
+    font-size: 1.6rem;
     color: var(--dark-letters);
     font-family:'Montserrat', sans-serif;
 }
-.titulito h6{
+.titulito h5{
+    font-size: 1.1rem;
     color: var(--Complemento);
     font-family:'Montserrat', sans-serif ;
 }

@@ -134,8 +134,6 @@
                                     </h4>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                            
                             <?php 
                             if($fila=mysqli_fetch_array($resultadoPaquetes)){
                                 while($fila=mysqli_fetch_array($resultadoPaquetes)){
@@ -158,14 +156,13 @@
                                 };
                             }else{
                                 echo "
-                                <div class='col-12 centrado paquetes'>
+                                <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
                                     <img src='../img/ningun_paquete.png' alt=''>
                                     <h5>Ups... Aun no has añadido ningun paquete</h5>
                                 </div>
                                 ";
                             }
                             ?>
-                            </div>
                         </div>         
                     </div>
                 </section>
