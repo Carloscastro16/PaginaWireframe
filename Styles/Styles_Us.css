@@ -14,7 +14,7 @@
 }
 body.dark{
     --Fondo: var(--Fondo-oscuro);
-    --textoNav: var(#c4d2e7);
+    --textoNav: #c4d2e7;
 }
 body{
     background: var(--Fondo);
@@ -31,6 +31,10 @@ main{
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
+    
+}
+main.vistasIniciales {
+    padding-bottom: 3rem !important;
 }
 h2{
     margin: 0 !important;
@@ -202,11 +206,12 @@ body.dark label{
     color: var(--Complemento);  
 }
 body.dark .form-title{
-    color: var(--Fondo);
+    color: var(--textoNav);
     
 }
 body.dark .form-control{
     background: transparent !important;
+    color: var(--Complemento);
 }
 
 body.dark .letras span{
@@ -1308,4 +1313,11 @@ div span:not(:first-child){
     font-size: 14px;
     font-family:'Montserrat', sans-serif;
 }
+/* Alta de paquetes */ 
 
+.altaPaquete .form-title{
+    margin-top: 1rem;
+}
+.altaPaquete input[type= 'submit']{
+    margin-top: 5.2rem;
+}

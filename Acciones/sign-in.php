@@ -7,6 +7,7 @@ $agregar = $_POST['agregar'];
     $apellMa= $_POST['apellMa'];
     $correo= $_POST['correo'];
     $pass= $_POST['password'];
+    $nombreEmpresa= $_POST['nombre_empresa'];
     $telefono= $_POST['telefono'];
     $rfc= $_POST['rfc'];
     $encryptPass = password_hash($pass, PASSWORD_DEFAULT);

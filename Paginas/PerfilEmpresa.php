@@ -22,24 +22,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1.2">
-    <link rel="stylesheet" href="../Styles/argon-dashboard.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    
+<?php
+    include('partials/headerUsuarios.html');
+    ?>
     <title>Empresa</title>
     <link rel="icon" href="img/favicon.svg">
 </head>
@@ -133,6 +118,20 @@
                                                 </h5>   
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="titulito">
+                                                <h5>
+                                                    <?php echo $correo ?>
+                                                </h5>   
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="titulito">
+                                                <h5>
+                                                    <?php echo $ ?>
+                                                </h5>   
+                                            </div>
+                                        </div>
                                         <div class="col-md-2">
                                             <input type="submit" name="registro" value="Editar perfil" 
                                             class="btn btn-primary">
@@ -149,14 +148,9 @@
     </main>
 
     
-    <script>
-        var el = document.getElementById("wrapper")
-        var toggleButton = document.getElementById("menu-toggle")
-
-        toggleButton.onclick = function () {
-            el.classList.toggle("toggle")
-        }
-    </script>
+    <?php
+    include('partials/Scripts.html');
+    ?>
 </body>
 
 </html>

@@ -8,21 +8,21 @@ error_reporting(0);
 <html lang="es">
 <head>
     <?php
-    include('partials/headerUsuarios.html');
+    include('partials/headerGeneral.html');
     ?>
     <title>Nosotros</title>
     <link rel="icon" href="img/favicon.svg">
     
 </head>
 <body>
-    <main>
+    <main class="vistasIniciales">
 
         <!--Inicio de barra de navegacion-->
         <header>
-            <nav class="navbar navbar-expand-lg bg-dark">
+            <nav class="navbar navbar-expand-lg bg-dark ">
                 <div class="container-fluid barraNav ">
                     <div class="logo">
-                        <a class="navbar-brand" href="../index.html">
+                        <a class="navbar-brand" href="../index.php">
                             Uruz
                         </a>
                     </div>
@@ -65,7 +65,7 @@ error_reporting(0);
                         include ('../Acciones/conec.php');
                         session_start();
                         $varsession = $_SESSION['cod_usuario'];
-                        $correo = $_SESSION['correo'];
+                        $correo = $_SESSION['Correo'];
                         $rolUsuario = $_SESSION['rolUsuario'];
                         $nombreUsuario = $_SESSION['nombre_usuario'];
                         if ($rolUsuario == "2"){
@@ -110,14 +110,7 @@ error_reporting(0);
                             ";
                         }
                         ?>
-                        <!-- <div class="botones">
-                            <form action="LogIn.html">
-                                <button class="botoncin btn btn-outline-success">Login</button>
-                            </form>
-                            <form action="SignIn.html">
-                                <button class="botoncin btn btn-outline-secondary">Register</button>
-                            </form>
-                        </div> -->
+    
                     </div>
                 </div>
             </nav>
