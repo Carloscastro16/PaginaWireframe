@@ -4,7 +4,7 @@
 session_start();
 include('conec.php');
 // Destruir todas las variables de sesión.
-$_SESSION['id'];
+$_SESSION['cod_usuario'];
 $_SESSION['Correo'];
 $_SESSION['rolUsuario'];
 $id = $_SESSION['id'];

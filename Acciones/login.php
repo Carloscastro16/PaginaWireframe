@@ -28,8 +28,8 @@ print_r($_POST);
             if ($encryptPass){
                 session_start();
                 $_SESSION['cod_usuario']= $idUsuario;
-                $_SESSION['correo_usuario']= $email;
-                $_SESSION['fk_rol_usuario'] = $rolUsuario;
+                $_SESSION['correo']= $email;
+                $_SESSION['rolUsuario'] = $rolUsuario;
                 $_SESSION['nombre_usuario'] = $nombre_usuario;
                 $respuesta = 1;
                 echo $respuesta;

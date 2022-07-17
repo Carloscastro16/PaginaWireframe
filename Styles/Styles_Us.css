@@ -12,6 +12,10 @@
     --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
 }
+body.dark{
+    --Fondo: var(--Fondo-oscuro);
+    --textoNav: var(#c4d2e7);
+}
 body{
     background: var(--Fondo);
     font-family: 'Montserrat', sans-serif !important;
@@ -64,6 +68,7 @@ section{
     cursor: pointer;
     display: flex;
     outline: none;
+    height: 2.2rem;
     justify-content: space-between;
 }
 .switchDashboard span{
@@ -76,8 +81,8 @@ section{
 }
 
 .switchDashboard ion-icon{
-    margin-top: .3rem;
-    font-size: 1rem;
+    margin-top: .4rem;
+    font-size: 1.4rem;
 }
 .switchDashboard::after{
     margin-top: .15rem;
@@ -87,7 +92,7 @@ section{
     position: absolute;
     background: var(--Fondo);
     top: 0;
-    left: 0;
+    left: 2px;
     right: unset;
     border-radius: 1000px;
     transition: .3s ease all;
@@ -99,7 +104,7 @@ section{
     
 }
 .switchDashboard.active::after{
-    right: 0;
+    right: 2px;
     left: unset;
 }
 .switch{
@@ -148,11 +153,20 @@ section{
     right: 0;
     left: unset;
 }
+body.dark{
+    background: var(--Fondo-oscuro);
+}
 body.dark main{
     background:var(--Fondo-oscuro);
 }
 body.dark nav{
-    background-color: var(--azulNegroso) !important;
+    background-color: var(--azulNegroso);
+}
+body.dark nav a{
+    color: var(--textoNav);
+}
+body.dark nav h2{
+    color: var(--textoNav);
 }
 body.dark .footerBasic{
     background-color: var(--azulNegroso);
@@ -160,6 +174,9 @@ body.dark .footerBasic{
 }
 body.dark .General{
     background: var(--azulOscuro);
+}
+body.dark .General p,.General h1, .General h2, .General h3, .General h4, .General h5{
+    color: var(--Complemento)!important;
 }
 body.dark .col-log{
     background: var(--azulNegroso);
@@ -210,6 +227,9 @@ body.dark .masInfo{
 }
 body.dark .portada{
     background: var(--Fondo);
+}
+.body.dark .tituloConjunto{
+    background: var(--azulNegroso);
 }
 
 /* ------ Barra de Navegación ------ */
@@ -273,14 +293,7 @@ nav{
 }
 #wrapper {
     overflow-x: hidden;
-    background-image: linear-gradient(
-    to right,
-    #bac9f3,
-    #c2daf5,
-    #cbdef7,
-    #d4d8f8,
-    #dde5fa
-    );
+    background: var(--Fondo);
 }
 #sidebar-wrapper {
     min-height: 100vh;
@@ -1247,10 +1260,10 @@ div span:not(:first-child){
     height: 4rem;
 }
 .titulito{
-    margin: 1.2rem;
+    margin: 1.2rem 0 1.2rem;
     padding: 1.2rem;
 }
-.titulo_packs{
+.tituloConjunto{
     background: var(--Fondo);
     border-radius: 1rem;
 }

@@ -1,8 +1,8 @@
 <?php
     session_start();
     include('../Acciones/conec.php');
-    $varsession = $_SESSION['id'];
-    $correo = $_SESSION['Correo'];
+    $varsession = $_SESSION['cod_usuario'];
+    $correo = $_SESSION['correo'];
     $rolUsuario = $_SESSION['rolUsuario'];
     $nombreUsuario = $_SESSION['nombre_usuario'];
 
@@ -48,23 +48,31 @@
     <main>
         <div class="d-flex" id="wrapper">
             <!--Sliderbar-->
-            <div class="bg-dark" id="sidebar-wrapper">
+            <div class="bg-dark centradoHorizontal" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase">
                     <i class="fa-brands fa-uniregistry">ruz</i>
                 </div>
+                <button class="switchDashboard" id="switch">
+                    <span class="switchIcon">
+                        <ion-icon name="sunny-outline"></ion-icon>
+                    </span>
+                    <span class="switchIcon">
+                        <ion-icon name="moon-outline"></ion-icon>
+                    </span>
+                </button>
                 <div class="list-group list-group-flush my-3">
                     <a href="DashboardEmpresa.php"
                         class="list-group-item list-group-item-action bg-transparent second-text active">
-                        <i class="fa-solid fa-gauge-high"></i> Dashboard
+                        <i class="fa-solid fa-gauge-high"></i>Dashboard
                     </a>
-                    <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
-                        <i class="fa-solid fa-user"></i> Perfil
+                    <a  href="PerfilEmpresa.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <i class="fa-solid fa-user"></i>Perfil
                     </a>
                     <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-user"></i> Alta de paquetes
+                        <i class="fa-solid fa-user"></i>Alta de paquetes
                     </a>
                     <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                        <i class="fa-solid fa-right-from-bracket"></i>Logout
                     </a>
                 </div>
             </div>
@@ -85,14 +93,14 @@
                             <li class='nav-item-dropdown'>
                                 <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
                                     role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                    <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?> !
+                                    <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?>!
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
                                         <a href='PerfilEmpresa.php'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.php'>Configuración</a>
+                                        <a href='EditPerfilEmpresa.php'>Configuración</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
