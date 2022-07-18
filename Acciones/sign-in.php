@@ -17,7 +17,7 @@ $agregar = $_POST['agregar'];
 if(empty($rfc)){
     $insertarUsuario= "CALL sp_reg_cliente('$nomUser','$apellPa','$apellMa','$correo','$encryptPass')";
     $resultados=mysqli_query($conexion,$insertarUsuario);
-    header ('location: ../Paginas/DashboardCliente.php');
+    header ('location: ../Paginas/PerfilCliente.php');
 }else{
     $insertarUsuario = "CALL sp_reg_usrempresa('$nomUser','$apellPa','$apellMa','$correo','$encryptPass',$telefono,'$rfc')";
     $resultados=mysqli_query($conexion,$insertarUsuario);

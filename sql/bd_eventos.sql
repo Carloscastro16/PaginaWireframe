@@ -1,6 +1,6 @@
+/*DROP DATABASE db_eventos; */
 CREATE DATABASE db_eventos CHARACTER SET utf8mb4;
 Use db_eventos;
-/*DROP DATABASE db_eventos; */
 /*---------------------------------TABLA DE CIUDAD---------------------------*/
 CREATE TABLE `ciudad` (
   `cod_ciudad` INT NOT NULL AUTO_INCREMENT,

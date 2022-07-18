@@ -92,49 +92,59 @@
                 </nav>
                 <section class="log-in registro-inicio">
                     <div class="General container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="titulito tituloConjunto">
-                                    <h4>
-                                        Perfil
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="imaperfil">
-                                    <img src="../Images/fotoPrincipal.png" alt=""/>
-                                    <div class="file btn btn-lg btn-primary">
-                                        Cambiar foto
-                                        <input type="file" name="file"/>
+                        <form action="../Acciones/edicionUsuario.php" method="post" enctype="multipart/">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="titulito tituloConjunto">
+                                        <h4>
+                                            Perfil
+                                        </h4>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="titulito">
-                                    <h5>
-                                        Nombre
-                                        <input type="text" class="form-control" value="<?php echo $nombreUsuario;?>">
-                                    </h5> 
-                                    <h5>
-                                        Apellido Paterno
-                                        <input type="text" class="form-control" value="<?php echo $apellidoPa;?>">
-                                    </h5>
-                                    <h5>
-                                        Apellido Materno
-                                        <input type="text" class="form-control" value="<?php echo $apellidoMa;?>">
-                                    </h5> 
-                                    <h5>
-                                        Correo
-                                        <input type="text" class="form-control" value="<?php echo $correo;?>">
-                                    </h5>
+                                <div class="col-md-4">
+                                    <div class="imaperfil">
+                                        <img src="../Images/fotoPrincipal.png" alt=""/>
+                                        <div class="file btn btn-lg btn-primary">
+                                            Cambiar foto
+                                            <input type="file" name="file"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="titulito">
+                                        <h5>
+                                            Nombre
+                                            <input name="nombre" type="text" class="form-control" value="<?php echo $nombreUsuario;?>">
+                                        </h5> 
+                                        <h5>
+                                            Apellido Paterno
+                                            <input name="apellPa" type="text" class="form-control" value="<?php echo $apellidoPa;?>">
+                                        </h5>
+                                        <h5>
+                                            Apellido Materno
+                                            <input name="apellMa" type="text" class="form-control" value="<?php echo $apellidoMa;?>">
+                                        </h5> 
+                                        <h5>
+                                            Correo
+                                            <input name="correo" type="text" class="form-control" value="<?php echo $correo;?>">
+                                        </h5>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                                                <ion-icon name="bag-outline"></ion-icon>Cambiar contraseña
+                                            </button>
+                                        </div>
+                                        <div class="collapse" id="toggleMobileMenu">
+                                            <label for="">Contraseña</label>
+                                            <input class="form-control" placeholder="**********" name="password" type="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="submit" name="registro" value="Editar" 
+                                    class="btn btn-primary">
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <input type="submit" name="registro" value="Editar" 
-                                class="btn btn-primary">
-                            </div>
-                            
-                        </div>  
+                        </form>
                     </div>
                 </Section>
             </div>
