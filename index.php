@@ -1,3 +1,8 @@
+<?php
+// No mostrar los errores de PHP
+// Para que se inicialice la variable de session
+    error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/Normalize.css">
-        <link rel="stylesheet" href="Styles/Styles_Us.css?v=2.4">
+        <link rel="stylesheet" href="Styles/Styles_Us.css?v=2.8">
         <link rel="stylesheet" href="Styles/argon-dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +49,7 @@
                         <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                             <ul class="navbar-nav navbarNav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="index.php">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Paginas/AboutUs.php">Sobre nosotros</a>
@@ -65,14 +70,52 @@
                                     <ion-icon name="moon-outline"></ion-icon>
                                 </span>
                             </button>
-                            <div class="botones">
-                                <form action="Paginas/LogIn.html">
-                                    <button class="botoncin btn btn-outline-success">Login</button>
-                                </form>
-                                <form action="Paginas/SignIn.html">
-                                    <button class="botoncin btn btn-outline-secondary">Register</button>
-                                </form>
-                            </div>
+                            <?php
+                                include ('../Acciones/conec.php');
+                                session_start();
+                                $varsession = $_SESSION['cod_usuario'];
+                                $correo = $_SESSION['Correo'];
+                                $rolUsuario = $_SESSION['rolUsuario'];
+                                $nombreUsuario = $_SESSION['nombre_usuario'];
+                                if ($rolUsuario == "2"){
+                                    $perfil = "PerfilCliente.php";
+                                }else{
+                                    $perfil = "DashboardEmpresa.php";
+                                }
+                                if(isset($varsession)){
+                                    echo "
+                                    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                                        <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+                                            <li class='nav-item-dropdown'>
+                                                <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
+                                                    role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    <i class='fas fa-user me-'></i> Hola, $nombreUsuario!
+                                                </a>
+                                                <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../Paginas/$perfil'>Perfil</a>
+                                                    </li>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    ";
+                                }else{
+                                    echo "
+                                    <div class='botones'>
+                                        <form action='Paginas/LogIn.html'>
+                                            <button class='botoncin btn btn-outline-success'>Login</button>
+                                        </form>
+                                        <form action='Paginas/SignIn.html'>
+                                            <button class='botoncin btn btn-outline-secondary'>Register</button>
+                                        </form>
+                                    </div>
+                                    ";
+                                }
+                                ?>
                         </div>
                     </div>
                 </nav>
@@ -91,7 +134,19 @@
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <ion-icon name="calendar-outline"></ion-icon>
-                                                <input name="tipo" type="text" class="form-control form-evento" placeholder="Tipo de evento">
+                                                <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
+                                                    <option value="Selected">Tipo de evento</option>
+                                                    <?php
+                                                    //conectar a la base de datos//
+                                                    include('Acciones/conec.php');
+                                                    $consulta2="SELECT * FROM tipo_servicio";
+                                                    
+                                                    $resultado2=mysqli_query($conexion,$consulta2);
+                                                    while($fila2=mysqli_fetch_array($resultado2)){
+                                                    ?>
+                                                    <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <ion-icon name="person-outline"></ion-icon>

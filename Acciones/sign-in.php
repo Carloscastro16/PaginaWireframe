@@ -29,7 +29,7 @@ $agregar = $_POST['agregar'];
         }
     }else {
         header ('location: ../Paginas/SignIn.html');
-        echo "<script type='text/javascript> alert('El correo ya existe en la base de datos');</script>";
+        echo "<script type='text/javascript'> alert('El correo ya existe en la base de datos');</script>";
     }
     //redireccionamiento//
 ?>

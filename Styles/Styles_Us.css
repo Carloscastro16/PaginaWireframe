@@ -480,7 +480,9 @@ nav{
 }
 
 /*Boton para inicio*/
-
+.search-camp .btn{
+    background-color: var(--bs-code-color);
+}
 .butMues {
     appearance: button;
     background-color: var(--Complemento);
