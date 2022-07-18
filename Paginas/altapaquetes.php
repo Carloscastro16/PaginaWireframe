@@ -125,15 +125,14 @@
                                 <select class="form-select" aria-label="Default select example" name="ciudad">
                                     <option selected>Ingrese la ciudad</option>
                                     <?php
-                                            include('../Acciones/conec.php');
-                                            $consulta='SELECT*FROM ciudad';
-                                            $resultado= mysqli_query($conexion,$consulta); 
-                                            WHILE ($fila=mysqli_fetch_array($resultado)){
+                                        include('../Acciones/conec.php');
+                                        $consulta='SELECT*FROM ciudad';
+                                        $resultado= mysqli_query($conexion,$consulta); 
+                                        WHILE($fila=mysqli_fetch_array($resultado)){
                                     ?>
                                     <option value="<?php echo $fila['cod_ciudad'] ?>"> <?php echo $fila['nombre_ciudad']?>
                                     </option>
                                     <?php  } ?>
-
                                 </select>
                             </div>
                             <div class="col-sm-6 col-md-4">
@@ -166,6 +165,52 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="General container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table tablita display" id="table_id">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">nombre</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">ciudad</th>
+                                        <th scope="col">Direccion</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">No. pax</th>
+                                        <th scope="col">Descripcion</th>
+                                        <th class="iconos" scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Conexion a la BD-->
+                                    <tr class="datos">
+                                        <?php
+                                        include('../Acciones/conec.php');
+                                        $consulta="SELECT * FROM paquete";
+                                        $resultado=mysqli_query($conexion,$consulta); 
+                                        while($fila=mysqli_fetch_array($resultado)){
+                                        ?>
+                                        <th scope="row"> <?php echo $fila["codigo_paquete"]?></th>
+                                        <td> <?php echo $fila["nom_paquete"] ?> </td>
+                                        <td> <?php echo $fila["Fk_tipo_servicio"] ?> </td>
+                                        <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
+                                        <td> <?php echo $fila["direc_evento"] ?> </td>
+                                        <td> <?php echo $fila["disponibilidad_evento"] ?> </td>
+                                        <td> <?php echo $fila["precio_paquete"] ?> </td>
+                                        <td> <?php echo $fila["cant_personas"] ?> </td>
+                                        <td> <?php echo $fila["descrip_paquete"] ?> </td>
+                                        
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </div>
