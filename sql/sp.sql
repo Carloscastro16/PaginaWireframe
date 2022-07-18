@@ -119,3 +119,33 @@ END$$
 
 DELIMITER ;
 ;
+
+/*------------------------SP PARA REGISTRO DE PAQUETE---------------------*/
+USE `db_eventos`;
+DROP procedure IF EXISTS `sp_registroPaquete`;
+
+DELIMITER $$
+USE `db_eventos`$$
+CREATE PROCEDURE `sp_registroPaquete` (
+in imagenPaqueteI varchar(200),
+in nombrePaqueteI varchar(45),
+in tipoServicioI int,
+in ciudadI int,
+in direcEventoI varchar(900), 
+in disponobilidadEvI varchar(12),
+in precioEventoI double,
+in cantidadPersonasI int,
+in descripcionI varchar (900)
+
+)
+BEGIN
+INSERT INTO paquete(
+imagen_paquete, nom_paquete,fk_cod_tipo_servicio,
+fk_cod_ciudad,direc_evento,disponibilidad_evento,
+precio_paquete,cant_personas,descrip_paquete)
+VALUE (imagenPaqueteI,nombrePaqueteI,tipoServicioI,
+ciudadI,direcEventoI,disponobilidadEvI,precioEventoI,
+cantidadPersonasI,descripcionI);
+END$$
+
+DELIMITER ;

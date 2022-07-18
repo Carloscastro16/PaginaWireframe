@@ -43,10 +43,12 @@
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
-                <a  href="AltaPaquetes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="AltaPaquetes.php"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-user"></i>Alta de paquetes
                 </a>
-                <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../Acciones/Log-out.php"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout
                 </a>
             </div>
@@ -58,17 +60,14 @@
                     <i class="fas fa-aling-left primary-text fs-4 me-4" id="menu-toggle"></i>
                     <h2 class="navbarNav">Dashboard</h2>
                 </div>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarSypportedContent" aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
+
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
                         <li class='nav-item-dropdown'>
                             <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
                                 role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?>!
+                                <i class='fas fa-user me-'></i> Hola,
+                                <?php echo $nombreUsuario ?>!
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
@@ -93,10 +92,11 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                    <img src="../Images/imagenPaquete.jpg" alt=""/>
+                                <img src="../Images/imagenPaquete.jpg" alt="" />
                                     <div class="file btn btn-lg btn-primary">
                                         Subir foto
-                                        <input type="file" name="imagenPaquete"/>
+                                        <input type="hidden" value="imagen" name="txtnom" />
+                                        <input type="file" name="imagen" />
                                     </div>
                                 </div>
                             </div>
@@ -106,20 +106,48 @@
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <label class="form-title" for="">Tipo de servicio</label>
-                                
-                                <input class="form-control" type="text" name="tipoServicio">
+                                <select class="form-select" aria-label="Default select example" name="tipoServicio">
+                                    <option selected>Ingrese el servicio</option>
+                                    <?php
+                                            include('../Acciones/conec.php');
+                                            $consulta='SELECT*FROM tipo_servicio';
+                                            $resultado= mysqli_query($conexion,$consulta); 
+                                            WHILE ($fila=mysqli_fetch_array($resultado)){
+                                    ?>
+                                    <option value="<?php echo $fila['cod_tipo_servicio'] ?>"> <?php echo $fila['nom_servicio']?>
+                                    </option>
+                                    <?php  } ?>
+                                    
+                                </select>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Ciudad de locación</label>
-                                <input class="form-control" type="text" name="ciudad">
+                                <select class="form-select" aria-label="Default select example" name="ciudad">
+                                    <option selected>Ingrese la ciudad</option>
+                                    <?php
+                                            include('../Acciones/conec.php');
+                                            $consulta='SELECT*FROM ciudad';
+                                            $resultado= mysqli_query($conexion,$consulta); 
+                                            WHILE ($fila=mysqli_fetch_array($resultado)){
+                                    ?>
+                                    <option value="<?php echo $fila['cod_ciudad'] ?>"> <?php echo $fila['nombre_ciudad']?>
+                                    </option>
+                                    <?php  } ?>
+
+                                </select>
                             </div>
                             <div class="col-sm-6 col-md-4">
-                                <label class="form-title" for="">Ubicación</label>
-                                <input class="form-control" type="text" name="ubicacion">
+                                <label class="form-title" for="">Dirección</label>
+                                <input class="form-control" type="text" name="direcEvento">
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Disponibilidad</label>
-                                <input class="form-control" type="text" name="disponibilidadEv">
+                                <select class="form-select" aria-label="Default select example" name="disponibilidadEv">
+                                    <option selected>Ingrese disponibilidad</option>
+                                    <option value="1">Disponible</option>
+                                    <option value="2">No disponible</option>
+                                </select>
+
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Precio</label>
@@ -141,7 +169,7 @@
                 </div>
             </section>
         </div>
-    </div>  
+    </div>
     <?php
     include('partials/Scripts.html');
     ?>

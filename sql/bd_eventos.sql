@@ -6,6 +6,18 @@ CREATE TABLE `ciudad` (
   `cod_ciudad` INT NOT NULL AUTO_INCREMENT,
   `nombre_ciudad` VARCHAR(50) NULL,
   PRIMARY KEY (`cod_ciudad`));
+
+    INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('1', 'Cozumel');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('2', 'Felipe Carrillo Puerto');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('3', 'Isla Mujeres');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('4', 'Othón P. Blanco');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('5', 'Benito Juárez');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('6', 'José María Morelos');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('7', 'Lázaro Cárdenas');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('8', 'Solidaridad');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('9', 'Tulum');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('10', 'Bacalar');
+  INSERT INTO `ciudad` (`cod_ciudad`, `nombre_ciudad`) VALUES ('11', 'Puerto Morelos');
   /*-----------------------TABLA TRIGGER  LOGEO------------------------------*/
 CREATE TABLE `historial_logeo` (
   `cod_logueo` INT NOT NULL AUTO_INCREMENT,
@@ -64,22 +76,21 @@ CREATE TABLE `usuario` (
   FOREIGN KEY (fk_rol_usuario) REFERENCES rol_usuario(cod_rol));
   
   /*--------------------------------TABLA PAQUETES DE EVENTOS-------------------------*/
-  CREATE TABLE `paquete`(
-  `cod_paquete` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  CREATE TABLE `paquete` (
+  `cod_paquete` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `fk_cod_empresa` INT UNSIGNED NOT NULL,
-  `fk_cod_tipo_servicio` INT UNSIGNED NOT NULL,
   `imagen_paquete` VARCHAR(200) NULL,
   `nom_paquete` VARCHAR(45) NULL,
-  `descrip_paquete` VARCHAR(900) NULL,
-  `cant_personas` INT NULL,
-  `precio_paquete` DOUBLE NULL DEFAULT NULL,
-  `fk_cod_ciudad` INT NOT NULL,
+  `fk_cod_tipo_servicio` INT UNSIGNED NOT NULL,
+  `fk_cod_ciudad` INT UNSIGNED NOT NULL,
   `direc_evento` VARCHAR(900) NULL,
   `disponibilidad_evento` VARCHAR(12) NULL,
+  `precio_paquete` DOUBLE NULL,
+  `cant_personas` INT NULL,
+  `descrip_paquete` VARCHAR(900) NULL,
   FOREIGN KEY (fk_cod_empresa) REFERENCES usuario(cod_usuario),
   FOREIGN KEY (fk_cod_tipo_servicio) REFERENCES tipo_servicio(cod_tipo_servicio),
-  FOREIGN KEY (fk_cod_ciudad) REFERENCES ciudad(cod_ciudad)
-  );
+  FOREIGN KEY (fk_cod_ciudad) REFERENCES ciudad(cod_ciudad));
   
   /*--------------------------------ORDEN DE EVENTO-------------------------*/
 CREATE TABLE `orden_evento` (
