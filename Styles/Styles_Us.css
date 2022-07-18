@@ -726,6 +726,7 @@ nav{
 }
 .search-camp ion-icon{
     font-size: 1.4rem;
+    color: var(--bs-code-color);
 }
 .search-camp:last-child{
     border-radius: 0 1rem 1rem 0;

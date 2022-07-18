@@ -166,7 +166,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="General container">
+                <div class="General mt-5 container">
                     <div class="row">
                         <div class="col-sm-12">
                             <table class="table tablita display" id="table_id">
@@ -190,13 +190,14 @@
                                     <tr class="datos">
                                         <?php
                                         include('../Acciones/conec.php');
-                                        $consulta="SELECT * FROM paquete";
+                                        $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
                                         $resultado=mysqli_query($conexion,$consulta); 
                                         while($fila=mysqli_fetch_array($resultado)){
                                         ?>
-                                        <th scope="row"> <?php echo $fila["codigo_paquete"]?></th>
+                                        <th scope="row"> <?php echo $fila["cod_paquete"]?></th>
+                                        <th scope="row">nada</th>
                                         <td> <?php echo $fila["nom_paquete"] ?> </td>
-                                        <td> <?php echo $fila["Fk_tipo_servicio"] ?> </td>
+                                        <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
                                         <td> <?php echo $fila["direc_evento"] ?> </td>
                                         <td> <?php echo $fila["disponibilidad_evento"] ?> </td>
@@ -208,6 +209,17 @@
                                     <?php } ?>
                                 </tbody>
                             </table>
+                        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/r-2.3.0/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+                        <script>
+                            $(document).ready( function () {
+                            var table = $('#table_id').DataTable({
+                                colReorder: true
+                            });
+                            $('#reverse').click( function (e) {
+                                table.colReorder.order([0, 1, 2, 3, 4, 5], true)
+                            })
+                        } );
+                        </script>
                         </div>
                     </div>
 
