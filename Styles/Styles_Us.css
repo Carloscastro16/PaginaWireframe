@@ -1240,7 +1240,9 @@ div span:not(:first-child){
 }
 
 /* diseño del perfil dashboard */
-
+.list-group-item i{
+    margin-right: .5rem;
+}
 .paquetes img{
     width: 15vw;
 }
