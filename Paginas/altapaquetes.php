@@ -66,7 +66,7 @@
                         <li class='nav-item-dropdown'>
                             <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
                                 role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                <i class='fas fa-user me-'></i> Hola,
+                                <i class='fas fa-user me-'></i> Hola 
                                 <?php echo $nombreUsuario ?>!
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
