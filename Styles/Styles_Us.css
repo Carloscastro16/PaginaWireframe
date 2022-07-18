@@ -478,6 +478,24 @@ nav{
 .card:hover{
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
+.tablita{
+    width: 100%;
+    overflow:scroll;
+}
+.tablita{
+    background-color: transparent;
+    padding: 1.5em;
+    color: var(--letrasGris) !important;
+    table-layout: fixed;
+}
+.tablita td{
+    word-wrap: break-word;
+}
+.tablita th{
+    font-size: .8rem;
+    padding-left: .2rem;
+}
+
 
 /*Boton para inicio*/
 .search-camp .btn{
