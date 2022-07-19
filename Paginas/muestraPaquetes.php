@@ -223,11 +223,11 @@ error_reporting(0);
             </nav>
             
             <ul class="list-inline navegaFooter">
-                <li class="list-inline-item"><a href="../index.html">Home</a></li>
-                <li class="list-inline-item"><a href="About_Us.html">Sobre nosotros</a></li>
+                <li class="list-inline-item"><a href="../index.php">Home</a></li>
+                <li class="list-inline-item"><a href="About_Us.php">Sobre nosotros</a></li>
                 <li class="list-inline-item navbar-brand"><h3>Uruz</h3></li>
-                <li class="list-inline-item"><a href="Contact_Us.html">Contactanos</a></li>
-                <li class="list-inline-item"><a href="Eventos.html">Eventos</a></li>
+                <li class="list-inline-item"><a href="Contact_Us.php">Contactanos</a></li>
+                <li class="list-inline-item"><a href="Eventos.php">Eventos</a></li>
             </ul>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Esmeralda Mendoza Jimenez</a></li>

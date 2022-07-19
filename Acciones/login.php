@@ -46,6 +46,9 @@ print_r($_POST);
         header('Location: ../Paginas/PerfilCliente.php');
     }else if ($respuesta==1 && $fila["fk_rol_usuario"] == 3){
         header('Location: ../Paginas/DashboardEmpresa.php');
+
+    }else if ($respuesta==1 && $fila["fk_rol_usuario"] == 1){
+        header('Location: ../Paginas/DashboardAdmin.php');
     }else{
         header('Location: ../Paginas/LogIn.html');
     }

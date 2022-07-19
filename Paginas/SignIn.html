@@ -76,7 +76,7 @@
     <main class="log-in">
         <section class="registro-inicio">
             <div class="General centrado container">
-                        <script languaje="javascript" src="../js/confContraseña.js"></script>    
+                         
                 <form action="../Acciones/sign-in.php" method="POST">
                     <div class="row centrado col-log">
                         <div class="col-12">
@@ -100,11 +100,13 @@
                         </div>
                         <div class="col-12">
                             <label for="">Contraseña</label>
+                            <p class="collapse" name="advertencia">Las contraseñas no coinciden</p>
                             <input class="form-control" placeholder="*********" name="password" type="password">
                         </div>
                         <div class="col-12">
                             <label for="">Confirma Contraseña</label>
                             <input class="form-control" placeholder="*********" name="passwordConf" type="password">
+                            
                         </div>
                         <div class="col-12">
                             <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary" onClick="validarCampos2(this.form)">
@@ -128,7 +130,7 @@
                             </div>
                             <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary">
                         </div>
-                            
+                        <script languaje="javascript" src="../js/confContraseña.js"></script>   
                     </div>
                 </form>
                 
