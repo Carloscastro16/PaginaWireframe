@@ -1,7 +1,8 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-    error_reporting(0);
+error_reporting(0);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +108,45 @@
                 </div>
             </div>
         </nav>
+        <div class="container menu">
+            <div class="row">
+                <div class="col-12">
+                    <form action="muestraPaquetes.php" method="POST">
+                        <div class="container">
+                            <div class="row buscadorsin">
+                                <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                    <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
+                                </div>
+                                <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                    <ion-icon name="calendar-outline"></ion-icon>
+                                    <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
+                                        <option value="Selected">Tipo de evento</option>
+                                        <?php
+                                        //conectar a la base de datos//
+                                        include('Acciones/conec.php');
+                                        $consulta2="SELECT * FROM tipo_servicio";
+                                        
+                                        $resultado2=mysqli_query($conexion,$consulta2);
+                                        while($fila2=mysqli_fetch_array($resultado2)){
+                                        ?>
+                                        <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
+                                </div>
+                                <div class="search-camp col-lg-2 col-md-2 col-sm-2">
+                                    <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </header>
     <main class="log-in">
         <?php
@@ -114,7 +154,7 @@
 
         include('../Acciones/conec.php');
         $ubicacion= $_POST['ubicacion'];
-        $fecha = $_POST['fecha'];
+        /* $tipo = $_POST['tipo_servicio']; */
         $cantPersonas = $_POST['cantPersonas'];
         //Consulta e insercion de la query
         
@@ -124,8 +164,9 @@
                     AND disponibilidad_evento = 'Disponible' 
                     AND cant_personas = $cantPersonas";
         $consulta2="SELECT * FROM paquete 
+                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
                     where disponibilidad_evento = 'Disponible' 
-                    AND locacion_evento like '$ubicacion'";
+                    AND ciudad.nombre_ciudad like '$ubicacion'";
 
         if(empty($cantPersonas)){
             $consulta = $consulta2;
@@ -134,30 +175,43 @@
         }
         $resultado=mysqli_query($conexion,$consulta);
         ?>
-        <section class="registro-inicio">
-            <div class="General container">
-                <div class="row centrado">
-                    <div class="col-sm-12">
-                        <div class="titulito">
-                            <h2>Paquetes</h2>
-                        </div>
+        <div class="General container">
+            <div class="row centrado">
+                <div class="col-sm-12">
+                    <div class="titulito centrado">
+                        <h2>Paquetes</h2>
                     </div>
-                    <?php 
-                    while($fila=mysqli_fetch_array($resultado)){
-                        ?>
-                    <div class="col-sm-6 col-lg-4 col-md-4 col-log">
-                        <h2 class="center"><?php echo $fila["nom_paquete"]?></h2>
-                        <img src="" alt="">
-                        <p> <?php echo $fila["descrip_paquete"]?></p>
-                        <div>
-                            <p>Cantidad de personas: <?php echo $fila["cant_personas"]?></p>
-                            <p>Precio total: <?php echo $fila["precio_paquete"]?></p>
-                        </div>
-                    </div>
-                    <?php } ?>
                 </div>
+                <?php 
+                if($fila=mysqli_fetch_array($resultado)){
+                    while($fila=mysqli_fetch_array($resultado)){
+                        $nomPaquete = $fila["nom_paquete"];
+                        /* $imgPaquete = echo $fila["img_paquete"]; */
+                        $descripcion = $fila["descrip_paquete"];
+                        $cantPersonas = $fila["cant_personas"];
+                        $precio = $fila["precio_paquete"];
+                        echo "
+                        <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
+                            <h2 class='center'>$nomPaquete</h2>
+                            <img src=' alt='>
+                            <p> $descripcion</p>
+                            <div>
+                                <p>Cantidad de personas: $cantPersonas</p>
+                                <p>Precio total: $precio</p>
+                            </div>
+                        </div>";
+                    }
+                }else{
+                    echo "
+                    <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
+                        <img src='../img/ningun_paquete.png' alt=''>
+                        <h5>Ups... Por el momento no contamos con lo que buscas</h5>
+                    </div>
+                    ";
+                }
+                ?>
             </div>
-        </section>
+        </div>
     </main>
     <div class="footerBasic">
         <footer>
@@ -169,11 +223,11 @@
             </nav>
             
             <ul class="list-inline navegaFooter">
-                <li class="list-inline-item"><a href="../index.html">Home</a></li>
-                <li class="list-inline-item"><a href="About_Us.html">Sobre nosotros</a></li>
+                <li class="list-inline-item"><a href="../index.php">Home</a></li>
+                <li class="list-inline-item"><a href="About_Us.php">Sobre nosotros</a></li>
                 <li class="list-inline-item navbar-brand"><h3>Uruz</h3></li>
-                <li class="list-inline-item"><a href="Contact_Us.html">Contactanos</a></li>
-                <li class="list-inline-item"><a href="Eventos.html">Eventos</a></li>
+                <li class="list-inline-item"><a href="Contact_Us.php">Contactanos</a></li>
+                <li class="list-inline-item"><a href="Eventos.php">Eventos</a></li>
             </ul>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Esmeralda Mendoza Jimenez</a></li>

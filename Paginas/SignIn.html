@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid barraNav ">
                 <div class="logo">
-                    <a class="navbar-brand" href="../index.html">
+                    <a class="navbar-brand" href="../index.php">
                         Uruz
                     </a>
                 </div>
@@ -42,16 +42,16 @@
                 <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                     <ul class="navbar-nav navbarNav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Home</a>
+                            <a class="nav-link" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="AboutUs.html">Sobre nosotros</a>
+                            <a class="nav-link" href="AboutUs.php">Sobre nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ContactUs.html">Contactanos</a>
+                            <a class="nav-link" href="ContactUs.php">Contactanos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Eventos.html">Eventos</a>
+                            <a class="nav-link" href="Eventos.php">Eventos</a>
                         </li>
                         
                     </ul>
@@ -76,6 +76,7 @@
     <main class="log-in">
         <section class="registro-inicio">
             <div class="General centrado container">
+                         
                 <form action="../Acciones/sign-in.php" method="POST">
                     <div class="row centrado col-log">
                         <div class="col-12">
@@ -99,10 +100,16 @@
                         </div>
                         <div class="col-12">
                             <label for="">Contraseña</label>
+                            <p class="collapse" name="advertencia">Las contraseñas no coinciden</p>
                             <input class="form-control" placeholder="*********" name="password" type="password">
                         </div>
                         <div class="col-12">
-                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary">
+                            <label for="">Confirma Contraseña</label>
+                            <input class="form-control" placeholder="*********" name="passwordConf" type="password">
+                            
+                        </div>
+                        <div class="col-12">
+                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary" onClick="validarCampos2(this.form)">
                             <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
                                 <ion-icon name="bag-outline"></ion-icon>Para empresas
                             </button>
@@ -123,7 +130,7 @@
                             </div>
                             <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary">
                         </div>
-                            
+                        <script languaje="javascript" src="../js/confContraseña.js"></script>   
                     </div>
                 </form>
                 

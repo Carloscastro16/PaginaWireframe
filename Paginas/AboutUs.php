@@ -40,7 +40,7 @@ error_reporting(0);
                     <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                         <ul class="navbar-nav navbarNav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.html">Home</a>
+                                <a class="nav-link" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="AboutUs.php">Sobre nosotros</a>
