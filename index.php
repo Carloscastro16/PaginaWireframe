@@ -25,6 +25,14 @@
         <title>Uruz planning</title>
     </head>
     <body>
+        <div class="contenedor_carga" id="contenedor_carga">
+            <div id="carga" class="centrado">
+                <svg>
+                    <circle cx="160" cy="200" r="100" class="circle"/>
+                    <circle cx="120" cy="160" r="100" class="loader"/>
+                </svg>
+            </div>
+        </div>
         <main class="vistasIniciales">
             <!--Barra de Navegacion Principal-->
             <header>
@@ -395,8 +403,16 @@
 
 
     <!-------- Scripts -------->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="js/modoOscuro.js"></script>
+    <?php
+    include('partials/Scripts.html');
+    ?>
+    <script>
+        window.onload = function() {
+            var contenedor = document.getElementById("contenedor_carga");
+
+            contenedor.style.visibility = "hidden";
+            contenedor.style.opacity = "0";
+        }
+    </script>
 </body>
 </html>

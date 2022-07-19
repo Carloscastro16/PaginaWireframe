@@ -35,6 +35,14 @@
 </head>
 
 <body>
+    <div class="contenedor_carga" id="contenedor_carga">
+        <div id="carga" class="centrado">
+            <svg>
+                <circle cx="160" cy="200" r="100" class="circle"/>
+                <circle cx="120" cy="160" r="100" class="loader"/>
+            </svg>
+        </div>
+    </div>
     <main>
         
         <div class="d-flex" id="wrapper">

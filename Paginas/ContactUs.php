@@ -16,6 +16,14 @@ error_reporting(0);
 </head>
 
 <body>
+    <div class="contenedor_carga" id="contenedor_carga">
+        <div id="carga" class="centrado">
+            <svg>
+                <circle cx="160" cy="200" r="100" class="circle"/>
+                <circle cx="120" cy="160" r="100" class="loader"/>
+            </svg>
+        </div>
+    </div>
     <main class="vistasIniciales">
         <header>
             <nav class="navbar navbar-expand-lg bg-dark">
@@ -254,10 +262,9 @@ error_reporting(0);
     </footer>
 </div>    
     <!-------- Scripts -------->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="../js/modoOscuro.js"></script>
-
+    <?php
+    include('partials/Scripts.html');
+    ?>
 </body>
 
 </html>
