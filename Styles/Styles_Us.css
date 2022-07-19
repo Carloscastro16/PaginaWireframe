@@ -25,6 +25,7 @@ body{
 main{
     position: relative !important;
     z-index: 1;
+    min-height: 100vh;
     height: 100%;
     background: rgb(116,149,184);
     background-image: linear-gradient(0deg, rgba(103,130,158,1) 0%, rgba(116,149,184,0.9654236694677871) 33%, rgba(196,210,231,1) 70%, rgba(196,210,231,1) 100%);
@@ -142,7 +143,7 @@ section{
     position: absolute;
     background: var(--Fondo);
     top: 0;
-    left: 0;
+    left: -2px;
     right: unset;
     border-radius: 50%;
     transition: .3s ease all;
@@ -154,7 +155,7 @@ section{
     
 }
 .switch.active::after{
-    right: 0;
+    right: -2px;
     left: unset;
 }
 body.dark{
@@ -179,28 +180,33 @@ body.dark .footerBasic{
 body.dark .General{
     background: var(--azulOscuro);
 }
-body.dark .General p,.General h1, .General h2, .General h3, .General h4, .General h5{
-    color: var(--Complemento)!important;
+body.dark .General p,.General h1, .General h2 {
+    color: var(--Complemento) !important;
+}
+body.dark .General h3, .General h4, .General h5 {
+    color: var(--Fondo);
 }
 body.dark .col-log{
     background: var(--azulNegroso);
     color: var(--Fondo);
 }
 body.dark h1{
-    color: var(--Fondo);
+    color: var(--Complemento);
 }
 body.dark h2{
-    color: var(--Fondo);
+    color: var(--Complemento);
 }
 body.dark h3{
-    color: var(--Fondo);
+    color: var(--Complemento);
 }
-body.dark h4{
-    color: var(--Fondo);
-    
+body.dark .queCosa h3{
+    color: var(--Complemento);
 }
-body.dark p{
-    color: var(--Fondo);  
+body.dark .queCosa p{
+    color: var(--FondoSecciones) !important;
+}
+body.dark .contamosMas p{
+    color: var(--FondoSecciones);  
 }
 body.dark label{
     color: var(--Complemento);  
@@ -215,16 +221,16 @@ body.dark .form-control{
 }
 
 body.dark .letras span{
-    color: var(--Fondo);
+    color: var(--Complemento);
 }
 body.dark .letras_separado span{
     color: var(--blanco);
 }
 body.dark .letras span:hover{
-    color: var(--Complemento);
+    color: var(--bs-code-color);
 }
 body.dark .letras_separado span:hover{
-    color: var(--Complemento);
+    color: var(--bs-code-color);
 }
 body.dark .masInfo{
     background: var(--azulNegroso);
@@ -448,7 +454,7 @@ nav{
 }
 .tituloQue h2{
     font-size: 4rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
 }
 
 .iconosMuestra{
@@ -1110,6 +1116,10 @@ footer {
     list-style: none;
 
 }
+.redes a{
+    background-color: var(--bs-code-color);
+
+}
 .redes ul{
     display: flex;
     flex-direction: row;
@@ -1137,6 +1147,7 @@ footer {
 
 .botonGeneral{
     margin-top: 2rem !important;
+    background-color: var(--bs-code-color) !important;
 }
 .botonSociales a{
     width: 3rem;

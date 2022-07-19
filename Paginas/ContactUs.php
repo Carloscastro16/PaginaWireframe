@@ -21,7 +21,7 @@ error_reporting(0);
             <nav class="navbar navbar-expand-lg bg-dark">
                 <div class="container-fluid barraNav ">
                     <div class="logo">
-                        <a class="navbar-brand" href="../index.html">
+                        <a class="navbar-brand" href="../index.php">
                             Uruz
                         </a>
                     </div>
@@ -39,7 +39,7 @@ error_reporting(0);
                     <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                         <ul class="navbar-nav navbarNav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.html">Home</a>
+                                <a class="nav-link" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="AboutUs.php">Sobre nosotros</a>
@@ -179,7 +179,7 @@ error_reporting(0);
                 <div class="col-sm-6">
                     <div class="container">
                         <form action="">
-                            <div class="row col-log">
+                            <div class="row col-log centrado">
                                 <div class="col-12">
                                     <h3 class="colaborador">Contáctanos</h3>
                                 </div>
