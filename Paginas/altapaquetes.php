@@ -92,11 +92,17 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                <img src="../Images/imagenPaquete.jpg" alt="" />
+                                <!--<img src="../Images/imagenPaquete.jpg" alt="" />v -->
                                     <div class="file btn btn-lg btn-primary">
                                         Subir foto
-                                        <input type="hidden" value="imagen" name="txtnom" />
-                                        <input type="file" name="imagen" />
+                                        <!--<input type="hidden" value="imagen" name="txtnom" /> -->
+                                        <?php
+                                        include('../Acciones/conec.php');
+                                        $id = $_GET['fk_cod_empresa'];
+                                        "SELECT * FROM usuario WHERE fk_cod_empresa=$id";
+                                        ?>
+                                        <input type="hidden" name="fkcodempresa" value="<?php echo $id ?>" />
+                                        <input type="file" accept="image/*"  name="txtnom" />
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +201,7 @@
                                         ?>
                                     <tr>
                                         <td> <?php echo $fila["cod_paquete"]?></th>
-                                        <td>nada</th>
+                                        <td><img class="img-thumbnail" src="../Imagenes/<?php echo $fila["imagen_paquete"];?>" /></td> 
                                         <td> <?php echo $fila["nom_paquete"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
