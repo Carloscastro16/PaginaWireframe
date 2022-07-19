@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v1.8">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=2.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css?v1.2">
@@ -76,7 +76,6 @@
     <main class="log-in">
         <section class="registro-inicio">
             <div class="General centrado container">
-                         
                 <form action="../Acciones/sign-in.php" method="POST">
                     <div class="row centrado col-log">
                         <div class="col-12">
@@ -100,18 +99,22 @@
                         </div>
                         <div class="col-12">
                             <label for="">Contraseña</label>
-                            <p class="collapse" name="advertencia">Las contraseñas no coinciden</p>
                             <input class="form-control" placeholder="*********" name="password" type="password">
+                            <div class="invalid-feedback">
+                                Las contraseñas no coinciden.
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="">Confirma Contraseña</label>
                             <input class="form-control" placeholder="*********" name="passwordConf" type="password">
-                            
+                            <a href="../Acciones/"></a>
                         </div>
-                        <div class="col-12">
-                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary" onClick="validarCampos2(this.form)">
+                        <div class="col-12 centrado mt-4">
+                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary me-3" onClick="validarCampos2(this.form)">
+                        </div>
+                        <div class="col-12 centrado mt-4">
                             <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-                                <ion-icon name="bag-outline"></ion-icon>Para empresas
+                                <ion-icon name="caret-down-outline"></ion-icon>Para empresas
                             </button>
                         </div>
                         <div class="collapse" id="toggleMobileMenu">
@@ -128,9 +131,11 @@
                                 <label for="">RFC</label>
                                 <input class="form-control" placeholder="" name="rfc" type="text">
                             </div>
-                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary">
+                            <div class="col-sm-12 mt-4 centrado">
+                                <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary me-3" onClick="validarCampos2(this.form)">
+                            </div>
                         </div>
-                        <script languaje="javascript" src="../js/confContraseña.js"></script>   
+                        <script languaje="javascript" src="../js/confContraseña.js?v=1.0"></script>   
                     </div>
                 </form>
                 

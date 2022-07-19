@@ -141,7 +141,7 @@
                                 $descPaquete = $fila["descrip_paquete"];
                                 $cantPersonas= $fila["cant_personas"];
                                 $prePaquete = $fila["precio_paquete"];
-                                echo "<div class='col-sm-6 col-lg-4 col-md-4 col-log'>
+                                echo "<div class=col-sm-6 col-lg-4 col-md-4 col-log'>
                                     <h2 class='center'> $nomPaquete </h2>
                                     <img src=' alt='>
                                     <p>$descPaquete</p>

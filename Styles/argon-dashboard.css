@@ -4009,8 +4009,8 @@ fieldset:disabled .btn {
   display: none;
 }
 
-.collapsing {
-  height: 0;
+/* .collapsing {
+  height: 200px;
   overflow: hidden;
   transition: height 0.35s ease;
 }
@@ -4025,7 +4025,7 @@ fieldset:disabled .btn {
   width: 0;
   height: auto;
   transition: width 0.35s ease;
-}
+} */
 
 @media (prefers-reduced-motion: reduce) {
   .collapsing.collapse-horizontal {

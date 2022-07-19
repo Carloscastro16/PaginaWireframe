@@ -70,7 +70,7 @@ error_reporting(0);
                         if ($rolUsuario == "2"){
                             $perfil = "PerfilCliente.php";
                         }else{
-                            $perfil = "PerfilEmpresa.php";
+                            $perfil = "DashboardEmpresa.php";
                         }
                         if(isset($varsession)){
                             echo "

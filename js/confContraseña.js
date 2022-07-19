@@ -5,8 +5,7 @@ function validarCampos2(form){
     else{
         form.passwordConf.value = ""; form.passwordConf.focus(); 
         event.preventDefault();
-        form.password.classList.add("denegada");
-        alert("Las contraseñas no coinciden");
+        form.password.classList.add("is-invalid");
         return false;
     }
 }

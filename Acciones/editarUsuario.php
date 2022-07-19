@@ -13,7 +13,7 @@ include('conec.php');
 
 
     $resultados=mysqli_query($conexion,$editarUsuario);
-
+    
 
     //Redireccionamiento a index sino funciona
     if (!$resultados){
