@@ -55,7 +55,7 @@
                     <a  href="PerfilCliente.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i>Perfil
                     </a>
-                    <a  href="../index.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="../index.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-magnifying-glass"></i>Buscador
                     </a>
                     <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
