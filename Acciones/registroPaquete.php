@@ -5,7 +5,7 @@ include('conec.php');
     
     //cargar imagen//
     //$nomImagenPaquete= $_REQUEST["txtnom"];
-    $codusuario=$_POST['id'];
+    $codusuario=$_POST['fkcodEmpresa'];
     $imagenPaquete= $_FILES['txtnom']['name'];
     $ruta= $_FILES["txtnom"]["tmp_name"];
     $destino="../imagenes/" . $imagenPaquete;
@@ -23,20 +23,20 @@ include('conec.php');
     //$registrarPaquete= "CALL sp_registroPaquete ('$nomImagenPaquete','$nombrePaquete','$tipoServicio',
                                               //  '$locacion','$direccion','$disponibilidad',
                                              //   '$precioEvento','$cantidadPersonas','$Descripcion')";
-    $registrarPaquete= "INSERT INTO paquete(fkcodempresa,imagen_paquete,nom_paquete,fk_cod_tipo_servicio,
-    fk_cod_ciudad,direc_evento,disponibilidad_evento,precio_paquete,
-    cant_personas,descrip_paquete) VALUE ('$codusuario',' $imagenPaquete','$nombrePaquete',$tipoServicio,'$locacion','$direccion',' $disponibilidad',
+    $registrarPaquete= "INSERT INTO paquete(fk_cod_empresa,imagen_paquete,nom_paquete,fk_cod_tipo_servicio,
+    fk_cod_ciudad,direc_evento,disponibilidad_evento,precio_paquete,cant_personas,descrip_paquete) 
+    VALUE ('$codusuario',' $imagenPaquete','$nombrePaquete',$tipoServicio,'$locacion','$direccion',' $disponibilidad',
     $precioEvento,'$cantidadPersonas','$Descripcion')";
     $resultados=mysqli_query($conexion,$registrarPaquete);
     if (!$resultados){
         echo '<script> alert ("los datos no se insertador") </script>';
-        header('location: index.html');
+        header('location: index.php');
     } else {
         echo '<script> alert("los datos se insertador") </script>';
     }
 }
 //redireccionar
-header('location: altapquetes.php');
+header('location: ../Paginas/altapaquetes.php');
     
     
 ?>

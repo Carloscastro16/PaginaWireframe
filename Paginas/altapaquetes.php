@@ -96,12 +96,8 @@
                                     <div class="file btn btn-lg btn-primary">
                                         Subir foto
                                         <!--<input type="hidden" value="imagen" name="txtnom" /> -->
-                                        <?php
-                                        include('../Acciones/conec.php');
-                                        $id = $_GET['fk_cod_empresa'];
-                                        "SELECT * FROM usuario WHERE fk_cod_empresa=$id";
-                                        ?>
-                                        <input type="hidden" name="fkcodempresa" value="<?php echo $id ?>" />
+
+                                        <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
                                         <input type="file" accept="image/*"  name="txtnom" />
                                     </div>
                                 </div>
