@@ -1,17 +1,17 @@
+<?php
+// No mostrar los errores de PHP
+// Para que se inicialice la variable de session
+    error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=1.2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../Styles/argon-dashboard.css">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <title>Inicia Sesion</title>
+    <?php
+    // Todos los Meta y links estan dentro de este html
+    // Para que verlo, ir a la carpeta Partials en el archivo HeaderGeneral
+        include("partials/headerGeneral.html");
+    ?>
+    <title>Paquetes</title>
     
 </head>
 <body>
@@ -51,22 +51,59 @@
                         
                     </ul>
                     <button class="switch" id="switch">
-                                <span>
-                                    <ion-icon name="sunny-outline"></ion-icon>
-                                </span>
-                                <span>
-                                    <ion-icon name="moon-outline"></ion-icon>
-                                </span>
-                            </button>
-                    <div class="botones">
-                        <form action="log-in.php">
-                            <button class="botoncin btn btn-outline-success">Login</button>
-                        </form>
-                        <form action="sign-in.php">
-                            <button class="botoncin btn btn-outline-secondary">Register</button>
-                        </form>
-                    </div>
-
+                        <span>
+                            <ion-icon name="sunny-outline"></ion-icon>
+                        </span>
+                        <span>
+                            <ion-icon name="moon-outline"></ion-icon>
+                        </span>
+                    </button>
+                            <?php
+                                include ('../Acciones/conec.php');
+                                session_start();
+                                $varsession = $_SESSION['cod_usuario'];
+                                $correo = $_SESSION['Correo'];
+                                $rolUsuario = $_SESSION['rolUsuario'];
+                                $nombreUsuario = $_SESSION['nombre_usuario'];
+                                if ($rolUsuario == "2"){
+                                    $perfil = "PerfilCliente.php";
+                                }else{
+                                    $perfil = "DashboardEmpresa.php";
+                                }
+                                if(isset($varsession)){
+                                    echo "
+                                    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                                        <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+                                            <li class='nav-item-dropdown'>
+                                                <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
+                                                    role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    <i class='fas fa-user me-'></i> Hola, $nombreUsuario!
+                                                </a>
+                                                <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                                    <li class='dropdown-link'>
+                                                        <a href='$perfil'>Perfil</a>
+                                                    </li>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    ";
+                                }else{
+                                    echo "
+                                    <div class='botones'>
+                                        <form action='LogIn.html'>
+                                            <button class='botoncin btn btn-outline-success'>Login</button>
+                                        </form>
+                                        <form action='SignIn.html'>
+                                            <button class='botoncin btn btn-outline-secondary'>Register</button>
+                                        </form>
+                                    </div>
+                                    ";
+                                }
+                            ?>
                 </div>
             </div>
         </nav>
@@ -100,9 +137,14 @@
         <section class="registro-inicio">
             <div class="General container">
                 <div class="row centrado">
+                    <div class="col-sm-12">
+                        <div class="titulito">
+                            <h2>Paquetes</h2>
+                        </div>
+                    </div>
                     <?php 
                     while($fila=mysqli_fetch_array($resultado)){
-                    ?>
+                        ?>
                     <div class="col-sm-6 col-lg-4 col-md-4 col-log">
                         <h2 class="center"><?php echo $fila["nom_paquete"]?></h2>
                         <img src="" alt="">
@@ -142,8 +184,10 @@
         </footer>
     </div>    
     <!-------- Scripts -------->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="js/modoOscuro.js"></script>
+    <?php
+    // Todos los Meta y links estan dentro de este html
+    // Para que verlo, ir a la carpeta Partials en el archivo HeaderGeneral
+        include("partials/Scripts.html");
+    ?>
 </body>
 </html>

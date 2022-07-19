@@ -169,33 +169,33 @@
                 <div class="General mt-5 container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table tablita display" id="table_id">
+                            <table id="ejemplo" class="table-responsive tablita display" >
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Imagen</th>
-                                        <th scope="col">nombre</th>
-                                        <th scope="col">Tipo</th>
-                                        <th scope="col">ciudad</th>
-                                        <th scope="col">Direccion</th>
-                                        <th scope="col">Estado</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">No. pax</th>
-                                        <th scope="col">Descripcion</th>
-                                        <th class="iconos" scope="col">Acciones</th>
+                                        <th>#</th>
+                                        <th>Imagen</th>
+                                        <th>nombre</th>
+                                        <th>Tipo</th>
+                                        <th>ciudad</th>
+                                        <th>Direccion</th>
+                                        <th>Estado</th>
+                                        <th>Precio</th>
+                                        <th>No. pax</th>
+                                        <th>Descripcion</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Conexion a la BD-->
-                                    <tr class="datos">
                                         <?php
                                         include('../Acciones/conec.php');
                                         $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
                                         $resultado=mysqli_query($conexion,$consulta); 
                                         while($fila=mysqli_fetch_array($resultado)){
                                         ?>
-                                        <th scope="row"> <?php echo $fila["cod_paquete"]?></th>
-                                        <th scope="row">nada</th>
+                                    <tr>
+                                        <td> <?php echo $fila["cod_paquete"]?></th>
+                                        <td>nada</th>
                                         <td> <?php echo $fila["nom_paquete"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
@@ -204,25 +204,31 @@
                                         <td> <?php echo $fila["precio_paquete"] ?> </td>
                                         <td> <?php echo $fila["cant_personas"] ?> </td>
                                         <td> <?php echo $fila["descrip_paquete"] ?> </td>
-                                        
+                                        <td>  
+                                            <a target="_self" href="../Acciones/eliminarProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                        </td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Imagen</th>
+                                        <th>nombre</th>
+                                        <th>Tipo</th>
+                                        <th>ciudad</th>
+                                        <th>Direccion</th>
+                                        <th>Estado</th>
+                                        <th>Precio</th>
+                                        <th>No. pax</th>
+                                        <th>Descripcion</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </tfoot>
                             </table>
-                        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/r-2.3.0/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
-                        <script>
-                            $(document).ready( function () {
-                            var table = $('#table_id').DataTable({
-                                colReorder: true
-                            });
-                            $('#reverse').click( function (e) {
-                                table.colReorder.order([0, 1, 2, 3, 4, 5], true)
-                            })
-                        } );
-                        </script>
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>

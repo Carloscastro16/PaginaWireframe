@@ -125,7 +125,7 @@
                     <div class="container inner-header flex">
                         <div class="row">
                             <div class="col-12">
-                                <form action="Acciones/muestraPaquetes.php" method="POST">
+                                <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
                                         <div class="row buscadorsin">
                                             <div class="search-camp col-lg-4 col-md-4 col-sm-4">
