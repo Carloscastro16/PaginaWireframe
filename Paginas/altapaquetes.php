@@ -93,13 +93,12 @@
                             <div class="col-md-4">
                                 <div class="imaperfil">
                                 <!--<img src="../Images/imagenPaquete.jpg" alt="" />v -->
-                                    <div class="file btn btn-lg btn-primary">
-                                        Subir foto
-                                        <!--<input type="hidden" value="imagen" name="txtnom" /> -->
+                                    
+                                       
 
                                         <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
-                                        <input type="file" accept="image/*"  name="txtnom" />
-                                    </div>
+                                        <input type="file" accept="image/*"  name="txtFoto" id="txtFoto" />
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -197,7 +196,14 @@
                                         ?>
                                     <tr>
                                         <td> <?php echo $fila["cod_paquete"]?></th>
-                                        <td><img class="img-thumbnail" src="../Imagenes/<?php echo $fila["imagen_paquete"];?>" /></td> 
+                                        <td><img  class="img-thumbnail" width="100px" src="../Imagenes<?php echo ["txtFoto"];?>" /></td> 
+
+                                        <!--<td> <img src="<?php if( $fila["imagen_paquete"]!=NULL || $fila["imagen_paquete"] !=0){
+                                        echo $fila["imagen_paquete"];
+                                        }else{
+                                        echo '../images/imagen.jpg';
+                                        } ?>"></td> -->
+                                        <!--<td> <?php echo $fila["imagen_paquete"] ?> </td>-->
                                         <td> <?php echo $fila["nom_paquete"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
@@ -207,8 +213,8 @@
                                         <td> <?php echo $fila["cant_personas"] ?> </td>
                                         <td> <?php echo $fila["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_blank" href="paginasEdicion/edicionPaquete.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
