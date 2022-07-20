@@ -24,17 +24,17 @@ include('conec.php');
     VALUE ('$codusuario',' $imagenPaquete','$nombrePaquete',$tipoServicio,'$locacion','$direccion',' $disponibilidad',
     $precioEvento,'$cantidadPersonas','$Descripcion')";
     
-
-    }
-        
+    $resultados=mysqli_query($conexion,$registrarPaquete);
     //conuslta para registrar//
     //$registrarPaquete= "CALL sp_registroPaquete ('$nomImagenPaquete','$nombrePaquete','$tipoServicio',
                                               //  '$locacion','$direccion','$disponibilidad',
                                              //   '$precioEvento','$cantidadPersonas','$Descripcion')";
-    
+            break;
+      
+    }
+        
 
     
-    $resultados=mysqli_query($conexion,$registrarPaquete);
 
 //redireccionar
 header('location: ../Paginas/altapaquetes.php');

@@ -164,6 +164,7 @@
                             <div class="col-md-2">
                                 <input type="submit" name="registro" value="Añadir paquete" class="btn btn-primary">
                             </div>
+                            
                         </div>
                     </form>
                 </div>
@@ -213,8 +214,9 @@
                                         <td> <?php echo $fila["cant_personas"] ?> </td>
                                         <td> <?php echo $fila["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionPaquete.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_blank" href="../Acciones/edicionPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            
                                         </td>
                                     </tr>
                                     <?php } ?>
