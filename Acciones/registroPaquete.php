@@ -1,12 +1,12 @@
 <?php
 include('conec.php');
     session_start();
-    $accion= (isset($_POST['registro']));
+    $accion= (isset($_POST['btnAgregar']));
+    //$nomImagenPaquete= $_REQUEST["txtnom"];
     $codusuario=$_POST['fkcodEmpresa'];
-        //cargar imagen//
-    $imagenPaquete= $_FILES['txtFoto']['name'];
-    $ruta= $_FILES["txtFoto"]["tmp_name"];
-    $destino="../imagenes/" . $imagenPaquete;
+    $imagenPaquete=$_FILES['txtnom']['name'];
+    $ruta= $_FILES["txtnom"]["tmp_name"];
+    $destino="../imagenes/".$imagenPaquete;
     copy($ruta,$destino);
     //fin cargar imagen//
     $nombrePaquete= $_POST['nombrePaquete'];
@@ -21,7 +21,7 @@ include('conec.php');
         case "btnAgregar":
             $registrarPaquete= "INSERT INTO paquete(fk_cod_empresa,imagen_paquete,nom_paquete,fk_cod_tipo_servicio,
     fk_cod_ciudad,direc_evento,disponibilidad_evento,precio_paquete,cant_personas,descrip_paquete) 
-    VALUE ('$codusuario',' $imagenPaquete','$nombrePaquete',$tipoServicio,'$locacion','$direccion',' $disponibilidad',
+    VALUE ('$codusuario','$imagenPaquete','$nombrePaquete',$tipoServicio,'$locacion','$direccion',' $disponibilidad',
     $precioEvento,'$cantidadPersonas','$Descripcion')";
     
     $resultados=mysqli_query($conexion,$registrarPaquete);
@@ -29,8 +29,7 @@ include('conec.php');
     //$registrarPaquete= "CALL sp_registroPaquete ('$nomImagenPaquete','$nombrePaquete','$tipoServicio',
                                               //  '$locacion','$direccion','$disponibilidad',
                                              //   '$precioEvento','$cantidadPersonas','$Descripcion')";
-            break;
-      
+            break;     
     }
         
 
