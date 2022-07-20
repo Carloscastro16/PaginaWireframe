@@ -103,11 +103,8 @@ error_reporting(0);
                                 }else{
                                     echo "
                                     <div class='botones'>
-                                        <form action='LogIn.html'>
-                                            <button class='botoncin btn btn-outline-success'>Login</button>
-                                        </form>
-                                        <form action='SignIn.html'>
-                                            <button class='botoncin btn btn-outline-secondary'>Register</button>
+                                        <form action='LogIn.php'>
+                                            <button class='botoncin btn btn-outline-success'>Unete</button>
                                         </form>
                                     </div>
                                     ";
@@ -168,8 +165,9 @@ error_reporting(0);
         
         
         $consulta1="SELECT * FROM paquete 
-                    where locacion_evento like '$ubicacion' 
-                    AND disponibilidad_evento = 'Disponible' 
+                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
+                    where disponibilidad_evento = 'Disponible' 
+                    AND ciudad.nombre_ciudad like '$ubicacion' 
                     AND cant_personas = $cantPersonas";
         $consulta2="SELECT * FROM paquete 
                     INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
@@ -181,7 +179,11 @@ error_reporting(0);
         }else{
             $consulta = $consulta1;
         }
+        $consultaPrueba = $consulta;
         $resultado=mysqli_query($conexion,$consulta);
+
+        $resultadoPrueba=mysqli_query($conexion,$consultaPrueba);
+        $filaPrueba= mysqli_fetch_array($resultadoPrueba);
         ?>
         <div class="General container">
             <div class="row centrado">
@@ -191,8 +193,14 @@ error_reporting(0);
                     </div>
                 </div>
                 <?php 
-                if($fila=mysqli_fetch_array($resultado)){
-                    while($fila=mysqli_fetch_array($resultado)){
+                if(empty($filaPrueba['nom_paquete'])){
+                    echo "
+                    <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
+                        <img src='../img/ningun_paquete.png' alt=''>
+                        <h5>Ups... Por el momento no contamos con lo que buscas</h5>
+                    </div>";
+                }else{
+                    while($fila = mysqli_fetch_array($resultado)){
                         $nomPaquete = $fila["nom_paquete"];
                         /* $imgPaquete = echo $fila["img_paquete"]; */
                         $descripcion = $fila["descrip_paquete"];
@@ -209,13 +217,6 @@ error_reporting(0);
                             </div>
                         </div>";
                     }
-                }else{
-                    echo "
-                    <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
-                        <img src='../img/ningun_paquete.png' alt=''>
-                        <h5>Ups... Por el momento no contamos con lo que buscas</h5>
-                    </div>
-                    ";
                 }
                 ?>
             </div>
@@ -224,6 +225,7 @@ error_reporting(0);
     <div class="footerBasic">
         <footer>
             <nav class="social">
+
                 <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-github"></ion-icon></a>
