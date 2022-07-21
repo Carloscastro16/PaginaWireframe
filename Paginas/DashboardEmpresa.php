@@ -141,35 +141,33 @@
                                 </div>
                             </div>
                             <?php
-                                            include('../Acciones/conec.php');
-                                            $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
-                                            $resultado=mysqli_query($conexion,$consulta); 
-                                            while($fila=mysqli_fetch_array($resultado)){
-                                                $imagen =$fila["imagen_paquete"];}
-                                            ?>
-                            <?php 
-                
-                            if($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                while($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                $nomPaquete = $fila["nom_paquete"];
-                                $descPaquete = $fila["descrip_paquete"];
-                                $cantPersonas= $fila["cant_personas"];
-                                $prePaquete = $fila["precio_paquete"];
-                                
-                                echo "<div class=col-sm-6 col-lg-4 col-md-4 col-log'>
-                                <h2 class='center'> $nomPaquete </h2>
-                                <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
+                            include('../Acciones/conec.php');
+                            $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
+                            $resultado=mysqli_query($conexion,$consulta); 
+                            $consultaPaquetes="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
+                            $resultadoPaquetes=mysqli_query($conexion,$consultaPaquetes); 
+                            if($filaPaquetes=mysqli_fetch_array($resultadoPaquetes)){
+                                while($fila=mysqli_fetch_array($resultado)){
+                                    $imagen =$fila["imagen_paquete"];
+                                    $nomPaquete = $fila["nom_paquete"];
+                                    $descPaquete = $fila["descrip_paquete"];
+                                    $cantPersonas= $fila["cant_personas"];
+                                    $prePaquete = $fila["precio_paquete"];
                                     
-                                    
-                                    <p>$descPaquete</p>
-                                    <div>
-                                        <p>Cantidad de personas: $cantPersonas</p>
-                                        <p>Precio total: $prePaquete</p>
-                                    </div>
-                                    <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
-                                        Editar Paquete
-                                    </button>
-                                </div>";
+                                    echo "<div class=col-sm-6 col-lg-4 col-md-4 col-log'>
+                                    <h2 class='center'> $nomPaquete </h2>
+                                    <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
+                                        
+                                        
+                                        <p>$descPaquete</p>
+                                        <div>
+                                            <p>Cantidad de personas: $cantPersonas</p>
+                                            <p>Precio total: $prePaquete</p>
+                                        </div>
+                                        <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
+                                            Editar Paquete
+                                        </button>
+                                    </div>";
                                 };
                             }else{
                                 echo "
