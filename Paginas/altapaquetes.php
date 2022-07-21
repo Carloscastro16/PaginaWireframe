@@ -10,6 +10,7 @@
         header('Location: ../index.html');
         die();
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -163,8 +164,9 @@
                                 <textarea name="descripcion" class="form-control" id="" rows="3"></textarea>
                             </div>
                             <div class="col-md-2">
-                                <input type="submit" name="registro" value="Añadir paquete" class="btn btn-primary">
+                                <input type="submit" name="btnAgregar" value="Añadir paquete" class="btn btn-primary">
                             </div>
+                            
                         </div>
                     </form>
                 </div>
@@ -189,15 +191,18 @@
                                 </thead>
                                 <tbody>
                                     <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../Acciones/conec.php');
-                                        $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
-                                        $resultado=mysqli_query($conexion,$consulta); 
-                                        while($fila=mysqli_fetch_array($resultado)){
-                                        ?>
                                     <tr>
+                                            <?php
+                                            include('../Acciones/conec.php');
+                                            $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
+                                            $resultado=mysqli_query($conexion,$consulta); 
+                                            while($fila=mysqli_fetch_array($resultado)){
+                                                $imagen =$fila["imagen_paquete"];
+                                            ?>
                                         <td> <?php echo $fila["cod_paquete"]?></th>
-                                        <td><img class="img-thumbnail" src="../Imagenes/<?php echo $fila["imagen_paquete"];?>" /></td> 
+                                        
+                                        <td> <?php echo "<img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>" ?>
+                                        </td>
                                         <td> <?php echo $fila["nom_paquete"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
@@ -207,26 +212,14 @@
                                         <td> <?php echo $fila["cant_personas"] ?> </td>
                                         <td> <?php echo $fila["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_blank" href="EdicionPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a>  
+                                           <!-- <button type="button" name="btnEliminar"  id="submit" class="btn btn-primary"><ion-icon class="trash" name="trash-outline"></ion-icon></button>
+                                            <button type="button" name="btnModificar"  class="btn btn-primary"><ion-icon class="edit" name="create-outline"></ion-icon></button> -->
                                         </td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Imagen</th>
-                                        <th>nombre</th>
-                                        <th>Tipo</th>
-                                        <th>ciudad</th>
-                                        <th>Direccion</th>
-                                        <th>Estado</th>
-                                        <th>Precio</th>
-                                        <th>No. pax</th>
-                                        <th>Descripcion</th>
-                                        <th>Acciones</th>
-                                    </tr>
                                 </tfoot>
                             </table>
                         </div>
@@ -235,9 +228,11 @@
             </section>
         </div>
     </div>
+    
     <?php
     include('partials/Scripts.html');
     ?>
+    
 </body>
 
 </html>
