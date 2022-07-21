@@ -10,7 +10,6 @@
         header('Location: ../index.html');
         die();
     }
-    
 ?>
 
 <!DOCTYPE html>

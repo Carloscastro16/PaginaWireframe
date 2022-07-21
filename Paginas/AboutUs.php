@@ -95,6 +95,9 @@ error_reporting(0);
                                                 <a href='../Paginas/$perfil'>Perfil</a>
                                             </li>
                                             <li class='dropdown-link'>
+                                                <a href='../Paginas/PerfilEmpresa.html'>Configuración</a>
+                                            </li>
+                                            <li class='dropdown-link'>
                                                 <a href='../Acciones/Log-out.php'>Logout</a>
                                             </li>
                                         </ul>
@@ -105,8 +108,11 @@ error_reporting(0);
                         }else{
                             echo "
                             <div class='botones'>
-                                <form action='LogIn.php'>
-                                    <button class='botoncin btn btn-outline-success'>Unete</button>
+                                <form action='LogIn.html'>
+                                    <button class='botoncin btn btn-outline-success'>Login</button>
+                                </form>
+                                <form action='SignIn.html'>
+                                    <button class='botoncin btn btn-outline-secondary'>Register</button>
                                 </form>
                             </div>
                             ";
