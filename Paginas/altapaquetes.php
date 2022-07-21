@@ -10,6 +10,7 @@
         header('Location: ../index.html');
         die();
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -140,8 +141,8 @@
                                 <label class="form-title" for="">Disponibilidad</label>
                                 <select class="form-select" aria-label="Default select example" name="disponibilidadEv">
                                     <option selected>Ingrese disponibilidad</option>
-                                    <option value="1">Disponible</option>
-                                    <option value="2">No disponible</option>
+                                    <option value="Disponible">Disponible</option>
+                                    <option value="Ocupado">No disponible</option>
                                 </select>
 
                             </div>
