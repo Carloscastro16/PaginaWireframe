@@ -66,31 +66,24 @@
                     <form action="../Acciones/registroPaquete.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                        <h4>
-                                            Paquete
-                                        </h4>
-                                    </div>
+                                <div class="titulito tituloConjunto">
+                                    <h4>
+                                        Paquete
+                                    </h4>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="imaperfil">
-                                        <img src="../Images/fotoPrincipal.png" alt=""/>
-                                        <div class="file btn btn-lg btn-primary">
-                                            Cambiar foto
-                                            <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
-                                            <input type="file" accept="image/*"  name="txtFoto" id="txtFoto" value="<?php echo $fila["imagen_paquete"]?>"/>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                                
+                            
 
                             <div class="col-md-6">
                                 <label class="form-title" for="">Nombre de paquete</label>
+                                <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
                                 <input class="form-control" type="text" name="nombrePaquete" value="<?php echo $fila["nom_paquete"] ?>">
                                 <input class="collapse form-control" type="text" name="codPaquete" value="<?php echo $fila["cod_paquete"] ?>">
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <label class="form-title" for="">Tipo de servicio</label>
-                                <select class="form-select" aria-label="Default select example" name="">
+                                <select class="form-select" aria-label="Default select example" name="tipoServicio">
                                     <option selected>Ingrese el servicio</option>
                                     <?php
                                             include('../Acciones/conec.php');
@@ -146,12 +139,62 @@
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <label class="form-title" for="">Descripcion</label>
-                                <textarea name="descripcion" class="form-control" id="" rows="3" value="<?php echo $fila["descrip_paquete"] ?>"></textarea>
+                                <input name="descripcion" class="form-control" id="" rows="3" value="<?php echo $fila["descrip_paquete"] ?>">
                             </div>
                             <div class="col-md-2">
                                 <input type="submit" name="btnActualizar" value="Actualizar Paquete" class="btn btn-primary">
                             </div>
-                            
+                            <div class="col-sm-12">
+                            <table id="ejemplo" class="table-responsive tablita display" >
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Imagen</th>
+                                        <th>nombre</th>
+                                        <th>Tipo</th>
+                                        <th>ciudad</th>
+                                        <th>Direccion</th>
+                                        <th>Estado</th>
+                                        <th>Precio</th>
+                                        <th>No. pax</th>
+                                        <th>Descripcion</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Conexion a la BD-->
+                                    <tr>
+                                            <?php
+                                            include('../Acciones/conec.php');
+                                            $consulta45 = "SELECT * FROM paquete WHERE fk_cod_empresa = $varsession AND cod_paquete = '$codPaquete'";
+                                            $resultado = mysqli_query($conexion, $consulta45);
+                                            while($fila45=mysqli_fetch_array($resultado)){
+                                                $imagen =$fila["imagen_paquete"];
+                                            ?>
+                                        <td> <?php echo $fila["cod_paquete"]?></th>
+                                        
+                                        <td> <?php echo "<img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>" ?>
+                                        </td>
+                                        <td> <?php echo $fila["nom_paquete"] ?> </td>
+                                        <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
+                                        <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
+                                        <td> <?php echo $fila["direc_evento"] ?> </td>
+                                        <td> <?php echo $fila["disponibilidad_evento"] ?> </td>
+                                        <td> <?php echo $fila["precio_paquete"] ?> </td>
+                                        <td> <?php echo $fila["cant_personas"] ?> </td>
+                                        <td> <?php echo $fila["descrip_paquete"] ?> </td>
+                                        <td>  
+                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a>  
+                                           <!-- <button type="button" name="btnEliminar"  id="submit" class="btn btn-primary"><ion-icon class="trash" name="trash-outline"></ion-icon></button>
+                                            <button type="button" name="btnModificar"  class="btn btn-primary"><ion-icon class="edit" name="create-outline"></ion-icon></button> -->
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                                </tfoot>
+                            </table>
+                            </div>
                         </div>
                     </form>
                 </div>
