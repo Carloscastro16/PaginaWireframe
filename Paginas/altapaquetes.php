@@ -93,13 +93,12 @@
                             <div class="col-md-4">
                                 <div class="imaperfil">
                                 <!--<img src="../Images/imagenPaquete.jpg" alt="" />v -->
-                                    <div class="file btn btn-lg btn-primary">
-                                        Subir foto
+                                    
                                         <!--<input type="hidden" value="imagen" name="txtnom" /> -->
 
                                         <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
                                         <input type="file" accept="image/*"  name="txtnom" />
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -211,8 +210,10 @@
                                         <td> <?php echo $fila["cant_personas"] ?> </td>
                                         <td> <?php echo $fila["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="../Acciones/edicionPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                           <!-- <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_blank" href="../Acciones/edicionPaquete.php?idPaquete=<?php echo $fila["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a>  -->
+                                            <button type="button" name="btnEliminar"  id="submit" class="btn btn-primary"><ion-icon class="trash" name="trash-outline"></ion-icon></button>
+                                            <button type="button" name="btnModificar"  class="btn btn-primary"><ion-icon class="edit" name="create-outline"></ion-icon></button>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -225,9 +226,11 @@
             </section>
         </div>
     </div>
+    
     <?php
     include('partials/Scripts.html');
     ?>
+    
 </body>
 
 </html>

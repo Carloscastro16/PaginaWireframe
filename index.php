@@ -114,7 +114,7 @@
                                 }else{
                                     echo "
                                     <div class='botones'>
-                                        <form action='Paginas/LogIn.html'>
+                                        <form action='Paginas/LogIn.php'>
                                             <button class='botoncin btn btn-outline-success'>Unete</button>
                                         </form>
                                     </div>

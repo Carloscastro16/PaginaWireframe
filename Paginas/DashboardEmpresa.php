@@ -116,10 +116,6 @@
                             <div class="col-md-4">
                                 <div class="imaperfil">
                                     <img src="../Images/fotoPrincipal.png" alt=""/>
-                                    <div class="file btn btn-lg btn-primary">
-                                        Cambiar foto
-                                        <input type="file" name="file"/>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -130,8 +126,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <input type="submit" name="registro" value="Editar perfil" 
-                                class="btn btn-primary">
+                                <form action="EdicionPaquete.php" method="post">
+                                    <input type="submit" name="registro" value="Editar perfil" 
+                                    class="btn btn-primary">
+                                </form>
                             </div>
                         </div>
                         <div class="row">
@@ -142,16 +140,27 @@
                                     </h4>
                                 </div>
                             </div>
+                            <?php
+                                            include('../Acciones/conec.php');
+                                            $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
+                                            $resultado=mysqli_query($conexion,$consulta); 
+                                            while($fila=mysqli_fetch_array($resultado)){
+                                                $imagen =$fila["imagen_paquete"];}
+                                            ?>
                             <?php 
+                
                             if($fila=mysqli_fetch_array($resultadoPaquetes)){
                                 while($fila=mysqli_fetch_array($resultadoPaquetes)){
                                 $nomPaquete = $fila["nom_paquete"];
                                 $descPaquete = $fila["descrip_paquete"];
                                 $cantPersonas= $fila["cant_personas"];
                                 $prePaquete = $fila["precio_paquete"];
+                                
                                 echo "<div class=col-sm-6 col-lg-4 col-md-4 col-log'>
-                                    <h2 class='center'> $nomPaquete </h2>
-                                    <img src=' alt='>
+                                <h2 class='center'> $nomPaquete </h2>
+                                <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
+                                    
+                                    
                                     <p>$descPaquete</p>
                                     <div>
                                         <p>Cantidad de personas: $cantPersonas</p>
@@ -170,6 +179,7 @@
                                 </div>
                                 ";
                             }
+                            
                             ?>
                         </div>         
                     </div>
