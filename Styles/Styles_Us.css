@@ -89,10 +89,7 @@ main{
     min-height: 100vh;
     height: 100%;
     background: rgb(116,149,184);
-    background-image: url(../img/fondoclaro.png);
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: initial;
+    background-image: linear-gradient(0deg, rgba(103,130,158,1) 0%, rgba(116,149,184,0.9654236694677871) 33%, rgba(196,210,231,1) 70%, rgba(196,210,231,1) 100%);
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     -moz-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
@@ -226,8 +223,7 @@ body.dark{
     background: var(--Fondo-oscuro);
 }
 body.dark main{
-    background: url(../img/fondoscuro.png);
-    
+    background:var(--Fondo-oscuro);
 }
 body.dark nav{
     background-color: var(--azulNegroso) !important;

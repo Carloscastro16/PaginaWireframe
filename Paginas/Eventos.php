@@ -108,8 +108,11 @@ error_reporting(0);
                         }else{
                             echo "
                             <div class='botones'>
-                                <form action='Paginas/LogIn.html'>
-                                    <button class='botoncin btn btn-outline-success'>Unete</button>
+                                <form action='LogIn.html'>
+                                    <button class='botoncin btn btn-outline-success'>Login</button>
+                                </form>
+                                <form action='SignIn.html'>
+                                    <button class='botoncin btn btn-outline-secondary'>Register</button>
                                 </form>
                             </div>
                             ";
@@ -180,7 +183,7 @@ error_reporting(0);
                 <h4>Conferencias</h4>
                 <p>Enfatizamos en el ramo por el grado de calidad y exigencia que manejamos, 
                     usando los instrumentos más actualizados y modernos, construyendo con 
-                    ello un equipo de primera calidad y al menor precio. </p>
+                    ello un equipo de primera calidad y al menor precio. </p>
             </div>
             <div class="col-4 eventitos">
                 <img src="../img/FinAño.jpg" alt="">
