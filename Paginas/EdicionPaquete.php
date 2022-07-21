@@ -10,11 +10,11 @@
         header('Location: ../index.html');
         die();
     }
-    $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
+    
+    $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
     $resultado = mysqli_query($conexion, $consulta);
     $fila= mysqli_fetch_array($resultado);
-    $apellidoMa = $fila['ape_materno'];
-    $apellidoPa = $fila['ape_paterno'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +77,7 @@
                                         <div class="file btn btn-lg btn-primary">
                                             Cambiar foto
                                             <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
-                                            <input type="file" accept="image/*"  name="txtFoto" id="txtFoto" value="<?php echo $results["imagen_paquete"] ?>"/>
+                                            <input type="file" accept="image/*"  name="txtFoto" id="txtFoto" value="<?php echo $fila["imagen_paquete"] ?>"/>
 
                                         </div>
                                     </div>
@@ -85,20 +85,22 @@
 
                             <div class="col-md-6">
                                 <label class="form-title" for="">Nombre de paquete</label>
-                                <input class="form-control" type="text" name="nombrePaquete" value="<?php echo $results["nom_paquete"] ?>">
+                                <input class="form-control" type="text" name="nombrePaquete" value="<?php echo $fila["nom_paquete"] ?>">
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <label class="form-title" for="">Tipo de servicio</label>
-                                <select class="form-select" aria-label="Default select example" name="tipoServicio">
+                                <select class="form-select" aria-label="Default select example" name="">
                                     <option selected>Ingrese el servicio</option>
                                     <?php
                                             include('../Acciones/conec.php');
-                                            $consulta='SELECT*FROM tipo_servicio';
-                                            $resultado= mysqli_query($conexion,$consulta); 
-                                            WHILE ($fila=mysqli_fetch_array($resultado)){
+                                            $consulta2='SELECT*FROM tipo_servicio';
+                                            $resultado2= mysqli_query($conexion,$consulta2); 
+                                            WHILE ($fila=mysqli_fetch_array($resultado2)){
                                     ?>
-                                    <option value="<?php echo $fila['cod_tipo_servicio'] ?>"> <?php echo $fila['nom_servicio']?>
-                                    </option>
+                                    <option <?php
+                                        if ($fila["cod_tipo_servicio"] == $results["nom_servicio"])
+                                        echo "selected='selected'"; ?> name="tipoServicio" value="<?php echo $fila['cod_tipo_servicio'] ?>">
+                                        <?php echo $fila['nom_servicio']?>></option>
                                     <?php  } ?>
                                     
                                 </select>
@@ -113,6 +115,11 @@
                                         $resultado= mysqli_query($conexion,$consulta); 
                                         WHILE($fila=mysqli_fetch_array($resultado)){
                                     ?>
+                                    <option <?php  if($fila2["codigo"]== $fila["codigoFab"])
+                                        echo "selected='selected'";?> 
+                                        value="<?php echo $fila2["codigo"]?>">
+                                        <?php echo $fila2["nombre"] ?>
+                                    </option>
                                     <option value="<?php echo $fila['cod_ciudad'] ?>"> <?php echo $fila['nombre_ciudad']?>
                                     </option>
                                     <?php  } ?>
@@ -120,7 +127,7 @@
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Dirección</label>
-                                <input class="form-control" type="text" name="direcEvento">
+                                <input class="form-control" type="text" name="direcEvento" value="<?php echo $fila["direc_evento"] ?>">
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Disponibilidad</label>
@@ -133,18 +140,18 @@
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">Precio</label>
-                                <input class="form-control" type="text" name="precioEvento">
+                                <input class="form-control" type="text" name="precioEvento" value="<?php echo $fila["precio_paquete"] ?>">
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <label class="form-title" for="">¿Para cuantas personas?</label>
-                                <input class="form-control" type="text" name="cantidadPersonas">
+                                <input class="form-control" type="text" name="cantidadPersonas" value="<?php echo $fila["cant_personas"] ?>">
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <label class="form-title" for="">Descripcion</label>
-                                <textarea name="descripcion" class="form-control" id="" rows="3"></textarea>
+                                <textarea name="descripcion" class="form-control" id="" rows="3" value="<?php echo $fila["descrip_paquete"] ?>"></textarea>
                             </div>
                             <div class="col-md-2">
-                                <input type="submit" name="registro" value="Añadir paquete" class="btn btn-primary">
+                                <input type="submit" name="registro" value="Actualizar Paquete" class="btn btn-primary">
                             </div>
                             
                         </div>
