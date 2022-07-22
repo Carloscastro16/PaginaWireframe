@@ -56,15 +56,15 @@ $filaUsr= mysqli_fetch_array($resultado);
                 </span>
             </button>
             <div class="list-group list-group-flush my-3">
-                <a href="DashboardEmpresa.php"
+                <a href="DashboardAdmin.php"
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
                 <a href="EdicionAdmin/tablasUsuario.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas de Usuarios
+                    <i class="fa-solid fa-table-list"></i>Tablas de usuarios
                 </a>
                 <a href="EdicionAdmin/tablaSistema.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas del Sistema
+                    <i class="fa-solid fa-table-list"></i>Tablas de eventos
                 </a>
                 <a href="EdicionAdmin/tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tablas del Administrador
@@ -98,7 +98,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                     <a href='../index.php'>Home</a>
                                 </li>
                                 <li class='dropdown-link'>
-                                    <a href='PerfilEmpresa.php'>Dashboard</a>
+                                    <a href='../Paginas/DashboardAdmin.php'>Dashboard</a>
                                 </li>
                                 <li class='dropdown-link'>
                                     <a href='../Acciones/Log-out.php'>Logout</a>
@@ -121,23 +121,25 @@ $filaUsr= mysqli_fetch_array($resultado);
                         <div class="col-md-4">
                             <div class="imaperfil">
                                 <img src="../Images/fotoPrincipal.png" alt=""/>
-                                <div class="file btn btn-lg btn-primary">
+
+                                <!--<div class="file btn btn-lg btn-primary">
                                     Cambiar foto
                                     <input type="file" name="file"/>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="titulito">
                                 <h5>
-                                    Hola <?php echo $nombreUsuario ?>!
+                                    Hola, <?php echo $nombreUsuario ?>!
                                 </h5>   
                             </div>
                         </div>
-                        <div class="col-md-2">
+
+                       <!-- <div class="col-md-2">
                             <input type="submit" name="registro" value="Editar perfil" 
                             class="btn btn-primary">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <!-- Tabla de Clientes -->
