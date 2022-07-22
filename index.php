@@ -400,9 +400,22 @@
 
 
     <!-------- Scripts -------->
-    <?php
-    include('partials/Scripts.html');
-    ?>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/r-2.3.0/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+    <script src="js/modoOscuro.js"></script>
+    <script src="js/tablas.js"></script>
+    <script>
+        var el = document.getElementById("wrapper")
+        var toggleButton = document.getElementById("menu-toggle")
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggle")
+        }
+    </script>
+    
+    <script src="js/menuBuscador.js"></script>
     <script>
         window.onload = function() {
             var contenedor = document.getElementById("contenedor_carga");

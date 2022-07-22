@@ -315,6 +315,7 @@ body.dark .dropdown-link a{
     color: var(--azulOscuro);
 }
 
+
 /* ------ Barra de Navegación ------ */
 header{
     font-family: 'Montserrat', sans-serif;
@@ -1459,7 +1460,7 @@ div span:not(:first-child){
 }
 .titulito h4{
     font-size: 1.6rem;
-    color: var(--dark-letters);
+    color: var(--bs-code-color);
     font-family:'Montserrat', sans-serif;
 }
 .titulito h5{
@@ -1509,8 +1510,11 @@ div span:not(:first-child){
 input.denegada{
     border-color: var(--bs-danger);
 }
-
+table th{
+    color: var(--bs-code-color);
+}
 .tablasAdmin ion-icon{
     font-size: 1.2rem;
-    margin-inline: 1rem;
+    margin-inline: .2rem;
+    color: var(--bs-code-color);
 }

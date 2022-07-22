@@ -28,7 +28,8 @@ $agregar = $_POST['agregar'];
             header ('location: ../Paginas/DashboardEmpresa.php');
         }
     }else {
-        header ('location: ../Paginas/SignIn.html');
+        
+        header ('location: ../Paginas/LogIn.php');
         echo "<script type='text/javascript'> alert('El correo ya existe en la base de datos');</script>";
     }
     //redireccionamiento//
