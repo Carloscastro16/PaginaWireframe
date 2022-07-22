@@ -50,7 +50,7 @@ print_r($_POST);
     }else if ($respuesta==1 && $fila["fk_rol_usuario"] == 1){
         header('Location: ../Paginas/DashboardAdmin.php');
     }else{
-        header('Location: ../Paginas/LogIn.html');
+        header('Location: ../Paginas/LogIn.php');
     }
 
 ?>

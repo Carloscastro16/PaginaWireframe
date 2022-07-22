@@ -92,6 +92,9 @@ error_reporting(0);
                                         </a>
                                         <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                             <li class='dropdown-link'>
+                                                <a href='../index.php'>Home</a>
+                                            </li>
+                                            <li class='dropdown-link'>
                                                 <a href='../Paginas/$perfil'>Perfil</a>
                                             </li>
                                             <li class='dropdown-link'>

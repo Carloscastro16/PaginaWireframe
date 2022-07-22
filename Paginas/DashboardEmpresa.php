@@ -90,10 +90,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.php'>Dashboard</a>
+                                        <a href='../index.php'>Home</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='EditPerfilEmpresa.php'>Configuración</a>
+                                        <a href='PerfilEmpresa.php'>Dashboard</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>

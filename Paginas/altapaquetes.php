@@ -45,7 +45,7 @@
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
                 <a href="AltaPaquetes.php"
-                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                     <i class="fa-solid fa-user"></i>Alta de paquetes
                 </a>
                 <a href="../Acciones/Log-out.php"
@@ -91,16 +91,19 @@
                 <div class="General container">
                     <form action="../Acciones/registroPaquete.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="imaperfil">
-                                    <!--<img src="../Images/imagenPaquete.jpg" alt="" />v -->
-                                    <input type="hidden" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
-                                    <input type="file" accept="image/*"  name="txtnom" />
+                            <div class="col-sm-12 col-md-4">
+                                <div class="imaperfil input-group">
+                                    <div class="custom-file">
+                                        <label class="form-title" for="">Sube una imagen</label>
+                                        <!--<img src="../Images/imagenPaquete.jpg" alt="" />v -->
+                                        <input type="hidden" class="custom-file-input" name="fkcodEmpresa" value="<?php echo $varsession ?>" />
+                                        <input type="file" accept="image/*"  name="txtnom" class="custom-file-input form-control" aria-describedby="inputGroupFileAddon01" required/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <label class="form-title" for="">Nombre de paquete</label>
-                                <input class="form-control" type="text" name="nombrePaquete">
+                                <input class="form-control" type="text" name="nombrePaquete" required>
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <label class="form-title" for="">Tipo de servicio</label>

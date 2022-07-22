@@ -86,10 +86,10 @@ $filaUsr= mysqli_fetch_array($resultado);
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
-                                    <a href='PerfilEmpresa.php'>Dashboard</a>
+                                    <a href='../index.php'>Home</a>
                                 </li>
                                 <li class='dropdown-link'>
-                                    <a href='EditPerfilEmpresa.php'>Configuración</a>
+                                    <a href='PerfilEmpresa.php'>Dashboard</a>
                                 </li>
                                 <li class='dropdown-link'>
                                     <a href='../Acciones/Log-out.php'>Logout</a>
@@ -162,25 +162,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <!-- Button trigger modal -->
-                                            <input type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
-                                                    <ion-icon class="trash" name="trash-outline"></ion-icon>
-
-                                            <div class="modal" id="miModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="modalTitle">Nuestro sitio</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-
-                                                        </div>
-                                                        <div class="modal-footer">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_blank" href="Paginas/edicionCliente.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
