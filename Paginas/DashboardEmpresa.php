@@ -10,7 +10,7 @@
 
     if($varsession == null || $varsession == '' || $rolUsuario == '2') {
         echo "ERROR: 412 Usted no tiene acceso";
-        header('Location: ../index.html');
+        header('Location: ../index.php');
         die();
     }
     $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";

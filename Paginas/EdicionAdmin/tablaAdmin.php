@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -10,7 +9,7 @@ $nombreUsuario = $_SESSION['nombre_usuario'];
 
 if($varsession == null || $varsession == '' || $rolUsuario != '1') {
     echo "ERROR: 412 Usted no tiene acceso";
-    header('Location: ../index.php');
+    header('Location: ../index.html');
     die("Usted no tiene acceso");
 }
 $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
@@ -171,7 +170,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name=""><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -483,21 +482,9 @@ $filaUsr= mysqli_fetch_array($resultado);
                                     <tr>
                                         <td> <?php echo $filaCiudad["cod_ciudad"]?></th>
                                         <td> <?php echo $filaCiudad["nombre_ciudad"] ?> </td>
-                                        <td class='centrado'> 
-                                            <form action="../Acciones/eliminarTipo.php">
-                                                <input type="hidden"  target="_self" name='tipoEdicion' value='ciudad'>
-                                                <input type="hidden"  target="_self" name='tipoEdicion' value='<?php echo $filaCiudad["cod_ciudad"]?>'>
-                                                <button type='submit' target="_self" name="boton">
-                                                    <ion-icon class="trash" name="trash-outline"></ion-icon>
-                                                </button>
-                                            </form>
-                                            <form action="EdicionAdmin/editarTipo.php">
-                                                <input type="hidden"  target="_self" name='tipoEdicion' value='ciudad'>
-                                                <input type="hidden"  target="_self" name='tipoEdicion' value='<?php echo $filaCiudad["cod_ciudad"]?>'>
-                                                <button type='submit' target="_self" name="boton">
-                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
-                                                </button>
-                                            </form> 
+                                        <td>  
+                                            <a target="_self" href="../Acciones/eliminarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>

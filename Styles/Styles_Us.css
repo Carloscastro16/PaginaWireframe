@@ -1518,3 +1518,6 @@ table th{
     margin-inline: .2rem;
     color: var(--bs-code-color);
 }
+.tablasAdmin button{
+    border: none;
+}

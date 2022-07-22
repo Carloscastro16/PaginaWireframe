@@ -84,30 +84,9 @@
                                 <div class="col-md-6">
                                     <div class="titulito">
                                         <h5>
-                                            Valor
+                                            Nombre de Ciudad
                                             <input name="nombre" type="text" class="form-control" value="<?php echo $nombreUsuario;?>">
-                                        </h5> 
-                                        <h5>
-                                            Apellido Paterno
-                                            <input name="apellPa" type="text" class="form-control" value="<?php echo $apellidoPa;?>">
                                         </h5>
-                                        <h5>
-                                            Apellido Materno
-                                            <input name="apellMa" type="text" class="form-control" value="<?php echo $apellidoMa;?>">
-                                        </h5> 
-                                        <h5>
-                                            Correo
-                                            <input name="correo" type="text" class="form-control" value="<?php echo $correo;?>">
-                                        </h5>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-                                                <ion-icon name="bag-outline"></ion-icon>Cambiar contraseña
-                                            </button>
-                                        </div>
-                                        <div class="collapse" id="toggleMobileMenu">
-                                            <label for="">Contraseña</label>
-                                            <input class="form-control" placeholder="**********" name="password" type="password">
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">

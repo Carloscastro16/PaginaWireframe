@@ -1,7 +1,7 @@
 <?php
 include('conec.php');
     session_start();
-    $tipoEdicion = $_POST['tipoEdicion'];
+    $tipoEdicion = $_['tipoEdicion'];
     
     //Se realiza un Switch que analiza el valor de tipoEdicion, para realizar la edicion
     switch($tipoEdicion){

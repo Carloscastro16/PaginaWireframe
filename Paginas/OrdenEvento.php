@@ -1,8 +1,23 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-error_reporting(0);
+/* error_reporting(0); */
+session_start();
+    include('../Acciones/conec.php');
+    $varsession = $_SESSION['cod_usuario'];
+    $correo = $_SESSION['correo'];
+    $rolUsuario = $_SESSION['rolUsuario'];
+    $nombreUsuario = $_SESSION['nombre_usuario'];
 
+    if($varsession == null || $varsession == '') {
+        echo "ERROR: 412 Usted no tiene acceso";
+        header('Location: ../index.php');
+        die();
+    }
+    $codPaquete = $_POST['codPaquete'];
+    if($codPaquete== 4) {
+        header('Location: ../index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,16 +63,6 @@ error_reporting(0);
                         <li class="nav-item">
                             <a class="nav-link" href="../index.php">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="About_Us.php">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact_Us.php">Contactanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Eventos.php">Eventos</a>
-                        </li>
-                        
                     </ul>
                     <button class="switch" id="switch">
                         <span>
@@ -113,119 +118,42 @@ error_reporting(0);
                 </div>
             </div>
         </nav>
-        <div class="container menu">
-            <div class="row">
-                <div class="col-12">
-                    <form action="muestraPaquetes.php" method="POST">
-                        <div class="container">
-                            <div class="row buscadorsin">
-                                <div class="search-camp col-lg-4 col-md-4 col-sm-4">
-                                    <ion-icon name="location-outline"></ion-icon>
-                                    <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
-                                </div>
-                                <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
-                                        <option value="Selected">Tipo de evento</option>
-                                        <?php
-                                        //conectar a la base de datos//
-                                        include('Acciones/conec.php');
-                                        $consulta2="SELECT * FROM tipo_servicio";
-                                        
-                                        $resultado2=mysqli_query($conexion,$consulta2);
-                                        while($fila2=mysqli_fetch_array($resultado2)){
-                                        ?>
-                                        <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                    <ion-icon name="person-outline"></ion-icon>
-                                    <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
-                                </div>
-                                <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                    <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </header>
     <main class="log-in">
-        <?php
-        //Conexion a la base de datos
-
-        include('../Acciones/conec.php');
-        $ubicacion= $_POST['ubicacion'];
-        /* $tipo = $_POST['tipo_servicio']; */
-        $cantPersonas = $_POST['cantPersonas'];
-        //Consulta e insercion de la query
-        
-        
-        $consulta1="SELECT * FROM paquete 
-                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
-                    where disponibilidad_evento = 'Disponible' 
-                    AND ciudad.nombre_ciudad like '$ubicacion' 
-                    AND cant_personas = $cantPersonas";
-        $consulta2="SELECT * FROM paquete 
-                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
-                    where disponibilidad_evento = 'Disponible' 
-                    AND ciudad.nombre_ciudad like '$ubicacion'";
-
-        if(empty($cantPersonas)){
-            $consulta = $consulta2;
-        }else{
-            $consulta = $consulta1;
-        }
-        $consultaPrueba = $consulta;
-        $resultado=mysqli_query($conexion,$consulta);
-
-        $resultadoPrueba=mysqli_query($conexion,$consultaPrueba);
-        $filaPrueba= mysqli_fetch_array($resultadoPrueba);
-        ?>
         <div class="General container">
             <div class="row centrado">
                 <div class="col-sm-12">
                     <div class="titulito centrado">
-                        <h2>Paquetes</h2>
+                        <h2>Orden de Paquete</h2>
                     </div>
                 </div>
-                <?php 
-                if(empty($filaPrueba['nom_paquete'])){
-                    echo "
-                    <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
-                        <img src='../img/ningun_paquete.png' alt=''>
-                        <h5>Ups... Por el momento no contamos con lo que buscas</h5>
-                    </div>";
-                }else{
-                    while($fila = mysqli_fetch_array($resultado)){
-                        $codPaquete =$fila["cod_paquete"];
-                        $nomPaquete = $fila["nom_paquete"];
-                        /* $imgPaquete = echo $fila["img_paquete"]; */
-                        $descripcion = $fila["descrip_paquete"];
-                        $cantPersonas = $fila["cant_personas"];
-                        $precio = $fila["precio_paquete"];
-                        echo "
-                        <form action='OrdenEvento.php' method='POST'>
-                            <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
-                                <h2 class='center'>$nomPaquete</h2>
-                                <img src=' alt='>
-                                <p> $descripcion</p>
-                                <div>
-                                    <p>Cantidad de personas: $cantPersonas</p>
-                                    <p>Precio total: $precio</p>
-                                </div>
-                                <input class='collapse' type='hidden' name='sesion' value='$varsession'>
-                                <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
-                                <input class='btn btn-primary' type='submit' value='Comprar' name='comprar' onClick='validarCompra(this.form)'>
-                            </php
-                            <script languaje='javascript' src='../js/compra.js?v=1.0'></script> 
-                        </form>
-                        ";
-                    }
-                }
+                <?php
+                
+                $codPaquete = $_POST['codPaquete'];
+                $consultaPaquete = "SELECT * FROM paquete
+                WHERE = $codPaquete";
+                $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
+                $fila = mysqli_fetch_array($resultadoPaquetes)
+                $codPaquete = $fila["cod_paquete"];
+                $nomPaquete = $fila["nom_paquete"];
+                /* $imgPaquete = echo $fila["img_paquete"]; */
+                $descripcion = $fila["descrip_paquete"];
+                $cantPersonas = $fila["cant_personas"];
+                $precio = $fila["precio_paquete"];
+                echo "
+                <form action='OrdenEvento.php'>
+                    <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
+                        <h2 class='center'>$nomPaquete</h2>
+                        <img src=' alt='>
+                        <p> $descripcion</p>
+                        <div>
+                            <p>Cantidad de personas: $cantPersonas</p>
+                            <p>Precio total: $precio</p>
+                        </div>
+                        <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
+                        <input class='btn btn-primary' type='submit' value='Comprar' name='comprar'>
+                    </div>
+                </form>"; 
                 ?>
                 
             </div>
