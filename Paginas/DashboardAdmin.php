@@ -8,7 +8,7 @@ $correo = $_SESSION['correo'];
 $rolUsuario = $_SESSION['rolUsuario'];
 $nombreUsuario = $_SESSION['nombre_usuario'];
 
-if($varsession == null || $varsession == '' || $rolUsuario == '2'|| $rolUsuario == '3') {
+if($varsession == null || $varsession == '' || $rolUsuario != '1') {
     echo "ERROR: 412 Usted no tiene acceso";
     header('Location: ../index.html');
     die("Usted no tiene acceso");
@@ -162,8 +162,8 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="Paginas/edicionCliente.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -217,8 +217,8 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["tel_empresa"] ?> </td>
                                         <td> <?php echo $fila["rfc"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="Paginas/edicionCliente.php?idProducto=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -265,23 +265,23 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <?php
                                         include('../Acciones/conec.php');
                                         $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
-                                        $resultado=mysqli_query($conexion,$consulta); 
-                                        while($fila=mysqli_fetch_array($resultado)){
+                                        $resultadoPack=mysqli_query($conexion,$consulta); 
+                                        while($filaPack=mysqli_fetch_array($resultadoPack)){
                                         ?>
                                     <tr>
-                                        <td> <?php echo $fila["cod_paquete"]?></th>
-                                        <td>nada</th>
-                                        <td> <?php echo $fila["nom_paquete"] ?> </td>
-                                        <td> <?php echo $fila["fk_cod_tipo_servicio"] ?> </td>
-                                        <td> <?php echo $fila["fk_cod_ciudad"] ?> </td>
-                                        <td> <?php echo $fila["direc_evento"] ?> </td>
-                                        <td> <?php echo $fila["disponibilidad_evento"] ?> </td>
-                                        <td> <?php echo $fila["precio_paquete"] ?> </td>
-                                        <td> <?php echo $fila["cant_personas"] ?> </td>
-                                        <td> <?php echo $fila["descrip_paquete"] ?> </td>
+                                        <td> <?php echo $filaPack["cod_paquete"]?></th>
+                                        <td>nada</th>Pack
+                                        <td> <?php echo $filaPack["nom_paquete"] ?> </td>
+                                        <td> <?php echo $filaPack["fk_cod_tipo_servicio"] ?> </td>
+                                        <td> <?php echo $filaPack["fk_cod_ciudad"] ?> </td>
+                                        <td> <?php echo $filaPack["direc_evento"] ?> </td>
+                                        <td> <?php echo $filaPack["disponibilidad_evento"] ?> </td>
+                                        <td> <?php echo $filaPack["precio_paquete"] ?> </td>
+                                        <td> <?php echo $filaPack["cant_personas"] ?> </td>
+                                        <td> <?php echo $filaPack["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idProducto=<?php echo $fila["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -342,8 +342,8 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaOrden["num_tel"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -390,8 +390,8 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaRol["cod_rol"]?></th>
                                         <td> <?php echo $filaRol["nom_rol"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -433,8 +433,8 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaTipoServ["cod_tipo_servicio"]?></th>
                                         <td> <?php echo $filaTipoServ["nom_servicio"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?id=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?id=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -472,11 +472,11 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         while($filaCiudad=mysqli_fetch_array($resultadoCiudad)){
                                         ?>
                                     <tr>
-                                        <td> <?php echo $filaCiudad["cod_tipo_servicio"]?></th>
-                                        <td> <?php echo $filaCiudad["nom_servicio"] ?> </td>
+                                        <td> <?php echo $filaCiudad["cod_ciudad"]?></th>
+                                        <td> <?php echo $filaCiudad["nombre_ciudad"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarProducto.php?idProducto=<?php echo $filaCiudad["codigo"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_blank" href="paginasEdicion/edicionProducto.php?idProducto=<?php echo $filaCiudad["codigo"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../Acciones/eliminarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>

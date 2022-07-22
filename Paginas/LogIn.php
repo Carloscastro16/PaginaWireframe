@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=2.9">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=3.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../Styles/argon-dashboard.css?v=1.2">
+    <link rel="stylesheet" href="../Styles/argon-dashboard.css?v=1.7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@
             <div class="GeneralLogin container">
                 <div class="row ">
                     <div class="col-sm-6">
-                        <div class="img-fluid collapse imagenInicio" alt="" id="imagenInicio"></div>
+                        <div class="img-fluid collapse login imagenInicio" alt="" id="imagenInicio"></div>
                         <!-- <img src="../img/galaxiaFeria.jpg" class="img-fluid collapse" alt="" id="imagenInicio"> -->
                         <div class="container">
                             <button id="menuLogin" class="btn btn-primary botonMenus" type="button" data-bs-toggle="collapse" data-bs-target="#menuRegistro" aria-controls="menuRegistro aria-expanded="false" aria-label="Toggle navigation">
@@ -120,7 +120,7 @@
                         <div class="img-fluid imagenRegistro" alt="" id="imagenRegistro"></div>
                         <!-- <img src="../img/galaxiaFeria.jpg" class="img-fluid" alt="" id="imagenRegistro"> -->
                         <div class="container">
-                            <div class="menuRegistro collapse" id="menuRegistro">
+                            <div class="menuRegistro collapse login" id="menuRegistro">
                                 <form action="../Acciones/sign-in.php" method="POST">
                                     <div class="row centrado col-log registro">
                                         <div class="col-12">
