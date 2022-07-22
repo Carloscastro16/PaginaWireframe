@@ -1,7 +1,7 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-/* error_reporting(0); */
+error_reporting(0);
 session_start();
     include('../Acciones/conec.php');
     $varsession = $_SESSION['cod_usuario'];
@@ -15,7 +15,7 @@ session_start();
         die();
     }
     $codPaquete = $_POST['codPaquete'];
-    if($codPaquete== 4) {
+    if($codPaquete == 4) {
         header('Location: ../index.php');
     }
 ?>
@@ -98,7 +98,7 @@ session_start();
                                                         <a href='$perfil'>Perfil</a>
                                                     </li>
                                                     <li class='dropdown-link'>
-                                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                                        <a href='../Acciones/Log-out.php'>$codPaquete</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -129,7 +129,7 @@ session_start();
                 </div>
                 <?php
                 
-                $codPaquete = $_POST['codPaquete'];
+                /* $codPaquete = $_POST['codPaquete'];
                 $consultaPaquete = "SELECT * FROM paquete
                 WHERE = $codPaquete";
                 $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
@@ -137,9 +137,9 @@ session_start();
                 $codPaquete = $fila["cod_paquete"];
                 $nomPaquete = $fila["nom_paquete"];
                 /* $imgPaquete = echo $fila["img_paquete"]; */
-                $descripcion = $fila["descrip_paquete"];
+                /*$descripcion = $fila["descrip_paquete"];
                 $cantPersonas = $fila["cant_personas"];
-                $precio = $fila["precio_paquete"];
+                $precio = $fila["precio_paquete"]; */
                 echo "
                 <form action='OrdenEvento.php'>
                     <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
