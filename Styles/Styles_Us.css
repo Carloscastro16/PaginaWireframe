@@ -127,7 +127,7 @@ section{
 .centradoHorizontal{
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column !important;
 }
 /* ------ Modo Oscuro ------ */
 .switchDashboard{
@@ -1522,4 +1522,50 @@ table th{
 }
 .tablasAdmin button{
     border: none;
+}
+
+/* ORden de evento */
+
+.order-camp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.order-camp ion-icon{
+    font-size: 1.4rem;
+    color: var(--blanco);
+    border: none;
+}
+.input-group-text{
+    background: var(--bs-code-color) !important;
+    border: none !important;
+}
+
+.form-control[readonly]{
+    background: transparent !important;
+}
+.order-camp input{
+    border: none;
+    border-bottom: 1px solid var(--bs-code-color);
+    color: var(--bs-code-color);
+    border-radius: 0;
+}
+.order-camp button{
+    padding: .4rem .6rem;
+}
+.order-camp.centradoHorizontal{
+    justify-content: end;
+}
+.orden input[type='submit']{
+    margin-top: 1rem;
+}
+.timepicker{
+    font-size: .8rem !important;
+}
+.timepicker a{
+    font-size: 1rem !important;
+}
+.timepicker i{
+    color: var(--bs-code-color)
 }
