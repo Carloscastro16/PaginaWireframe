@@ -11,6 +11,7 @@ if(isset($_POST['agregar'])){
     //mensaje si no se ingresa valores//
     
 }
+
 header('location: ../pages/usuarios.php');
     //redireccionamiento//
 ?>
