@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+<<<<<<< Updated upstream
 include('../../Acciones/conec.php');
+=======
+include('../Acciones/Paginas/conec.php');
+>>>>>>> Stashed changes
 $varsession = $_SESSION['cod_usuario'];
 $correo = $_SESSION['correo'];
 $rolUsuario = $_SESSION['rolUsuario'];
