@@ -118,6 +118,64 @@
                     </div>
                 </nav>
             </header>
+            <div class="buscador-main">
+                <div class="header buscador-inicial ">
+                    <div class="container inner-header flex">
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="Paginas/muestraPaquetes.php" method="POST">
+                                    <div class="container">
+                                        <div class="row buscadorsin">
+                                            <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                                <ion-icon name="location-outline"></ion-icon>
+                                                <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                                <ion-icon name="calendar-outline"></ion-icon>
+                                                <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
+                                                    <option value="Selected">Tipo de evento</option>
+                                                    <?php
+                                                    //conectar a la base de datos//
+                                                    include('Acciones/conec.php');
+                                                    $consulta2="SELECT * FROM tipo_servicio";
+                                                    
+                                                    $resultado2=mysqli_query($conexion,$consulta2);
+                                                    while($fila2=mysqli_fetch_array($resultado2)){
+                                                    ?>
+                                                    <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                                <ion-icon name="person-outline"></ion-icon>
+                                                <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
+                                            </div>
+                                            <div class="search-camp col-lg-2 col-md-2 col-sm-2">
+                                                <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xnlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                            <defs>
+                                <path
+                                id="gentle-wave"
+                                d="M-180 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+                            </defs>
+                            <g class="parallax">
+                                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                                <use xlink:href="#gentle-wave" x="48" y="7" fill="#344767"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
             <!--Seccion General-->
             <div class="portada">
                 <!--<h1>Hacemos realidad tus sueños</h1>-->
