@@ -82,7 +82,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <i class="fa-solid fa-table-list"></i>Tabla de Usuarios
                 </a>
                 <a href="tablaSistema.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tabla de servicios
+                    <i class="fa-solid fa-table-list"></i>Tablas de servicios
                 </a>
                 <a href="tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tabla de administrador
@@ -135,136 +135,11 @@ $filaUsr= mysqli_fetch_array($resultado);
                         <h5>
                             Hola <?php echo $nombreUsuario ?>!
                         </h5>   
-                    </div>                 
-                        <!-- Tabla de paquetes -->
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Tabla de Paquetes
-                                </h4>
-                            </div>
-                            <table id="paquetes" class="table-responsive tablita display" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Imagen</th>
-                                        <th>nombre</th>
-                                        <th>Tipo</th>
-                                        <th>ciudad</th>
-                                        <th>Direccion</th>
-                                        <th>Estado</th>
-                                        <th>Precio</th>
-                                        <th>No. pax</th>
-                                        <th>Descripcion</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../../Acciones/conec.php');
-                                        $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
-                                        $resultadoPack=mysqli_query($conexion,$consulta); 
-                                        while($filaPack=mysqli_fetch_array($resultadoPack)){
-                                        ?>
-                                    <tr>
-                                        <td> <?php echo $filaPack["cod_paquete"]?></th>
-                                        <td>nada</th>Pack
-                                        <td> <?php echo $filaPack["nom_paquete"] ?> </td>
-                                        <td> <?php echo $filaPack["fk_cod_tipo_servicio"] ?> </td>
-                                        <td> <?php echo $filaPack["fk_cod_ciudad"] ?> </td>
-                                        <td> <?php echo $filaPack["direc_evento"] ?> </td>
-                                        <td> <?php echo $filaPack["disponibilidad_evento"] ?> </td>
-                                        <td> <?php echo $filaPack["precio_paquete"] ?> </td>
-                                        <td> <?php echo $filaPack["cant_personas"] ?> </td>
-                                        <td> <?php echo $filaPack["descrip_paquete"] ?> </td>
-                                        <td>  
-                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Imagen</th>
-                                        <th>nombre</th>
-                                        <th>Tipo</th>
-                                        <th>ciudad</th>
-                                        <th>Direccion</th>
-                                        <th>Estado</th>
-                                        <th>Precio</th>
-                                        <th>No. pax</th>
-                                        <th>Descripcion</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <!-- Tabla de Ordenes -->
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Tabla de Ordenes
-                                </h4>
-                            </div>
-                            <table id="ordenes" class="table-responsive tablita display" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Folio</th>
-                                        <th>Cliente</th>
-                                        <th>montaje</th>
-                                        <th>Fecha inicio</th>
-                                        <th>Fecha Final</th>
-                                        <th>Estado</th>
-                                        <th>numero</th>
-                                        <th># Paquete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../../Acciones/conec.php');
-                                        $consultaOrden="SELECT * FROM orden_evento";
-                                        $resultadoOrden=mysqli_query($conexion,$consultaOrden); 
-                                        while($filaOrden=mysqli_fetch_array($resultadoOrden)){
-                                        ?>
-                                    <tr>
-                                        <td> <?php echo $filaOrden["cod_orden_evento"]?></th>
-                                        <td> <?php echo $filaOrden["folio_evento"] ?> </td>
-                                        <td> <?php echo $filaOrden["fk_cod_usuario"] ?> </td>
-                                        <td> <?php echo $filaOrden["fk_cod_montaje"] ?> </td>
-                                        <td> <?php echo $filaOrden["fec_inicio"] ?> </td>
-                                        <td> <?php echo $filaOrden["fec_fin"] ?> </td>
-                                        <td> <?php echo $filaOrden["num_tel"] ?> </td>
-                                        <td> <?php echo $filaOrden["fk_cod_paquete"] ?> </td>
-                                        <td>  
-                                            <a target="_self" href="../Acciones/eliminarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Folio</th>
-                                        <th>Cliente</th>
-                                        <th>montaje</th>
-                                        <th>Fecha inicio</th>
-                                        <th>Fecha Final</th>
-                                        <th>Estado</th>
-                                        <th>numero</th>
-                                        <th># Paquete</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                    </div>
                         
-                     
                         
+                        
+                    
                     </div>         
                 </div>
             </section>

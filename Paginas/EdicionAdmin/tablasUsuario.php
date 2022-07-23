@@ -85,6 +85,9 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <i class="fa-solid fa-table-list"></i>Tablas de servicios
                 </a>
                 <a href="tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa-solid fa-table-list"></i>Tabla de administrador
+                </a>
+                <a href="tablaRegistros.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
                 <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
