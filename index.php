@@ -17,8 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
     
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <link rel="icon" href="img/favicon.svg">
         
@@ -53,55 +53,62 @@
                         aria-label="Toggle navigation"
                         >
                         <ion-icon name="grid-outline"></ion-icon>
-                    </div>
-                    <ul class="navbar-nav navbarNav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/About_Us.html">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/Contact_Us.html">Contactanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Paginas/Eventos.html">Eventos</a>
-                        </li>
-                        
-                    </ul>
-                    <form action="Paginas/log-in.html" class="botones">
-                        <button class="botoncin btn btn-outline-success">Login</button>
-                    </form>
-                    <form action="Paginas/sign-in.html">
-                        <button class="botoncin btn btn-outline-secondary">Register</button>
-                    </form>
-                </div>
-            </nav>
-        </section>
-
-        <section class="buscador-main">
-            <div class="header buscador-inicial">
-                <div class="container inner-header flex">
-                    <div class="row">
-                        <div class="col-12">
-                            <form action="">
-                                <div class="container">
-                                    <div class="row buscadorsin">
-                                        <div class="search-camp col-lg-4 col-md-4 col-sm-4">
-                                            <ion-icon name="location-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?">
-                                        </div>
-                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3" id="datepicker">
-                                            <ion-icon name="calendar-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Cuando?">
-                                        </div>
-                                        <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                            <ion-icon name="person-outline"></ion-icon>
-                                            <input type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
-                                        </div>
-                                        <div class="search-camp col-lg-2 col-md-2 col-sm-2">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
+                        </button>
+                        <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
+                            <ul class="navbar-nav navbarNav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paginas/AboutUs.php">Sobre nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paginas/ContactUs.php">Contáctanos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Paginas/Eventos.php">Eventos</a>
+                                </li>
+                                
+                            </ul>
+                            <button class="switch" id="switch">
+                                <span>
+                                    <ion-icon name="sunny-outline"></ion-icon>
+                                </span>
+                                <span>
+                                    <ion-icon name="moon-outline"></ion-icon>
+                                </span>
+                            </button>
+                            <?php
+                                include ('../Acciones/conec.php');
+                                session_start();
+                                $varsession = $_SESSION['cod_usuario'];
+                                $correo = $_SESSION['Correo'];
+                                $rolUsuario = $_SESSION['rolUsuario'];
+                                $nombreUsuario = $_SESSION['nombre_usuario'];
+                                if ($rolUsuario == "2"){
+                                    $perfil = "PerfilCliente.php";
+                                }else{
+                                    $perfil = "DashboardEmpresa.php";
+                                }
+                                if(isset($varsession)){
+                                    echo "
+                                    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                                        <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
+                                            <li class='nav-item-dropdown'>
+                                                <a href='#' class='nav-link dropdown-toggle second-text fw-bold' id='navbarDropdown'
+                                                    role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    <i class='fas fa-user me-'></i> Hola, $nombreUsuario!
+                                                </a>
+                                                <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../Paginas/$perfil'>Perfil</a>
+                                                    </li>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
                                     ";
                                 }else{
@@ -125,10 +132,20 @@
                             <div class="col-12">
                                 <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
-                                        <div class="row buscadorsin">
+                                        <div class="row buscadorsin form-group">
                                             <div class="search-camp col-lg-4 col-md-4 col-sm-4">
                                                 <ion-icon name="location-outline"></ion-icon>
                                                 <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                                <div class="input-group date" >
+                                                    <input type="text" class="form-control datepicker" id="datepicker">
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text ">
+                                                            <ion-icon name="calendar-outline"></ion-icon>
+                                                        </span>
+                                                    </span>
+                                                </div>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <ion-icon name="calendar-outline"></ion-icon>
@@ -396,16 +413,6 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
-    <script type="text/javascript">
-        $(function(){
-            $('#datepicker input').datepicker({
-                format: "dd-mm-yyyy",
-                todayBtn: "linked",
-                clearBtn: true,
-                language: "es"
-            })
-        })
-    </script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/r-2.3.0/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
     <script src="js/modoOscuro.js"></script>
     <script src="js/tablas.js"></script>
@@ -426,6 +433,11 @@
             contenedor.style.visibility = "hidden";
             contenedor.style.opacity = "0";
         }
+    </script>
+    <script type="text/javascript">
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd hh:ii'
+        });
     </script>
 </body>
 </html>

@@ -221,7 +221,7 @@ error_reporting(0);
                                 <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
                                 <input class='btn btn-primary' type='submit' value='Comprar' name='comprar' onClick='validarCompra(this.form)'>
                             </php
-                            <script languaje='javascript' src='../js/compra.js?v=1.0'></script> 
+                            <script languaje='javascript' src='../js/compra.js?v=2.0'></script> 
                         </form>
                         ";
                     }
