@@ -138,16 +138,6 @@
                                                 <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                                <div class="input-group date" >
-                                                    <input type="text" class="form-control datepicker" id="datepicker">
-                                                    <span class="input-group-append">
-                                                        <span class="input-group-text ">
-                                                            <ion-icon name="calendar-outline"></ion-icon>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <ion-icon name="calendar-outline"></ion-icon>
                                                 <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
                                                     <option value="Selected">Tipo de evento</option>
@@ -434,10 +424,6 @@
             contenedor.style.opacity = "0";
         }
     </script>
-    <script type="text/javascript">
-        $(".datepicker").datepicker({
-            format: 'yyyy-mm-dd hh:ii'
-        });
-    </script>
+    
 </body>
 </html>

@@ -25,6 +25,19 @@ session_start();
     // Para que verlo, ir a la carpeta Partials en el archivo HeaderGeneral
         include("partials/headerGeneral.html");
     ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- MDB -->
+    <!--  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+    ></script> -->
+    <link href="lib/timepick.css" rel="stylesheet"/>
+    <script type="text/javascript" src="lib/timepick.js?v=1.2"></script>
     <title>Paquetes</title>
     
 </head>
@@ -123,6 +136,7 @@ session_start();
     $fila = mysqli_fetch_array($resultadoPaquetes);
     $nomPaquete = $fila["nom_paquete"];
     $imgPaquete = $fila["img_paquete"];
+    $direccion = $fila["direc_evento"];
     $descripcion = $fila["descrip_paquete"];
     $cantPersonas = $fila["cant_personas"];
     $precio = $fila["precio_paquete"];
@@ -132,40 +146,47 @@ session_start();
             <form action="ordenEventoTicket.php" method="POST">
                 <div class="row centrado">
                     <div class="col-sm-12">
-                        <div class="titulito centrado">
-                            <h2>Orden de Paquete</h2>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="container">
                             <div class="row col-log orden">
                                 <div class="col-sm-4">
                                     <img src="../imagenes/<?php echo $imgPaquete ?>" alt="">
                                 </div>
                                 <div class="col-sm-8">
-                                    <h4>Nombre del paquete: <?php echo $nomPaquete ?></h4>
-                                    <div>
-                                        <p>Cantidad de personas: <?php echo $cantPersonas ?></p>
-                                        <input type="text" class="form-control" name="nomPaquete" value="<?php echo $nomPaquete?>" >
-                                        <p>Precio total: <?php echo $precio ?></p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>Informacion del paquete</h3>
+                                                <h4>Nombre del paquete: <?php echo $nomPaquete ?></h4>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>Cantidad de personas: <?php echo $cantPersonas ?></p>
+                                                <p>Ubicación: <?php echo $direccion ?></p>
+                                                <p>Precio total: <?php echo $precio ?></p>
+                                            </div>
+                                            <div class="col-sm-3 order-camp">
+                                                <div class="input-group date" id="datepicker">
+                                                    <label for="text" class="control-label">¿Para cuando quieres tu evento?</label>
+                                                    <input type="text" class="form-control" placeholder="MM/DD/YYYY" name="fecha" required readonly>
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text">
+                                                            <ion-icon name="calendar-outline"></ion-icon>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 order-camp centradoHorizontal">     
+                                                <label for="text" class="control-label">¿A que hora se realizará?</label>
+                                                <div>
+                                                    <input id="timepkr" style="width:100px;float:left;" class="form-control" placeholder="HH:MM" name="hora" required/>
+                                                    <button type="button" class="btn btn-primary " onclick="showpickers('timepkr',24)"><ion-icon name="time-outline"></ion-icon></button>
+                                                </div>
+                                            </div>
+                                            <div class="timepicker"></div>
+                                            
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" id='datepicker'>
-
-                                    <input size="16" type="text" class="form-control" id="datetime" readonly>
-                                    
-
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="input-group date" id="datepicker">
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-append">
-                                            <span class="input-group-text ">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
+                                <input class='collapse' type='hidden' name='codPaquete' value='<?php echo $codPaquete ?>'>
                                 <input class='btn btn-primary' type='submit' value='Comprar' name='comprar'>
                             </div>
                         </div>
@@ -200,22 +221,41 @@ session_start();
         </footer>
     </div>    
     <!-------- Scripts -------->
-    <?php
-    // Todos los Meta y links estan dentro de este html
-    // Para que verlo, ir a la carpeta Partials en el archivo HeaderGeneral
-        include("partials/Scripts.html");
-    ?>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="text/javascript">
-        $(function(){
-            $('#datepicker').datepicker()
-        })
-    </script>
-    <!-- <script type="text/javascript">
-        $('#datepicker').datepicker({
-            format: "mm-dd-yy",
-            language: "es",
-            daysOfWeekDisabled: "0"
+        $(function() {
+            $('#datepicker').datepicker({
+                format: "yyyy-mm-dd",
+                timepicker: true,
+                autoclose: true,
+            });
         });
-    </script> -->
+
+        const pickerInline = document.querySelector('.timepicker-inline-12');
+        const timepickerMaxMin = new mdb.Timepicker(pickerInline, { format12:true, inline: true });
+    </script>
+    <script src="../js/modoOscuro.js"></script>
+    <script src="../js/tablas.js"></script>
+    <script>
+        var el = document.getElementById("wrapper")
+        var toggleButton = document.getElementById("menu-toggle")
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggle")
+        }
+    </script>
+    
+    <script src="../js/menuBuscador.js"></script>
+    <script>
+        window.onload = function() {
+            var contenedor = document.getElementById("contenedor_carga");
+
+            contenedor.style.visibility = "hidden";
+            contenedor.style.opacity = "0";
+        }
+    </script>
+    
 </body>
 </html>
