@@ -79,13 +79,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
                 <a href="tablasUsuario.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas de Usuarios
+                    <i class="fa-solid fa-table-list"></i>Tabla de Usuarios
                 </a>
                 <a href="tablaSistema.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas del Sistema
+                    <i class="fa-solid fa-table-list"></i>Tablas de servicios
                 </a>
                 <a href="tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas del Administrador
+                    <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
                 <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout

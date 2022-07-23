@@ -79,13 +79,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
                 <a href="tablasUsuario.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas de Usuarios
+                    <i class="fa-solid fa-table-list"></i>Tabla de Usuarios
                 </a>
                 <a href="tablaSistema.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas del Sistema
+                    <i class="fa-solid fa-table-list"></i>Tabla de servicios
                 </a>
                 <a href="tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-table-list"></i>Tablas del Administrador
+                    <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
                 <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout
@@ -128,142 +128,11 @@ $filaUsr= mysqli_fetch_array($resultado);
             </nav>
             <section class="General tablasAdmin">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Perfil
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="imaperfil">
-                                <img src="../Images/fotoPrincipal.png" alt=""/>
-                                <div class="file btn btn-lg btn-primary">
-                                    Cambiar foto
-                                    <input type="file" name="file"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="titulito">
-                                <h5>
-                                    Hola <?php echo $nombreUsuario ?>!
-                                </h5>   
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="submit" name="registro" value="Editar perfil" 
-                            class="btn btn-primary">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Tabla de Clientes -->
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Tabla de Usuarios Clientes
-                                </h4>
-                            </div>
-                            <table id="usuarios" class="table-responsive tablita display" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Rol</th>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../Acciones/conec.php');
-                                        $consulta="SELECT * FROM usuario WHERE fk_rol_usuario = 2";
-                                        $resultadoUsr=mysqli_query($conexion,$consulta); 
-                                        while($fila=mysqli_fetch_array($resultadoUsr)){
-                                        ?>
-                                    <tr>
-                                        <td> <?php echo $fila["cod_usuario"]?></th>
-                                        <td> <?php echo $fila["fk_rol_usuario"] ?> </td>
-                                        <td> <?php echo $fila["nombre_usuario"] ?> </td>
-                                        <td> <?php echo $fila["correo_usuario"] ?> </td>
-                                        <td>  
-                                            <a target="_self" href="../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Rol</th>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            
-                        </div>
-                        <!-- Tabla de Empresas -->
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Tabla de Usuarios empresas
-                                </h4>
-                            </div>
-                            <table id="empresas" class="table-responsive tablita display" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Rol</th>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Empresa</th>
-                                        <th>Telefono</th>
-                                        <th>RFC</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../Acciones/conec.php');
-                                        $consulta="SELECT * FROM usuario WHERE fk_rol_usuario = 3";
-                                        $resultadoUsr=mysqli_query($conexion,$consulta); 
-                                        while($fila=mysqli_fetch_array($resultadoUsr)){
-                                        ?>
-                                    <tr>
-                                        <td> <?php echo $fila["cod_usuario"]?></th>
-                                        <td> <?php echo $fila["fk_rol_usuario"] ?> </td>
-                                        <td> <?php echo $fila["nombre_usuario"] ?> </td>
-                                        <td> <?php echo $fila["correo_usuario"] ?> </td>
-                                        <td> <?php echo $fila["nombre_empresa"] ?> </td>
-                                        <td> <?php echo $fila["tel_empresa"] ?> </td>
-                                        <td> <?php echo $fila["rfc"] ?> </td>
-                                        <td>  
-                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Rol</th>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Empresa</th>
-                                        <th>Telefono</th>
-                                        <th>RFC</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                    <div class="titulito">
+                        <h5>
+                            Hola <?php echo $nombreUsuario ?>!
+                        </h5>   
+                    </div>                 
                         <!-- Tabla de paquetes -->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
@@ -290,7 +159,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tbody>
                                     <!-- Conexion a la BD-->
                                         <?php
-                                        include('../Acciones/conec.php');
+                                        include('../../Acciones/conec.php');
                                         $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
                                         $resultadoPack=mysqli_query($conexion,$consulta); 
                                         while($filaPack=mysqli_fetch_array($resultadoPack)){
@@ -354,7 +223,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tbody>
                                     <!-- Conexion a la BD-->
                                         <?php
-                                        include('../Acciones/conec.php');
+                                        include('../../Acciones/conec.php');
                                         $consultaOrden="SELECT * FROM orden_evento";
                                         $resultadoOrden=mysqli_query($conexion,$consultaOrden); 
                                         while($filaOrden=mysqli_fetch_array($resultadoOrden)){
@@ -390,49 +259,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 </tfoot>
                             </table>
                         </div>
-                        <!-- Tabla de Roles -->
-                        <div class="col-sm-12">
-                            <div class="titulito tituloConjunto">
-                                <h4>
-                                    Tabla de Roles
-                                </h4>
-                            </div>
-                            <table id="roles" class="table-responsive tablita display" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre de rol</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Conexion a la BD-->
-                                        <?php
-                                        include('../Acciones/conec.php');
-                                        $consultaRol="SELECT * FROM rol_usuario";
-                                        $resultadoRol=mysqli_query($conexion,$consultaRol); 
-                                        while($filaRol=mysqli_fetch_array($resultadoRol)){
-                                        ?>
-                                    <tr>
-                                        <td> <?php echo $filaRol["cod_rol"]?></th>
-                                        <td> <?php echo $filaRol["nom_rol"] ?> </td>
-                                        <td>  
-                                            <a target="_self" href="../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre de rol</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            
-                        </div>
+                        
                         <!-- Tabla de tipos de Servicios -->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
@@ -451,7 +278,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tbody>
                                     <!-- Conexion a la BD-->
                                         <?php
-                                        include('../Acciones/conec.php');
+                                        include('../../Acciones/conec.php');
                                         $consultaTipoServ="SELECT * FROM tipo_servicio";
                                         $resultadoTipoServ=mysqli_query($conexion,$consultaTipoServ); 
                                         while($filaTipoServ=mysqli_fetch_array($resultadoTipoServ)){
@@ -493,7 +320,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tbody>
                                     <!-- Conexion a la BD-->
                                         <?php
-                                        include('../Acciones/conec.php');
+                                        include('../../Acciones/conec.php');
                                         $consultaCiudad="SELECT * FROM ciudad";
                                         $resultadoCiudad=mysqli_query($conexion,$consultaCiudad); 
                                         while($filaCiudad=mysqli_fetch_array($resultadoCiudad)){
