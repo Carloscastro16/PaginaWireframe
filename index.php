@@ -17,8 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
     
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <link rel="icon" href="img/favicon.svg">
         
@@ -132,10 +132,20 @@
                             <div class="col-12">
                                 <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
-                                        <div class="row buscadorsin">
+                                        <div class="row buscadorsin form-group">
                                             <div class="search-camp col-lg-4 col-md-4 col-sm-4">
                                                 <ion-icon name="location-outline"></ion-icon>
                                                 <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
+                                            </div>
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                                <div class="input-group date" >
+                                                    <input type="text" class="form-control datepicker" id="datepicker">
+                                                    <span class="input-group-append">
+                                                        <span class="input-group-text ">
+                                                            <ion-icon name="calendar-outline"></ion-icon>
+                                                        </span>
+                                                    </span>
+                                                </div>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <ion-icon name="calendar-outline"></ion-icon>
@@ -423,6 +433,11 @@
             contenedor.style.visibility = "hidden";
             contenedor.style.opacity = "0";
         }
+    </script>
+    <script type="text/javascript">
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd hh:ii'
+        });
     </script>
 </body>
 </html>

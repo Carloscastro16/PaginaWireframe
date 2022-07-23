@@ -15,9 +15,7 @@ session_start();
         die();
     }
     $codPaquete = $_POST['codPaquete'];
-    if($codPaquete == 4) {
-        header('Location: ../index.php');
-    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +96,7 @@ session_start();
                                                         <a href='$perfil'>Perfil</a>
                                                     </li>
                                                     <li class='dropdown-link'>
-                                                        <a href='../Acciones/Log-out.php'>$codPaquete</a>
+                                                        <a href='../Acciones/Log-out.php'>Log-out</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -119,44 +117,61 @@ session_start();
             </div>
         </nav>
     </header>
+    <?php
+    $consultaPaquete = "SELECT * FROM paquete WHERE cod_paquete = $codPaquete";
+    $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
+    $fila = mysqli_fetch_array($resultadoPaquetes);
+    $nomPaquete = $fila["nom_paquete"];
+    $imgPaquete = $fila["img_paquete"];
+    $descripcion = $fila["descrip_paquete"];
+    $cantPersonas = $fila["cant_personas"];
+    $precio = $fila["precio_paquete"];
+    ?>
     <main class="log-in">
         <div class="General container">
-            <div class="row centrado">
-                <div class="col-sm-12">
-                    <div class="titulito centrado">
-                        <h2>Orden de Paquete</h2>
+            <form action="ordenEventoTicket.php" method="POST">
+                <div class="row centrado">
+                    <div class="col-sm-12">
+                        <div class="titulito centrado">
+                            <h2>Orden de Paquete</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="container">
+                            <div class="row col-log orden">
+                                <div class="col-sm-4">
+                                    <img src="../imagenes/<?php echo $imgPaquete ?>" alt="">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h4>Nombre del paquete: <?php echo $nomPaquete ?></h4>
+                                    <div>
+                                        <p>Cantidad de personas: <?php echo $cantPersonas ?></p>
+                                        <input type="text" class="form-control" name="nomPaquete" value="<?php echo $nomPaquete?>" >
+                                        <p>Precio total: <?php echo $precio ?></p>
+                                    </div>
+                                    <input type="text" class="form-control" id='datepicker'>
+
+                                    <input size="16" type="text" class="form-control" id="datetime" readonly>
+                                    
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group date" id="datepicker">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text ">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
+                                <input class='btn btn-primary' type='submit' value='Comprar' name='comprar'>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <?php
-                
-                /* $codPaquete = $_POST['codPaquete'];
-                $consultaPaquete = "SELECT * FROM paquete
-                WHERE = $codPaquete";
-                $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
-                $fila = mysqli_fetch_array($resultadoPaquetes)
-                $codPaquete = $fila["cod_paquete"];
-                $nomPaquete = $fila["nom_paquete"];
-                /* $imgPaquete = echo $fila["img_paquete"]; */
-                /*$descripcion = $fila["descrip_paquete"];
-                $cantPersonas = $fila["cant_personas"];
-                $precio = $fila["precio_paquete"]; */
-                echo "
-                <form action='OrdenEvento.php'>
-                    <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
-                        <h2 class='center'>$nomPaquete</h2>
-                        <img src=' alt='>
-                        <p> $descripcion</p>
-                        <div>
-                            <p>Cantidad de personas: $cantPersonas</p>
-                            <p>Precio total: $precio</p>
-                        </div>
-                        <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
-                        <input class='btn btn-primary' type='submit' value='Comprar' name='comprar'>
-                    </div>
-                </form>"; 
-                ?>
-                
-            </div>
+            </form>    
         </div>
     </main>
     <div class="footerBasic">
@@ -190,5 +205,17 @@ session_start();
     // Para que verlo, ir a la carpeta Partials en el archivo HeaderGeneral
         include("partials/Scripts.html");
     ?>
+    <script type="text/javascript">
+        $(function(){
+            $('#datepicker').datepicker()
+        })
+    </script>
+    <!-- <script type="text/javascript">
+        $('#datepicker').datepicker({
+            format: "mm-dd-yy",
+            language: "es",
+            daysOfWeekDisabled: "0"
+        });
+    </script> -->
 </body>
 </html>
