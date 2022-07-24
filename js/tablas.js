@@ -30,4 +30,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#ciudad').DataTable();
 });
+$(document).ready(function () {
+    $('#montaje').DataTable();
+});
     
