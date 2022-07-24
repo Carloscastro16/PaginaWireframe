@@ -153,16 +153,18 @@ $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
                                     </div>
                                 </div>
                                 <div class="col-md-2">
+                                    <input type="hidden" name="codUsuario" value="<?php echo $varsession;?>" 
+                                    class="btn btn-primary">
                                     <input type="submit" name="registro" value="Guardar" 
                                     class="btn btn-primary">
-                                </div>
                             </div>
-                        </form>
-                    </div>
-                </Section>
-            </div>
+                        </div>
+                    </form>
+                </div>
+            </Section>
         </div>
-    </main>
+    </div>
+</main>
 
     <?php
     include('partials/Scripts.html');

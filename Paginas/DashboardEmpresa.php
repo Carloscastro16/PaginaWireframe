@@ -18,6 +18,9 @@
     $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
     $resultado = mysqli_query($conexion, $consulta);
     $filaUsr= mysqli_fetch_array($resultado);
+    $apellidoMa = $filaUsr['ape_materno'];
+    $apellidoPa = $filaUsr['ape_paterno'];
+    $nomEmpresa = $filaUsr['nombre_empresa'];
     
 ?>
 
@@ -120,9 +123,21 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="titulito">
-                                    <h5>
-                                        Hola <?php echo $nombreUsuario ?>!
-                                    </h5>   
+                                    <h4>
+                                        <?php
+                                            echo $nombreUsuario,' ', $apellidoPa,' ', $apellidoMa;
+                                        ?>!
+                                    </h4> 
+                                    <h4>Correo:
+                                        <?php
+                                            echo $correo;
+                                        ?>
+                                    </h4>
+                                    <h4>Nombre de la empresa:
+                                        <?php
+                                            echo $nomEmpresa;
+                                        ?>
+                                    </h4>
                                 </div>
                             </div>
                             <div class="col-md-2">
