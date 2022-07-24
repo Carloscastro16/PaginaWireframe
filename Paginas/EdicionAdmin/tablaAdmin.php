@@ -27,7 +27,7 @@ $filaUsr= mysqli_fetch_array($resultado);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Styles/Normalize.css">
-    <link rel="stylesheet" href="../../Styles/Styles_Us.css?v=3.2">
+    <link rel="stylesheet" href="../../Styles/Styles_Us.css?v=3.4">
     <link rel="stylesheet" href="../../Styles/argon-dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +129,30 @@ $filaUsr= mysqli_fetch_array($resultado);
                     </ul>
                 </div>
             </nav>
+            <section class="General conatiner tablasAdmin">
+                <form action="../../Acciones/añadirAdmin.php" method="POST">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>Añadir</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Añade un tipo de montaje, de paquete, o una ciudad</label>
+                            <input type="text" class="form-control" name="valorAñadido">
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-sm-4">
+                            <input type="submit" class="form-control" value="Añadir Montaje" name="btn">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="submit" class="form-control" value="Añadir Tipo" name="btn">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="submit" class="form-control" value="Añadir Ciudad" name="btn">
+                        </div>
+                    </div>
+                </form>
+                        
+            </section>
             <section class="General tablasAdmin">
                 <div class="container">
                     <div class="titulito">
@@ -265,18 +289,18 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 </tfoot>
                             </table>
                         </div>
-                             <!-- Tabla de tipo de montaje -->
-                             <div class="col-sm-12">
+                        <!-- Tabla de tipo de montaje -->
+                        <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
                                 <h4>
                                     Tabla Montajes
                                 </h4>
                             </div>
-                            <table id="ciudad" class="table-responsive tablita display" >
+                            <table id="montaje" class="table-responsive tablita display" >
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Ciudad</th>
+                                        <th>Montaje</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -301,7 +325,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nombre de paquete</th>
+                                        <th>Montaje</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </tfoot>
@@ -320,7 +344,7 @@ $filaUsr= mysqli_fetch_array($resultado);
     
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/r-2.3.0/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
     <script src="../../js/modoOscuro.js"></script>
-    <script src="../../js/tablas.js"></script>
+    <script src="../../js/tablas.js?v=1.4.0"></script>
     <script>
         var el = document.getElementById("wrapper")
         var toggleButton = document.getElementById("menu-toggle")

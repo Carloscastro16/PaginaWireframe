@@ -102,7 +102,7 @@
                                                 </a>
                                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                                     <li class='dropdown-link'>
-                                                        <a href='../Paginas/$perfil'>Perfil</a>
+                                                        <a href='Paginas/$perfil'>Perfil</a>
                                                     </li>
                                                     <li class='dropdown-link'>
                                                         <a href='Acciones/Log-out.php'>Logout</a>

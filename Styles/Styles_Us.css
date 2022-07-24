@@ -1416,6 +1416,11 @@ div span:not(:first-child){
 }
 
 /* diseño del perfil dashboard */
+.contratados .col-log{
+    margin: 0;
+    margin-bottom: 2rem;
+}
+
 .list-group-item i{
     margin-right: .5rem;
 }
@@ -1513,7 +1518,7 @@ div span:not(:first-child){
 .altaPaquete input[type= 'submit']{
     margin-top: 5.2rem;
 }
-/* Alta de paquetes */ 
+/* Alta de paquetes y Admin */ 
 
 input.denegada{
     border-color: var(--bs-danger);
@@ -1528,6 +1533,19 @@ table th{
 }
 .tablasAdmin button{
     border: none;
+}
+.tablasAdmin input{
+    border: none;
+    border-bottom: 1px solid var(--bs-code-color);
+    color: var(--bs-code-color);
+    border-radius: 0;
+}
+.tablasAdmin input[type='submit']{
+    border-radius: 1rem;
+    color: var(--Complemento);
+    background: var(--bs-code-color) !important;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 /* ORden de evento */

@@ -56,14 +56,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_reg_usrempresa`(
     in apellPa VARCHAR(45),
 	in apellMa VARCHAR(45),
     in correo VARCHAR(100),
+    in nombre_empresa VARCHAR(100),
     in contra VARCHAR(200),
     in celular BIGINT(10),
     in rfc VARCHAR(50)
 )
 BEGIN
-	INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario, tel_empresa, rfc) 
+	INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, nombre_empresa, contra_usuario, tel_empresa, rfc) 
 	VALUE (3, nom_usuario, apellPa, apellMa ,correo ,contra, celular, rfc);
-    
 END$$
 
 DELIMITER ;
@@ -102,12 +102,13 @@ USE `db_eventos`;
 DROP procedure IF EXISTS `db_eventos`.`tr_salida_usuario`;
 ;
 
+/*------------------------ Alternativa Trigger para login ---------------------*/
 DELIMITER $$
 USE `db_eventos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tr_salida_usuario`(
 	in correo_tr varchar(100),
     in id_usuario_tr INT(10),
-    in rol_usuario_tr INT(10)
+    in rol_usuario_tr INT(10),
 )
 BEGIN
 	INSERT INTO historial_logeo(Accion, correo) values (

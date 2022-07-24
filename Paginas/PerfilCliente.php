@@ -12,11 +12,12 @@
         die();
     }
     $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
-    $consultaPaquetes = "SELECT paquete.nom_paquete, paquete.descrip_paquete, usuario.nombre_empresa, paquete.precio_paquete  FROM orden_evento
+    $consultaPaquetes = "SELECT paquete.nom_paquete, paquete.descrip_paquete, usuario.nombre_empresa, paquete.precio_paquete, paquete.cant_personas  FROM orden_evento
     inner join paquete on paquete.cod_paquete = orden_evento.fk_cod_paquete
     inner join usuario on usuario.cod_usuario = orden_evento.fk_cod_usuario
     where usuario.cod_usuario = $varsession";
     $resultadoPaquetes = mysqli_query($conexion, $consultaPaquetes);
+    $filaPaquetes= mysqli_fetch_array($resultadoPaquetes);
     $resultado = mysqli_query($conexion, $consulta);
     $fila= mysqli_fetch_array($resultado);
     $apellidoMa = $fila['ape_materno'];
@@ -141,7 +142,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row contratados">
                             <div class="col-md-12">
                                 <div class="titulito tituloConjunto">
                                     <h3>Paquetes contratados</h3>
@@ -150,23 +151,25 @@
                             <?php 
                             if($fila=mysqli_fetch_array($resultadoPaquetes)){
                                 while($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                $nomPaquete = $fila["nom_paquete"];
-                                $descPaquete = $fila["descrip_paquete"];
-                                $empresa= $fila["nombre_empresa"];
-                                $prePaquete = $fila["precio_paquete"];
-                                echo "<div class='col-sm-6 col-lg-4 col-md-4 col-log'>
-                                    <h2 class='center'> $nomPaquete </h2>
-                                    <img src=' alt='>
-                                    <p>$descPaquete</p>
-                                    <div>
-                                        <p>Empresa: $empresa</p>
-                                        <p>Cantidad de personas: $cantPersonas</p>
-                                        <p>Precio total: $prePaquete</p>
-                                    </div>
-                                    <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
-                                        Editar Paquete
-                                    </button>
-                                </div>";
+                                $nomPaquete = $filaPaquetes["nom_paquete"];
+                                $descPaquete = $filaPaquetes["descrip_paquete"];
+                                $empresa= $filaPaquetes["nombre_empresa"];
+                                $prePaquete = $filaPaquetes["precio_paquete"];
+                                $cantPersonas = $filaPaquetes["cant_personas"];
+                                echo "<div class='col-sm-6'>
+                                        <div class='col-log'>
+                                            <h2 class='center'> $nomPaquete </h2>
+                                            <img src=' alt='>
+                                            <div>
+                                                <p>$descPaquete</p>
+                                                <p>Cantidad de personas: $cantPersonas</p>
+                                                <p>Precio total: $prePaquete</p>
+                                            </div>
+                                            <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
+                                                Editar Paquete
+                                            </button>
+                                        </div>
+                                    </div>";
                                 };
                             }else{
                                 echo "
@@ -176,7 +179,9 @@
                                 </div>
                                 ";
                             }
+                            
                             ?>
+                                    
                         </div>  
                     </div>
                 </Section>

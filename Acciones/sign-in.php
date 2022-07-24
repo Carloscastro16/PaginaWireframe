@@ -23,7 +23,7 @@ $agregar = $_POST['agregar'];
             $resultados=mysqli_query($conexion,$insertarUsuario);
             header ('location: ../Paginas/PerfilCliente.php');
         }else{
-            $insertarUsuario = "CALL sp_reg_usrempresa('$nomUser','$apellPa','$apellMa','$correo','$encryptPass',$telefono,'$rfc')";
+            $insertarUsuario = "CALL sp_reg_usrempresa('$nomUser','$apellPa','$apellMa','$correo','$nombreEmpresa','$encryptPass',$telefono,'$rfc')";
             $resultados=mysqli_query($conexion,$insertarUsuario);
             header ('location: ../Paginas/DashboardEmpresa.php');
         }
