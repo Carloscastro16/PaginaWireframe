@@ -1,5 +1,5 @@
 <?php
-include('../../Acciones/conec.php');
+include('../Acciones/conec.php');
 
 $codigoUsuario=$_GET['idUsuario'];
 $eliminarUsuario="DELETE FROM usuario WHERE cod_usuario='$codigoUsuario'";
