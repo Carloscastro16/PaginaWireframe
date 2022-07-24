@@ -191,8 +191,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaRol["cod_rol"]?></th>
                                         <td> <?php echo $filaRol["nom_rol"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarAdminAdmin.php" method="POST">
+                                                <input type="hidden" name="idAccion" value="<?php echo $filaRol["cod_rol"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarRol">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -234,8 +239,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaTipoServ["cod_tipo_servicio"]?></th>
                                         <td> <?php echo $filaTipoServ["nom_servicio"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarAdminAdmin.php" method="POST">
+                                                <input type="hidden" name="idAccion" value="<?php echo $filaTipoServ["cod_tipo_servicio"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarServicio">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -277,8 +287,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaCiudad["cod_ciudad"]?></th>
                                         <td> <?php echo $filaCiudad["nombre_ciudad"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarCiudad.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarCiudad.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarAdminAdmin.php" method="POST">
+                                                <input type="hidden" name="idAccion" value="<?php echo $filaCiudad["cod_ciudad"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarCiudad">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -319,8 +334,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaMontaje["cod_montaje"]?></th>
                                         <td> <?php echo $filaMontaje["nombre_montaje"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarMontaje.php?idMontaje=<?php echo $filaMontaje["cod_montaje"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarMontaje.php?idMontaje=<?php echo $filaMontaje["cod_montaje"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarMontaje.php?idMontaje=<?php echo $filaMontaje["cod_montaje"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarAdminAdmin.php" method="POST">
+                                                <input type="hidden" name="idAccion" value="<?php echo $filaMontaje["cod_montaje"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarMontaje">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form> 
                                         </td>
                                     </tr>
                                     <?php } ?>
