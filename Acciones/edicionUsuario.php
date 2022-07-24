@@ -1,7 +1,8 @@
 <?php
 include('conec.php');
     session_start();
-    $cod_usuario = $_SESSION['cod_usuario'];
+    $rolUsuario = $_SESSION['rolUsuario'];
+    $cod_usuario = $_POST['codUsuario'];
     $nomUser= $_POST['nombre'];
     $apellPa= $_POST['apellPa'];
     $apellMa = $_POST['apellMa'];
@@ -29,12 +30,17 @@ include('conec.php');
         $editarUsuario= $consulta1;
     }
     $resultados=mysqli_query($conexion,$editarUsuario);
+    //Redireccionamiento Automatico
+    if($rolUsuario==1){
+        header('location: ../Paginas/EdicionAdmin/tablasUsuario.php');
+    }else{
+        header('location: ../Paginas/PerfilCliente.php');
+    }
     //Redireccionamiento a index sino funciona
-    if (!$resultados){
+    /* if (!$resultados){
         header('location: ../Paginas/PerfilCliente.php');
         //redireccionamiento//
     }else{
         header('location: ../Paginas/PerfilCliente.php');
-    };
-    //Redireccionamiento Automatico
+    }; */
 ?>

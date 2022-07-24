@@ -164,7 +164,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
                                             <a target="_self" href="../../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="../EdicionAdmin/editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>
