@@ -74,7 +74,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 </span>
             </button>
             <div class="list-group list-group-flush my-3">
-                <a href="DashboardEmpresa.php"
+                <a href="../DashboardEmpresa.php"
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
@@ -163,7 +163,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -218,7 +218,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["tel_empresa"] ?> </td>
                                         <td> <?php echo $fila["rfc"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -270,7 +270,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -314,7 +314,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaRol["cod_rol"]?></th>
                                         <td> <?php echo $filaRol["nom_rol"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarRol.php?idRol=<?php echo $filaRol["cod_rol"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>

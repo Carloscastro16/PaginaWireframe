@@ -74,7 +74,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 </span>
             </button>
             <div class="list-group list-group-flush my-3">
-                <a href="DashboardEmpresa.php"
+                <a href="../DashboardEmpresa.php"
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>

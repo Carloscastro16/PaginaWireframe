@@ -1,9 +1,9 @@
 <?php
-include('../Acciones/conec.php');
+include('conec.php');
 
 $codigoRol=$_GET['idRol'];
 $eliminarRol="DELETE FROM rol_usuario WHERE cod_rol='$codigoRol'";
 $resultadoRol=mysqli_query($conexion,$eliminarRol);
-//falta direccionar
-header('Location: ../tablasUsuario.php');
+
+header('Location: ../Paginas/EdicionAdmin/tablasUsuario.php');
 ?>
