@@ -1,5 +1,5 @@
 <?php
-include('../../Acciones/conec.php');
+include('../Acciones/conec.php');
 
 $codigoRol=$_GET['idRol'];
 $eliminarRol="DELETE FROM rol_usuario WHERE cod_rol='$codigoRol'";
