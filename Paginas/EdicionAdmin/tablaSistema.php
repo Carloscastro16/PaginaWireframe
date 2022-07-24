@@ -12,11 +12,6 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
     header('Location: ../index.html');
     die("Usted no tiene acceso");
 }
-$consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
-$consultaPaquete = "SELECT * FROM paquete WHERE fk_cod_empresa = '$varsession'";
-$resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
-$resultado = mysqli_query($conexion, $consulta);
-$filaUsr= mysqli_fetch_array($resultado);
 ?>
 
 <!DOCTYPE html>
@@ -182,7 +177,12 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaPack["descrip_paquete"] ?> </td>
                                         <td>  
                                             <a target="_self" href="../../Acciones/eliminarAdminPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <!--<a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
+                                            <form action="editarPaquetesAdmin.php" method="POST">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarPaquete">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -222,11 +222,11 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <th>Folio</th>
                                         <th>Cliente</th>
                                         <th>montaje</th>
-                                        <th>Fecha inicio</th>
-                                        <th>Fecha Final</th>
-                                        <th>Estado</th>
-                                        <th>numero</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>num. tel</th>
                                         <th># Paquete</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -248,22 +248,27 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaOrden["fk_cod_paquete"] ?> </td>
                                         <td>  
                                             <a target="_self" href="../Acciones/eliminarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <!-- <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
+                                            <form action="editarPaquetesAdmin.php" method="POST">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarOrden">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>#</th>
+                                    <th>#</th>
                                         <th>Folio</th>
                                         <th>Cliente</th>
                                         <th>montaje</th>
-                                        <th>Fecha inicio</th>
-                                        <th>Fecha Final</th>
-                                        <th>Estado</th>
-                                        <th>numero</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>num. tel</th>
                                         <th># Paquete</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </tfoot>
                             </table>
