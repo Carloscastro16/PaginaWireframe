@@ -32,7 +32,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Empresa</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="../img/favicon.svg">
 </head>
 
 <body>

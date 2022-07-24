@@ -98,8 +98,7 @@ CREATE TABLE `orden_evento` (
   `folio_evento` VARCHAR(45) NOT NULL,
   `fk_cod_usuario` INT UNSIGNED NOT NULL,
   `fk_cod_montaje` INT UNSIGNED NOT NULL,
-  `fec_inicio` VARCHAR(20) NULL,
-  `fec_fin` VARCHAR(20) NULL,
+  `fecha` DATE NOT NULL,
   `hora_evento` VARCHAR(10) NULL,
   `num_tel` INT(12) NULL,
   `fk_cod_paquete` INT UNSIGNED NOT NULL,
@@ -126,7 +125,8 @@ DELIMITER ;
 
 
 /*-------------------------------- Administradores -------------------------*/
+/* Las contraseñas son 123456789 */
 INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario) 
-	VALUE (1,"Carlos Andre", "Castro", "Rodriguez", "andycastro.2716@gmail.com", "hola");
+	VALUE (1,"Carlos Andre", "Castro", "Rodriguez", "andycastro.2716@gmail.com", "$2y$10$J8j6/kWVBnzoy7Uqh7T2Ce.Ny95kS6t8jzv91ibw9VSPlanEr02JW");
 INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario) 
-	VALUE (1,"Esmeralda", "Mendoza", "Jimenez", "Esmeralda810@gmail.com", "hola");
+	VALUE (1,"Esmeralda", "Mendoza", "Jimenez", "Esmeralda810@gmail.com", "$2y$10$J8j6/kWVBnzoy7Uqh7T2Ce.Ny95kS6t8jzv91ibw9VSPlanEr02JW");

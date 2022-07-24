@@ -30,8 +30,8 @@
     <?php
     include('partials/headerUsuarios.html');
     ?>
+    <link rel="icon" href="../img/favicon.svg">
     <title>Clientes</title>
-    <link rel="icon" href="img/favicon.svg">
 </head>
 
 <body>
@@ -93,10 +93,10 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilCliente.php'>Perfil</a>
+                                        <a href='../index.php'>Home</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilEmpresa.php'>Configuración</a>
+                                        <a href='PerfilCliente.php'>Perfil</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                    <img src="../Images/per4.jpg" alt=""/>
+                                    <img src="../Images/Hombre-vaquero.png" alt=""/>
                                 </div>
                             </div>
                             <div class="col-md-6">

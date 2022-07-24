@@ -26,7 +26,7 @@
     include('partials/headerUsuarios.html');
     ?>
     <title>Clientes</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="../img/favicon.svg">
 </head>
 
 <body>

@@ -38,6 +38,7 @@ session_start();
     ></script> -->
     <link href="lib/timepick.css" rel="stylesheet"/>
     <script type="text/javascript" src="lib/timepick.js?v=1.2"></script>
+    <link rel="icon" href="../img/favicon.svg">
     <title>Paquetes</title>
     
 </head>
@@ -72,7 +73,10 @@ session_start();
                 <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                     <ul class="navbar-nav navbarNav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Home</a>
+                            <a class="nav-link centrado" href="../index.php">
+                                <ion-icon name="arrow-back-outline"></ion-icon> 
+                                <div>Regresar a buscador</div>
+                            </a>
                         </li>
                     </ul>
                     <button class="switch" id="switch">
@@ -135,7 +139,7 @@ session_start();
     $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
     $fila = mysqli_fetch_array($resultadoPaquetes);
     $nomPaquete = $fila["nom_paquete"];
-    $imgPaquete = $fila["img_paquete"];
+    $imgPaquete = $fila["imagen_paquete"];
     $direccion = $fila["direc_evento"];
     $descripcion = $fila["descrip_paquete"];
     $cantPersonas = $fila["cant_personas"];
@@ -143,7 +147,7 @@ session_start();
     ?>
     <main class="log-in">
         <div class="General container">
-            <form action="ordenEventoTicket.php" method="POST">
+            <form action="../Acciones/ordenEventoTicket.php" method="POST">
                 <div class="row centrado">
                     <div class="col-sm-12">
                         <div class="container">
@@ -158,12 +162,31 @@ session_start();
                                                 <h3>Informacion del paquete</h3>
                                                 <h4>Nombre del paquete: <?php echo $nomPaquete ?></h4>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 pack-camp">
                                                 <p>Cantidad de personas: <?php echo $cantPersonas ?></p>
                                                 <p>Ubicación: <?php echo $direccion ?></p>
                                                 <p>Precio total: <?php echo $precio ?></p>
+                                                <p>Celular
+                                                    <input type="text" class='form-control' id="celular" placeholder="9987654312" name='celular'>
+                                                </p>
+                                                <p>
+                                                    Selecciona un tipo de montaje:
+                                                    <select class="seleccionFab form-control" aria-label="Default select example" name="codMontaje">
+                                                        <option value="Selected">Tipo de evento</option>
+                                                        <?php
+                                                        //conectar a la base de datos//
+                                                        include('../Acciones/conec.php');
+                                                        $consulta2="SELECT * FROM montaje";
+                                                        
+                                                        $resultado2=mysqli_query($conexion,$consulta2);
+                                                        while($fila2=mysqli_fetch_array($resultado2)){
+                                                        ?>
+                                                        <option value="<?php echo $fila2["cod_montaje"]?>"><?php echo$fila2["nombre_montaje"]?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </p>
                                             </div>
-                                            <div class="col-sm-3 order-camp">
+                                            <div class="col-sm-3 order-camp centradoHorizontal">
                                                 <div class="input-group date" id="datepicker">
                                                     <label for="text" class="control-label">¿Para cuando quieres tu evento?</label>
                                                     <input type="text" class="form-control" placeholder="MM/DD/YYYY" name="fecha" required readonly>
@@ -177,7 +200,7 @@ session_start();
                                             <div class="col-sm-3 order-camp centradoHorizontal">     
                                                 <label for="text" class="control-label">¿A que hora se realizará?</label>
                                                 <div>
-                                                    <input id="timepkr" style="width:100px;float:left;" class="form-control" placeholder="HH:MM" name="hora" required/>
+                                                    <input id="timepkr" style="width:100px;float:left;" class="form-control" placeholder="HH:MM" name="hora" required readonly/>
                                                     <button type="button" class="btn btn-primary " onclick="showpickers('timepkr',24)"><ion-icon name="time-outline"></ion-icon></button>
                                                 </div>
                                             </div>

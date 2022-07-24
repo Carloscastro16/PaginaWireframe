@@ -1,8 +1,8 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-error_reporting(0);
-
+    error_reporting(0);
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +12,7 @@ error_reporting(0);
     include('partials/headerGeneral.html');
     ?>
     <title>Contactanos</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="../img/favicon.svg">
 </head>
 
 <body>
@@ -70,9 +70,8 @@ error_reporting(0);
                         </button>
                         <?php
                         include ('../Acciones/conec.php');
-                        session_start();
                         $varsession = $_SESSION['cod_usuario'];
-                        $correo = $_SESSION['Correo'];
+                        $correo = $_SESSION['correo'];
                         $rolUsuario = $_SESSION['rolUsuario'];
                         $nombreUsuario = $_SESSION['nombre_usuario'];
                         if ($rolUsuario == "2"){
@@ -94,7 +93,7 @@ error_reporting(0);
                                                 <a href='../index.php'>Home</a>
                                             </li>
                                             <li class='dropdown-link'>
-                                                <a href='../Paginas/$perfil'>Perfil</a>
+                                                <a href='$perfil'>Perfil</a>
                                             </li>
                                             <li class='dropdown-link'>
                                                 <a href='../Acciones/Log-out.php'>Logout</a>

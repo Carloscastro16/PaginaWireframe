@@ -29,7 +29,7 @@
     include('partials/headerUsuarios.html');
     ?>
     <title>Empresa</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="../img/favicon.svg">
 </head>
 
 <body>

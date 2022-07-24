@@ -15,7 +15,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Inicia Sesion</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="../img/favicon.svg">
     
 </head>
 <body>
@@ -70,11 +70,6 @@
                             <ion-icon name="moon-outline"></ion-icon>
                         </span>
                     </button>
-                    <div class="botones">
-                        <form action="SignIn.html">
-                            <button class="botoncin btn btn-outline-secondary">Register</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </nav>

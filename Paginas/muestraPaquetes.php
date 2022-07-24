@@ -46,18 +46,11 @@ error_reporting(0);
                 <div class="navbar-nav navbarNav collapse navbar-collapse" id="toggleMobileMenu">
                     <ul class="navbar-nav navbarNav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Home</a>
+                            <a class="nav-link centrado" href="../index.php">
+                                <ion-icon name="arrow-back-outline"></ion-icon> 
+                                <div>Regresar</div>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="About_Us.php">Sobre nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact_Us.php">Contactanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Eventos.php">Eventos</a>
-                        </li>
-                        
                     </ul>
                     <button class="switch" id="switch">
                         <span>
@@ -91,6 +84,9 @@ error_reporting(0);
                                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                                     <li class='dropdown-link'>
                                                         <a href='$perfil'>Perfil</a>
+                                                    </li>
+                                                    <li class='dropdown-link'>
+                                                        <a href='../index.php'>Home</a>
                                                     </li>
                                                     <li class='dropdown-link'>
                                                         <a href='../Acciones/Log-out.php'>Logout</a>
@@ -220,8 +216,8 @@ error_reporting(0);
                                 <input class='collapse' type='hidden' name='sesion' value='$varsession'>
                                 <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
                                 <input class='btn btn-primary' type='submit' value='Comprar' name='comprar' onClick='validarCompra(this.form)'>
-                            </php
-                            <script languaje='javascript' src='../js/compra.js?v=2.0'></script> 
+                            </div>
+                            <script languaje='text/javascript' src='../js/compra.js?v=2.0'></script> 
                         </form>
                         ";
                     }

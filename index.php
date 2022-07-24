@@ -2,6 +2,7 @@
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
     error_reporting(0);
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,10 +80,10 @@
                                 </span>
                             </button>
                             <?php
-                                include ('../Acciones/conec.php');
-                                session_start();
+                                include ('Acciones/conec.php');
+                                
                                 $varsession = $_SESSION['cod_usuario'];
-                                $correo = $_SESSION['Correo'];
+                                $correo = $_SESSION['correo'];
                                 $rolUsuario = $_SESSION['rolUsuario'];
                                 $nombreUsuario = $_SESSION['nombre_usuario'];
                                 if ($rolUsuario == "2"){
