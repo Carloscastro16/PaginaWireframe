@@ -74,7 +74,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 </span>
             </button>
             <div class="list-group list-group-flush my-3">
-                <a href="../DashboardEmpresa.php"
+                <a href="../DashboardAdmin.php"
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
@@ -90,7 +90,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 <a href="tablaRegistros.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
-                <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout
                 </a>
             </div>
@@ -164,7 +164,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaTipoServ["cod_tipo_servicio"]?></th>
                                         <td> <?php echo $filaTipoServ["nom_servicio"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarTipo.php?idTipo=<?php echo $filaTipoServ["cod_tipo_servicio"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -207,7 +207,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaCiudad["cod_ciudad"]?></th>
                                         <td> <?php echo $filaCiudad["nombre_ciudad"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarCiudad.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarTipo.php?idCiudad=<?php echo $filaCiudad["cod_ciudad"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -243,14 +243,14 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         include('../../Acciones/conec.php');
                                         $consultaMontaje="SELECT * FROM montaje";
                                         $resultadoMontaje=mysqli_query($conexion,$consultaMontaje); 
-                                        while($filaCiudad=mysqli_fetch_array($resultadoMontaje)){
+                                        while($filaMontaje=mysqli_fetch_array($resultadoMontaje)){
                                         ?>
                                     <tr>
-                                        <td> <?php echo $filaCiudad["cod_montaje"]?></th>
-                                        <td> <?php echo $filaCiudad["nombre_montaje"] ?> </td>
+                                        <td> <?php echo $filaMontaje["cod_montaje"]?></th>
+                                        <td> <?php echo $filaMontaje["nombre_montaje"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarMontaje.php?idCiudad=<?php echo $filaMontaje["cod_montaje"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarMontaje.php?idCiudad=<?php echo $filaMontaje["cod_montaje"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarMontaje.php?idMontaje=<?php echo $filaMontaje["cod_montaje"]?>?" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarMontaje.php?idMontaje=<?php echo $filaMontaje["cod_montaje"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
                                     <?php } ?>

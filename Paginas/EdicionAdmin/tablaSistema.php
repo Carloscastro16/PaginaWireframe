@@ -74,7 +74,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 </span>
             </button>
             <div class="list-group list-group-flush my-3">
-                <a href="../DashboardEmpresa.php"
+                <a href="../DashboardAdmin.php"
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
@@ -90,7 +90,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 <a href="tablaRegistros.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
-                <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="../../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout
                 </a>
             </div>
@@ -147,6 +147,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Empresa</th>
                                         <th>Imagen</th>
                                         <th>nombre</th>
                                         <th>Tipo</th>
@@ -163,13 +164,14 @@ $filaUsr= mysqli_fetch_array($resultado);
                                     <!-- Conexion a la BD-->
                                         <?php
                                         include('../../Acciones/conec.php');
-                                        $consulta="SELECT * FROM paquete WHERE fk_cod_empresa = $varsession";
+                                        $consulta="SELECT * FROM paquete";
                                         $resultadoPack=mysqli_query($conexion,$consulta); 
                                         while($filaPack=mysqli_fetch_array($resultadoPack)){
                                         ?>
                                     <tr>
                                         <td> <?php echo $filaPack["cod_paquete"]?></th>
-                                        <td>nada</th>Pack
+                                        <td><?php echo $filaPack["fk_cod_empresa"]?></th>
+                                        <td><?php echo $filaPack["imagen_paquete"]?></th>
                                         <td> <?php echo $filaPack["nom_paquete"] ?> </td>
                                         <td> <?php echo $filaPack["fk_cod_tipo_servicio"] ?> </td>
                                         <td> <?php echo $filaPack["fk_cod_ciudad"] ?> </td>
@@ -179,7 +181,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $filaPack["cant_personas"] ?> </td>
                                         <td> <?php echo $filaPack["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarAdminPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
                                         </td>
                                     </tr>
@@ -188,6 +190,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
+                                        <th>Empresa</th>
                                         <th>Imagen</th>
                                         <th>nombre</th>
                                         <th>Tipo</th>
@@ -205,6 +208,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <!--fin de tabla-->
                     
                     <!-- Tabla de Ordenes -->
+                    <!--PENDIENTE-->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
                                 <h4>
