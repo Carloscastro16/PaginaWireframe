@@ -104,7 +104,7 @@ $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
                 </nav>
                 <section class="log-in registro-inicio">
                     <div class="General container">
-                        <form action="../Acciones/edicionUsuario.php" method="post" enctype="multipart/">
+                        <form action="../Acciones/edicionUsuarioEmpresa.php" method="post" enctype="multipart/">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="titulito tituloConjunto">
@@ -153,7 +153,7 @@ $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="submit" name="registro" value="Editar" 
+                                    <input type="submit" name="registro" value="Guardar" 
                                     class="btn btn-primary">
                                 </div>
                             </div>
