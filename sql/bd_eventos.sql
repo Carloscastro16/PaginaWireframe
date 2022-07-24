@@ -100,7 +100,7 @@ CREATE TABLE `orden_evento` (
   `fk_cod_montaje` INT UNSIGNED NOT NULL,
   `fecha` DATE NOT NULL,
   `hora_evento` VARCHAR(10) NULL,
-  `num_tel` INT(12) NULL,
+  `num_tel` BIGINT(10) NULL,
   `fk_cod_paquete` INT UNSIGNED NOT NULL,
 	FOREIGN KEY (fk_cod_usuario) REFERENCES usuario(cod_usuario),
 	FOREIGN KEY (fk_cod_montaje) REFERENCES montaje(cod_montaje),

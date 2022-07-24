@@ -15,7 +15,7 @@ error_reporting(0);
     <title>Paquetes</title>
     
 </head>
-<body>
+<body class="orden">
     <div class="contenedor_carga" id="contenedor_carga">
         <div id="carga" class="centrado">
             <svg>

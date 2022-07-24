@@ -11,6 +11,7 @@
     --azulNegroso:#27354e;
     --Fondo-oscuro: #172a4c ;
     --blanco: #fff;
+    --subtitulos: #cf4e97;
 }
 
 body.dark{
@@ -88,7 +89,7 @@ main{
     z-index: 1;
     min-height: 100vh;
     height: 100%;
-    background-image: url(../img/fondoclaro.png);
+    background: url(../img/fondoclaro.png);
     background-size: contain;
     background-position:  bottom;
     -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -96,7 +97,7 @@ main{
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;  
 }
 body.dark .main{
-    background-image: url(../img/fondoclaro.png);
+    background: url(../img/fondoclaro.png);
     
 }
 main.vistasIniciales {
@@ -1530,6 +1531,17 @@ table th{
 }
 
 /* ORden de evento */
+body.orden main{
+    background: var(--Fondo);
+    
+}
+body.dark .orden h3{
+    color: var(--bs-code-color);
+}
+body.dark .orden h4{
+    color: var(--subtitulos);
+}
+
 
 .order-camp{
     display: flex;
@@ -1592,4 +1604,21 @@ table th{
     color: var(--bs-code-color);
     border-radius: 0;
     color:var(--Complemento)
+}
+.panel{
+    padding: 2rem;
+}
+.panel input{
+    margin-bottom: 1rem;
+}
+.orden input[type='button']{
+    color: var(--Complemento);
+    background: var(--bs-code-color);
+    width: 100%;
+    margin-top: 1rem;
+}
+.barraPago h4{
+    position: relative;
+    top: 0.6rem;
+    margin-left: 1.9rem;
 }
