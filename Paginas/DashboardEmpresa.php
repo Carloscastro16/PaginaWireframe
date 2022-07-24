@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <form action="#" method="post">
+                                <form action="../Paginas/EdicionPerfilEmpresa.php" method="post">
                                     <input type="submit" name="registro" value="Editar perfil" 
                                     class="btn btn-primary">
                                 </form>
