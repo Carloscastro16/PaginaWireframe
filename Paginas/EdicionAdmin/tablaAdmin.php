@@ -136,18 +136,21 @@ $filaUsr= mysqli_fetch_array($resultado);
                             <h4>Añadir</h4>
                         </div>
                         <div class="col-sm-6">
-                            <label for="">Añade un tipo de montaje, de paquete, o una ciudad</label>
+                            <label for="">Añade un tipo de montaje, de paquete, Rol o una ciudad</label>
                             <input type="text" class="form-control" name="valorAñadido">
                         </div>
                         <div class="w-100"></div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <input type="submit" class="form-control" value="Añadir Montaje" name="btn">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <input type="submit" class="form-control" value="Añadir Tipo" name="btn">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <input type="submit" class="form-control" value="Añadir Ciudad" name="btn">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="form-control" value="Añadir Rol" name="btn">
                         </div>
                     </div>
                 </form>

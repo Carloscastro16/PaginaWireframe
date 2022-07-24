@@ -20,6 +20,12 @@
             $resultado = mysqli_query($conexion, $consulta);
             header('location: ../Paginas/EdicionAdmin/tablaAdmin.php');
             break;
+        case 'Añadir Rol':
+            $rol = $_POST['valorAñadido'];
+            $consulta = "INSERT INTO rol_usuario (nom_rol) VALUE ('$rol')";
+            $resultado = mysqli_query($conexion, $consulta);
+            header('location: ../Paginas/EdicionAdmin/tablaAdmin.php');
+            break;
 
     }
     //redireccionamiento//
