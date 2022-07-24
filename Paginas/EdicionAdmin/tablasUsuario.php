@@ -111,13 +111,10 @@ $filaUsr= mysqli_fetch_array($resultado);
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
-                                    <a href='../index.php'>Home</a>
+                                    <a href='../../index.php'>Home</a>
                                 </li>
                                 <li class='dropdown-link'>
-                                    <a href='PerfilEmpresa.php'>Dashboard</a>
-                                </li>
-                                <li class='dropdown-link'>
-                                    <a href='../Acciones/Log-out.php'>Logout</a>
+                                    <a href='../../Acciones/Log-out.php'>Logout</a>
                                 </li>
                             </ul>
                         </li>
@@ -163,8 +160,13 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="editarCliente.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/EliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarUsuariosAdmin.php" method="POST">
+                                                <input type="hidden" name="idUsuario" value="<?php echo $fila["cod_usuario"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarCliente">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -218,8 +220,14 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["tel_empresa"] ?> </td>
                                         <td> <?php echo $fila["rfc"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarUsuariosAdmin.php" method="POST">
+                                                <input type="hidden" name="idUsuario" value="<?php echo $fila["cod_usuario"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarEmpresa">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
+                                            <!-- <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a>  -->
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -270,8 +278,14 @@ $filaUsr= mysqli_fetch_array($resultado);
                                         <td> <?php echo $fila["nombre_usuario"] ?> </td>
                                         <td> <?php echo $fila["correo_usuario"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                            <a class="btn" target="_self" href="../../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <form action="editarUsuariosAdmin.php" method="POST">
+                                                <input type="hidden" name="idUsuario" value="<?php echo $fila["cod_usuario"]?>">
+                                                <button class="btn" type="submit" name="btn-edit" value="editarAdmin">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </button>
+                                            </form>
+                                            <!-- <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a>  -->
                                         </td>
                                     </tr>
                                     <?php } ?>

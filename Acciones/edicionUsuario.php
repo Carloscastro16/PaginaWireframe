@@ -31,16 +31,16 @@ include('conec.php');
     }
     $resultados=mysqli_query($conexion,$editarUsuario);
     //Redireccionamiento Automatico
-    if($rolUsuario==1){
+    /* if($rolUsuario==1){
         header('location: ../Paginas/EdicionAdmin/tablasUsuario.php');
     }else{
         header('location: ../Paginas/PerfilCliente.php');
-    }
+    } */
     //Redireccionamiento a index sino funciona
-    /* if (!$resultados){
+    if (!$resultados){
         header('location: ../Paginas/PerfilCliente.php');
         //redireccionamiento//
     }else{
         header('location: ../Paginas/PerfilCliente.php');
-    }; */
+    };
 ?>

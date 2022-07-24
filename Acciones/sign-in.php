@@ -21,11 +21,11 @@ $agregar = $_POST['agregar'];
         if(empty($rfc)){
             $insertarUsuario= "CALL sp_reg_cliente('$nomUser','$apellPa','$apellMa','$correo','$encryptPass')";
             $resultados=mysqli_query($conexion,$insertarUsuario);
-            header ('location: ../Paginas/PerfilCliente.php');
+            header ('location: ../Paginas/LogIn.php');
         }else{
             $insertarUsuario = "CALL sp_reg_usrempresa('$nomUser','$apellPa','$apellMa','$correo','$nombreEmpresa','$encryptPass',$telefono,'$rfc')";
             $resultados=mysqli_query($conexion,$insertarUsuario);
-            header ('location: ../Paginas/DashboardEmpresa.php');
+            header ('location: ../Paginas/LogIn.php');
         }
     }else {
         
