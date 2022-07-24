@@ -135,7 +135,7 @@ $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
                                         </h5>
                                         <h5>
                                             Nombre de empresa
-                                            <input name="apellMa" type="text" class="form-control" value="<?php echo $nomEmpresa;?>">
+                                            <input name="nombreEm" type="text" class="form-control" value="<?php echo $nomEmpresa;?>">
                                         </h5> 
                                         <h5>
                                             Correo
