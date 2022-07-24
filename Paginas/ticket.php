@@ -1,19 +1,36 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-error_reporting(0);
+/* error_reporting(0); */
 session_start();
     include('../Acciones/conec.php');
     $varsession = $_SESSION['cod_usuario'];
     $correo = $_SESSION['correo'];
     $rolUsuario = $_SESSION['rolUsuario'];
-    $nombreUsuario = $_SESSION['nombre_usuario'];
-
+    $nombreUsuario = $_SESSION['nombre_usuario']; 
     if($varsession == null || $varsession == '') {
         echo "ERROR: 412 Usted no tiene acceso";
         header('Location: ../index.php');
         die();
     }
+    $folio = $_SESSION['folio'];
+    $consultaOrden ="SELECT folio_evento, fecha, hora_evento, paquete.nom_paquete, paquete.descrip_paquete,
+    paquete.cant_personas, paquete.direc_evento, paquete.precio_paquete, imagen_paquete, montaje.nombre_montaje
+    FROM orden_evento
+    INNER JOIN paquete ON paquete.cod_paquete = orden_evento.fk_cod_paquete
+    INNER JOIN montaje ON montaje.cod_montaje = orden_evento.fk_cod_montaje
+    WHERE fk_cod_usuario = $varsession AND folio_evento = $folio";
+    $resultadoOrden = mysqli_query($conexion, $consultaOrden);
+    $filaOrden = mysqli_fetch_array($resultadoOrden);
+    $nomMontaje = $filaOrden['nombre_montaje'];
+    $nomPaquete = $filaOrden['nom_paquete'];
+    $fecha = $filaOrden['fecha'];
+    $hora = $filaOrden['hora_evento'];
+    $direccion = $filaOrden['direc_evento'];
+    $descripcionPack= $filaOrden['descrip_paquete'];
+    $precio= $filaOrden['precio_paquete'];
+    $imgPaquete = $filaOrden['imagen_paquete'];
+    $cantPersonas = $filaOrden['cant_personas'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +58,14 @@ session_start();
     
 </head>
 <body class="orden">
-    <div class="contenedor_carga" id="contenedor_carga">
+    <!-- <div class="contenedor_carga" id="contenedor_carga">
         <div id="carga" class="centrado">
             <svg>
                 <circle cx="160" cy="200" r="100" class="circle"/>
                 <circle cx="120" cy="160" r="100" class="loader"/>
             </svg>
         </div>
-    </div>
+    </div> -->
     <header>
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid barraNav ">
@@ -127,17 +144,6 @@ session_start();
             </div>
         </nav>
     </header>
-    <?php
-    $consultaPaquete = "SELECT * FROM paquete WHERE cod_paquete = $codPaquete";
-    $resultadoPaquetes = mysqli_query($conexion, $consultaPaquete);
-    $fila = mysqli_fetch_array($resultadoPaquetes);
-    $nomPaquete = $fila["nom_paquete"];
-    $imgPaquete = $fila["imagen_paquete"];
-    $direccion = $fila["direc_evento"];
-    $descripcion = $fila["descrip_paquete"];
-    $cantPersonas = $fila["cant_personas"];
-    $precio = $fila["precio_paquete"];
-    ?>
     <main class="log-in">
         <div class="General container">
             <form action="../Acciones/ordenEventoTicket.php" method="POST">
@@ -152,111 +158,31 @@ session_start();
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <h3>Informacion del paquete</h3>
+                                                <h3>Informacion del pago</h3>
                                                 <h4>Nombre del paquete: <?php echo $nomPaquete ?></h4>
                                             </div>
                                             <div class="col-sm-6 pack-camp">
                                                 <p>Cantidad de personas: <?php echo $cantPersonas ?></p>
                                                 <p>Ubicación: <?php echo $direccion ?></p>
                                                 <p>Precio total: <?php echo $precio ?></p>
-                                                <p>Celular
-                                                    <input type="text" class='form-control' id="celular" placeholder="9987654312" name='celular' required>
-                                                </p>
                                                 <p>
-                                                    Tipo de montaje:
-                                                        <?php
-                                                        //conectar a la base de datos//
-                                                        include('../Acciones/conec.php');
-                                                        $consulta2="SELECT * FROM montaje";
-                                                        
-                                                        $resultado2=mysqli_query($conexion,$consulta2);
-                                                        $fila2=mysqli_fetch_array($resultado2)
-                                                        ?>
-                                                        <input class='form-control' value="<?php echo $fila2["cod_montaje"]?>"><?php echo$fila2["nombre_montaje"]?></option>
+                                                    Tipo de montaje: <?php echo $nomMontaje ?></p>  
                                                 </p>
                                             </div>
-                                            <div class="col-sm-3 order-camp centradoHorizontal">
-                                                <div class="input-group date" id="datepicker">
-                                                    <label for="text" class="control-label">¿Para cuando quieres tu evento?</label>
-                                                    <input type="text" class="form-control" placeholder="MM/DD/YYYY" name="fecha" required readonly>
-                                                    <span class="input-group-append">
-                                                        <span class="input-group-text">
-                                                            <ion-icon name="calendar-outline"></ion-icon>
-                                                        </span>
-                                                    </span>
-                                                </div>
+                                            <div class="col-sm-3 order-camp">
+                                                <p>
+                                                    Fecha: <?php echo $fecha ?></p>  
+                                                    
+                                                </p>
+                                                <p>Hora: <?php echo $hora ?></p>  </p>
                                             </div>
-                                            <div class="col-sm-3 order-camp centradoHorizontal">     
-                                                <label for="text" class="control-label">¿A que hora se realizará?</label>
-                                                <div>
-                                                    <input id="timepkr" style="width:100px;float:left;" class="form-control" placeholder="HH:MM" name="hora" required readonly/>
-                                                    <button type="button" class="btn btn-primary " onclick="showpickers('timepkr',24)"><ion-icon name="time-outline"></ion-icon></button>
-                                                </div>
-                                            </div>
-                                            <div class="timepicker"></div>
-                                            
+  
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 centrado mt-4">
-                                    <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-                                        <ion-icon name="caret-down-outline"></ion-icon>Pagar
-                                    </button>
-                                </div>
-                                <div class="collapse panel panel-default" id="toggleMobileMenu">
-                                    <div class="panel-heading">
-                                        <div class="row ">
-                                            <div class="col-sm-12">
-                                                <h4>Datos bancarios</h4>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <span class="help-block text-muted small-font">Numero de tarjeta</span>
-                                                <input type="text" class="form-control" placeholder="Enter Card Number" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-md-3 col-sm-3 col-xs-3 centrado">
-                                                <div class="texto">
-                                                    <span class="help-block text-muted small-font" >Mes de Expiracion</span>
-                                                    <input type="text" class="form-control" placeholder="MM" required/>
-                                                </div>
-                                                <div class="barraPago centrado">
-                                                    <h4> / </h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <span class="help-block text-muted small-font" >Año de Expiracion</span>
-                                                <input type="text" class="form-control" placeholder="YY" required/>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <span class="help-block text-muted small-font" >CCV</span>
-                                                <input type="text" class="form-control" placeholder="CCV" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-md-12 pad-adjust">
-                                                <span class="help-block text-muted small-font">Nombre en la tarjeta</span>
-                                                <input type="text" class="form-control" placeholder="Nombre en la tarjeta" required/>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 pad-adjust">
-                                                <div class="checkbox">
-                                                <label>
-                                                <input type="checkbox" checked class="text-muted">Guardar datos para despues
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                            <input type="button" onClick="location.href='../index.php'" class="btn btn-danger" value="Cancelar" />
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                            <input class='collapse' type='hidden' name='codPaquete' value='<?php echo $codPaquete ?>'>
-                                            <input class='btn btn-primary' type='submit' value='Pagar ahora' name='comprar'>
-                                        </div>
-                                    </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                    <p>Guarde este ticket por cualquier inconveniente</p>
+                                    <input type="button" onClick="location.href='../index.php'" class="btn btn-danger" value="Regresar a perfil" />
                                 </div>
                             </div>
                         </div>

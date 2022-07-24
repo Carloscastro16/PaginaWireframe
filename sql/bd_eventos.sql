@@ -107,6 +107,14 @@ CREATE TABLE `orden_evento` (
 	FOREIGN KEY (fk_cod_paquete) REFERENCES paquete(cod_paquete),
   PRIMARY KEY (`cod_orden_evento`));
 
+  /*--------------------------------Eventos Ocupados-------------------------*/
+CREATE TABLE `eventos_ocup` (
+  `cod_disponibilidad` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `fk_cod_paquete` INT UNSIGNED NOT NULL,
+	FOREIGN KEY (fk_cod_paquete) REFERENCES paquete(cod_paquete),
+  PRIMARY KEY (`cod_disponibilidad`));
+
 
 /*-------------------------------- Triggers -------------------------*/
 DELIMITER $$

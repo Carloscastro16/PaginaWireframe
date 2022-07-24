@@ -105,7 +105,7 @@
                                                         <a href='../Paginas/$perfil'>Perfil</a>
                                                     </li>
                                                     <li class='dropdown-link'>
-                                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                                        <a href='Acciones/Log-out.php'>Logout</a>
                                                     </li>
                                                 </ul>
                                             </li>

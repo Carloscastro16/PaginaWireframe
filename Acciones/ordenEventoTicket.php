@@ -1,6 +1,7 @@
 <?php
 include('conec.php');
     session_start();
+    
     $codUsuario = $_SESSION['cod_usuario'];
     $codMontaje = $_POST['codMontaje'];
     $fecha = $_POST['fecha'];
@@ -17,10 +18,19 @@ include('conec.php');
             $confirmacion = true;
         }
     }
-    //consulta mysql//
-    $insertarOrden= "INSERT INTO orden_evento(folio_evento, fk_cod_usuario, fk_cod_montaje, fecha, hora_evento, num_tel, fk_cod_paquete) VALUE('$numRand','$codUsuario','$codMontaje', '$fecha', '$hora', '$numTel', '$codPaquete')";
-    $resultados=mysqli_query($conexion,$insertarOrden);
-    //mensaje si no se ingresa valores//
-header('location: ../Paginas/ticket.php');
-    //redireccionamiento//
+    $consultaDisp = "SELECT COUNT(fecha) as fecha FROM eventos_ocup WHERE fecha = '$fecha'";
+        $resultado = mysqli_query($conexion, $consultaDisp);
+        $filaDisp = mysqli_fetch_array($resultado);
+        if($filaDisp['fecha']== 0){
+            $_SESSION['folio'] = $numRand; 
+            //consulta mysql//
+            $insertarOrden= "INSERT INTO orden_evento(folio_evento, fk_cod_usuario, fk_cod_montaje, fecha, hora_evento, num_tel, fk_cod_paquete) VALUE('$numRand','$codUsuario','$codMontaje', '$fecha', '$hora', '$numTel', '$codPaquete')";
+            $resultados=mysqli_query($conexion,$insertarOrden);
+            //mensaje si no se ingresa valores//
+            header('location: ../Paginas/ticket.php');
+            //redireccionamiento//
+        }else{
+            echo "<script>alert('EL USUARIO NO EXISTE');</script>";
+	        echo 'window.location.href = "../index.php"';
+        }
 ?>
