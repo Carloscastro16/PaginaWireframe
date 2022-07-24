@@ -14,8 +14,6 @@ session_start();
         header('Location: ../index.php');
         die();
     }
-    $codPaquete = $_POST['codPaquete'];
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,11 +87,6 @@ session_start();
                     </button>
                             <?php
                                 include ('../Acciones/conec.php');
-                                session_start();
-                                $varsession = $_SESSION['cod_usuario'];
-                                $correo = $_SESSION['Correo'];
-                                $rolUsuario = $_SESSION['rolUsuario'];
-                                $nombreUsuario = $_SESSION['nombre_usuario'];
                                 if ($rolUsuario == "2"){
                                     $perfil = "PerfilCliente.php";
                                 }else{
@@ -170,20 +163,16 @@ session_start();
                                                     <input type="text" class='form-control' id="celular" placeholder="9987654312" name='celular' required>
                                                 </p>
                                                 <p>
-                                                    Selecciona un tipo de montaje:
-                                                    <select class="seleccionFab form-control" aria-label="Default select example" name="codMontaje">
-                                                        <option value="Selected">Tipo de evento</option>
+                                                    Tipo de montaje:
                                                         <?php
                                                         //conectar a la base de datos//
                                                         include('../Acciones/conec.php');
                                                         $consulta2="SELECT * FROM montaje";
                                                         
                                                         $resultado2=mysqli_query($conexion,$consulta2);
-                                                        while($fila2=mysqli_fetch_array($resultado2)){
+                                                        $fila2=mysqli_fetch_array($resultado2)
                                                         ?>
-                                                        <option value="<?php echo $fila2["cod_montaje"]?>"><?php echo$fila2["nombre_montaje"]?></option>
-                                                        <?php } ?>
-                                                    </select>
+                                                        <input class='form-control' value="<?php echo $fila2["cod_montaje"]?>"><?php echo$fila2["nombre_montaje"]?></option>
                                                 </p>
                                             </div>
                                             <div class="col-sm-3 order-camp centradoHorizontal">
