@@ -136,7 +136,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                             Hola <?php echo $nombreUsuario ?>!
                         </h5>   
                     </div>                 
-                        <!-- Tabla de paquetes -->
+                    <!-- Tabla de paquetes -->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
                                 <h4>
@@ -202,7 +202,9 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 </tfoot>
                             </table>
                         </div>
-                        <!-- Tabla de Ordenes -->
+                    <!--fin de tabla-->
+                    
+                    <!-- Tabla de Ordenes -->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
                                 <h4>
@@ -262,9 +264,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 </tfoot>
                             </table>
                         </div>
-                        
-                     
-                        
+                    <!--fin de tabla-->
                     </div>         
                 </div>
             </section>

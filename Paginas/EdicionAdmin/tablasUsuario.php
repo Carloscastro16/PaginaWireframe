@@ -102,11 +102,6 @@ $filaUsr= mysqli_fetch_array($resultado);
                     <i class="fas fa-aling-left primary-text fs-4 me-4" id="menu-toggle"></i>
                     <h2 class="navbarNav">Dashboard</h2>
                 </div>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarSypportedContent" aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
                         <li class='nav-item-dropdown'>
@@ -243,7 +238,55 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 </tfoot>
                             </table>
                         </div>
-                        
+                        <!-- Tabla de Administradores -->
+                        <div class="col-sm-12">
+                            <div class="titulito tituloConjunto">
+                                <h4>
+                                    Tabla de Administradores
+                                </h4>
+
+                            </div>
+                            <table id="empresas" class="table-responsive tablita display" >
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Rol</th>
+                                        <th>Nombre</th>
+                                        <th>Correo</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Conexion a la BD-->
+                                        <?php
+                                        include('../../Acciones/conec.php');
+                                        $consulta="SELECT * FROM usuario WHERE fk_rol_usuario = 1";
+                                        $resultadoUsr=mysqli_query($conexion,$consulta); 
+                                        while($fila=mysqli_fetch_array($resultadoUsr)){
+                                        ?>
+                                    <tr>
+                                        <td> <?php echo $fila["cod_usuario"]?></th>
+                                        <td> <?php echo $fila["fk_rol_usuario"] ?> </td>
+                                        <td> <?php echo $fila["nombre_usuario"] ?> </td>
+                                        <td> <?php echo $fila["correo_usuario"] ?> </td>
+                                        <td>  
+                                            <a target="_self" href="../Acciones/eliminarUsuario.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="EdicionAdmin/editarempresa.php?idUsuario=<?php echo $fila["cod_usuario"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> 
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Rol</th>
+                                        <th>Nombre</th>
+                                        <th>Correo</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
                         <!-- Tabla de Roles -->
                         <div class="col-sm-12">
                             <div class="titulito tituloConjunto">
@@ -319,6 +362,7 @@ $filaUsr= mysqli_fetch_array($resultado);
             contenedor.style.opacity = "0";
         }
     </script>
+
 </body>
 
 </html>
