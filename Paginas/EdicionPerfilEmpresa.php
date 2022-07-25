@@ -92,11 +92,11 @@ $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
                                         <a href='../index.php'>Home</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilCliente.php'>Perfil</a>
+                                        <a href='DashboardEmpresa.php'>Dashboard</a>
                                     </li>
-                                    <li class='dropdown-link'>
-                                        <a href='../Acciones/Log-out.php'>Logout</a>
-                                    </li>
+                                <li class='dropdown-link'>
+                                    <a href='../Acciones/Log-out.php'>Logout</a>
+                                </li>
                                 </ul>
                             </li>
                         </ul>

@@ -96,7 +96,7 @@
                                         <a href='../index.php'>Home</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='PerfilEmpresa.php'>Dashboard</a>
+                                        <a href='DashboardEmpresa.php'>Dashboard</a>
                                     </li>
                                     <li class='dropdown-link'>
                                         <a href='../Acciones/Log-out.php'>Logout</a>
