@@ -121,13 +121,13 @@ error_reporting(0);
                     <form action="muestraPaquetes.php" method="POST">
                         <div class="container">
                             <div class="row buscadorsin">
-                                <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                <div class="search-camp col-lg-5 col-md-5 col-sm-5">
                                     <ion-icon name="location-outline"></ion-icon>
                                     <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
                                 </div>
-                                <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                <div class="search-camp col-lg-4 col-md-4 col-sm-4">
                                     <ion-icon name="calendar-outline"></ion-icon>
-                                    <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
+                                    <select class="seleccionFab form-select" aria-label="Default select example" name="codServicio">
                                         <option value="Selected">Tipo de evento</option>
                                         <?php
                                         //conectar a la base de datos//
@@ -142,10 +142,6 @@ error_reporting(0);
                                     </select>
                                 </div>
                                 <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                    <ion-icon name="person-outline"></ion-icon>
-                                    <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
-                                </div>
-                                <div class="search-camp col-lg-2 col-md-2 col-sm-2">
                                     <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
                                 </div>
                             </div>
@@ -161,8 +157,7 @@ error_reporting(0);
 
         include('../Acciones/conec.php');
         $ubicacion= $_POST['ubicacion'];
-        /* $tipo = $_POST['tipo_servicio']; */
-        $cantPersonas = $_POST['cantPersonas'];
+        $tipo = $_POST['codServicio'];
         //Consulta e insercion de la query
         
         
@@ -170,22 +165,22 @@ error_reporting(0);
                     INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
                     where disponibilidad_evento = 'Disponible' 
                     AND ciudad.nombre_ciudad like '$ubicacion' 
-                    AND cant_personas = $cantPersonas";
+                    AND fk_cod_tipo_servicio = '$tipo'";
         $consulta2="SELECT * FROM paquete 
                     INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
                     where disponibilidad_evento = 'Disponible' 
                     AND ciudad.nombre_ciudad like '$ubicacion'";
 
-        if(empty($cantPersonas)){
+        if(empty($tipo)){
             $consulta = $consulta2;
         }else{
             $consulta = $consulta1;
         }
         $consultaPrueba = $consulta;
-        $resultado=mysqli_query($conexion,$consulta);
-
         $resultadoPrueba=mysqli_query($conexion,$consultaPrueba);
         $filaPrueba= mysqli_fetch_array($resultadoPrueba);
+        
+        $resultado=mysqli_query($conexion,$consulta);
         ?>
         <div class="General container">
             <div class="row centrado">

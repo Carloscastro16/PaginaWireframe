@@ -140,13 +140,13 @@
                                 <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
                                         <div class="row buscadorsin form-group">
-                                            <div class="search-camp col-lg-4 col-md-4 col-sm-4">
+                                            <div class="search-camp col-lg-5 col-md-5 col-sm-5">
                                                 <ion-icon name="location-outline"></ion-icon>
                                                 <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
                                             </div>
-                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                            <div class="search-camp col-lg-4 col-md-4 col-sm-4">
                                                 <ion-icon name="calendar-outline"></ion-icon>
-                                                <select class="seleccionFab form-select" aria-label="Default select example" name="codFabricante">
+                                                <select class="seleccionFab form-select" aria-label="Default select example" name="codServicio">
                                                     <option value="Selected">Tipo de evento</option>
                                                     <?php
                                                     //conectar a la base de datos//
@@ -161,10 +161,6 @@
                                                 </select>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                                <ion-icon name="person-outline"></ion-icon>
-                                                <input name="cantPersonas" type="text" class="form-control form-evento" placeholder="¿Cuantas personas?">
-                                            </div>
-                                            <div class="search-camp col-lg-2 col-md-2 col-sm-2">
                                                 <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
                                             </div>
                                         </div>
