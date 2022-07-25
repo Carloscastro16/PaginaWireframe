@@ -67,10 +67,16 @@ error_reporting(0);
                                 $correo = $_SESSION['Correo'];
                                 $rolUsuario = $_SESSION['rolUsuario'];
                                 $nombreUsuario = $_SESSION['nombre_usuario'];
-                                if ($rolUsuario == "2"){
-                                    $perfil = "PerfilCliente.php";
-                                }else{
-                                    $perfil = "DashboardEmpresa.php";
+                                switch ($rolUsuario) {
+                                    case '1':
+                                        $perfil = "DashboardAdmin.php";
+                                        break;
+                                    case '2':
+                                        $perfil = "PerfilCliente.php";
+                                        break;
+                                    case '3':
+                                        $perfil = "PerfilEmpresa.php";
+                                        break;
                                 }
                                 if(isset($varsession)){
                                     echo "

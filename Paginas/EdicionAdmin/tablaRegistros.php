@@ -116,10 +116,10 @@ $filaUsr= mysqli_fetch_array($resultado);
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
-                                    <a href='../index.php'>Home</a>
+                                    <a href='../../index.php'>Home</a>
                                 </li>
                                 <li class='dropdown-link'>
-                                <a href='../DashboardAdmin.php'>Dashboard</a>
+                                    <a href='../DashboardAdmin.php'>Dashboard</a>
                                 </li>
                                 <li class='dropdown-link'>
                                     <a href='../../Acciones/Log-out.php'>Logout</a>
@@ -136,11 +136,47 @@ $filaUsr= mysqli_fetch_array($resultado);
                             Hola <?php echo $nombreUsuario ?>!
                         </h5>   
                     </div>
-                        
-                        
-                        
-                    
-                    </div>         
+                    <div class="col-sm-12">
+                        <div class="titulito tituloConjunto">
+                            <h4>
+                                Tabla de Historial usuarios
+                            </h4>
+                        </div>
+                        <table id="historial" class="table-responsive tablita display" >
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Accion</th>
+                                    <th>Correo</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Conexion a la BD-->
+                                    <?php
+                                    include('../../Acciones/conec.php');
+                                    $consultaOrden="SELECT * FROM historial_logeo";
+                                    $resultadoOrden=mysqli_query($conexion,$consultaOrden); 
+                                    while($filaOrden=mysqli_fetch_array($resultadoOrden)){
+                                    ?>
+                                <tr>
+                                    <td> <?php echo $filaOrden["cod_logeo"]?></th>
+                                    <td> <?php echo $filaOrden["Accion"] ?> </td>
+                                    <td> <?php echo $filaOrden["correo"] ?> </td>
+                                    <td> <?php echo $filaOrden["fecha"] ?> </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Accion</th>
+                                    <th>Correo</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>        
                 </div>
             </section>
         </div>
@@ -171,6 +207,12 @@ $filaUsr= mysqli_fetch_array($resultado);
             contenedor.style.visibility = "hidden";
             contenedor.style.opacity = "0";
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#historial').DataTable();
+        });
+            
     </script>
 </body>
 

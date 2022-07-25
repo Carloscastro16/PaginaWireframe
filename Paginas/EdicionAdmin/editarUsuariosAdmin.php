@@ -4,7 +4,7 @@
     $varsession = $_SESSION['cod_usuario'];
     $rolUsuario = $_SESSION['rolUsuario'];
 
-    if($varsession == null || $varsession == '' || $rolUsuario == '3') {
+    if($varsession == null || $varsession == '' || $rolUsuario != '1') {
         echo "ERROR: 412 Usted no tiene acceso";
         header('Location: ../index.html');
         die();
@@ -81,10 +81,10 @@
                     </span>
                 </button>
                 <div class="list-group list-group-flush my-3">
-                    <a  href="../Paginas/PerfilCliente.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a  href="../DashboardAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-user"></i> Perfil
                     </a>
-                    <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <a href="../../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </div>
@@ -111,13 +111,13 @@
                                 </a>
                                 <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                     <li class='dropdown-link'>
-                                        <a href='../index.php'>Home</a>
+                                        <a href='../../index.php'>Home</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Paginas/PerfilCliente.php'>Perfil</a>
+                                        <a href='../DashboardAdmin.php'>Dashboard</a>
                                     </li>
                                     <li class='dropdown-link'>
-                                        <a href='../Acciones/Log-out.php'>Logout</a>
+                                        <a href='../../Acciones/Log-out.php'>Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -133,11 +133,6 @@
                                         <h4>
                                             Perfil
                                         </h4>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="imaperfil">
-                                        <img src="../Images/fotoPrincipal.png" alt=""/>
                                     </div>
                                 </div>
                                 <?php

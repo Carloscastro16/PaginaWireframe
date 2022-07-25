@@ -5,7 +5,7 @@
     $nombreUsuario = $_SESSION['nombre_usuario'];
     $rolUsuario = $_SESSION['rolUsuario'];
 
-    if($varsession == null || $varsession == '' || $rolUsuario == '3') {
+    if($varsession == null || $varsession == '' || $rolUsuario != '1') {
         echo "ERROR: 412 Usted no tiene acceso";
         header('Location: ../index.html');
         die();

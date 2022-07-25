@@ -22,7 +22,8 @@ CREATE TABLE `ciudad` (
 CREATE TABLE `historial_logeo` (
   `cod_logueo` INT NOT NULL AUTO_INCREMENT,
   `Accion` VARCHAR(900) NULL,
-  `correo` VARCHAR(900) NULL,
+  `correo` VARCHAR(200) NULL,
+  `fecha` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   PRIMARY KEY (`cod_logueo`));
   /*--------------------------------TABLA ROLES-------------------------*/
   CREATE TABLE `rol_usuario` (

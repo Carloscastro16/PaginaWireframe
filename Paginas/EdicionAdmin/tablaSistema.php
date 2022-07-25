@@ -111,6 +111,9 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
+                                    <a href='../../index.php'>Home</a>
+                                </li>
+                                <li class='dropdown-link'>
                                     <a href='../DashboardAdmin.php'>Dashboard</a>
                                 </li>
                                 <li class='dropdown-link'>
@@ -173,9 +176,7 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <td> <?php echo $filaPack["cant_personas"] ?> </td>
                                         <td> <?php echo $filaPack["descrip_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarAdminPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <!--<a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
-                                            
+                                            <a target="_self" href="../../Acciones/eliminarAdminPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -218,6 +219,7 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>num. tel</th>
+                                        <th># paquete</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -235,25 +237,25 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <td> <?php echo $filaOrden["fk_cod_usuario"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_montaje"] ?> </td>
                                         <td> <?php echo $filaOrden["fecha"] ?> </td>
+                                        <td> <?php echo $filaOrden["hora_evento"] ?> </td>
                                         <td> <?php echo $filaOrden["num_tel"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../../Acciones/eliminarAdminOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
-                                            <!-- <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
-                                            
+                                            <a target="_self" href="../Acciones/eliminarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a>  
                                         </td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                    <th>#</th>
+                                        <th>#</th>
                                         <th>Folio</th>
                                         <th>Cliente</th>
                                         <th>montaje</th>
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>num. tel</th>
+                                        <th># paquete</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </tfoot>
