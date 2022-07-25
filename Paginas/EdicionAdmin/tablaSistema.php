@@ -178,11 +178,7 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <td>  
                                             <a target="_self" href="../../Acciones/eliminarAdminPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <!--<a target="_self" href="EdicionAdmin/editarPaquete.php?idPaquete=<?php echo $filaPack["cod_paquete"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
-                                            <form action="editarPaquetesAdmin.php" method="POST">
-                                                <button class="btn" type="submit" name="btn-edit" value="editarPaquete">
-                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
-                                                </button>
-                                            </form>
+                                            
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -225,7 +221,6 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>num. tel</th>
-                                        <th># Paquete</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -242,18 +237,13 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <td> <?php echo $filaOrden["folio_evento"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_usuario"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_montaje"] ?> </td>
-                                        <td> <?php echo $filaOrden["fec_inicio"] ?> </td>
-                                        <td> <?php echo $filaOrden["fec_fin"] ?> </td>
+                                        <td> <?php echo $filaOrden["fecha"] ?> </td>
                                         <td> <?php echo $filaOrden["num_tel"] ?> </td>
                                         <td> <?php echo $filaOrden["fk_cod_paquete"] ?> </td>
                                         <td>  
-                                            <a target="_self" href="../Acciones/eliminarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
+                                            <a target="_self" href="../../Acciones/eliminarAdminOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="trash" name="trash-outline"></ion-icon></a> 
                                             <!-- <a target="_self" href="EdicionAdmin/editarOrden.php?idOrden=<?php echo $filaOrden["cod_orden_evento"]?>" name="id"><ion-icon class="edit" name="create-outline"></ion-icon></a> -->
-                                            <form action="editarPaquetesAdmin.php" method="POST">
-                                                <button class="btn" type="submit" name="btn-edit" value="editarOrden">
-                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
-                                                </button>
-                                            </form>
+                                            
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -267,7 +257,6 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>num. tel</th>
-                                        <th># Paquete</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </tfoot>
