@@ -12,16 +12,16 @@
         die();
     }
     $consulta = "SELECT * FROM usuario WHERE cod_usuario = '$varsession'";
-    $consultaPaquetes = "SELECT paquete.nom_paquete, paquete.descrip_paquete, usuario.nombre_empresa, paquete.precio_paquete, paquete.cant_personas  FROM orden_evento
-    inner join paquete on paquete.cod_paquete = orden_evento.fk_cod_paquete
-    inner join usuario on usuario.cod_usuario = orden_evento.fk_cod_usuario
-    where usuario.cod_usuario = $varsession";
+    $consultaPaquetes = "SELECT paquete.nom_paquete, paquete.descrip_paquete, usuario.nombre_empresa, paquete.precio_paquete, paquete.cant_personas FROM orden_evento
+    JOIN paquete ON paquete.cod_paquete = orden_evento.fk_cod_paquete
+    JOIN usuario ON usuario.cod_usuario = orden_evento.fk_cod_usuario
+    WHERE fk_cod_usuario = '3'";
     $resultadoPaquetes = mysqli_query($conexion, $consultaPaquetes);
-    $filaPaquetes= mysqli_fetch_array($resultadoPaquetes);
+    $resultadoPrueba = mysqli_query($conexion, $consultaPaquetes);
     $resultado = mysqli_query($conexion, $consulta);
-    $fila= mysqli_fetch_array($resultado);
-    $apellidoMa = $fila['ape_materno'];
-    $apellidoPa = $fila['ape_paterno'];
+    $filaUsuario= mysqli_fetch_array($resultado);
+    $apellidoMa = $filaUsuario['ape_materno'];
+    $apellidoPa = $filaUsuario['ape_paterno'];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,6 @@
         </div>
     </div>
     <main>
-        
         <div class="d-flex" id="wrapper">
             <!--Sidebar-->
             <div class="bg-dark centradoHorizontal" id="sidebar-wrapper">
@@ -149,8 +148,8 @@
                                 </div>
                             </div>
                             <?php 
-                            if($fila=mysqli_fetch_array($resultadoPaquetes)){
-                                while($fila=mysqli_fetch_array($resultadoPaquetes)){
+                            if($filaPrueba=mysqli_fetch_array($resultadoPrueba)){
+                                while($filaPaquetes=mysqli_fetch_array($resultadoPaquetes)){
                                 $nomPaquete = $filaPaquetes["nom_paquete"];
                                 $descPaquete = $filaPaquetes["descrip_paquete"];
                                 $empresa= $filaPaquetes["nombre_empresa"];
@@ -165,9 +164,6 @@
                                                 <p>Cantidad de personas: $cantPersonas</p>
                                                 <p>Precio total: $prePaquete</p>
                                             </div>
-                                            <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
-                                                Editar Paquete
-                                            </button>
                                         </div>
                                     </div>";
                                 };
