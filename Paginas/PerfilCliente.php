@@ -22,6 +22,7 @@
     $filaUsuario= mysqli_fetch_array($resultado);
     $apellidoMa = $filaUsuario['ape_materno'];
     $apellidoPa = $filaUsuario['ape_paterno'];
+    $imgUsuario = $filaUsuario['img_usuario'];
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +119,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="imaperfil">
-                                    <img src="../Images/Hombre-vaquero.png" alt=""/>
+                                    <img src="../Images/<?php echo $imgUsuario; ?>" alt=""/>
                                 </div>
                             </div>
                             <div class="col-md-6">

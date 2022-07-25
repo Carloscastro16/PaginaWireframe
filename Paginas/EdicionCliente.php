@@ -111,15 +111,23 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="imaperfil">
-                                        <img src="../Images/fotoPrincipal.png" alt=""/>
-                                        <div class="file btn btn-lg btn-primary">
-                                            Cambiar foto
-                                            <input type="file" name="file"/>
-                                        </div>
+                                            Imagen de perfil
+                                            <select class="form-control" name="imgUsuario" id="">
+                                                <option value="Hombre-vaquero.png">Hombre-vaquero.png</option>
+                                                <option value="Mujer-coletas.png">Mujer-coletas.png</option>
+                                                <option value="Mujer-flecos.png">Mujer-flecos.png</option>
+                                                <option value="Mujer-formal.png">Mujer-formal.png</option>
+                                                <option value="Mujer-verde.png">Mujer-verde.png</option>
+                                                <option value="Niña-chongos.png">Niña-chongos.png</option>
+                                                <option value="Señor-navideño.png">Señor-navideño.png</option>
+                                                <option value="Señor-peinado.png">Señor-peinado.png</option>
+                                            </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="titulito">
+                                        
                                         <h5>
                                             Nombre
                                             <input name="nombre" type="text" class="form-control" value="<?php echo $nombreUsuario;?>">

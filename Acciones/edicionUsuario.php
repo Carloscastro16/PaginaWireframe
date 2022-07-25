@@ -8,9 +8,11 @@ include('conec.php');
     $apellMa = $_POST['apellMa'];
     $correo= $_POST['correo'];
     $pass= $_POST['password'];
+    $imgUsuario = $_POST['imgUsuario'];
     $clave = password_hash($pass, PASSWORD_DEFAULT);
     //consulta mysql//
-    $consulta1 = "UPDATE usuario SET 
+    $consulta1 = "UPDATE usuario SET
+    img_usuario = '$imgUsuario',
     nombre_usuario = '$nomUser', 
     ape_paterno = '$apellPa', 
     ape_materno = '$apellMa', 
@@ -18,6 +20,7 @@ include('conec.php');
     WHERE cod_usuario = $cod_usuario";
 
     $consulta2 = "UPDATE usuario SET 
+    img_usuario = '$imgUsuario',
     nombre_usuario = '$nomUser', 
     ape_paterno = '$apellPa', 
     ape_materno = '$apellMa', 

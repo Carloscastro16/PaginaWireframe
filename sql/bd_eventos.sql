@@ -66,6 +66,7 @@ CREATE TABLE `historial_logeo` (
 CREATE TABLE `usuario` (
   `cod_usuario` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `fk_rol_usuario` INT UNSIGNED NOT NULL,
+  `img_usuario` VARCHAR(45) NULL,
   `nombre_usuario` VARCHAR(45) NULL,
   `ape_paterno` VARCHAR(45) NULL,
   `ape_materno` VARCHAR(45) NULL,
