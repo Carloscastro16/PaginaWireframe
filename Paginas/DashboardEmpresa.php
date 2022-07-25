@@ -36,14 +36,14 @@
 </head>
 
 <body>
-    <div class="contenedor_carga" id="contenedor_carga">
+    <!-- <div class="contenedor_carga" id="contenedor_carga">
         <div id="carga" class="centrado">
             <svg>
                 <circle cx="160" cy="200" r="100" class="circle"/>
                 <circle cx="120" cy="160" r="100" class="loader"/>
             </svg>
         </div>
-    </div>
+    </div> -->
     <main>
         <div class="d-flex" id="wrapper">
             <!--Sliderbar-->
@@ -169,11 +169,10 @@
                                     $cantPersonas= $fila["cant_personas"];
                                     $prePaquete = $fila["precio_paquete"];
                                     
-                                    echo "<div class=col-sm-6 col-lg-4 col-md-4 col-log'>
-                                    <h2 class='center'> $nomPaquete </h2>
-                                    <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
-                                        
-                                        
+                                    echo "<div class='col-sm-6 col-lg-6 col-md-6'>
+                                    <div class='col-log'>
+                                        <h2 class='center'> $nomPaquete </h2>
+                                        <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
                                         <p>$descPaquete</p>
                                         <div>
                                             <p>Cantidad de personas: $cantPersonas</p>
@@ -182,18 +181,75 @@
                                         <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
                                             Editar Paquete
                                         </button>
-                                    </div>";
+                                    </div>
+                                </div>";
                                 };
                             }else{
                                 echo "
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
-                                    <img src='../img/ningun_paquete.png' alt=''>
-                                    <h5>Ups... Aun no has añadido ningun paquete</h5>
+                                <img src='../img/ningun_paquete.png' alt=''>
+                                <h5>Ups... Aun no has añadido ningun paquete</h5>
                                 </div>
                                 ";
                             }
                             
                             ?>
+                            <div class="col-sm-12">
+                                <div class="titulito tituloConjunto">
+                                    <h4>
+                                        Paquetes contratados
+                                    </h4>
+                                </div>
+                            </div>
+                            <?php
+                            include('../Acciones/conec.php');
+
+                            $consultaPaqContrat="SELECT paquete.imagen_paquete, paquete.nom_paquete, paquete.descrip_paquete, paquete.cant_personas, paquete.precio_paquete, orden_evento.folio_evento
+                            FROM orden_evento
+                            INNER JOIN paquete ON paquete.cod_paquete = orden_evento.fk_cod_paquete
+                            WHERE paquete.fk_cod_empresa = '$varsession'";
+                            $consultaContrat="SELECT paquete.imagen_paquete, paquete.nom_paquete, paquete.descrip_paquete, paquete.cant_personas, paquete.precio_paquete, orden_evento.folio_evento
+                            FROM orden_evento
+                            INNER JOIN paquete ON paquete.cod_paquete = orden_evento.fk_cod_paquete
+                            WHERE paquete.fk_cod_empresa = '$varsession'";
+                            $resultadoPaqContrat=mysqli_query($conexion,$consultaPaqContrat); 
+                            $resultadoContrat=mysqli_query($conexion,$consultaContrat); 
+                            if($filaPaqContrat=mysqli_fetch_array($resultadoPaqContrat)){
+                                while($filaContrat=mysqli_fetch_array($resultadoContrat)){
+                                    $imagen =$filaContrat["imagen_paquete"];
+                                    $nomPaquete = $filaContrat["nom_paquete"];
+                                    $descPaquete = $filaContrat["descrip_paquete"];
+                                    $cantPersonas= $filaContrat["cant_personas"];
+                                    $prePaquete = $filaContrat["precio_paquete"];
+                                    $folio = $filaContrat["folio_evento"];
+                                    
+                                    echo "<div class='col-sm-6 col-lg-6 col-md-6 mb-4'>
+                                    <div class='col-log'>
+                                        <h2 class='center'> $nomPaquete </h2>
+                                        <h2 class='center'> $folio </h2>
+                                        <img  class='img-thumbnail' width='100px' src='../imagenes/$imagen'/>
+                                        <p>$descPaquete</p>
+                                        <div>
+                                            <p>Cantidad de personas: $cantPersonas</p>
+                                            <p>Precio total: $prePaquete</p>
+                                        </div>
+                                        <button href='../Acciones/edicionPaquetes.php' class='btn btn-primary'>
+                                            Editar Paquete
+                                        </button>
+                                    </div>
+                                </div>";
+                                };
+                            }else{
+                                echo "
+                                <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
+                                <img src='../img/ningun_paquete.png' alt=''>
+                                <h5>Ups... Aun no has añadido ningun paquete</h5>
+                                </div>
+                                ";
+                            }
+                            
+                            ?>
+                                    
                         </div>         
                     </div>
                 </section>
