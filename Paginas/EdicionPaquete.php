@@ -121,9 +121,8 @@
                                 <input class="form-control" type="text" name="direcEvento" value="<?php echo $fila["direc_evento"] ?>">
                             </div>
                             <div class="col-sm-6 col-md-4">
-                                <label class="form-title" for="">Disponibilidad</label>
+                                <label class="form-title" for="">Disponibilidad (Se pondra Disponible automaticamente)</label>
                                 <select class="form-select" aria-label="Default select example" name="disponibilidadEv">
-                                    <option selected>Ingrese disponibilidad</option>
                                     <option value="Disponible">Disponible</option>
                                     <option value="Ocupado">No disponible</option>
                                 </select>
@@ -141,10 +140,10 @@
                                 <label class="form-title" for="">Descripcion</label>
                                 <input name="descripcion" class="form-control" id="" rows="3" value="<?php echo $fila["descrip_paquete"] ?>">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 mt-4">
                                 <input type="submit" name="btnActualizar" value="Actualizar Paquete" class="btn btn-primary">
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mt-5">
                             <table id="ejemplo" class="table-responsive tablita display" >
                                 <thead>
                                     <tr>

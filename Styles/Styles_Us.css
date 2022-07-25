@@ -1519,7 +1519,9 @@ div span:not(:first-child){
     margin-top: 5.2rem;
 }
 /* Alta de paquetes y Admin */ 
-
+.tablita ion-icon{
+    color: var(--bs-code-color);
+}
 input.denegada{
     border-color: var(--bs-danger);
 }

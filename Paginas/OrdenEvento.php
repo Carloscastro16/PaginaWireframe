@@ -159,7 +159,7 @@ session_start();
                         <div class="container">
                             <div class="row col-log orden">
                                 <div class="col-sm-4">
-                                    <img src="../imagenes/<?php echo $imgPaquete ?>" alt="">
+                                    <img class='img-thumbnail' width='auto' src="../imagenes/<?php echo $imgPaquete ?>" alt="">
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="container">

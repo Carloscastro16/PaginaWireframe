@@ -44,7 +44,7 @@
                     class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fa-solid fa-gauge-high"></i>Dashboard
                 </a>
-                <a href="AltaPaquetes.php"
+                <a href="altapaquetes.php"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                     <i class="fa-solid fa-user"></i>Alta de paquetes
                 </a>

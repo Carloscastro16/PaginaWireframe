@@ -209,11 +209,12 @@ error_reporting(0);
                         $descripcion = $fila["descrip_paquete"];
                         $cantPersonas = $fila["cant_personas"];
                         $precio = $fila["precio_paquete"];
+                        $imgPaquete = $fila["imagen_paquete"];
                         echo "
                         <form action='OrdenEvento.php' method='POST'>
                             <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
                                 <h2 class='center'>$nomPaquete</h2>
-                                <img src=' alt='>
+                                <img class='img-thumbnail' width='auto' src='../imagenes/$imgPaquete' alt=''>
                                 <p> $descripcion</p>
                                 <div>
                                     <p>Cantidad de personas: $cantPersonas</p>
