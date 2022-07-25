@@ -4,8 +4,8 @@
     $varsession = $_SESSION['cod_usuario'];
     $rolUsuario = $_SESSION['rolUsuario'];
 
-    if($varsession == null || $varsession == '' || $rolUsuario == '3') {
-        echo "ERROR: 412 Usted no tiene acceso";
+     if($varsession == null || $varsession == '' || $rolUsuario == '3') {
+    echo "ERROR: 412 Usted no tiene acceso";
         header('Location: ../index.html');
         die();
     }
@@ -15,19 +15,19 @@
     $consultaPaquete = "SELECT * FROM paquete";
     $resultadoPaquete = mysqli_query($conexion, $consultaPaquete);
     $filaPaquete= mysqli_fetch_array($resultadoPaquete);
-    $nombrePaquete= $_POST['nombrePaquete'];
-    $tipoServicio= $_POST['tipoServicio'];
-    $locacion= $_POST['ciudad'];
-    $direccion= $_POST['direcEvento'];
-    $disponibilidad= $_POST['disponibilidadEv'];
-    $precioEvento= $_POST['precioEvento'];
-    $cantidadPersonas= $_POST['cantidadPersonas'];
-    $Descripcion= $_POST['descripcion'];
+    $nombrePaquete= $filaPaquete['nom_paquete'];
+    $tipoServicio= $filaPaquete['fk_cod_tipo_servicio'];
+    $locacion= $filaPaquete['fk_cod_ciudad'];
+    $direccion= $filaPaquete['direc_evento'];
+    $disponibilidad= $filaPaquete['disponibilidad_evento'];
+    $precioEvento= $filaPaquete['precio_paquete'];
+    $cantidadPersonas=$filaPaquete['cant_personas'];
+    $Descripcion=$filaPaquete['descrip_paquete'];
 
     //ordenes
-    $consultaOrdenes = "SELECT * FROM orden_evento";
-    $resultadoOrdenes= mysqli_query($conexion,$consultaOrdenes);
-    $filaOrdenes= mysqli_fetch_array($resultadoOrdenes);
+   // $consultaOrdenes = "SELECT * FROM orden_evento";
+   // $resultadoOrdenes= mysqli_query($conexion,$consultaOrdenes);
+   // $filaOrdenes= mysqli_fetch_array($resultadoOrdenes);
 ?>
 
 <!DOCTYPE html>
@@ -132,12 +132,12 @@
                 </nav>
                 <section class="log-in registro-inicio">
                     <div class="General container">
-                        <form action="../../Acciones/edicionUsuarioAdmin.php" method="post" enctype="multipart/">
+                        <form action="../../Acciones/edicionServiciosAdmin.php" method="post" enctype="multipart/">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="titulito tituloConjunto">
                                         <h4>
-                                            Perfil
+                                            Paquete
                                         </h4>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                                     <div class='col-md-6'>
                                         <label class='form-title' >Nombre de paquete</label>
                                         <input type='hidden' name='fkcodEmpresa' value='$varsession' />
-                                        <input class='form-control' type='text' name='nombrePaquete' value='$fila[nom_paquete]'>
+                                        <input class='form-control' type='text' name='nombrePaquete' value='$filaPaquete[nom_paquete]'>
                                         <input class='collapse form-control' type='text' name='codPaquete' value='$fila[cod_paquete]'>
                                     </div>
                                     <div class='col-sm-12 col-md-4'>
@@ -196,37 +196,37 @@
                                             <option <?php
                                                 if ($fila2[cod_ciudad] == $fila[fk_cod_ciudad])
                                                 ech'selected='selected''; ?> value='$fila2[cod_ciudad]?>'>
-                                                <?php echo $fila2['nombre_ciudad']?></option>
+                                                <?php echo $fila2[nombre_ciudad]?></option>
                                             <?php  } ?>
                                         </select>
                                     </div>
                                     <div class='col-sm-6 col-md-4'>
-                                        <label class='form-title' for="">Dirección</label>
-                                        <input class='form-control' type='text' name='direcEvento' value="<?php echo $fila["direc_evento"] ?>">
+                                        <label class='form-title' >Dirección</label>
+                                        <input class='form-control' type='text' name='direcEvento' value=' $fila[direc_evento]'>
                                     </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <label class="form-title" for="">Disponibilidad</label>
-                                        <select class="form-select" aria-label="Default select example" name="disponibilidadEv">
+                                    <div class='col-sm-6 col-md-4'>
+                                        <label class='form-title' >Disponibilidad</label>
+                                        <select class='form-select' aria-label='Default select example' name='disponibilidadEv'>
                                             <option selected>Ingrese disponibilidad</option>
-                                            <option value="Disponible">Disponible</option>
-                                            <option value="Ocupado">No disponible</option>
+                                            <option value='Disponible'>Disponible</option>
+                                            <option value='Ocupado'>No disponible</option>
                                         </select>
         
                                     </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <label class="form-title" for="">Precio</label>
-                                        <input class="form-control" type="text" name="precioEvento" value="<?php echo $fila["precio_paquete"] ?>">
+                                    <div class='col-sm-6 col-md-4'>
+                                        <label class='form-title' >Precio</label>
+                                        <input class='form-control' type='text' name='precioEvento' value='$fila[precio_paquete]'>
                                     </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <label class="form-title" for="">¿Para cuantas personas?</label>
-                                        <input class="form-control" type="text" name="cantidadPersonas" value="<?php echo $fila["cant_personas"] ?>">
+                                    <div class='col-sm-6 col-md-4'>
+                                        <label class='form-title' >¿Para cuantas personas?</label>
+                                        <input class='form-control' type='text' name='cantidadPersonas' value='$fila[cant_personas]'>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <label class="form-title" for="">Descripcion</label>
-                                        <input name="descripcion" class="form-control" id="" rows="3" value="<?php echo $fila["descrip_paquete"] ?>">
+                                    <div class='col-sm-12 col-md-6'>
+                                        <label class='form-title'>Descripcion</label>
+                                        <input name='descripcion' class='form-control' id='' rows='3' value='$fila[descrip_paquete]'>
                                     </div>
-                                    <div class="col-md-2">
-                                        <input type="submit" name="btnActualizar" value="Actualizar Paquete" class="btn btn-primary">
+                                    <div class='col-md-2'>
+                                        <input type='submit' name='editar' value='Actualizar Paquete' class='btn btn-primary'>
                                     </div>";
                                     break;
                                         case 'editarOrden':
