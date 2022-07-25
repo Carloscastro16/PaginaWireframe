@@ -69,7 +69,7 @@ $filaUsr= mysqli_fetch_array($resultado);
                 <a href="EdicionAdmin/tablaAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tablas del Administrador
                 </a>
-                <a href="tablaRegistros.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="EdicionAdmin/tablaRegistros.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-table-list"></i>Tabla de registros
                 </a>
                 <a href="../Acciones/Log-out.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">

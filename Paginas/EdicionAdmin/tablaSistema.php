@@ -111,13 +111,10 @@ if($varsession == null || $varsession == '' || $rolUsuario != '1') {
                             </a>
                             <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
-                                    <a href='../index.php'>Home</a>
+                                    <a href='../DashboardAdmin.php'>Dashboard</a>
                                 </li>
                                 <li class='dropdown-link'>
-                                    <a href='PerfilEmpresa.php'>Dashboard</a>
-                                </li>
-                                <li class='dropdown-link'>
-                                    <a href='../Acciones/Log-out.php'>Logout</a>
+                                    <a href='../../Acciones/Log-out.php'>Logout</a>
                                 </li>
                             </ul>
                         </li>
