@@ -180,13 +180,13 @@
     <section class="General">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 textoRedes">
+                <div class="col-sm-12 textoRedes">
                     <h2 class="frase">
                         Usa ahora Uruz Planning y consigue todo lo cual 
                         necesites para hacer realidad tus sueños. 
                     </h2>
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <div class="container">
                         <form action="">
                             <div class="row col-log centrado">
@@ -211,7 +211,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="frase">

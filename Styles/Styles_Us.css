@@ -1278,7 +1278,7 @@ footer {
     /*seccion de frase*/
 .frase {
         
-        margin: 3rem;
+        margin: 1.5rem;
         height: auto;
         width: auto;
         font-family:'Montserrat', sans-serif;
@@ -1379,11 +1379,19 @@ div span:not(:first-child){
         border-radius: 7px;
         z-index: 2;
         height: 100%;
-        background: transparent !important;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
         padding: 0 !important;
+    }
+    .frase p{
+        font-size: .8rem;
+    }
+    .General h2{
+        font-size: 2rem;
+    }
+    .General span{
+        font-size: 2rem;
     }
     .col-log{
         margin: 0 !important;
@@ -1641,4 +1649,7 @@ body.dark .orden h4{
     position: relative;
     top: 0.6rem;
     margin-left: 1.9rem;
+}
+ul{
+    padding: 0 !important;
 }
