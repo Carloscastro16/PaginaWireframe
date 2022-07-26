@@ -10,6 +10,15 @@ include('conec.php');
     $pass= $_POST['password'];
     $imgUsuario = $_POST['imgUsuario'];
     $clave = password_hash($pass, PASSWORD_DEFAULT);
+    $recuperacion = $_POST['recuperacion'];
+    if ($recuperacion != "Selected"){
+
+        $respuesta = $_POST['respuesta'];
+        $idUsuario = $_SESSION['cod_usuario'];
+        $preguntaSeguridad = "INSERT INTO recuperacion(preg_seguridad, resp_seguridad, fk_cod_usuario) VALUE('$recuperacion', '$respuesta', '$idUsuario')";   
+        $resultadoPregunta=mysqli_query($conexion,$preguntaSeguridad);  
+    }
+    
     //consulta mysql//
     $consulta1 = "UPDATE usuario SET
     img_usuario = '$imgUsuario',
@@ -33,6 +42,7 @@ include('conec.php');
         $editarUsuario= $consulta1;
     }
     $resultados=mysqli_query($conexion,$editarUsuario);
+    
     //Redireccionamiento Automatico
     /* if($rolUsuario==1){
         header('location: ../Paginas/EdicionAdmin/tablasUsuario.php');

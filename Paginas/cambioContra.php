@@ -1,3 +1,20 @@
+<?php
+    include ('../Acciones/conec.php');
+    $correo = $_POST['correo'];
+
+    /* CONSULTA PARA SABER EL CODIGO DE USUARIO */
+    $consultaUsuario = "SELECT * FROM usuario WHERE correo_usuario = '$correo'";
+    $resultadoUsuario=mysqli_query($conexion,$consultaUsuario);
+    $filaUsuario = mysqli_fetch_array($resultadoUsuario);
+    $codUsuario = $filaUsuario['cod_usuario'];
+
+    /* CONSULTA PARA SABER LA PREGUNTA DE SEGURIDAD */
+    $consulta = "SELECT * FROM recuperacion WHERE fk_cod_usuario = '$codUsuario'";
+    $resultados=mysqli_query($conexion,$consulta);
+    $fila = mysqli_fetch_array($resultados);
+    $pregunta = $fila['preg_seguridad'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=3.3">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=3.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css?v=1.7">
@@ -86,28 +103,34 @@
                                 Or
                             </button>
                             <div class="menuInicio" id="menuInicio">
-                                <form action="../Acciones/login.php" method="POST">
+                                <form action="../Acciones/cambioContra.php" method="POST">
                                     <div class="row centrado col-log inicio">
                                         <div class="col-sm-12 col-md-12 col-lg-12 mt-6">
-                                            <h2 class="center form-title">Log In</h2>
+                                            <h2 class="center form-title">Recuperacion de contraseña</h2>
                                         </div>
-                                        <div class="col-sm-10 col-lg-10 mt-7 centradoHorizontal col-md-12 login-form">
-                                            <input class="form-control" placeholder="Email Adress" type="email" name="correo">
+                                        <div class="col-sm-10 col-lg-10 mt-4 col-md-12 login-form">
+                                            <label for=""><?php echo $pregunta; ?></label>
+                                            <input class="form-control" type="text" name="respuesta" required>
                                         </div>
-                                        <div class="col-sm-10 mt-4">
-                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                        <div class="col-sm-10 col-lg-10 mt-4 col-md-12 login-form">
+                                            <label for="">Correo</label>
+                                            <input class="form-control" placeholder="Email Adress" type="email" name="correo" value="<?php echo $correo; ?>" required>
+                                        </div>
+                                        <div class="col-sm-10 col-lg-10 mt-2 col-md-12 login-form">
+                                            <label for="">Contraseña nueva</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="password" required>
+                                        </div>
+                                        <div class="col-sm-10 col-lg-10 mt-2 col-md-12 login-form">
+                                            <label for="">Confirma Contraseña nueva</label>
+                                            <input class="form-control" placeholder="*********" type="password" name="passwordConf" required>
                                         </div>
                                         <div class="col-sm-10 mt-7">
-                                            <input type="submit" name="iniciar" value="Iniciar Sesion" class="mt-4 btn btn-primary">
+                                            <input class="collapse form-control" type="hidden" name="codUsuario" value="<?php echo $codUsuario; ?>" required>
+                                            <input class="collapse form-control" type="hidden" name="pregunta" value="<?php echo $pregunta; ?>" required>
+                                            <input type="submit" name="cambiar" value="Cambiar Contraseña" class="mt-4 btn btn-primary" onClick="validarCampos2(this.form)">
                                         </div>
                                         <div class="col-sm-10 mt-4">
                                             <div class="lineaLogin"></div>
-                                        </div>
-                                        <div class="col-sm-10 mt-4">
-                                            <a class="contra" href="recuperacionContra.php">
-                                                <p>¿Olvidaste tu contraseña?</p>
-                                            </a>
-                                            
                                         </div>
                                     </div>
                                 </form>
@@ -117,72 +140,6 @@
                     <div class="col-sm-6">
                         <div class="img-fluid imagenRegistro" alt="" id="imagenRegistro"></div>
                         <!-- <img src="../img/galaxiaFeria.jpg" class="img-fluid" alt="" id="imagenRegistro"> -->
-                        <div class="container">
-                            <div class="menuRegistro collapse login" id="menuRegistro">
-                                <form action="../Acciones/sign-in.php" method="POST">
-                                    <div class="row centrado col-log registro">
-                                        <div class="col-12">
-                                            <h2 class="center">Registrate</h2>
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-6">
-                                            <label for="">Nombre</label>
-                                            <input class="form-control" placeholder="" name="nombre" type="text">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3">
-                                            <label for="">Apellido Paterno</label>
-                                            <input class="form-control" placeholder="" name="apellPa" type="text">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3">
-                                            <label for="">Apellido Materno</label>
-                                            <input class="form-control" placeholder="" name="apellMa" type="text">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="">Correo</label>
-                                            <input class="form-control" placeholder="Email Adress" name="correo" type="email">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="">Contraseña</label>
-                                            <input class="form-control" placeholder="*********" name="password" type="password">
-                                            <div class="invalid-feedback">
-                                                Las contraseñas no coinciden.
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="">Confirma Contraseña</label>
-                                            <input class="form-control" placeholder="*********" name="passwordConf" type="password">
-                                            <a href="../Acciones/"></a>
-                                        </div>
-                                        <div class="col-12 centrado mt-4">
-                                            <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary me-3" onClick="validarCampos2(this.form)">
-                                        </div>
-                                        <div class="col-12 centrado mt-4">
-                                            <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-                                                <ion-icon name="caret-down-outline"></ion-icon>Para empresas
-                                            </button>
-                                        </div>
-                                        <div class="collapse" id="toggleMobileMenu">
-                                            <div class="col-12">
-                                                <label for="">Nombre de Empresa</label>
-                                                <input class="form-control" placeholder="" name="nombreEmpresa" type="text">
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="">Telefono</label>
-                                                <input class="form-control" placeholder="" name="telefono" type="text">
-                                            </div>
-                                                
-                                            <div class="col-12">
-                                                <label for="">RFC</label>
-                                                <input class="form-control" placeholder="" name="rfc" type="text">
-                                            </div>
-                                            <div class="col-sm-12 mt-4 centrado">
-                                                <input type="submit" name="agregar" value="Registrame" class="botoncin btn btn-primary me-3" onClick="validarCampos2(this.form)">
-                                            </div>
-                                        </div>
-                                        <script languaje="javascript" src="../js/confContraseña.js?v=1.0"></script>   
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

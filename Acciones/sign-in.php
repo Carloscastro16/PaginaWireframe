@@ -10,9 +10,12 @@ $agregar = $_POST['agregar'];
     $nombreEmpresa= $_POST['nombreEmpresa'];
     $telefono= $_POST['telefono'];
     $rfc= $_POST['rfc'];
+    $pregunta= $_POST['pregunta'];
+    $respuesta= $_POST['respuesta'];
     $encryptPass = password_hash($pass, PASSWORD_DEFAULT);
     //consulta mysql//
     //mensaje si no se ingresa valores//
+    
     $consultaEmail = "SELECT COUNT(*) as contador FROM usuario WHERE correo_usuario = '$correo'";
     $validacion = mysqli_query($conexion, $consultaEmail);
     $validacionEmail = mysqli_fetch_array($validacion);

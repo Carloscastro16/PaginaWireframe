@@ -1,8 +1,8 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-error_reporting(0);
-
+/* error_reporting(0); */
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +16,14 @@ error_reporting(0);
     
 </head>
 <body class="orden">
-    <div class="contenedor_carga" id="contenedor_carga">
+    <!-- <div class="contenedor_carga" id="contenedor_carga">
         <div id="carga" class="centrado">
             <svg>
                 <circle cx="160" cy="200" r="100" class="circle"/>
                 <circle cx="120" cy="160" r="100" class="loader"/>
             </svg>
         </div>
-    </div>
+    </div> -->
     <header>
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid barraNav ">
@@ -61,8 +61,8 @@ error_reporting(0);
                         </span>
                     </button>
                             <?php
-                                include ('../Acciones/conec.php');
-                                session_start();
+                                include('../Acciones/conec.php');
+                                
                                 $varsession = $_SESSION['cod_usuario'];
                                 $correo = $_SESSION['Correo'];
                                 $rolUsuario = $_SESSION['rolUsuario'];
@@ -75,7 +75,7 @@ error_reporting(0);
                                         $perfil = "PerfilCliente.php";
                                         break;
                                     case '3':
-                                        $perfil = "PerfilEmpresa.php";
+                                        $perfil = "DashboardEmpresa.php";
                                         break;
                                 }
                                 if(isset($varsession)){
@@ -131,13 +131,12 @@ error_reporting(0);
                                         <option value="Selected">Tipo de evento</option>
                                         <?php
                                         //conectar a la base de datos//
-                                        include('Acciones/conec.php');
+                                        include('../Acciones/conec.php');
                                         $consulta2="SELECT * FROM tipo_servicio";
-                                        
                                         $resultado2=mysqli_query($conexion,$consulta2);
                                         while($fila2=mysqli_fetch_array($resultado2)){
                                         ?>
-                                        <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
+                                        <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo $fila2["nom_servicio"]?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -156,31 +155,29 @@ error_reporting(0);
         //Conexion a la base de datos
 
         include('../Acciones/conec.php');
-        $ubicacion= $_POST['ubicacion'];
+        $ubicacion = $_POST['ubicacion'];
         $tipo = $_POST['codServicio'];
         //Consulta e insercion de la query
         
         
-        $consulta1="SELECT * FROM paquete 
-                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
-                    where disponibilidad_evento = 'Disponible' 
+        $consultaCTipo="SELECT * FROM paquete 
+                    JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
+                    WHERE disponibilidad_evento = 'Disponible' 
                     AND ciudad.nombre_ciudad like '$ubicacion' 
                     AND fk_cod_tipo_servicio = '$tipo'";
-        $consulta2="SELECT * FROM paquete 
-                    INNER JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
-                    where disponibilidad_evento = 'Disponible' 
+        $consultaSTipo="SELECT * FROM paquete 
+                    JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
+                    WHERE disponibilidad_evento = 'Disponible' 
                     AND ciudad.nombre_ciudad like '$ubicacion'";
 
-        if(empty($tipo)){
-            $consulta = $consulta2;
+        if(empty($tipo) || isset($tipo) || $tipo = null){
+            $consulta = $consultaSTipo;
         }else{
-            $consulta = $consulta1;
+            $consulta = $consultaCTipo;
         }
         $consultaPrueba = $consulta;
         $resultadoPrueba=mysqli_query($conexion,$consultaPrueba);
-        $filaPrueba= mysqli_fetch_array($resultadoPrueba);
-        
-        $resultado=mysqli_query($conexion,$consulta);
+        /*$filaPrueba= mysqli_fetch_array($resultadoPrueba);*/
         ?>
         <div class="General container">
             <div class="row centrado">
@@ -190,37 +187,44 @@ error_reporting(0);
                     </div>
                 </div>
                 <?php 
-                if(empty($filaPrueba['nom_paquete'])){
+                include('../Acciones/conec.php');
+
+                $resultadoMuestra=mysqli_query($conexion,$consulta);
+                
+                if(empty($filaPrueba= mysqli_fetch_array($resultadoPrueba))){
                     echo "
                     <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
                         <img src='../img/ningun_paquete.png' alt=''>
                         <h5>Ups... Por el momento no contamos con lo que buscas</h5>
                     </div>";
                 }else{
-                    while($fila = mysqli_fetch_array($resultado)){
-                        $codPaquete =$fila["cod_paquete"];
-                        $nomPaquete = $fila["nom_paquete"];
-                        /* $imgPaquete = echo $fila["img_paquete"]; */
-                        $descripcion = $fila["descrip_paquete"];
-                        $cantPersonas = $fila["cant_personas"];
-                        $precio = $fila["precio_paquete"];
-                        $imgPaquete = $fila["imagen_paquete"];
+                    
+                    while($filaMuestra=mysqli_fetch_array($resultadoMuestra)){
+                        $codPaquete =$filaMuestra["cod_paquete"];
+                        $nomPaquete = $filaMuestra["nom_paquete"];
+                        $imgPaquete = $filaMuestra["imagen_paquete"];
+                        $descripcion = $filaMuestra["descrip_paquete"];
+                        $cantPersonas = $filaMuestra["cant_personas"];
+                        $precio = $filaMuestra["precio_paquete"];
+                        $imgPaquete = $filaMuestra["imagen_paquete"];
                         echo "
-                        <form action='OrdenEvento.php' method='POST'>
-                            <div class='col-sm-6 col-lg-4 col-md-4 col-log'>
-                                <h2 class='center'>$nomPaquete</h2>
-                                <img class='img-thumbnail' width='auto' src='../imagenes/$imgPaquete' alt=''>
-                                <p> $descripcion</p>
-                                <div>
-                                    <p>Cantidad de personas: $cantPersonas</p>
-                                    <p>Precio total: $precio</p>
+                        <div class='col-sm-4 col-lg-4 col-md-4'>
+                            <form action='OrdenEvento.php' method='POST'>
+                                <div class='col-log'>
+                                    <h2 class='center'>$nomPaquete</h2>
+                                    <img class='img-thumbnail' width='auto' src='../imagenes/$imgPaquete' alt=''>
+                                    <p> $descripcion</p>
+                                    <div>
+                                        <p>Cantidad de personas: $cantPersonas</p>
+                                        <p>Precio total: $precio</p>
+                                    </div>
+                                    <input class='collapse' type='hidden' name='sesion' value='$varsession'>
+                                    <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
+                                    <input class='btn btn-primary' type='submit' value='Comprar' name='comprar' onClick='validarCompra(this.form)'>
                                 </div>
-                                <input class='collapse' type='hidden' name='sesion' value='$varsession'>
-                                <input class='collapse' type='hidden' name='codPaquete' value='$codPaquete'>
-                                <input class='btn btn-primary' type='submit' value='Comprar' name='comprar' onClick='validarCompra(this.form)'>
-                            </div>
-                            <script languaje='text/javascript' src='../js/compra.js?v=2.0'></script> 
-                        </form>
+                                <script languaje='text/javascript' src='../js/compra.js?v=2.0'></script> 
+                            </form>
+                        </div>
                         ";
                     }
                 }

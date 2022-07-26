@@ -134,6 +134,13 @@ END$$
 DELIMITER ;
 
 
+CREATE TABLE `recuperacion` (
+  `id_recup` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `preg_seguridad` VARCHAR(100) NOT NULL,
+  `resp_seguridad` VARCHAR(100) NOT NULL,
+  `fk_cod_usuario` INT UNSIGNED NOT NULL,
+	FOREIGN KEY (fk_cod_usuario) REFERENCES usuario(cod_usuario));
+
 /*-------------------------------- Administradores -------------------------*/
 /* Las contraseñas son 123456789 */
 INSERT INTO usuario(fk_rol_usuario, nombre_usuario ,ape_paterno ,ape_materno , correo_usuario, contra_usuario) 

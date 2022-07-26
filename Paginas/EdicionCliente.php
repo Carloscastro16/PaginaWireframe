@@ -155,6 +155,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="imaperfil">
+                                            Pregunta de seguridad
+                                            <select class="form-control" name="recuperacion" id="">
+                                                <option>Selected</option>
+                                                <option value="¿Donde naciste?">¿Donde naciste?</option>
+                                                <option value="¿Primer mascota?">¿Primer mascota?</option>
+                                                <option value="¿Nombre de tu abuelo?">¿Nombre de tu abuelo?</option>
+                                                <option value="¿Donde estudiaste el kinder?">¿Donde estudiaste el kinder?</option>
+                                                <option value="¿Como se llama tu mamá?">¿Como se llama tu mamá?</option>
+                                            </select>
+                                            <input name="respuesta" type="text" class="form-control">
+                                    </div>
                                 <div class="col-md-2">
                                     <input type="hidden" name="codUsuario" value="<?php echo $varsession;?>" 
                                     class="btn btn-primary">

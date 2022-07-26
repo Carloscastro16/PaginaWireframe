@@ -1139,11 +1139,7 @@ footer {
 .GeneralLogin{
     border-radius: 7px;
     z-index: 2;
-    height: 743.22px;
-    background: var(--FondoSecciones);
-    -webkit-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-    -moz-box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
-    box-shadow: 10px 4px 33px 7px rgba(0,0,0,0.39);
+    height: auto;
     padding: 0;
 }
 .GeneralLogin .col-log{
@@ -1652,4 +1648,8 @@ body.dark .orden h4{
 }
 ul{
     padding: 0 !important;
+}
+.contra{
+    color: var(--azulNegroso);
+    font-weight: 400;
 }
