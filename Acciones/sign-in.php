@@ -13,6 +13,7 @@ $agregar = $_POST['agregar'];
     $pregunta= $_POST['pregunta'];
     $respuesta= $_POST['respuesta'];
     $encryptPass = password_hash($pass, PASSWORD_DEFAULT);
+    
     //consulta mysql//
     //mensaje si no se ingresa valores//
     

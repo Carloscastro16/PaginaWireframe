@@ -107,7 +107,6 @@
                                             <a class="contra" href="recuperacionContra.php">
                                                 <p>¿Olvidaste tu contraseña?</p>
                                             </a>
-                                            
                                         </div>
                                     </div>
                                 </form>

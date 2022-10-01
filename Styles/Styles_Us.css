@@ -1653,3 +1653,11 @@ ul{
     color: var(--azulNegroso);
     font-weight: 400;
 }
+.contra p{
+    color: var(--azulNegroso);
+    font-weight: 400;
+}
+.select2{
+    width: 100% !important;
+    height: 100% !important;
+}

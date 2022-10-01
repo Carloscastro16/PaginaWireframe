@@ -311,6 +311,7 @@ session_start();
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
     <script type="text/javascript">
         $(function() {
             $('#datepicker').datepicker({
@@ -322,6 +323,13 @@ session_start();
 
         const pickerInline = document.querySelector('.timepicker-inline-12');
         const timepickerMaxMin = new mdb.Timepicker(pickerInline, { format12:true, inline: true });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.timepicker').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true
+            })});
     </script>
     <script src="../js/modoOscuro.js"></script>
     <script src="../js/tablas.js"></script>

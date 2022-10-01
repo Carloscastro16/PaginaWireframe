@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/Normalize.css">
-        <link rel="stylesheet" href="Styles/Styles_Us.css?v=2.9">
+        <link rel="stylesheet" href="Styles/Styles_Us.css?v=3.4">
         <link rel="stylesheet" href="Styles/argon-dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
         <link rel="icon" href="img/favicon.svg">
         
         <title>Uruz planning</title>
@@ -134,31 +140,72 @@
             </header>
             <div class="buscador-main">
                 <div class="header buscador-inicial ">
-                    <div class="container inner-header flex">
+                    <div class="container menu">
                         <div class="row">
                             <div class="col-12">
                                 <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
-                                        <div class="row buscadorsin form-group">
-                                            <div class="search-camp col-lg-5 col-md-5 col-sm-5">
+                                        <div class="row buscadorsin">
+                                            <div class="search-camp col-lg-12 col-md-12 col-sm-12">
                                                 <ion-icon name="location-outline"></ion-icon>
-                                                <input name="ubicacion" type="text" class="form-control form-evento" placeholder="¿Donde quieres tu evento?" required>
-                                            </div>
-                                            <div class="search-camp col-lg-4 col-md-4 col-sm-4">
-                                                <ion-icon name="calendar-outline"></ion-icon>
-                                                <select class="seleccionFab form-select" aria-label="Default select example" name="codServicio">
-                                                    <option value="Selected">Tipo de evento</option>
+                                                <select class="ubicaciones" name="ubicacion" id="ubicaciones">
                                                     <?php
-                                                    //conectar a la base de datos//
-                                                    include('Acciones/conec.php');
-                                                    $consulta2="SELECT * FROM tipo_servicio";
-                                                    
-                                                    $resultado2=mysqli_query($conexion,$consulta2);
-                                                    while($fila2=mysqli_fetch_array($resultado2)){
-                                                    ?>
-                                                    <option value="<?php echo $fila2["cod_tipo_servicio"]?>"><?php echo$fila2["nom_servicio"]?></option>
+                                                        //conectar a la base de datos//
+                                                        include('Acciones/conec.php');
+                                                        $consultaCity="SELECT DISTINCT ciudad.nombre_ciudad FROM ciudad 
+                                                        INNER JOIN paquete ON paquete.fk_cod_ciudad= ciudad.cod_ciudad 
+                                                        WHERE paquete.disponibilidad_evento LIKE 'Disponible'";
+                                                        
+                                                        $resultadoCity=mysqli_query($conexion,$consultaCity);
+                                                        while($filaCity=mysqli_fetch_array($resultadoCity)){
+                                                        ?>
+                                                        <option value="<?php echo $filaCity["nombre_ciudad"]?>"><?php echo$filaCity["nombre_ciudad"]?></option>
                                                     <?php } ?>
                                                 </select>
+                                            </div>
+
+                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
+                                            <div style="overflow:hidden;">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                            <input id="datetimepicker12" type="text" name="hora" value="Consultar" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <style>
+                                                @import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800,900');
+                                                td {
+                                                border-radius: 0 !important;
+                                                }
+
+                                                tr th {
+                                                    font-weight: 500;
+                                                }
+
+                                                .timepicker {
+                                                max-width: 2rem;
+                                                border-radius: 0;
+                                                }
+                                                .bootstrap-datetimepicker-widget input{
+                                                    width: 1rem !important;
+                                                    height: 1rem !important;
+                                                }
+                                            </style>
+                                            <script type="text/javascript">
+                                                moment.locale('en', {
+                                                        week: { dow: 1 } // Monday is the first day of the week
+                                                    });
+
+                                                $('#datetimepicker12').datetimepicker({
+                                                inline: true,
+                                                sideBySide: true,
+                                                format: 'HH:mm',
+                                                stepping: 30,
+                                                minDate: moment()
+                                                });
+                                            </script>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">
@@ -403,6 +450,10 @@
 
 
     <!-------- Scripts -------->
+    <script type="text/javascript">
+            $('#ubicaciones').select2();
+            $('#servicios').select2();
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
@@ -426,6 +477,7 @@
             contenedor.style.visibility = "hidden";
             contenedor.style.opacity = "0";
         }
+        
     </script>
     
 </body>

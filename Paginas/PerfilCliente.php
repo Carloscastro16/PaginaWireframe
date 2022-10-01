@@ -149,32 +149,32 @@
                                 </div>
                             </div>
                             <?php 
-                            if($filaPrueba=mysqli_fetch_array($resultadoPrueba)){
-                                while($filaPaquetes=mysqli_fetch_array($resultadoPaquetes)){
-                                $nomPaquete = $filaPaquetes["nom_paquete"];
-                                $descPaquete = $filaPaquetes["descrip_paquete"];
-                                $empresa= $filaPaquetes["nombre_empresa"];
-                                $prePaquete = $filaPaquetes["precio_paquete"];
-                                $cantPersonas = $filaPaquetes["cant_personas"];
-                                echo "<div class='col-sm-6'>
-                                        <div class='col-log'>
-                                            <h2 class='center'> $nomPaquete </h2>
-                                            <img src=' alt='>
-                                            <div>
-                                                <p>$descPaquete</p>
-                                                <p>Cantidad de personas: $cantPersonas</p>
-                                                <p>Precio total: $prePaquete</p>
-                                            </div>
-                                        </div>
-                                    </div>";
-                                };
-                            }else{
+                            if(empty($filaPrueba=mysqli_fetch_array($resultadoPrueba))){
                                 echo "
                                 <div class='col-12 col-sm-12 col-md-12 col-lg-12 centrado paquetes'>
                                     <img src='../img/ningun_paquete.png' alt=''>
                                     <h5>Ups... Aun no has contratado ningun paquete</h5>
                                 </div>
                                 ";
+                            }else{
+                                WHILE ($filaPaquetes=mysqli_fetch_array($resultadoPaquetes)){
+                                    $nomPaquete = $filaPaquetes["nom_paquete"];
+                                    $descPaquete = $filaPaquetes["descrip_paquete"];
+                                    $empresa= $filaPaquetes["nombre_empresa"];
+                                    $prePaquete = $filaPaquetes["precio_paquete"];
+                                    $cantPersonas = $filaPaquetes["cant_personas"];
+                                    echo "<div class='col-sm-6'>
+                                            <div class='col-log'>
+                                                <h2 class='center'> $nomPaquete </h2>
+                                                <img src=' alt='>
+                                                <div>
+                                                    <p>$descPaquete</p>
+                                                    <p>Cantidad de personas: $cantPersonas</p>
+                                                    <p>Precio total: $prePaquete</p>
+                                                </div>
+                                            </div>
+                                        </div>";
+                                    };
                             }
                             
                             ?>

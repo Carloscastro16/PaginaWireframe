@@ -12,7 +12,6 @@
     $idUsuario = $fila["cod_usuario"];
     $nombre_usuario = $fila["nombre_usuario"];
     $registro = "CALL tr_logeo_usuarios('$email', $idUsuario, $rolUsuario)";
-   
     
     //Confirma que se hizo algo nadamas
     $respuesta = '';

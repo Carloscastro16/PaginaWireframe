@@ -112,7 +112,7 @@
                                 <div class="col-md-4">
                                     <div class="imaperfil">
                                             Imagen de perfil
-                                            <select class="form-control" name="imgUsuario" id="">
+                                            <select data-backdrop="" class="form-control" name="imgUsuario" id="">
                                                 <option value="Hombre-vaquero.png">Hombre-vaquero.png</option>
                                                 <option value="Mujer-coletas.png">Mujer-coletas.png</option>
                                                 <option value="Mujer-flecos.png">Mujer-flecos.png</option>
@@ -144,6 +144,26 @@
                                             Correo
                                             <input name="correo" type="text" class="form-control" value="<?php echo $correo;?>">
                                         </h5>
+                                        <?php
+                                            include('../Acciones/conec.php');
+                                            $consultaPregunta = "SELECT * FROM recuperacion WHERE fk_cod_usuario = '$varsession'";
+                                            $resultadoPregunta = mysqli_query($conexion, $consultaPregunta);
+                                            
+                                            if($filaPregunta = mysqli_fetch_array($resultadoPregunta)){
+                                                echo "<div class='col-sm-6 imaperfil'>
+                                                        Pregunta de seguridad
+                                                        <select class='form-control' name='recuperacion' id=''>
+                                                            <option>Selected</option>
+                                                            <option value='¿Donde naciste?'>¿Donde naciste?</option>
+                                                            <option value='¿Primer mascota?'>¿Primer mascota?</option>
+                                                            <option value='¿Nombre de tu abuelo?'>¿Nombre de tu abuelo?</option>
+                                                            <option value='¿Donde estudiaste el kinder?'>¿Donde estudiaste el kinder?</option>
+                                                            <option value='¿Como se llama tu mamá?'>¿Como se llama tu mamá?</option>
+                                                        </select>
+                                                        <input name='respuesta' type='text' class='form-control'>
+                                                    </div>";
+                                            }
+                                        ?>
                                         <div class="col-12">
                                             <button class="btn btn-primary empresa" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
                                                 <ion-icon name="bag-outline"></ion-icon>Cambiar contraseña
@@ -155,19 +175,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="imaperfil">
-                                            Pregunta de seguridad
-                                            <select class="form-control" name="recuperacion" id="">
-                                                <option>Selected</option>
-                                                <option value="¿Donde naciste?">¿Donde naciste?</option>
-                                                <option value="¿Primer mascota?">¿Primer mascota?</option>
-                                                <option value="¿Nombre de tu abuelo?">¿Nombre de tu abuelo?</option>
-                                                <option value="¿Donde estudiaste el kinder?">¿Donde estudiaste el kinder?</option>
-                                                <option value="¿Como se llama tu mamá?">¿Como se llama tu mamá?</option>
-                                            </select>
-                                            <input name="respuesta" type="text" class="form-control">
-                                    </div>
-                                <div class="col-md-2">
+                                
+                                
+                                <div class="col-md-4">
                                     <input type="hidden" name="codUsuario" value="<?php echo $varsession;?>" 
                                     class="btn btn-primary">
                                     <input type="submit" name="registro" value="Editar" 

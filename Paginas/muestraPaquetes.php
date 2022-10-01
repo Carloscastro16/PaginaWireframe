@@ -158,7 +158,7 @@ session_start();
         $ubicacion = $_POST['ubicacion'];
         $tipo = $_POST['codServicio'];
         //Consulta e insercion de la query
-        
+        $hora = $_POST['hora'];
         
         $consultaCTipo="SELECT * FROM paquete 
                     JOIN ciudad ON ciudad.cod_ciudad = paquete.fk_cod_ciudad
@@ -183,6 +183,7 @@ session_start();
             <div class="row centrado">
                 <div class="col-sm-12">
                     <div class="titulito centrado">
+                    <?php echo $hora, $ubicacion?>
                         <h2>Paquetes</h2>
                     </div>
                 </div>
