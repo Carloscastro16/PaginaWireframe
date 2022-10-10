@@ -66,7 +66,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php">Home</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item" id="comida">
                                     <a class="nav-link" href="Paginas/AboutUs.php">Sobre nosotros</a>
                                 </li>
                                 <li class="nav-item">
@@ -128,7 +128,7 @@
                                     echo "
                                     <div class='botones'>
                                         <form action='Paginas/LogIn.php'>
-                                            <button class='botoncin btn btn-outline-success'>Unete</button>
+                                            <button class='botoncin btn btn-outline-success' id='botoncin'>Unete</button>
                                         </form>
                                     </div>
                                     ";
@@ -146,7 +146,7 @@
                                 <form action="Paginas/muestraPaquetes.php" method="POST">
                                     <div class="container">
                                         <div class="row buscadorsin">
-                                            <div class="search-camp col-lg-12 col-md-12 col-sm-12">
+                                            <div class="search-camp col-lg-8 col-md-8 col-sm-8">
                                                 <ion-icon name="location-outline"></ion-icon>
                                                 <select class="ubicaciones" name="ubicacion" id="ubicaciones">
                                                     <?php
@@ -162,50 +162,6 @@
                                                         <option value="<?php echo $filaCity["nombre_ciudad"]?>"><?php echo$filaCity["nombre_ciudad"]?></option>
                                                     <?php } ?>
                                                 </select>
-                                            </div>
-
-                                            <div class="search-camp col-lg-3 col-md-3 col-sm-3">
-                                            <div style="overflow:hidden;">
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-md-8">
-                                                            <input id="datetimepicker12" type="text" name="hora" value="Consultar" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <style>
-                                                @import url('https://fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800,900');
-                                                td {
-                                                border-radius: 0 !important;
-                                                }
-
-                                                tr th {
-                                                    font-weight: 500;
-                                                }
-
-                                                .timepicker {
-                                                max-width: 2rem;
-                                                border-radius: 0;
-                                                }
-                                                .bootstrap-datetimepicker-widget input{
-                                                    width: 1rem !important;
-                                                    height: 1rem !important;
-                                                }
-                                            </style>
-                                            <script type="text/javascript">
-                                                moment.locale('en', {
-                                                        week: { dow: 1 } // Monday is the first day of the week
-                                                    });
-
-                                                $('#datetimepicker12').datetimepicker({
-                                                inline: true,
-                                                sideBySide: true,
-                                                format: 'HH:mm',
-                                                stepping: 30,
-                                                minDate: moment()
-                                                });
-                                            </script>
                                             </div>
                                             <div class="search-camp col-lg-3 col-md-3 col-sm-3">
                                                 <input type="submit" name="agregar" value="Consultar" class="btn btn-primary">

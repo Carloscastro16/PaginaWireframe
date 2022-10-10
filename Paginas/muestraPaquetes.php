@@ -1,7 +1,7 @@
 <?php
 // No mostrar los errores de PHP
 // Para que se inicialice la variable de session
-/* error_reporting(0); */
+error_reporting(0);
 session_start();
 ?>
 <!DOCTYPE html>
