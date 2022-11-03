@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/Normalize.css">
-    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=3.3">
+    <link rel="stylesheet" href="../Styles/Styles_Us.css?v=3.5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../Styles/argon-dashboard.css?v=1.7">
@@ -86,16 +86,16 @@
                                 Or
                             </button>
                             <div class="menuInicio" id="menuInicio">
-                                <form action="../Acciones/login.php" method="POST">
+                                <form action="../Acciones/login.php" method="POST" id="logInGeneral">
                                     <div class="row centrado col-log inicio">
                                         <div class="col-sm-12 col-md-12 col-lg-12 mt-6">
                                             <h2 class="center form-title">Log In</h2>
                                         </div>
                                         <div class="col-sm-10 col-lg-10 mt-7 centradoHorizontal col-md-12 login-form">
-                                            <input class="form-control" placeholder="Email Adress" type="email" name="correo">
+                                            <input class="form-control" placeholder="Email Adress" type="email" name="correo" id="correo" required>
                                         </div>
                                         <div class="col-sm-10 mt-4">
-                                            <input class="form-control" placeholder="*********" type="password" name="password">
+                                            <input class="form-control" placeholder="*********" type="password" name="password" id="password" required>
                                         </div>
                                         <div class="col-sm-10 mt-7">
                                             <input type="submit" name="iniciar" value="Iniciar Sesion" class="mt-4 btn btn-primary">
@@ -121,7 +121,7 @@
                                 <form action="../Acciones/sign-in.php" method="POST">
                                     <div class="row centrado col-log registro">
                                         <div class="col-12">
-                                            <h2 class="center">Registrate</h2>
+                                            <h2 class="center registrate">Registrate</h2>
                                         </div>
                                         <div class="col-sm-12 col-md-4 col-lg-6">
                                             <label for="">Nombre</label>

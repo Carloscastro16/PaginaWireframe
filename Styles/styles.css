@@ -51,7 +51,9 @@ section{
     margin: 3.8rem;
 }
 /* ------ Modo Oscuro ------ */
-
+.dropdown-menu{
+    padding-inline-start: .5rem !important;
+}
 .switch{
     background: #343D5B;
     border-radius: 1000px;

@@ -15,7 +15,7 @@
     $consultaPaquetes = "SELECT paquete.nom_paquete, paquete.descrip_paquete, usuario.nombre_empresa, paquete.precio_paquete, paquete.cant_personas FROM orden_evento
     JOIN paquete ON paquete.cod_paquete = orden_evento.fk_cod_paquete
     JOIN usuario ON usuario.cod_usuario = orden_evento.fk_cod_usuario
-    WHERE fk_cod_usuario = '3'";
+    WHERE fk_cod_usuario = '$varsession'";
     $resultadoPaquetes = mysqli_query($conexion, $consultaPaquetes);
     $resultadoPrueba = mysqli_query($conexion, $consultaPaquetes);
     $resultado = mysqli_query($conexion, $consulta);

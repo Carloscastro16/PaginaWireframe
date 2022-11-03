@@ -11,13 +11,14 @@ class FirstCest
     {
         $I->amOnPage('/index.php');
         $I->see('Home');
-
     }
     public function linksWorks(AcceptanceTester $I){
         $I->amOnPage('/index.php');
-        $I->click('#comida a');
-        $I->see('Somos');
+        $I->click('Unete');
+        $I->seeInCurrentUrl('/Paginas/LogIn.php');
+        $I->seeElement('#correo');
     }
+    
     /* public function _before(AcceptanceTester $I)
     {
 

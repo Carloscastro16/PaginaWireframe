@@ -316,6 +316,9 @@ body.dark .dropdown-link a{
     color: var(--azulOscuro);
 }
 
+.dropdown-menu{
+    padding-inline-start: .5rem !important;
+}
 
 /* ------ Barra de Navegación ------ */
 header{

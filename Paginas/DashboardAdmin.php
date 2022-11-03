@@ -96,9 +96,9 @@ $filaUsr= mysqli_fetch_array($resultado);
                                 role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <i class='fas fa-user me-'></i> Hola, <?php echo $nombreUsuario ?>!
                             </a>
-                            <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                            <ul class='dropdown-menu' id="dropdown-menu" aria-labelledby='navbarDropdown'>
                                 <li class='dropdown-link'>
-                                    <a href='../index.php'>Home</a>
+                                    <a href='../index.php' class="home">Home</a>
                                 </li>
                                 <li class='dropdown-link'>
                                     <a href='../Paginas/DashboardAdmin.php'>Dashboard</a>

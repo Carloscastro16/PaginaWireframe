@@ -30,12 +30,14 @@
             echo $respuesta;
             $resultado2 = mysqli_query($conexion, $registro);
         } else {
-            $respuesta = "La respuesta no coincide";
+            $respuesta = "La contraseña es incorrecta";
             echo "<script>alert('Contraseña Incorrecta');</script>";
+            echo "<script>window.location.href = '../Paginas/LogIn.php';</script>";
         }
     }else{
         $respuesta = "No existe tu perfil";
-        echo $respuesta;
+        echo "<script>alert('$respuesta');</script>";
+        echo "<script>window.location.href = '../Paginas/LogIn.php';</script>";
     }
         if($respuesta==1 && $rolUsuario == 2){
             header('Location: ../Paginas/PerfilCliente.php');
@@ -46,7 +48,7 @@
             header('Location: ../Paginas/DashboardAdmin.php');
         }else{
             /* header('Location: ../Paginas/LogIn.php'); */
-            
+            header('Location: ../Paginas/DashboardAdmin.php');
             echo "<script>window.location.href = '../Paginas/LogIn.php';</script>";
         }
 
